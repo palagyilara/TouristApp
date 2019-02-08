@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+    <TextView
+        android:id="@+id/textquiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/map"
+        android:layout_marginEnd="61dp"
+        android:layout_marginTop="-194dp"
+        android:text="Quiz" />
+
+    <TextView
+        android:id="@+id/textdictionary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dictionary"
+        android:layout_marginTop="-30dp"
+        android:layout_toEndOf="@+id/cityinfo"
+        android:text="Szotar" />
+
+    <TextView
+        android:id="@+id/textplaces"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/quiz"
+        android:layout_alignTop="@+id/textcity"
+        android:text="Latvanyossagok" />
+
+    <TextView
+        android:id="@+id/textmap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textcity"
+        android:layout_below="@+id/map"
+        android:layout_marginTop="-194dp"
+        android:text="Terkep" />
+
+    <ImageButton
+        android:id="@+id/cityinfo"
+        android:layout_width="135dp"
+        android:layout_height="131dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="33dp"
+        app:srcCompat="@drawable/town"
+        android:background="@null"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="29dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"/>
+
+    <TextView
+        android:id="@+id/textcity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="173dp"
+        android:text="Varosrol" />
+
+    <ImageButton
+        android:id="@+id/places"
+        android:layout_width="133dp"
+        android:layout_height="147dp"
+        android:layout_above="@+id/textcity"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="-173dp"
+        android:layout_marginEnd="21dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/places" />
+
+    <ImageButton
+        android:id="@+id/map"
+        android:layout_width="120dp"
+        android:layout_height="138dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="194dp"
+        android:layout_marginStart="40dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/map" />
+
+    <ImageButton
+        android:id="@+id/quiz"
+        android:layout_width="120dp"
+        android:layout_height="138dp"
+        android:layout_alignEnd="@+id/places"
+        android:layout_alignTop="@+id/map"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/quiz1" />
+
+    <ImageButton
+        android:id="@+id/dictionary"
+        android:layout_width="101dp"
+        android:layout_height="126dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="112dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/dictionary" />
+</RelativeLayout>
