@@ -1,36 +1,43 @@
 package com.example.laura.touristapp;
 
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
-//import android.os.AsyncTask;
-//import android.os.Build;
-import android.support.v7.app.AlertDialog;
+
+import android.content.res.Resources;
+
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-//import android.text.Html;
+
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-/*import android.widget.EditText;
-import android.widget.ProgressBar;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.example.laura.touristapp.Helper.LocaleHelper;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;*/
+import io.paperdb.Paper;
+
 
 
 public class MainActivity extends AppCompatActivity {
    // public static final String TAG_KEYWORD = "com.example.laura.touristapp.TAG_KEYWORD";
  //public static final String TAG_TEXT = "com.example.laura.touristapp.TAG_TEXT";
+   public TextView choose;
+   public Button btnFetchData;
+   public ImageButton popupbtn;
 
-    private Button btnFetchData;
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase,"hu"));
+    }
+
+
    // private TextView txtWikiData;
     //private ProgressBar progressBar;
    // private EditText etxSearch;
@@ -47,15 +54,67 @@ public class MainActivity extends AppCompatActivity {
        // progressBar = (ProgressBar) findViewById(R.id.progressbar);
         //etxSearch = (EditText) findViewById(R.id.etxSearch);
        // txtWikiData = (TextView) findViewById(R.id.txtWikiData);
-
+        choose =(TextView) findViewById(R.id.choose);
         btnFetchData = (Button) findViewById(R.id.btnFetchData);
+        popupbtn=(ImageButton) findViewById(R.id.popup);
+
+
+        Paper.init(this);
+
+        //default nyelv magyar
+        String language= Paper.book().read("language");
+        if(language==null){
+            Paper.book().write("language","hu");}
+
+        updateView((String)Paper.book().read("language"));
+
+        popupbtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                PopupMenu popup = new PopupMenu(MainActivity.this, popupbtn);
+                MenuInflater inflater = popup.getMenuInflater();
+                inflater.inflate(R.menu.main_menu, popup.getMenu());
+                //popup.show();
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        if (item.getItemId() == R.id.language_hu) {
+                            Paper.book().write("language", "hu");
+                            updateView((String) Paper.book().read("language"));
+                        } else if (item.getItemId() == R.id.language_en) {
+                            Paper.book().write("language", "en");
+                            updateView((String) Paper.book().read("language"));
+                        } else if (item.getItemId() == R.id.language_de) {
+                            Paper.book().write("language", "de");
+                            updateView((String) Paper.book().read("language"));
+                        }
+                        return true;
+                    }
+
+                });
+                popup.show();
+            }
+        });
+
+        /*ActionBar actionBar= getActionBar();
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayShowHomeEnabled(false);*/
+
+
         btnFetchData.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                 //openContentActivity(null);
-                final String[] language = {"Magyar", "English", "Deutsch"};
+                Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                String keyword = btnFetchData.getText().toString();
+                //Toast.makeText(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
+                intent.putExtra("key", keyword);
+                //intent.putExtra("key1", lang);
+                startActivity(intent);
+               /* final String[] language = {"Magyar", "English", "Deutsch"};
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Nyelv:");
@@ -88,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                 builder.show();
-
+*/
 
 
 
@@ -115,6 +174,90 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+        Button button =(Button)findViewById(R.id.dbbtn);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Intent dbmanager = new Intent(MainActivity.this,AndroidDatabaseManager.class);
+                startActivity(dbmanager);
+            }
+        });
+    }
+   /* public void showPopup(View v)
+    {
+        PopupMenu popup= new PopupMenu(this,v);
+        MenuInflater inflater= popup.getMenuInflater();
+        inflater.inflate(R.menu.main_menu,popup.getMenu());
+        popup.show();
+    }
+    public void showMenu(View v)
+    {
+        PopupMenu popup= new PopupMenu(this,v);
+
+        popup.setOnMenuItemClickListener(this);
+        popup.inflate(R.menu.main_menu);
+        popup.show();
+    }*/
+   /* @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        if(item.getItemId()== R.id.language_hu)
+        {
+            Paper.book().write("language","hu");
+            updateView((String)Paper.book().read("language"));
+        }
+        else if(item.getItemId()== R.id.language_en)
+        {
+            Paper.book().write("language","en");
+            updateView((String)Paper.book().read("language"));
+        }
+        else if(item.getItemId()== R.id.language_de)
+        {
+            Paper.book().write("language","de");
+            updateView((String)Paper.book().read("language"));
+        }
+        return true;
+    }*/
+
+   /* @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+        setTitle("");
+        return true;
+    }*/
+/*
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()== R.id.language_hu)
+        {
+            Paper.book().write("language","hu");
+            updateView((String)Paper.book().read("language"));
+        }
+        else if(item.getItemId()== R.id.language_en)
+        {
+            Paper.book().write("language","en");
+            updateView((String)Paper.book().read("language"));
+        }
+        else if(item.getItemId()== R.id.language_de)
+        {
+            Paper.book().write("language","de");
+            updateView((String)Paper.book().read("language"));
+        }
+       /* else if(item.getItemId()== R.id.home)
+        {
+            Intent homeIntent= new Intent(this,MainActivity.class);
+            homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(homeIntent);
+        }*/
+/*
+        return true;
+    }*/
+
+    private void updateView(String lang) {
+        Context context= LocaleHelper.setLocale(this,lang);
+        Resources resources = context.getResources();
+
+        choose.setText(resources.getString(R.string.choose));
     }
 /*
     public String openContentActivity(String WIKIPEDIA_URL) {

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="choose">Please choose</string>
+    <string name="city">About the city</string>
+    <string name="places">Sights</string>
+    <string name="map">Map</string>
+    <string name="quiz">Quiz</string>
+    <string name="dictionary">Hungarian Dictionary</string>
+    <string name="citytitle">About the city</string>
+    <string name="wikipedia">Resource: Wikipedia</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="choose">deutsch</string>
+    <string name="city">About the city/de</string>
+    <string name="places">Sights/de</string>
+    <string name="map">Map/de</string>
+    <string name="quiz">Quiz/de</string>
+    <string name="dictionary">Hungarian Dictionary/de</string>
+    <string name="citytitle">About the city/de</string>
+    <string name="wikipedia">Forrás: Wikipedia/de</string>
+</resources>

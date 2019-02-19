@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,18 +12,43 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/map"
-        android:layout_marginEnd="61dp"
-        android:layout_marginTop="-194dp"
-        android:text="Quiz" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/pistara"
+        android:text="@string/quiz"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quiz"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textdictionary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/dictionary"
-        android:layout_marginTop="-30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         android:layout_toEndOf="@+id/cityinfo"
-        android:text="Szotar" />
+        android:text="@string/dictionary"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:fontFamily="@font/pistara"
+        android:textColor="#000"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dictionary"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textplaces"
@@ -31,7 +56,21 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/quiz"
         android:layout_alignTop="@+id/textcity"
-        android:text="Latvanyossagok" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/pistara"
+        android:text="@string/places"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/quiz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.822"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/places"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textmap"
@@ -39,8 +78,21 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textcity"
         android:layout_below="@+id/map"
-        android:layout_marginTop="-194dp"
-        android:text="Terkep" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/pistara"
+        android:text="@string/map"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.131"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/map"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/cityinfo"
@@ -48,14 +100,19 @@
         android:layout_height="131dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="33dp"
-        app:srcCompat="@drawable/town"
-        android:background="@null"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="29dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
-        android:scaleType="fitCenter"/>
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/map"
+        app:layout_constraintEnd_toStartOf="@+id/places"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/town" />
 
     <TextView
         android:id="@+id/textcity"
@@ -63,9 +120,21 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="173dp"
-        android:text="Varosrol" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/pistara"
+        android:text="@string/city"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cityinfo"
+        app:layout_constraintVertical_bias="0.615" />
 
     <ImageButton
         android:id="@+id/places"
@@ -73,11 +142,15 @@
         android:layout_height="147dp"
         android:layout_above="@+id/textcity"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="-173dp"
-        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
         android:background="@null"
         android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/quiz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/places" />
 
     <ImageButton
@@ -86,11 +159,19 @@
         android:layout_height="138dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="194dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:background="@null"
         android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/quiz"
+        app:layout_constraintHorizontal_bias="0.208"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52"
         app:srcCompat="@drawable/map" />
 
     <ImageButton
@@ -99,9 +180,19 @@
         android:layout_height="138dp"
         android:layout_alignEnd="@+id/places"
         android:layout_alignTop="@+id/map"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:background="@null"
         android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52"
         app:srcCompat="@drawable/quiz1" />
 
     <ImageButton
@@ -110,10 +201,18 @@
         android:layout_height="126dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="30dp"
-        android:layout_marginEnd="112dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
         android:background="@null"
         android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/quiz"
+        app:layout_constraintStart_toEndOf="@+id/map"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.896"
         app:srcCompat="@drawable/dictionary" />
-</RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

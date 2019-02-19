@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="keszthely">Keszthely</string>
+    <string name="choose">Kérem válasszon</string>
+    <string name="city">Városról</string>
+    <string name="places">Látványosságok</string>
+    <string name="map">Térkép</string>
+    <string name="quiz">Quiz</string>
+    <string name="citytitle">A városról</string>
+    <string name="wikipedia">Forrás: Wikipédia</string>
+</resources>

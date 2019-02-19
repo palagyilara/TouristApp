@@ -28,7 +28,7 @@ dependencies {
     implementation group: 'cz.msebera.android', name: 'httpclient', version: '4.4.1.1' //uj
     implementation 'cz.msebera.android:httpclient:4.4.1.1'  //uj
     implementation 'com.android.support:design:28.0.0'
-    implementation 'io.paperdb:paperdb:2.5' //uj
+    implementation 'io.paperdb:paperdb:2.6' //uj
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
