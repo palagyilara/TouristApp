@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="keszthely">Keszthely</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="jr">Jó reggelt!</string>
+    <string name="jn">Jó napot!</string>
+    <string name="je">Jó estét!</string>
+    <string name="koszi">Köszönöm!</string>
+    <string name="sziv">Szívesen</string>
+    <string name="bocs">Bocsánat</string>
+    <string name="eln">Elnézést</string>
+    <string name="igen">Igen</string>
+    <string name="nem">Nem</string>
+    <string name="mennyibe">Mennyibe kerül?</string>
+    <string name="merre">Merre van a &#8230;?</string>
 </resources>

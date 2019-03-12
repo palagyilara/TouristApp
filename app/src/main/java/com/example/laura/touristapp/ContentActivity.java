@@ -6,45 +6,46 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.os.Build;
-import android.os.Handler;
-//import android.provider.BaseColumns;
+import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Html;
-import android.text.Spanned;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
-//import android.widget.Button;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.laura.touristapp.Helper.LocaleHelper;
+import com.example.laura.touristapp.Helper.LocaleHelper;/*
+import com.google.cloud.texttospeech.v1.AudioConfig;
+import com.google.cloud.texttospeech.v1.AudioEncoding;
+import com.google.cloud.texttospeech.v1.SsmlVoiceGender;
+import com.google.cloud.texttospeech.v1.SynthesisInput;
+import com.google.cloud.texttospeech.v1.SynthesizeSpeechResponse;
+import com.google.cloud.texttospeech.v1.TextToSpeechClient;
+import com.google.cloud.texttospeech.v1.VoiceSelectionParams;
+import com.google.protobuf.ByteString;*/
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+import java.util.Locale;/*
+import com.google.cloud.bigquery.BigQuery;
+import com.google.cloud.bigquery.BigQueryOptions;
+import com.google.cloud.bigquery.Dataset;
+import com.google.cloud.bigquery.DatasetInfo;*/
 
 import io.paperdb.Paper;
 
@@ -52,10 +53,26 @@ import static com.example.laura.touristapp.DatabaseHandler.CITYINFO_DE;
 import static com.example.laura.touristapp.DatabaseHandler.CITYINFO_EN;
 import static com.example.laura.touristapp.DatabaseHandler.CITYINFO_HU;
 import static com.example.laura.touristapp.DatabaseHandler.CITYNAME;
-import static com.example.laura.touristapp.DatabaseHandler.ID;
 import static com.example.laura.touristapp.DatabaseHandler.TABLE_NAME;
 
-public class ContentActivity extends AppCompatActivity implements TextToSpeech.OnInitListener,View.OnClickListener {
+//import android.provider.BaseColumns;
+//import android.widget.Button;
+
+public class ContentActivity extends AppCompatActivity {
+
+   /* BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
+
+    // The name for the new dataset
+    String datasetName = "my_new_dataset";
+
+    // Prepares a new dataset
+    Dataset dataset = null;
+    DatasetInfo datasetInfo = DatasetInfo.newBuilder(datasetName).build();*/
+
+    // Creates the dataset
+   // dataset = bigquery.create(datasetInfo);
+
+   // System.out.printf("Dataset %s created.%n", dataset.getDatasetId().getDataset());
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -69,8 +86,8 @@ public class ContentActivity extends AppCompatActivity implements TextToSpeech.O
     private TextView wikipedia;
     private ImageButton speakbtn;
     private ProgressBar progressBar;
-    private int MY_DATA_CHECK_CODE = 0;
-    private TextToSpeech myTTS;
+   // private int MY_DATA_CHECK_CODE = 0;
+    private TextToSpeech tts;
     // private TextToSpeech tts;
 
     DatabaseHandler databaseHandler = new DatabaseHandler(this);
@@ -91,7 +108,7 @@ public class ContentActivity extends AppCompatActivity implements TextToSpeech.O
         wikipedia = (TextView) findViewById(R.id.wikipedia);
         speakbtn = (ImageButton) findViewById(R.id.speakbtn);
 
-
+        //tts = new TextToSpeech(this, this);
         // final String[] language = extra.getStringArray("lang");
         // final String lang = extra.getString("key1");
         //String speech = null;
@@ -114,7 +131,92 @@ public class ContentActivity extends AppCompatActivity implements TextToSpeech.O
             ContentActivity.FetchWikiDataAsync fetchWikiDataAsync = new ContentActivity.FetchWikiDataAsync();
 
             fetchWikiDataAsync.execute(WIKIPEDIA_URL);
-            speakbtn.setOnClickListener(ContentActivity.this);
+            /*tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+
+                @Override
+                public void onInit(int initStatus) {
+                    if (initStatus == TextToSpeech.SUCCESS) {
+                        // if (tts.isLanguageAvailable(Locale.UK) == TextToSpeech.LANG_AVAILABLE) {
+                        int result = tts.setLanguage(new Locale("hu_HU"));
+                        //tts.setLanguage(Locale.UK);
+                        Toast.makeText(ContentActivity.this, "Magyar beszéd kész", Toast.LENGTH_LONG).show();
+                        //tts.setLanguage(Locale.GERMANY);
+                        if (result == TextToSpeech.LANG_MISSING_DATA
+                                || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                            Log.e("TTS", "The Language is not supported!");
+                            Intent installIntent = new Intent();
+                            installIntent.setAction(
+                                    TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                            startActivity(installIntent);
+                        } else {
+                            Log.i("TTS", "Language Supported.");
+                        }
+                        Log.i("TTS", "Initialization success.");
+                        // }
+                        // tts.setLanguage(Locale.UK);
+                    } else if (initStatus == TextToSpeech.ERROR) {
+                        Toast.makeText(ContentActivity.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });*/
+            /*try (TextToSpeechClient textToSpeechClient = TextToSpeechClient.create()) {
+                // Set the text input to be synthesized
+                SynthesisInput input = SynthesisInput.newBuilder()
+                        .setText(txtWikiData.getText().toString())
+                        .build();
+
+                // Build the voice request, select the language code ("en-US") and the ssml voice gender
+                // ("neutral")
+                VoiceSelectionParams voice = VoiceSelectionParams.newBuilder()
+                        .setLanguageCode("en-US")
+                        .setSsmlGender(SsmlVoiceGender.NEUTRAL)
+                        .build();
+
+                // Select the type of audio file you want returned
+                AudioConfig audioConfig = AudioConfig.newBuilder()
+                        .setAudioEncoding(AudioEncoding.MP3)
+                        .build();
+
+                // Perform the text-to-speech request on the text input with the selected voice parameters and
+                // audio file type
+                SynthesizeSpeechResponse response = textToSpeechClient.synthesizeSpeech(input, voice,
+                        audioConfig);
+
+                // Get the audio contents from the response
+                ByteString audioContents = response.getAudioContent();
+
+                // Write the response to the output file.
+                try (OutputStream out = new FileOutputStream("output.mp3")) {
+                    out.write(audioContents.toByteArray());
+                    System.out.println("Audio content written to file \"output.mp3\"");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }*/
+
+            speakbtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    //handle user clicks here
+                    //TextView txtWikiData = (TextView) findViewById(R.id.txtWikiData);
+                   // String words = txtWikiData.getText().toString();
+                   // tts.speak(words, TextToSpeech.QUEUE_FLUSH, null);
+                    //speakWords(words);
+                    // speak(words);
+                    String data = txtWikiData.getText().toString();
+                    Log.i("TTS", "button clicked: " + data);
+                    int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
+
+                    if (speechStatus == TextToSpeech.ERROR) {
+                        Log.e("TTS", "Error in converting Text to Speech!");
+                    }
+
+                }
+            });
+            //speakbtn.setOnClickListener(ContentActivity.this);
+            //speak();
+
         /*Intent checkTTSIntent = new Intent();
         checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
         startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);*/
@@ -131,10 +233,58 @@ public class ContentActivity extends AppCompatActivity implements TextToSpeech.O
             ContentActivity.FetchWikiDataAsync fetchWikiDataAsync = new ContentActivity.FetchWikiDataAsync();
 
             fetchWikiDataAsync.execute(WIKIPEDIA_URL);
-            speakbtn.setOnClickListener(ContentActivity.this);
-            Intent checkTTSIntent = new Intent();
+            //speakbtn.setOnClickListener(ContentActivity.this);
+            tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+
+                @Override
+                public void onInit(int initStatus) {
+                    if (initStatus == TextToSpeech.SUCCESS) {
+                       // if (tts.isLanguageAvailable(Locale.UK) == TextToSpeech.LANG_AVAILABLE) {
+                        int result = tts.setLanguage(Locale.UK);
+                            //tts.setLanguage(Locale.UK);
+                            Toast.makeText(ContentActivity.this, "Angol beszéd kész", Toast.LENGTH_LONG).show();
+                            //tts.setLanguage(Locale.GERMANY);
+                        if (result == TextToSpeech.LANG_MISSING_DATA
+                                || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                            Log.e("TTS", "The Language is not supported!");
+                            Intent installIntent = new Intent();
+                            installIntent.setAction(
+                                    TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                            startActivity(installIntent);
+                        } else {
+                            Log.i("TTS", "Language Supported.");
+                        }
+                        Log.i("TTS", "Initialization success.");
+                       // }
+                        // tts.setLanguage(Locale.UK);
+                    } else if (initStatus == TextToSpeech.ERROR) {
+                        Toast.makeText(ContentActivity.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+            speakbtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    String data = txtWikiData.getText().toString();
+                    Log.i("TTS", "button clicked: " + data);
+                    int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
+
+                    if (speechStatus == TextToSpeech.ERROR) {
+                        Log.e("TTS", "Error in converting Text to Speech!");
+                    }
+                    //handle user clicks here
+                    //TextView txtWikiData = (TextView) findViewById(R.id.txtWikiData);
+                    //String words = txtWikiData.getText().toString();
+                    //tts.speak(words, TextToSpeech.QUEUE_FLUSH, null);
+                    //speakWords(words);
+                    // speak(words);
+
+                }
+            });
+
+            //TextToSpeech.OnInitListener
+            /*Intent checkTTSIntent = new Intent();
             checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-            startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);
+            startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);*/
         } else if (language.equals("de")) {
             //title.setText("A városról");
             String WIKIPEDIA_URL = "https://de.wikipedia.org/w/api.php?action=query&titles=" +
@@ -144,48 +294,179 @@ public class ContentActivity extends AppCompatActivity implements TextToSpeech.O
             // Start AsyncTask
             ContentActivity.FetchWikiDataAsync fetchWikiDataAsync = new ContentActivity.FetchWikiDataAsync();
             fetchWikiDataAsync.execute(WIKIPEDIA_URL);
-            speakbtn.setOnClickListener(ContentActivity.this);
-            Intent checkTTSIntent = new Intent();
+            tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+
+                @Override
+                public void onInit(int initStatus) {
+                    if (initStatus == TextToSpeech.SUCCESS) {
+                        int result = tts.setLanguage(Locale.GERMAN);
+                        //int result = tts.setLanguage(new Locale("de_AT"));
+                        //if (tts.isLanguageAvailable(Locale.GERMANY) == TextToSpeech.LANG_AVAILABLE) {
+                            //  tts.setLanguage(Locale.UK);
+                           // tts.setLanguage(Locale.GERMANY);
+                            Toast.makeText(ContentActivity.this, "Német beszéd kész", Toast.LENGTH_LONG).show();
+                        if (result == TextToSpeech.LANG_MISSING_DATA
+                                || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                            Log.e("TTS", "The Language is not supported!");
+                            Intent installIntent = new Intent();
+                            installIntent.setAction(
+                                    TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                            startActivity(installIntent);
+                            /*Intent checkTTSIntent = new Intent();
+                            checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+                            startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);*/
+                        } else {
+                            Log.i("TTS", "Language Supported.");
+
+                        }
+                        Log.i("TTS", "Initialization success.");
+                      //  }
+                        // tts.setLanguage(Locale.UK);
+                    } else if (initStatus == TextToSpeech.ERROR) {
+                        Toast.makeText(ContentActivity.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+            speakbtn.setOnClickListener(new View.OnClickListener() {
+                                            public void onClick(View v) {
+                                                //handle user clicks here
+                                                //TextView txtWikiData = (TextView) findViewById(R.id.txtWikiData);
+                                                //String words = txtWikiData.getText().toString();
+                                                //tts.speak(words, TextToSpeech.QUEUE_FLUSH, null);
+                                                //speakWords(words);
+                                                // speak(words);
+                                                String data = txtWikiData.getText().toString();
+                                                Log.i("TTS", "button clicked: " + data);
+                                                int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
+
+                                                if (speechStatus == TextToSpeech.ERROR) {
+                                                    Log.e("TTS", "Error in converting Text to Speech!");
+                                                }
+
+                                            }
+                                        });
+
+            /*Intent checkTTSIntent = new Intent();
             checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-            startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);
+            startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);*/
         }
 
     }
+    /*
+    @Override
+    public void onDestroy() {
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+        }
+        super.onDestroy();
+    }
 
+    @Override
+    public void onInit(int i) {
+        Paper.init(this);
+        //language[].setText(language);
+        String language = Paper.book().read("language");
+        if (i == TextToSpeech.SUCCESS) {
+            if(language.equals("hu")) {
+                int result = tts.setLanguage(new Locale("hu_HU"));
+                //int result = tts.setLanguage(Locale.UK);
+                if (result == TextToSpeech.LANG_MISSING_DATA
+                        || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                    Log.e("TTS", "This Language is not supported");
+                    Intent installIntent = new Intent();
+                    installIntent.setAction(
+                            TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                    startActivity(installIntent);
+                } else {
+                    speakbtn.setEnabled(true);
+                    speak();
+                }
+            }
+            else if(language.equals("en")) {
+                int result = tts.setLanguage(Locale.UK);
+                if (result == TextToSpeech.LANG_MISSING_DATA
+                        || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                    Log.e("TTS", "This Language is not supported");
+                } else {
+                    speakbtn.setEnabled(true);
+                    speak();
+                }
+            }
+            else if(language.equals("de")) {
+                //int result = tts.setLanguage(new Locale("nl_NL"));
+               int result = tts.setLanguage(Locale.GERMANY);
+                if (result == TextToSpeech.LANG_MISSING_DATA
+                        || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                    Log.e("TTS", "This Language is not supported");
+                    Intent installIntent = new Intent();
+                    installIntent.setAction(
+                            TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                    startActivity(installIntent);
+                } else {
+                    speakbtn.setEnabled(true);
+                    speak();
+                }
+            }
+
+        } else {
+
+            Log.e("TTS", "Initilization Failed!");
+        }
+    }
+
+    private void speak() {
+
+        String text = txtWikiData.getText().toString();
+        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(this,"Speech Created",Toast.LENGTH_SHORT).show();
+        speak();
+
+    }
+    */
+/*
     public void onClick(View v) {
         //handle user clicks here
-        TextView txtWikiData = (TextView) findViewById(R.id.txtWikiData);
+        //TextView txtWikiData = (TextView) findViewById(R.id.txtWikiData);
         String words = txtWikiData.getText().toString();
-        speakWords(words);
+        tts.speak(words, TextToSpeech.QUEUE_FLUSH, null);
+        //speakWords(words);
         // speak(words);
 
-    }
+    }*/
 
-    private void speakWords(String speech) {
-        myTTS.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
-    }
-
+    /*private void speakWords(String speech) {
+        tts.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
+    }*/
+/*
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == MY_DATA_CHECK_CODE) {
             if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
-                myTTS = new TextToSpeech(ContentActivity.this, ContentActivity.this);
+                tts = new TextToSpeech(ContentActivity.this, (TextToSpeech.OnInitListener) ContentActivity.this);
+                Toast.makeText(ContentActivity.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
             } else {
                 Intent installTTSIntent = new Intent();
                 installTTSIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
                 startActivity(installTTSIntent);
             }
         }
-    }
+    }*/
 
-    public void onInit(int initStatus) {
+   /* public void onInit(int initStatus) {
         if (initStatus == TextToSpeech.SUCCESS) {
-            if (myTTS.isLanguageAvailable(Locale.UK) == TextToSpeech.LANG_AVAILABLE)
-                myTTS.setLanguage(Locale.UK);
-            myTTS.setLanguage(Locale.UK);
+            if (tts.isLanguageAvailable(Locale.UK) == TextToSpeech.LANG_AVAILABLE || tts.isLanguageAvailable(Locale.GERMANY) == TextToSpeech.LANG_AVAILABLE)
+                tts.setLanguage(Locale.UK);
+                tts.setLanguage(Locale.GERMANY);
+
+           // tts.setLanguage(Locale.UK);
         } else if (initStatus == TextToSpeech.ERROR) {
             Toast.makeText(this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
         }
-    }
+    }*/
 
     /*private void speak(String text){
 
@@ -194,14 +475,15 @@ public class ContentActivity extends AppCompatActivity implements TextToSpeech.O
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
         }*/
     //}
-   /* @Override
+   @Override
     public void onDestroy() {
         if (tts != null) {
             tts.stop();
             tts.shutdown();
         }
         super.onDestroy();
-    }*/
+    }
+
 
     private class FetchWikiDataAsync extends AsyncTask<String, Void, String> {
         @Override

@@ -1,4 +1,4 @@
 package com.example.laura.touristapp;
 
-public class DictionaryActivity {
+public class QuizActivity {
 }

@@ -78,13 +78,40 @@ public class MenuActivity extends AppCompatActivity {
                     startActivity(intent);
             }
         });
+        //látványosságok
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, ContentActivity.class);
+                intent.putExtra("key", keyword);
+                startActivity(intent);
+            }
+        });
+        //térkép
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, MapsActivity.class);
+                intent.putExtra("key", keyword);
+                startActivity(intent);
+            }
+        });
+        //quiz
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, QuizActivity.class);
+                intent.putExtra("key", keyword);
+                startActivity(intent);
+            }
+        });
 
         //szótár
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, DictionaryActivity.class);
-                intent.putExtra("key", keyword);
+                Intent intent = new Intent(MenuActivity.this, DictionaryActivityFragment.class);
+               // intent.putExtra("key", keyword);
                 startActivity(intent);
             }
         });

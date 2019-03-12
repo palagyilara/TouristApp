@@ -8,4 +8,16 @@
     <string name="dictionary">Hungarian Dictionary/de</string>
     <string name="citytitle">About the city/de</string>
     <string name="wikipedia">Forrás: Wikipedia/de</string>
+    <string name="search">Word or phrase search/de</string>
+    <string name="gm">Guten Morgen! &#160; - &#160; </string>
+    <string name="ga">Guten Tag! &#160; - &#160; </string>
+    <string name="ge">Guten Abend! &#160; - &#160; </string>
+    <string name="thx">Danke &#160; - &#160; </string>
+    <string name="yw">Gern geschehen! &#160; - &#160; </string>
+    <string name="sy">Pardon &#160; - &#160; </string>
+    <string name="pn">Excuse me &#160; - &#160; </string>
+    <string name="yes">Ja &#160; - &#160; </string>
+    <string name="no">Nein &#160; - &#160; </string>
+    <string name="howmuch">was kostet das? &#160; - &#160; </string>
+    <string name="where">Where is the &#8230;? &#160; - &#160; </string>
 </resources>
