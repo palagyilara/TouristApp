@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="egerwebpage">Forrás: www.visiteger.com</string>
+    <string name="egermuseum7">Varázstorony </string>
+    <string name="egermuseum5">Gárdonyi Géza Emlékház</string>
+    <string name="egermuseum8">Város a város alatt </string>
+    <string name="egermuseum1">Beatles múzeum </string>
+    <string name="egermuseum6">Panoptikum </string>
+    <string name="egermuseum3">Börtönkiállítás </string>
+    <string name="egermuseum4">Főegyházmegyei könyvtár </string>
+    <string name="egermuseum2">Érseki Palota és Látogatóközpont</string>
+
+    <string name="egertemplom1">Egri Bazilika </string>
+    <string name="egertemplom2">Minorita Templom </string>
+    <string name="egertemplom3">Rác templom </string>
+    <string name="egertemplom4">Servita templom </string>
+
+    <string name="egermonuments1">Gótikus Püspöki Palota </string>
+    <string name="egermonuments3">Kazamata </string>
+    <string name="egermonuments2">Hősök terme </string>
+    <string name="egermonuments4">Kálvária domb </string>
+    <string name="egermonuments5">Minaret </string>
+
+    <string name="egerother3">Török fürdő </string>
+    <string name="egerother2">Lakatfal </string>
+    <string name="egerother1">Árvíz tábla </string>
+    <string name="egerother4">Zsolnay kút </string>
+</resources>

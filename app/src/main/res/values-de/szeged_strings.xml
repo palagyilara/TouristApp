@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="szegedwebpage">die Ressource: www.szegedtourism.hu/de </string>
+
+    <string name="szegedmuseum2">Museum Ferenc Móra </string>
+    <string name="szegedmuseum5">Gedenkzimmer Albert Szent-Györgyis </string>
+    <string name="szegedmuseum6">Burgmuseum und Lapidarium </string>
+    <string name="szegedmuseum1">Schwarzes Haus </string>
+    <string name="szegedmuseum4">Albert Szent-Györgyi Agora </string>
+    <string name="szegedmuseum3">Palais Reök </string>
+
+    <string name="szegedtemplom2">Die Votivkirche </string>
+    <string name="szegedtemplom1">Unterstädtische Kirche </string>
+    <string name="szegedtemplom3">Reformierte Kirche </string>
+    <string name="szegedtemplom4">Alte Synagoge </string>
+    <string name="szegedtemplom5">Serbische Kirche </string>
+    <string name="szegedtemplom6">Neue Synagoge </string>
+
+    <string name="szegedmonuments8">Haus Móricz </string>
+    <string name="szegedmonuments6">Palais Gróf </string>
+    <string name="szegedmonuments7">Das Márer-Haus </string>
+    <string name="szegedmonuments4">Demetriusturm </string>
+    <string name="szegedmonuments2">Das Mietshaus (Vasaló-Haus) </string>
+    <string name="szegedmonuments10">Der reformierte Palast </string>
+    <string name="szegedmonuments11">Der Schäffer-Palast </string>
+    <string name="szegedmonuments3">Palais Deutsch </string>
+    <string name="szegedmonuments5">Der Goldschmidt-Palast </string>
+    <string name="szegedmonuments9">Der Raichl-Palast </string>
+    <string name="szegedmonuments1">Beregi Haus </string>
+
+    <string name="szegedother6">Wasserturm auf dem Szent István Platz </string>
+    <string name="szegedother3">Bibliothek Somogyi </string>
+    <string name="szegedother2">Studien- und Infozentrum Attila József </string>
+    <string name="szegedother5">Nationaltheater von Szeged </string>
+    <string name="szegedother9">Musizierende Uhr </string>
+    <string name="szegedother8">Rathaus </string>
+    <string name="szegedother1">Besucherzentrum der Franziskaner in der Unterstadt </string>
+    <string name="szegedother4">Szegeder Militärpark </string>
+    <string name="szegedother7">Tierpark </string>
+
+</resources>

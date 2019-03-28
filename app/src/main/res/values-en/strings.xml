@@ -9,6 +9,17 @@
     <string name="citytitle">About the city</string>
     <string name="wikipedia">Resource: Wikipedia</string>
     <string name="search">Word or phrase search</string>
+
+    <string name="keszthely">Keszthely</string><!--kész-->
+    <string name="pecs">Pécs</string><!--kész-->
+    <string name="nyiregyhaza">Nyíregyháza</string>
+    <string name="veszprem">Veszprém</string><!--kész-->
+    <string name="mohacs">Mohács</string>
+    <string name="szeged">Szeged</string><!--kész-->
+    <string name="tihany">Tihany</string><!--kész-->
+    <string name="sopron">Sopron</string><!--kész-->
+    <string name="eger">Eger</string> <!--kész-->
+
     <string name="gm">Good morning! &#160; - &#160; </string>
     <string name="ga">Good afternoon! &#160; - &#160; </string>
     <string name="ge">Good evening! &#160; - &#160; </string>
@@ -20,5 +31,10 @@
     <string name="no">No &#160; - &#160; </string>
     <string name="howmuch">How much does it cost? &#160; - &#160; </string>
     <string name="where">Where is the &#8230;? &#160; - &#160; </string>
+    <string name="placestitle">Sights</string>
+    <string name="churches">Temples</string>
+    <string name="museums">Museums</string>
+    <string name="monuments">Monuments</string>
+    <string name="other">Other</string>
 
 </resources>

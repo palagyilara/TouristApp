@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pecswebpage">die Ressource: www.iranypecs.hu/de</string>
+    <string name="pecsmuseum5">Vasarely-Museum</string>
+    <string name="pecsmuseum1">Csontváry Museum </string>
+    <string name="pecsmuseum2">Museum für Völkerkunde </string>
+    <string name="pecsmuseum6">Vasváry Haus</string>
+    <string name="pecsmuseum4">Naturwissenschaftlichen Abteilung </string>
+    <string name="pecsmuseum8">Ausstellung zur Geschichte der Familie Zsolnay und ihrer Fabrik</string>
+    <string name="pecsmuseum7">Stadthistorische Ausstellung</string>
+    <string name="pecsmuseum3">Bischofsburg </string>
+
+    <string name="pecstemplom7">Kathedrale St. Peter und Paul</string>
+    <string name="pecstemplom8">Klosterkirche </string>
+    <string name="pecstemplom1">Evangelische Kirche </string>
+    <string name="pecstemplom6">Pius Kirche </string>
+    <string name="pecstemplom2">Franziskanerkirche </string>
+    <string name="pecstemplom5">Lyzeum-Kirche</string>
+    <string name="pecstemplom9">Synagoge</string>
+    <string name="pecstemplom3">Moschee des Paschas Gasi Kassim </string>
+    <string name="pecstemplom4">Moschee von Pascha Jakovali Hassan </string>
+
+    <string name="pecsmonuments2">Barbakane </string>
+    <string name="pecsmonuments5">Mittelalterliche Universität </string>
+    <string name="pecsmonuments6">Franz Liszt Statue </string>
+    <string name="pecsmonuments1">Die ehemalige Angster Orgelfabrik</string>
+    <string name="pecsmonuments3">Reiterdenkmal von János Hunyadi </string>
+    <string name="pecsmonuments4">Statue von Lajos Kossuth </string>
+    <string name="pecsmonuments10">Zsolnay Brunnen </string>
+    <string name="pecsmonuments8">Ewiglicht-Denkmal </string>
+    <string name="pecsmonuments9">Dreifaltigkeitssäule </string>
+    <string name="pecsmonuments7">Frühchristliches Mausoleum</string>
+
+    <string name="pecsother1">Besucherzentrum Cella Septichora </string>
+    <string name="pecsother2">Kodály-Zentrum </string>
+    <string name="pecsother4">Pécser Nationaltheater </string>
+    <string name="pecsother5">Rathaus</string>
+    <string name="pecsother3">Schlösser </string>
+</resources>

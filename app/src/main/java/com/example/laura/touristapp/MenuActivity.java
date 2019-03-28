@@ -82,7 +82,7 @@ public class MenuActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, ContentActivity.class);
+                Intent intent = new Intent(MenuActivity.this, PlacesActivity.class);
                 intent.putExtra("key", keyword);
                 startActivity(intent);
             }

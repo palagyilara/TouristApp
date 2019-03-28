@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sopronwebpage">Forrás: www.sopron.hu</string>
+    <string name="sopronmuseum6">Régészeti kiállítás </string>
+    <string name="sopronmuseum7">Római kori kőtár </string>
+    <string name="sopronmuseum8">Storno-gyűjtemény </string>
+    <string name="sopronmuseum9">Ó-Zsinagóga </string>
+    <string name="sopronmuseum2">Forum Scarbantiae</string>
+    <string name="sopronmuseum1">Erdészeti Múzeum </string>
+    <string name="sopronmuseum3">Határtalan történet</string>
+    <string name="sopronmuseum5">Ligneum - SOE Látogatóközpont</string>
+    <string name="sopronmuseum4">Központi Bányászati Múzeum </string>
+
+    <string name="soprontemplom1">Árpádházi Szent Margit templom (Juliánum) </string>
+    <string name="soprontemplom2">Bencés (Kecske) templom és Káptalan terem </string>
+    <string name="soprontemplom3">Domonkos templom </string>
+    <string name="soprontemplom4">Evangélikus templom</string>
+    <string name="soprontemplom5">Jézus Szíve templom </string>
+    <string name="soprontemplom6">Keresztelő Szent János (johannita) templom </string>
+    <string name="soprontemplom7">Papréti zsinagóga </string>
+    <string name="soprontemplom9">Szent György templom </string>
+    <string name="soprontemplom12">Szent Imre templom </string>
+    <string name="soprontemplom13">Szent István templom</string>
+    <string name="soprontemplom10">Szent Mihály templom </string>
+    <string name="soprontemplom11">Szent Orsolya templom és zárda </string>
+    <string name="soprontemplom8">Református templom </string>
+
+    <string name="sopronmonuments1">Bezerédj ház </string>
+    <string name="sopronmonuments2">Fabricius-ház</string>
+    <string name="sopronmonuments4">Postapalota </string>
+    <string name="sopronmonuments5">Régi kaszinó </string>
+    <string name="sopronmonuments6">Scarbantia Régészeti Park </string>
+    <string name="sopronmonuments7">Storno-ház </string>
+    <string name="sopronmonuments9">Tűztorony </string>
+    <string name="sopronmonuments11">Zichy-Meskó palota </string>
+    <string name="sopronmonuments10">Városháza </string>
+    <string name="sopronmonuments8">Szentháromság-szobor </string>
+    <string name="sopronmonuments3">Piknik-emlékmű - "Áttörés"</string>
+
+    <string name="sopronother1">Petőfi Színház </string>
+    <string name="sopronother3">Taródi vár </string>
+    <string name="sopronother2">Soproni Várfalsétány </string>
+</resources>

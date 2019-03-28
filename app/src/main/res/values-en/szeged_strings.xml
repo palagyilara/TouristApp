@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="szegedwebpage">Resource: www.szegedtourism.hu/en </string>
+
+    <string name="szegedmuseum2">Móra Ferenc Museum </string>
+    <string name="szegedmuseum5">Albert Szent-Györgyi Memorial Room </string>
+    <string name="szegedmuseum6">Fortress Museum and Stone Collection </string>
+    <string name="szegedmuseum1">Black House </string>
+    <string name="szegedmuseum4">Szent-Györgyi Albert Agóra </string>
+    <string name="szegedmuseum3">Reök Palace </string>
+
+    <string name="szegedtemplom2">Votive Church </string>
+    <string name="szegedtemplom1">Alsóvárosi Church </string>
+    <string name="szegedtemplom3">Protestant Church </string>
+    <string name="szegedtemplom4">Old Synagogue </string>
+    <string name="szegedtemplom5">Serbian Orthodox Church </string>
+    <string name="szegedtemplom6">New Synagogue </string>
+
+    <string name="szegedmonuments8">Móricz House </string>
+    <string name="szegedmonuments6">Gróf Palace </string>
+    <string name="szegedmonuments7">Márer House </string>
+    <string name="szegedmonuments4">St. Demetrius Tower </string>
+    <string name="szegedmonuments2">Appartemant House / Iron House </string>
+    <string name="szegedmonuments10">Reformed Church Palace </string>
+    <string name="szegedmonuments11">Schäffer Palace </string>
+    <string name="szegedmonuments3">Deutsch Palace </string>
+    <string name="szegedmonuments5">Goldschmidt Palace </string>
+    <string name="szegedmonuments9">Raichl House </string>
+    <string name="szegedmonuments1">Beregi House </string>
+
+    <string name="szegedother6">Water Tower in St. Steven Square </string>
+    <string name="szegedother3">Somogyi Library </string>
+    <string name="szegedother2">Attila József Education and Information Centre </string>
+    <string name="szegedother5">Szeged National Theatre </string>
+    <string name="szegedother9">Musical clock </string>
+    <string name="szegedother8">City Hall </string>
+    <string name="szegedother1">Franciscan Visitor Centre in Alsóváros </string>
+    <string name="szegedother4">Szeged Military Park </string>
+    <string name="szegedother7">Zoo Szeged </string>
+
+</resources>

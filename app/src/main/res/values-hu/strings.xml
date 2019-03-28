@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="keszthely">Keszthely</string>
     <string name="choose">Kérem válasszon</string>
     <string name="city">Városról</string>
     <string name="places">Látványosságok</string>
@@ -8,5 +7,32 @@
     <string name="quiz">Quiz</string>
     <string name="citytitle">A városról</string>
     <string name="wikipedia">Forrás: Wikipédia</string>
+    <string name="placestitle">Nevezetességek</string>
+    <string name="museums">Múzeumok</string>
+    <string name="churches">Templomok</string>
+    <string name="monuments">Műemlékek, emlékművek</string>
+    <string name="other">Egyéb</string>
 
+    <string name="keszthely">Keszthely</string><!--kész-->
+    <string name="pecs">Pécs</string><!--kész-->
+    <string name="nyiregyhaza">Nyíregyháza</string>
+    <string name="veszprem">Veszprém</string><!--kész-->
+    <string name="mohacs">Mohács</string>
+    <string name="szeged">Szeged</string><!--kész-->
+    <string name="tihany">Tihany</string><!--kész-->
+    <string name="sopron">Sopron</string><!--kész-->
+    <string name="eger">Eger</string> <!--kész-->
+
+    <string name="title_activity_maps">Map</string>
+    <string name="jr">Jó reggelt!</string>
+    <string name="jn">Jó napot!</string>
+    <string name="je">Jó estét!</string>
+    <string name="koszi">Köszönöm!</string>
+    <string name="sziv">Szívesen</string>
+    <string name="bocs">Bocsánat</string>
+    <string name="eln">Elnézést</string>
+    <string name="igen">Igen</string>
+    <string name="nem">Nem</string>
+    <string name="mennyibe">Mennyibe kerül?</string>
+    <string name="merre">Merre van a &#8230;?</string>
 </resources>

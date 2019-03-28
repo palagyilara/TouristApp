@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sopronwebpage">die Ressource: www.sopron.hu/de</string>
+    <string name="sopronmuseum6">Archäologische Ausstellung </string>
+    <string name="sopronmuseum7">Römisches Lapidarium </string>
+    <string name="sopronmuseum8">Storno Sammlung </string>
+    <string name="sopronmuseum9">Alte Synagoge</string>
+    <string name="sopronmuseum2">Forum Scarbantiae </string>
+    <string name="sopronmuseum1">Forstmuseum </string>
+    <string name="sopronmuseum3">Geschichte ohne Grenzen </string>
+    <string name="sopronmuseum5">Besucherzentrum Ligneum der Soproner Universität </string>
+    <string name="sopronmuseum4">Das Zentrale Bergbaumuseum </string>
+
+    <string name="soprontemplom1">Kirche Sankt Margarethe von Ungarn (Julianum) </string>
+    <string name="soprontemplom2">Benediktinerkirche (Ziegenkirche) und Kapitelsaal </string>
+    <string name="soprontemplom3">Dominikanerkirche </string>
+    <string name="soprontemplom4">Evangelische Kirche </string>
+    <string name="soprontemplom5">Herz-Jesu-Kirche </string>
+    <string name="soprontemplom6">Kirche Sankt Johannes der Täufer (Johanniterkirche) </string>
+    <string name="soprontemplom7">Synagoge in Paprét </string>
+    <string name="soprontemplom9">Die Domkirche Sankt Georg </string>
+    <string name="soprontemplom12">Kirche Sankt Emmerich (Szent Imre) </string>
+    <string name="soprontemplom13">Kirche Sankt Stephan </string>
+    <string name="soprontemplom10">Sankt Michaeliskirche </string>
+    <string name="soprontemplom11">Ursulinenkirche</string>
+    <string name="soprontemplom8">Calvinistische Kirche </string>
+
+
+    <string name="sopronmonuments1">Bezerédj-Haus </string>
+    <string name="sopronmonuments2">Fabricius-Haus </string>
+    <string name="sopronmonuments4">Postpalast </string>
+    <string name="sopronmonuments5">Altes Kasino </string>
+    <!--<string name="sopronmonuments6">Scarbantia Régészeti Park muemlekek/scarbantia-regeszeti-park.html</string>-->
+    <string name="sopronmonuments7">Storno-Haus </string>
+    <string name="sopronmonuments9">Feuerturm </string>
+    <string name="sopronmonuments11">Zichy-Meskó Palais </string>
+    <string name="sopronmonuments10">Rathaus </string>
+    <string name="sopronmonuments8">Dreifaltigkeitssäule </string>
+    <string name="sopronmonuments3">Picknick-Denkmal (Umbruch) </string>
+
+    <string name="sopronother1">Theater Petőfi </string>
+    <string name="sopronother3">Burg Taródi </string>
+    <string name="sopronother2">Soproner Stadtmauerpromenade </string>
+</resources>

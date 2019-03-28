@@ -1,6 +1,7 @@
 package com.example.laura.touristapp;
 
 //import android.content.Intent;
+import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +15,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +34,10 @@ import com.google.protobuf.ByteString;*/
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
@@ -120,6 +127,22 @@ public class ContentActivity extends AppCompatActivity {
 
         updateView((String) Paper.book().read("language"));
 
+        /*final Dialog nagDialog = new Dialog (ContentActivity.this,android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
+        nagDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        nagDialog.setCancelable(true);
+        //nagDialog.setContentView(R.layout.preview_image);
+        //Button btnClose = (Button)nagDialog.findViewById(R.id.btnIvClose);
+        ImageView ivPreview = (ImageView)nagDialog.findViewById(R.id.iv_preview_image);
+        ivPreview.setBackgroundDrawable();
+
+       /* btnClose.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+
+                nagDialog.dismiss();
+            }
+        });*/
+        //nagDialog.show();
         if (language.equals("hu")) {
 
             // title.setText("A városról");
@@ -486,6 +509,9 @@ public class ContentActivity extends AppCompatActivity {
 
 
     private class FetchWikiDataAsync extends AsyncTask<String, Void, String> {
+        String text1;
+        String words;
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -548,33 +574,63 @@ public class ContentActivity extends AppCompatActivity {
 
                 } else {*/
                 // HTML Data
+                Document doc = Jsoup.parse(formattedData);/*
+                Elements tag=doc.select ("span#Jegyzetek");
+                for(Element p : tag){
+                    words=p.text();
+                    //String text =p.html();
+                    tag.remove ( );
 
-                txtWikiData.setText(Html.fromHtml(formattedData));
+                    System.out.println(tag.remove());
+                    System.out.println(doc.getElementById("Képgaléria"));
+                     }
+
+                doc.select("span[id=Jegyzetek]").remove();
+                doc.select("h2.span[id=Képek]").remove();*/
+
+                text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>").replaceAll("<span id=\"Jegyzetek\">(.+?)</span>","").replaceAll("<span id=\"Képgaléria\">(.+?)</span>","").replaceAll("<span id=\"Képek\">(.+?)</span>","")
+                        .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>","");
+               // doc.select("span[id=Jegyzetek]").remove();
+                /*Document doc = Jsoup.parse(text1);
+                doc.select("span[id=Jegyzetek]").remove();
+                doc.select("h2.span[id=Képek]").remove();
+                //doc.getElementById("Képgaléria").remove();
+                //doc.getElementById("Jegyzetek").remove();
+                /*doc.getElementById("Képek").remove();
+                doc.getElementById("Képgaléria").remove();*/
+
+                //doc.select("h2.span#Képgaléria]").remove();
+
+                //Elements divs=doc.select("div.content-text");
+                txtWikiData.setText(Html.fromHtml(text1));
                 ContentValues values = new ContentValues();
                 //Toast.makeText(ContentActivity.this, "hiba!", Toast.LENGTH_LONG).show();
                 if (language.equals("hu")) {
-                    String infohu = txtWikiData.getText().toString();
-
-                    values.put(databaseHandler.CITYINFO_HU, infohu);
+                    //String infohu = txtWikiData.getText().toString();
+                    String infohu=formattedData;
+                    values.put(CITYINFO_HU, infohu);
                     addData(keyword, infohu, null, null);
                     //updateIfExistsElseInsert(keyword,infohu,null,null);
                     // String infohu = Html.fromHtml(formattedData, Html.FROM_HTML_MODE_LEGACY).toString();
-
-                    addData(keyword, infohu, null, null);
                 } else if (language.equals("en")) {
-                    String infoen = txtWikiData.getText().toString();
+                    //String infoen = txtWikiData.getText().toString();
+                    String infoen=formattedData;
                     // ContentValues values = new ContentValues();
                     values.put(CITYINFO_EN, infoen);
                     addData(keyword, null, infoen, null);
                 } else if (language.equals("de")) {
-                    String infode = txtWikiData.getText().toString();
+                    //String infode = txtWikiData.getText().toString();
+                    String infode=formattedData;
                     // ContentValues values = new ContentValues();
                     values.put(CITYINFO_DE, infode);
                     addData(keyword, null, null, infode);
                 }
 
             } catch (Exception e) {
+               // progressBar.setVisibility(View.GONE);
+                //super.onPostExecute(formattedData);
                 Toast.makeText(ContentActivity.this, "Wifi!", Toast.LENGTH_LONG).show();
+                progressBar.setVisibility(View.VISIBLE);
                 db = databaseHandler.getWritableDatabase();
                 if (language.equals("hu")) {
                     //Cursor cursor = db.query(DatabaseHandler.TABLE_NAME, new String[] { "cityname","cityinfohu","cityinfoen","cityinfode" },null, null, null, null, null);
@@ -582,7 +638,10 @@ public class ContentActivity extends AppCompatActivity {
                     if (cursor.moveToFirst()) {
                         do {
                             String infohu = cursor.getString(cursor.getColumnIndex("cityinfohu")); // Here you can get data from table and stored in string if it has only one string.
-                            txtWikiData.setText(infohu);
+                            text1 = infohu.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>").replaceAll("<span id=\"Jegyzetek\">(.+?)</span>","").replaceAll("<span id=\"Képgaléria\">(.+?)</span>","").replaceAll("<span id=\"Képek\">(.+?)</span>","")
+                                    .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>","");
+                            progressBar.setVisibility(View.GONE);
+                            txtWikiData.setText(Html.fromHtml(text1));
 
 
                         } while (cursor.moveToNext());
@@ -599,7 +658,8 @@ public class ContentActivity extends AppCompatActivity {
                     if (cursor.moveToFirst()) {
                         do {
                             String infoen = cursor.getString(cursor.getColumnIndex("cityinfoen")); // Here you can get data from table and stored in string if it has only one string.
-                            txtWikiData.setText(infoen);
+                            text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>");
+                            txtWikiData.setText(Html.fromHtml(text1));
 
                         } while (cursor.moveToNext());
                     }
@@ -615,7 +675,8 @@ public class ContentActivity extends AppCompatActivity {
                     if (cursor.moveToFirst()) {
                         do {
                             String infode = cursor.getString(cursor.getColumnIndex("cityinfode")); // Here you can get data from table and stored in string if it has only one string.
-                            txtWikiData.setText(infode);
+                            text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>");
+                            txtWikiData.setText(Html.fromHtml(text1));
 
                         } while (cursor.moveToNext());
                     }
@@ -664,7 +725,7 @@ public class ContentActivity extends AppCompatActivity {
         Bundle extra = getIntent().getExtras();
         String keyword = extra.getString("key");
         SQLiteDatabase db;
-        Cursor c = null;
+       // Cursor c = null;
         db = databaseHandler.getReadableDatabase();
         //try {
         Toast.makeText(ContentActivity.this, "ellenőrzés!", Toast.LENGTH_SHORT).show();

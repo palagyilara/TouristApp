@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="veszpwebpage">Resource: www.veszpreminfo.hu/lang/en</string>
+
+    <string name="veszpmuseum3">Heroes\' Gate /</string>
+    <string name="veszpmuseum2">Dubniczay Palace </string>
+    <string name="veszpmuseum1">Beatified Gizella Diocese Collection </string>
+
+    <string name="veszptemplom4">Saint Michael\'s Cathedral </string>
+    <string name="veszptemplom1">Gisella Chapel </string>
+    <string name="veszptemplom5">Piarist and Garrison Church </string>
+    <string name="veszptemplom2">Franciscan Church </string>
+    <string name="veszptemplom6">Ruins of the Greek Orthodox Nunnery and Jesuit Church </string>
+    <string name="veszptemplom3">Regina Mundi Church </string>
+
+    <string name="veszpmonuments2">Castle </string>
+    <string name="veszpmonuments1">Fire Lookout Tower </string>
+
+    <string name="veszpother2">Salesianum - Archbishopric\'s Touristic Centre </string>
+    <string name="veszpother1">Herend Porcelanium </string>
+    <string name="veszpother5">Veszprém Zoo </string>
+    <string name="veszpother3">Saint Stephan Viaduct </string>
+    <string name="veszpother4">City Hall </string>
+</resources>

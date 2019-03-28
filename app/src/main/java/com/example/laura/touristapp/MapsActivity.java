@@ -1,6 +1,7 @@
 package com.example.laura.touristapp;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.location.Address;
@@ -62,9 +63,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        Bundle extra = getIntent().getExtras();
+       // Bundle extra = getIntent().getExtras();
         //String text = extra.getString(MainActivity.TAG_TEXT);
-        String keyword = extra.getString("key");
+       // String keyword = extra.getString("key");
+        //String placetitle = extra.getString("addr");
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -117,28 +119,431 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        Bundle extra = getIntent().getExtras();
+        final Bundle extra = getIntent().getExtras();
         //String text = extra.getString(MainActivity.TAG_TEXT);
-        String keyword = extra.getString("key");
+        final String keyword = extra.getString("key");
+        //String keyword = extra.getString("key2");
+        String placetitle = extra.getString("key1");
         // Add a marker in Sydney and move the camera
         /*LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
-        if (keyword.equals("Keszthely")) {
+        if (placetitle != null)
+        {
+            if(placetitle.equals (getResources().getString(R.string.keszthmuseum1))){//placetitle.equals ("Balatoni Múzeum") || placetitle.equals ("Balaton Museum") || placetitle.equals ("Das Balaton Museum")) {//museum1 {
+                double lat=46.75883385817142;
+                double lng=17.24217228591442;
+                LatLng addr = new LatLng(lat, lng);
+                googleMap.addMarker (new MarkerOptions ( )
+                                .position (new LatLng (lat, lng))
+                                .title (placetitle)
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
+
+            }
+            else if(placetitle.equals ("Cadillac Múzeum")) {
+                googleMap.addMarker (new MarkerOptions ( )
+                                .position (new LatLng (46.0770945, 18.205235))
+                                .title (placetitle)
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+            }
+            else if(placetitle.equals ("Helikon Kastélymúzeum (Festetics-Kastély)")) {
+                googleMap.addMarker (new MarkerOptions ( )
+                                .position (new LatLng (46.0770945, 18.205235))
+                                .title (placetitle)
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+            }
+            else if(placetitle.equals ("Georgikon Majormúzeum")) {
+                googleMap.addMarker (new MarkerOptions ( )
+                                .position (new LatLng (46.0770945, 18.205235))
+                                .title (placetitle)
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+            }
+            /*else if(placetitle.equals ("Magyar Feltalálók Múzeuma")) {
+                googleMap.addMarker (new MarkerOptions ( )
+                                .position (new LatLng (46.0770945, 18.205235))
+                                .title (placetitle)
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)/);
+            }
+            else if(placetitle.equals ("Marcipán Múzeum")) {
+                googleMap.addMarker (new MarkerOptions ( )
+                                .position (new LatLng (46.0770945, 18.205235))
+                                .title (placetitle)
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+            }*/
+            else if(placetitle.equals ("Múzeum Zoo Lepke- és Egzotikus Hüllőkiállítás")) {
+                googleMap.addMarker (new MarkerOptions ( )
+                                .position (new LatLng (46.0770945, 18.205235))
+                                .title (placetitle)
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+            }
+            else if(placetitle.equals ("Georgikon Majormúzeum")) {
+                googleMap.addMarker (new MarkerOptions ( )
+                                .position (new LatLng (46.0770945, 18.205235))
+                                .title (placetitle)
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+            }
+        }
+        else{
+            final String language = Paper.book().read("language");
+
+            if (keyword.equals("Keszthely")) {
             double v=46.7654716;
             double v1=17.2479554;
             getLatitudeAndLongitudeFromGoogleMapForAddress(keyword,v,v1);
-        }
+
+            if(language.equals("hu" )|| language.equals("en" )|| language.equals("de" ) ) {
+                if(language.equals("hu"))
+                {
+                    googleMap.addMarker (new MarkerOptions ( )
+                                    .position (new LatLng (46.75883385817142, 17.24217228591442))
+                                    .title (getResources().getString(R.string.keszthmuseum1))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                    googleMap.addMarker (new MarkerOptions ( )
+                                    .position (new LatLng (46.76281282347028,17.242223918437958))
+                                    .title (getResources().getString(R.string.keszthmuseum2))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                    googleMap.addMarker (new MarkerOptions ( )
+                                    .position (new LatLng (46.7707423,17.2396906))
+                                    .title (getResources().getString(R.string.keszthmuseum3))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                    googleMap.addMarker (new MarkerOptions ()
+                                    .position (new LatLng (46.76684523390945,17.23582684993744))
+                                    .title (getResources().getString(R.string.keszthmuseum4))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);/*
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.75883385817142, 17.24217228591442))
+                                .title (getResources().getString(R.string.museum5))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));*/
+                    /*googleMap.addMarker (new MarkerOptions ()
+                                    .position (new LatLng (46.7706121,17.2447858))
+                                    .title (getResources().getString(R.string.keszthmuseum6))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));*/
+                    googleMap.addMarker (new MarkerOptions ()
+                                    .position (new LatLng (46.76931441380818,17.24245660007))
+                                    .title (getResources().getString(R.string.keszthmuseum5))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                    googleMap.addMarker (new MarkerOptions ()
+                                    .position (new LatLng (46.76848815136493,17.24230170249939))
+                                    .title (getResources().getString(R.string.keszthmuseum6))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                    googleMap.addMarker (new MarkerOptions ()
+                                    .position (new LatLng (46.76470022572277,17.244597673416138))
+                                    .title (getResources().getString(R.string.keszthmuseum7))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                    googleMap.addMarker (new MarkerOptions ()
+                                    .position (new LatLng (46.75883385817142, 17.24217228591442))
+                                    .title (getResources().getString(R.string.keszthmuseum8))
+                    );
+                }
+            else if(language.equals ("en") || language.equals("de")) {
+                    googleMap.addMarker (new MarkerOptions ( )
+                                    .position (new LatLng (46.75883385817142, 17.24217228591442))
+                                    .title (getResources ( ).getString (R.string.keszthmuseum1))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                /*googleMap.addMarker (new MarkerOptions ( )
+                                .position (new LatLng (46.76281282347028,17.242223918437958))
+                                .title (getResources().getString(R.string.museum2))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));*/
+                    googleMap.addMarker (new MarkerOptions ( )
+                                    .position (new LatLng (46.7707423, 17.2396906))
+                                    .title (getResources ( ).getString (R.string.keszthmuseum3))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                /*googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.76684523390945,17.23582684993744))
+                                .title (getResources().getString(R.string.museum4))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));/*
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.75883385817142, 17.24217228591442))
+                                .title (getResources().getString(R.string.museum5))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.7706121,17.2447858))
+                                .title (getResources().getString(R.string.museum6))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.76931441380818,17.24245660007))
+                                .title (getResources().getString(R.string.museum7))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.76848815136493,17.24230170249939))
+                                .title (getResources().getString(R.string.museum8))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.76470022572277,17.244597673416138))
+                                .title (getResources().getString(R.string.museum9))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));*/
+                    googleMap.addMarker (new MarkerOptions ( )
+                                    .position (new LatLng (46.75883385817142, 17.24217228591442))
+                                    .title (getResources ( ).getString (R.string.keszthmuseum8))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                }
+                /*googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.75883385817142, 17.24217228591442))
+                                .title (getResources().getString(R.string.monuments1))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));*/
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.753934,17.240249))
+                                .title (getResources().getString(R.string.keszthmonuments1))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.767877,17.2367))
+                                .title (getResources().getString(R.string.keszthmonuments2))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.7610558,17.2461895))
+                                .title (getResources().getString(R.string.keszthmonuments3))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.765719,17.243219))
+                                .title (getResources().getString(R.string.keszthmonuments4))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.7645659,17.2380751))
+                                .title (getResources().getString(R.string.keszthtemplom1))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.7702897,17.2495793))
+                                .title (getResources().getString(R.string.keszthtemplom2))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.764717,17.2414891))
+                                .title (getResources().getString(R.string.keszthtemplom3))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.761552,17.2424893))
+                                .title (getResources().getString(R.string.keszthtemplom4))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.765789,17.243729))
+                                .title (getResources().getString(R.string.keszthother1))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.7671648,17.2404378))
+                                .title (getResources().getString(R.string.keszthother2))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.757526,17.251271))
+                                .title (getResources().getString(R.string.keszthother3))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+
+            }
+           /* else if(language.equals("en") || language.equals("de")) {
+                googleMap.addMarker (new MarkerOptions ( )
+                                .position (new LatLng (46.75883385817142, 17.24217228591442))
+                                .title (getResources().getString(R.string.museum1))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));*/
+                /*googleMap.addMarker (new MarkerOptions ( )
+                                .position (new LatLng (46.7707423,17.2396906))
+                                .title (getResources().getString(R.string.museum3))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.753934,17.240249))
+                                .title (getResources().getString(R.string.monuments2))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.767877,17.2367))
+                                .title (getResources().getString(R.string.monuments3))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.7610558,17.2461895))
+                                .title (getResources().getString(R.string.monuments4))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.765719,17.243219))
+                                .title (getResources().getString(R.string.monuments5))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.7645659,17.2380751))
+                                .title (getResources().getString(R.string.templom1))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.7702897,17.2495793))
+                                .title (getResources().getString(R.string.templom2))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.764717,17.2414891))
+                                .title (getResources().getString(R.string.templom3))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.761552,17.2424893))
+                                .title (getResources().getString(R.string.templom4))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.765789,17.243729))
+                                .title (getResources().getString(R.string.other1))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.7671648,17.2404378))
+                                .title (getResources().getString(R.string.other2))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));
+                googleMap.addMarker (new MarkerOptions ()
+                                .position (new LatLng (46.757526,17.251271))
+                                .title (getResources().getString(R.string.other3))
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred)));*/
+            }
+
         else if (keyword.equals("Pécs")){
             //LatLng keyword = new LatLng(46.7654716, 17.2479554);
-            double v=46.0799687;
-            double v1=18.2298533;
+            double v=46.0727345;
+            double v1=18.232266;
             getLatitudeAndLongitudeFromGoogleMapForAddress(keyword,v,v1);
     }
-        setPoiClick(mMap);
+            else if (keyword.equals("Kaposvár")){
+                //LatLng keyword = new LatLng(46.7654716, 17.2479554);
+                double v=46.3593606;
+                double v1=17.7967639;
+                getLatitudeAndLongitudeFromGoogleMapForAddress(keyword,v,v1);
+            }
+            else if (keyword.equals("Győr")){
+                //LatLng keyword = new LatLng(46.7654716, 17.2479554);
+                double v=47.6874569;
+                double v1=17.6503974;
+                getLatitudeAndLongitudeFromGoogleMapForAddress(keyword,v,v1);
+            }
+            else if (keyword.equals("Veszprém")){
+                //LatLng keyword = new LatLng(46.7654716, 17.2479554);
+                double v=47.1028087;
+                double v1=17.9093019;
+                getLatitudeAndLongitudeFromGoogleMapForAddress(keyword,v,v1);
+            }
+            else if (keyword.equals("Eger")){
+                //LatLng keyword = new LatLng(46.7654716, 17.2479554);
+                double v=47.9025348;
+                double v1=20.3772284;
+                getLatitudeAndLongitudeFromGoogleMapForAddress(keyword,v,v1);
+            }
+            else if (keyword.equals("Tihany")){
+                //LatLng keyword = new LatLng(46.7654716, 17.2479554);
+                double v=46.914131;
+                double v1=17.887449;
+                getLatitudeAndLongitudeFromGoogleMapForAddress(keyword,v,v1);
+            }
+            else if (keyword.equals("Szeged")){
+                //LatLng keyword = new LatLng(46.7654716, 17.2479554);
+                double v=46.2530102;
+                double v1=20.1414253;
+                getLatitudeAndLongitudeFromGoogleMapForAddress(keyword,v,v1);
+            }
+            else if (keyword.equals("Sopron")){
+                //LatLng keyword = new LatLng(46.7654716, 17.2479554);
+                double v=47.6816619;
+                double v1=16.5844795;
+                getLatitudeAndLongitudeFromGoogleMapForAddress(keyword,v,v1);
+            }
+            else if (keyword.equals("Miskolc")){
+                //LatLng keyword = new LatLng(46.7654716, 17.2479554);
+                double v=48.1034775;
+                double v1=20.7784384;
+                getLatitudeAndLongitudeFromGoogleMapForAddress(keyword,v,v1);
+            }
+        }
+        //setPoiClick(mMap);
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                //if(language.equals("hu"))
+                if (marker.getTitle().equals(getResources().getString(R.string.keszthmuseum1))){
+                    Intent intent = new Intent(MapsActivity.this,PDescriptionActivity.class);
+                    //String keyword = extra.getString("key");
+                    String keyword1=getResources().getString(R.string.keszthmus1); //""
+                    String placetitle = marker.getTitle();
+                    // String placetitle = museum3.getText().toString();
+                    intent.putExtra("key", keyword);
+                    intent.putExtra("key1", placetitle);
+                    intent.putExtra("key2", keyword1);
+
+                    //intent.putExtra("key1", lang);
+                    startActivity(intent);
+
+                   // Toast.makeText(MapsActivity.this, "Clicked"+marker.getTitle(), Toast.LENGTH_SHORT).show();
+                }
+                return false;
+            }
+        });
+
+        /*mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener () {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                Intent intent = new Intent(MapsActivity.this,PDescriptionActivity.class);
+                // startActivity(intent);
+                //Bundle extra = getIntent().getExtras();
+                //String keyword = extra.getString("key");
+                String keyword1="muzeumok/balatoni_muzeum";
+                //Intent intent = new Intent(MapsActivity.this, PDescriptionActivity.class);
+                // String placetitle = title.getText().toString();
+                // String placetitle = museum3.getText().toString();
+                //String keyword1= "muzeumok/helikon_kastelymuzeum_festetics_kastely";
+                //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
+                intent.putExtra("key", keyword);
+                //intent.putExtra("key1", placetitle);
+                intent.putExtra("key2", keyword1);
+
+                //intent.putExtra("key1", lang);
+                startActivity(intent);
+
+            }
+        });*/
 
         //Enable the my-location layer over the map if location permissions are granted
-        getLocationPermission();
+       /* getLocationPermission();
         if (mLocationPermissionsGranted)
         {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
@@ -149,12 +554,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
 
             googleMap.setMyLocationEnabled(true);
-        }
+        }*
 
         //Move camera to the current device location
-        getDeviceLocation(googleMap);
+        getDeviceLocation(googleMap);*/
 
-
+//keszthely
 
         //mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -285,12 +690,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-
+/*
     private void setPoiClick(final GoogleMap map) {
         map.setOnPoiClickListener(new GoogleMap.OnPoiClickListener() {
             @Override
             public void onPoiClick(PointOfInterest poi) {
-                Marker poiMarker = mMap.addMarker(new MarkerOptions()
+                /*Marker poiMarker = mMap.addMarker(new MarkerOptions()
                         .position(poi.latLng)
                         .title(poi.name));
                 Double latitude = poiMarker.getPosition().latitude;
@@ -300,9 +705,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 //leírás activityre átírányít
                 poiMarker.showInfoWindow();
+                Bundle extra = getIntent().getExtras();
+                String keyword = extra.getString("key");
+
+                Intent intent = new Intent(MapsActivity.this, PDescriptionActivity.class);
+               // String placetitle = title.getText().toString();
+                // String placetitle = museum3.getText().toString();
+                //String keyword1= "muzeumok/helikon_kastelymuzeum_festetics_kastely";
+                //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
+                intent.putExtra("key", keyword);
+                //intent.putExtra("key1", placetitle);
+                intent.putExtra("key2", keyword1);
+
+                //intent.putExtra("key1", lang);
+                startActivity(intent);
             }
         });
-    }
+    }*/
     /*
     public void onInfoWindowClick(Marker marker) {
         //Get memo ID via the converter in the Communications class using marker.getId() TODO: Make convertMarkerToMemo function in Communications

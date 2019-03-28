@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tihanywebpage">die Ressource: http://www.tihany.hu/index.php/de/</string>
+    <string name="tihanymuseum1">Museum der Benediktiner Abtei </string>
+
+    <string name="tihanytemplom1">Die barocke Kirche der Benediktiner-Abtei</string>
+
+    <string name="tihanymonuments1">Die Gruft von Andreas I. (I. András)</string>
+    <string name="tihanymonuments2">Volkstümliche Baukunst, Bauernhäuser</string>
+
+    <!--<string name="tihanyother3">Levendula Ház Látogatóközpont latnivalok/latnivalok-inner/22-levendula-haz</string>-->
+    <string name="tihanyother4">Einsiedlersiedlung (Mönchszellen)</string>
+    <string name="tihanyother2">Kirchenruine von Apáti </string>
+    <string name="tihanyother1">Galgen-Hügel </string>
+</resources>

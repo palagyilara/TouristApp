@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="egerwebpage">die Ressource: www.visiteger.com/de</string>
+    <string name="egermuseum7">Zauberturm </string>
+    <string name="egermuseum5">Géza Gárdonyi Gedenkhaus </string>
+    <string name="egermuseum8">Stadt unter der Stadt </string>
+    <string name="egermuseum1">Beatles Museum </string>
+    <string name="egermuseum6">Panoptikum </string>
+    <string name="egermuseum3">Gefängnisausstellung </string>
+    <string name="egermuseum4">Bibliothek der Erzdiözese </string>
+    <string name="egermuseum2">Erzbischofspalast und Besucherzentrum </string>
+
+    <string name="egertemplom1">Basilika von Eger </string>
+    <string name="egertemplom2">Minoritenkirche </string>
+    <string name="egertemplom3">Raizenkirche </string>
+    <string name="egertemplom4">Servitenkirche </string>
+
+    <string name="egermonuments1">Gotischer Bischofspalast </string>
+    <string name="egermonuments3">Kasematte </string>
+    <string name="egermonuments2">Heldensaal </string>
+    <string name="egermonuments4">Kalvarienhügel </string>
+    <string name="egermonuments5">Minarett </string>
+
+    <string name="egerother3">Türkisches Bad </string>
+    <string name="egerother2">Schlösserwand</string>
+    <string name="egerother1">Hochwasserschilder </string>
+    <string name="egerother4">Zsolnay-Brunnen </string>
+</resources>

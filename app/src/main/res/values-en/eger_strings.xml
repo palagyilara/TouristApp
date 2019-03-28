@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="egerwebpage">Resource: www.visiteger.com/en</string>
+    <string name="egermuseum7">Magictower </string>
+    <string name="egermuseum5">Géza Gárdonyi Memorial House </string>
+    <string name="egermuseum8">Town under the town </string>
+    <string name="egermuseum1">Beatles Museum </string>
+    <string name="egermuseum6">Waxworks</string>
+    <string name="egermuseum3">Prison exhibition </string>
+    <string name="egermuseum4">Archdiocese library </string>
+    <string name="egermuseum2">Archbishops Palace and Visitor Center </string>
+
+    <string name="egertemplom1">Basilica of Eger </string>
+    <string name="egertemplom2">Minorite Church </string>
+    <string name="egertemplom3">Serbian Church </string>
+    <string name="egertemplom4">Servite Church </string>
+
+    <string name="egermonuments1">Gothic Bishop\'s palace </string>
+    <string name="egermonuments3">Casamates </string>
+    <string name="egermonuments2">Heroes\' hall </string>
+    <string name="egermonuments4">Calvary hill </string>
+    <string name="egermonuments5">Minaret </string>
+
+    <string name="egerother3">Turkish bath </string>
+    <string name="egerother2">Padlock wall </string>
+    <string name="egerother1">Flood signs </string>
+    <string name="egerother4">Zsolnay fountain </string>
+</resources>

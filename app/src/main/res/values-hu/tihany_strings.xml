@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tihanywebpage">Forrás: www.tihany.hu</string>
+    <string name="tihanymuseum1">Bencés Apátsági Múzeum </string>
+
+    <string name="tihanytemplom1">Bencés Apátság barokk temploma</string>
+
+    <string name="tihanymonuments1">I. András kriptája</string>
+    <string name="tihanymonuments2">A népi építészet emlékei </string>
+
+    <string name="tihanyother3">Levendula Ház Látogatóközpont</string>
+    <string name="tihanyother4">Remetetelep (Barátlakások) </string>
+    <string name="tihanyother2">Apáti templomrom </string>
+    <string name="tihanyother1">Akasztó-domb </string>
+</resources>

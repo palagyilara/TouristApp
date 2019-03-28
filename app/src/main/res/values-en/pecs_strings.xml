@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pecswebpage">Resource: www.iranypecs.hu/en</string>
+    <string name="pecsmuseum5">Vasarely Museum </string>
+    <string name="pecsmuseum1">Csontváry Museum </string>
+    <string name="pecsmuseum2">Museum of Ethnography </string>
+    <string name="pecsmuseum6">Vasváry House </string>
+    <string name="pecsmuseum4">Natural History Museum </string>
+    <string name="pecsmuseum8">Zsolnay family and factory history exhibition </string>
+    <string name="pecsmuseum7">The Museum of the History of the City of Pécs </string>
+    <string name="pecsmuseum3">Bishop’s Palace and the Secret Passage </string>
+
+    <string name="pecstemplom7">Sts. Peter and Paul\'s Cathedral </string>
+    <string name="pecstemplom8">Convent Church </string>
+    <string name="pecstemplom1">Lutheran Church </string>
+    <string name="pecstemplom6">Pius Church</string>
+    <string name="pecstemplom2">Franciscan church </string>
+    <string name="pecstemplom5">Lyceum Church  </string>
+    <string name="pecstemplom9">Synagogue </string>
+    <string name="pecstemplom3">Mosque of Pasha Gazi Kasim </string>
+    <string name="pecstemplom4">The Mosque of Pasha Yakovali Hassan </string>
+
+    <string name="pecsmonuments2">Barbican </string>
+    <string name="pecsmonuments5">Medieval University </string>
+    <string name="pecsmonuments6">Statue of Ferenc Liszt </string>
+    <string name="pecsmonuments1">Angster Monument </string>
+    <string name="pecsmonuments3">Equestrian Statue of János Hunyadi </string>
+    <string name="pecsmonuments4">Statue of Lajos Kossuth </string>
+    <string name="pecsmonuments10">Zsolnay fountain </string>
+    <string name="pecsmonuments8">Eternal Flame Monument </string>
+    <string name="pecsmonuments9">Statue of the Holy Trinity </string>
+    <string name="pecsmonuments7">Early Christian Mausoleum </string>
+
+    <string name="pecsother1">Cella Septichora Visitors Centre </string>
+    <string name="pecsother2">Kodály Centre </string>
+    <string name="pecsother4">National Theatre of Pécs </string>
+    <string name="pecsother5">City Hall </string>
+    <string name="pecsother3">Padlocks </string>
+</resources>

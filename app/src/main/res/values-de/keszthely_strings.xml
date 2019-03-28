@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="keszthwebpage">die Ressource: www.keszthely.hu/de</string>
+    <string name="keszthmuseum1">Das BalatonMuseum</string>
+    <string name="keszthmuseum3">Festetics-Schloss</string>
+    <string name="keszthmuseum8">Júlia-Szendrey-Gedenkhaus</string>
+
+    <string name="keszthtemplom1">Evangelische Kirche</string>
+    <string name="keszthtemplom2">Basilika St. Theresa und Kloster</string>
+    <string name="keszthtemplom3">Pfarrkirche Patrona Hungariae</string>
+    <string name="keszthtemplom4">Reformierte Kirche</string>
+
+    <string name="keszthmonuments1">Das Festetics-Mausoleum</string>
+    <string name="keszthmonuments2">Georgikon-Haus</string>
+    <string name="keszthmonuments3">Helikon-Denkmal</string>
+    <string name="keszthmonuments4">Rathaus</string>
+
+    <string name="keszthother1">Balaton Kongresszentrum und Theater</string>
+    <string name="keszthother2">Fussgängerzone</string>
+    <string name="keszthother3">Badeinsel</string>
+
+    <string name="keszthmus1">museen/balatoni-muzeum</string>
+
+</resources>

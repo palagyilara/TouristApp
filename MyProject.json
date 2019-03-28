@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "semiotic-quasar-214120",
+  "private_key_id": "61ea501922583f43442c7bedcbfe8db0d1058bdb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDuB8vvTelHwe93\npX5eOckIbFmj4qqvbMKU2l9GWdGFUQqAjbxUqr34pcjxHQj+Qqxeh0gMJsLtC2il\nRHYQ4fSe9/KbPVcUSLJonJpD0l+hWUcIFH9SO1y2YWQDg4D5L1Zplc/GbcWU4L+7\nQA4Jk4Hu6LyCppOQdxLCltfIms9ZC/DZ+qg1wf1YHQ8UeHsVFKzu7AYqVQy23kxp\namd/0ifDlw69Yhkmmch0dAsT28NGzftO2JgEqUytty9DdoJx/hMDRqi+H3GY5BHw\ntpoBxnjU4+LeadYjhjJHbY+7+6QJfkvKXIyWHpCptqhi9avN/SobvcBPYhdmKCOh\nwXDta5W9AgMBAAECggEAS1vLjGFJvE6hbmtGJTW9OD35aUHPUQepWPAD3uV7yG3e\nWdHFsLZ3u3tdMTzEhp78LFc/D53L87k7catJh9HJnPSZ6d0TLxhO54DA9DzryszV\niLDYmGOz2AfgXp5pHDsI7Beidst1FMvM188RQqXhKo6jc+eh60hPd6zC9z9P6vwY\n9ou8y8d9JmlRiVwGZJypVFLXvNbYKavysthBvt8KBUeUJdg+cwFoKNzOxKXzEeQE\njI72+ZExlYzDW55hERSq/agS8JTJ4WSDfxjSeP00sFFdwGUOL9JhkWzL1pulguKd\nR9pQXcpnYK/OZtE24TykBQGci3hkm+eLTLOrtklFHwKBgQD8SbHqLpBHcHzEa51g\nDcrussRc3nG9m5NjP2MyJi5eKsGVJAaTBWuxluZ02ID1R8tbSxDoUFWPfHUIk7M/\nh8AEgyGKGc5MRfQeH3QBAjtYwWzys0HjWRjRqnXj2+Ig8P866aEmmpK4Q/qDvlZw\npzX+FG7q8rqvrOvVbY2DHNUxWwKBgQDxiGXFHCv+HyrIajhUiQrhZ8MnOwn+28Yj\n/UJn+oIpM71BhDrH4hisnIGa1BGP6xIRLh/sQQFyf/dHE28uHpDlC9Z36DlNeGqA\n3FRs8NDI6YhMFdNbPdtZeMGjlEAhGuBG4fuyR+9mhtLmYfzmiucQLFPEou1ZhMJW\n5jtQgLQoxwKBgQCZJYc52DA/HZqvhYAP+e9xPNWUZnf3GIS835Kws5q8EQpYJXlU\nMBsyv55/2ZlWy9E3RvcpfvKhWnSU00whSZ+XXZ6zfXzMsj5BNuitYBR0iV5Aae6a\nOtClHevYePbo9kKJGZ94lqZv8twUsys30VkmNnMqblRDJh42/fzEVXFZNwKBgQDC\nPrGp/egbbTFZEKPQyI3pjStTh5WYU2NcWjdnq/216RhRcmhbjCfP2eYZgGfHWIOl\nMXUW6YiibuuNS8HkU0ywB/8pW6eJ+Eee7pMvMdSXX8jvd7YM8QhRQl5okbepaBXq\nq59iV5ve1psSEMf1GMyPIzcTMvyzO6OXg308VuWMzQKBgC356AHjd+ngSZGLLhtX\nrLwr/R8U3UyxUOgFB4gl1/N3cgs8uiSfyiyAWJS1wQDeo/PQclsd9IkJoLDT+ICk\nUAqHn+DoVjG+K8wBhJkPYtHHdhCpxxQjDt3R5fDv5tnq+UVRYLPkIVqeUczAirE5\nUdg3R0F4rEQEHN6JMi/grUyR\n-----END PRIVATE KEY-----\n",
+  "client_email": "touristapp@semiotic-quasar-214120.iam.gserviceaccount.com",
+  "client_id": "100330745705989879194",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/touristapp%40semiotic-quasar-214120.iam.gserviceaccount.com"
+}

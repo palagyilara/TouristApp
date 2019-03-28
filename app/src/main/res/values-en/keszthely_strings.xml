@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="keszthwebpage">Resource: www.keszthely.hu/en</string>
+    <string name="keszthmuseum1">Balaton Museum </string>
+    <string name="keszthmuseum3">Festetics Mansion</string>
+    <string name="keszthmuseum8">Szendrey Júlia Memorial House</string>
+
+    <string name="keszthtemplom1">Lutheran Church</string>
+    <string name="keszthtemplom2">Little Saint Therese Basilica and monastery</string>
+    <string name="keszthtemplom3">Our Lady of Hungary Parish Church</string>
+    <string name="keszthtemplom4">Reformed Church</string>
+
+    <string name="keszthmonuments1">Festetics mausoleum</string>
+    <string name="keszthmonuments2">Georgikon House</string>
+    <string name="keszthmonuments3">Helikon monument</string>
+    <string name="keszthmonuments4">Town Hall</string>
+
+    <string name="keszthother1">Balaton Congress Centre and Theatre</string>
+    <string name="keszthother2">Pedestrian street</string>
+    <string name="keszthother3">Island Bath</string>
+
+    <string name="keszthmus1">museums/balatoni-muzeum</string>
+
+</resources>

@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose">deutsch</string>
-    <string name="city">About the city/de</string>
-    <string name="places">Sights/de</string>
-    <string name="map">Map/de</string>
-    <string name="quiz">Quiz/de</string>
-    <string name="dictionary">Hungarian Dictionary/de</string>
-    <string name="citytitle">About the city/de</string>
-    <string name="wikipedia">Forrás: Wikipedia/de</string>
-    <string name="search">Word or phrase search/de</string>
+    <string name="choose">Bitte wählen</string>
+    <string name="city">über die Stadt</string>
+    <string name="places">Sehenswürdigkeiten</string>
+    <string name="map">Mappe</string>
+    <string name="quiz">Quiz</string>
+    <string name="dictionary">Ungarisches Wörterbuch</string>
+    <string name="citytitle">über die Stadt</string>
+    <string name="wikipedia">Ressource: Wikipedia/de</string>
+    <string name="search">Wort- oder Satzsuche</string>
+
+    <string name="keszthely">Keszthely</string><!--kész-->
+    <string name="pecs">Pécs</string><!--kész-->
+    <string name="nyiregyhaza">Nyíregyháza</string>
+    <string name="veszprem">Veszprém</string><!--kész-->
+    <string name="mohacs">Mohács</string>
+    <string name="szeged">Szeged</string><!--kész-->
+    <string name="tihany">Tihany</string><!--kész-->
+    <string name="sopron">Sopron</string><!--kész-->
+    <string name="eger">Eger</string> <!--kész-->
+
     <string name="gm">Guten Morgen! &#160; - &#160; </string>
     <string name="ga">Guten Tag! &#160; - &#160; </string>
     <string name="ge">Guten Abend! &#160; - &#160; </string>
@@ -20,4 +31,10 @@
     <string name="no">Nein &#160; - &#160; </string>
     <string name="howmuch">was kostet das? &#160; - &#160; </string>
     <string name="where">Where is the &#8230;? &#160; - &#160; </string>
+    <string name="placestitle">Sehenswürdigkeiten</string>
+    <string name="museums">Museen</string>
+    <string name="churches">Kirchen</string>
+    <string name="monuments">Denkmäler</string>
+    <string name="other">Andere</string>
+
 </resources>

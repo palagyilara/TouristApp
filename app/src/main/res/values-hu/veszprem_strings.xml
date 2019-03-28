@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="veszpwebpage">Forrás: www.veszpreminfo.hu</string>
+    <string name="veszpmuseum3">Hősök Kapuja </string>
+    <string name="veszpmuseum2">Dubniczay-Palota </string>
+    <string name="veszpmuseum1">Boldog Gizella Főegyházmegyei Gyűjtemény </string>
+
+    <string name="veszptemplom4">Szent Mihály Bazilika Főszékesegyház </string>
+    <string name="veszptemplom1">Gizella-kápolna </string>
+    <string name="veszptemplom5">Szent Imre piarista és helyőrségi templom </string>
+    <string name="veszptemplom2">Ferences templom </string>
+    <string name="veszptemplom6">Veszprémvölgyi Görög Apácakolostor </string>
+    <string name="veszptemplom3">Regina Mundi - a "Világ Királynéja" plébániatemplom </string>
+
+    <string name="veszpmonuments2">Veszprémi vár </string>
+    <string name="veszpmonuments1">Tűztorony </string>
+
+    <string name="veszpother2">Szaléziánum Érsekségi Turisztikai Központ </string>
+    <string name="veszpother1">Herendi Porcelanium </string>
+    <string name="veszpother5">Veszprémi Állatkert </string>
+    <string name="veszpother3">Szent István völgyhíd </string>
+    <string name="veszpother4">Városháza </string>
+</resources>

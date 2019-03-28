@@ -60,8 +60,8 @@
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="C:\Users\Laura\Desktop\img_342890.png" />
-                                      <entry key="outputName" value="lang" />
+                                      <entry key="imageAsset" value="C:\Users\Laura\Desktop\museumicon\drawable-xxxhdpi\museumicon.png" />
+                                      <entry key="outputName" value="museumicon" />
                                     </map>
                                   </option>
                                 </PersistentState>

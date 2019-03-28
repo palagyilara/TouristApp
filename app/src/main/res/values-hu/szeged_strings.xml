@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="szegedwebpage">Forrás: www.szegedtourism.hu </string>
+
+    <string name="szegedmuseum2">Móra Ferenc Múzeum </string>
+    <string name="szegedmuseum5">Szent-Györgyi Albert Emlékszoba </string>
+    <string name="szegedmuseum6">Vármúzeum és kőtár </string>
+    <string name="szegedmuseum1">Fekete Ház </string>
+    <string name="szegedmuseum4">Szent-Györgyi Albert Agóra </string>
+    <string name="szegedmuseum3">Reök-palota </string>
+
+    <string name="szegedtemplom2">Fogadalmi templom </string>
+    <string name="szegedtemplom1">Alsóvárosi templom </string>
+    <string name="szegedtemplom3">Református templom </string>
+    <string name="szegedtemplom4">Régi zsinagóga </string>
+    <string name="szegedtemplom5">Szerb templom </string>
+    <string name="szegedtemplom6">Új Zsinagóga </string>
+
+    <string name="szegedmonuments8">Móricz-ház </string>
+    <string name="szegedmonuments6">Gróf-palota </string>
+    <string name="szegedmonuments7">Márer-ház </string>
+    <string name="szegedmonuments4">Dömötör-torony </string>
+    <string name="szegedmonuments2">Bérház (Vasalóház) </string>
+    <string name="szegedmonuments10">Református palota </string>
+    <string name="szegedmonuments11">Schäffer-palota </string>
+    <string name="szegedmonuments3">Deutsch-palota </string>
+    <string name="szegedmonuments5">Goldschmidt-palota </string>
+    <string name="szegedmonuments9">Raichl-palota </string>
+    <string name="szegedmonuments1">Beregi-ház </string>
+
+    <string name="szegedother6">Szent István téri víztorony </string>
+    <string name="szegedother3">Somogyi-könyvtár </string>
+    <string name="szegedother2">József Attila Tanulmányi és Információs Központ </string>
+    <string name="szegedother5">Szegedi Nemzeti Színház </string>
+    <string name="szegedother9">Zenélő óra </string>
+    <string name="szegedother8">Városháza </string>
+    <string name="szegedother1">Ferences Látogatóközpont </string>
+    <string name="szegedother4">Szegedi Hadi park </string>
+    <string name="szegedother7">Vadaspark </string>
+
+</resources>

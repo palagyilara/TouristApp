@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pecswebpage">Forrás: www.iranypecs.hu</string>
+    <string name="pecsmuseum5">Vasarely Múzeum </string>
+    <string name="pecsmuseum1">Csontváry Múzeum</string>
+    <string name="pecsmuseum2">Néprajzi Múzeum </string>
+    <string name="pecsmuseum6">Vasváry Ház </string>
+    <string name="pecsmuseum4">Természettudományi Múzeum </string>
+    <string name="pecsmuseum8">Zsolnay Család- és Gyártörténeti kiállítás </string>
+    <string name="pecsmuseum7">Várostörténeti múzeum </string>
+    <string name="pecsmuseum3">Püspöki Palota és a „Titkos átjáró” </string>
+
+    <string name="pecstemplom7">Szent Péter- és Szent Pál-székesegyház </string>
+    <string name="pecstemplom8">Zárdatemplom </string>
+    <string name="pecstemplom1">Evangélikus templom</string>
+    <string name="pecstemplom6">Pius templom</string>
+    <string name="pecstemplom2">Ferences templom</string>
+    <string name="pecstemplom5">Lyceum templom  </string>
+    <string name="pecstemplom9">Zsinagóga </string>
+    <string name="pecstemplom3">Gázi Kászim pasa dzsámija  </string>
+    <string name="pecstemplom4">Jakováli Hasszán pasa dzsámija</string>
+
+    <string name="pecsmonuments2">Barbakán </string>
+    <string name="pecsmonuments5">Középkori Egyetem </string>
+    <string name="pecsmonuments6">Liszt Ferenc-szobor </string>
+    <string name="pecsmonuments1">Angster emlékmű</string>
+    <string name="pecsmonuments3">Hunyadi János lovasszobra </string>
+    <string name="pecsmonuments4">Kossuth Lajos szobra </string>
+    <string name="pecsmonuments10">Zsolnay kút</string>
+    <string name="pecsmonuments8">Örökmécses-emlékmű </string>
+    <string name="pecsmonuments9">Szentháromság szobor </string>
+    <string name="pecsmonuments7">Ókeresztény Mauzóleum </string>
+
+    <string name="pecsother1">Cella Septichora Látogatóközpont</string>
+    <string name="pecsother2">Kodály Központ </string>
+    <string name="pecsother4">Pécsi Nemzeti Színház </string>
+    <string name="pecsother5">Városháza </string>
+    <string name="pecsother3">Lakatok </string>
+
+</resources>

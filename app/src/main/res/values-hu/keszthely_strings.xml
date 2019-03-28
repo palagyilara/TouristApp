@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="keszthwebpage">Forrás: www.keszthely.hu</string>
+    <string name="keszthmuseum1">Balatoni Múzeum </string>
+    <string name="keszthmuseum2">Cadillac Múzeum</string>
+    <string name="keszthmuseum3">Helikon Kastélymúzeum (Festetics-kastély) </string>
+    <string name="keszthmuseum4">Georgikon Majormúzeum</string>
+    <string name="keszthmuseum5">Múzeum Zoo lepke- és egzotikus hüllőkiállítás</string>
+    <string name="keszthmuseum6">Rádió és Televízió Múzeum</string>
+    <string name="keszthmuseum7">Surber Zeneautomata és Fonográf Múzeuma</string>
+    <string name="keszthmuseum8">Szendrey Júlia emlékház</string>
+
+    <string name="keszthtemplom1">Evangélikus templom</string>
+    <string name="keszthtemplom2">Kis Szent Teréz Bazilika és rendház</string>
+    <string name="keszthtemplom3">Magyarok Nagyasszonya Plébániatemplom</string>
+    <string name="keszthtemplom4">Református templom</string>
+
+    <string name="keszthmonuments1">Festetics-mauzóleum </string>
+    <string name="keszthmonuments2">Georgikon ház</string>
+    <string name="keszthmonuments3">Helikon-emlékmű</string>
+    <string name="keszthmonuments4">Városháza</string>
+
+    <string name="keszthother1">Balaton Kongresszusi Központ és Színház</string>
+    <string name="keszthother2">Sétálóutca</string>
+    <string name="keszthother3">Szigetfürdő</string>
+
+    <string name="keszthmus1">muzeumok/balatoni_muzeum</string>
+
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sopronwebpage">Resource: www.sopron.hu/en</string>
+    <string name="sopronmuseum6">Archaeology exhibition </string>
+    <string name="sopronmuseum7">Roman lapidary </string>
+    <string name="sopronmuseum8">Storno Collection </string>
+    <string name="sopronmuseum9">Old synagogue </string>
+    <string name="sopronmuseum2">Forum of Scarbantiae </string>
+    <string name="sopronmuseum1">Forestry Museum </string>
+    <string name="sopronmuseum3">Boundless history </string>
+    <string name="sopronmuseum5">Ligneum - visitor centre of the Sopron University </string>
+    <string name="sopronmuseum4">Central Museum Of Mining </string>
+
+    <string name="soprontemplom1">Church of St Margaret of Hungary (Julianeum) </string>
+    <string name="soprontemplom2">Benedictine (Goat) church and Chapter hall </string>
+    <string name="soprontemplom3">Dominican church </string>
+    <string name="soprontemplom4">Lutheran church </string>
+    <string name="soprontemplom5">Church of the Sacred Heart of Jesus </string>
+    <string name="soprontemplom6">Church of St John the Baptist (Johannite) </string>
+    <string name="soprontemplom7">Synagogue in Paprét </string>
+    <string name="soprontemplom9">The dome-church of St György (George) </string>
+    <string name="soprontemplom12">Church of St Imre (Emmerich) </string>
+    <string name="soprontemplom13">St. Stephen church </string>
+    <string name="soprontemplom10">St Michael’s church </string>
+    <string name="soprontemplom11">Ursuline Church </string>
+    <string name="soprontemplom8">Reformed church </string>
+
+
+    <string name="sopronmonuments1">Bezerédj House </string>
+    <string name="sopronmonuments2">Fabricius House </string>
+    <string name="sopronmonuments4">Post Palace </string>
+    <string name="sopronmonuments5">Old Casino </string>
+    <!--<string name="sopronmonuments6">Scarbantia Régészeti Park muemlekek/scarbantia-regeszeti-park.html</string>-->
+    <string name="sopronmonuments7">Storno House </string>
+    <string name="sopronmonuments9">Firewatch Tower </string>
+    <string name="sopronmonuments11">Zichy-Meskó Palace </string>
+    <string name="sopronmonuments10">Town Hall </string>
+    <string name="sopronmonuments8">Holy Trinity Statue </string>
+    <string name="sopronmonuments3">Picnic memorial  - Breakthrough </string>
+
+    <string name="sopronother1">Petőfi Theater </string>
+    <string name="sopronother3">Taródi castle</string>
+    <string name="sopronother2">Sopron Castle Wall Promenade </string>
+</resources>
