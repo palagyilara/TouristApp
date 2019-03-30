@@ -27,7 +27,7 @@
     <string name="pecsmonuments3">Equestrian Statue of János Hunyadi </string>
     <string name="pecsmonuments4">Statue of Lajos Kossuth </string>
     <string name="pecsmonuments10">Zsolnay fountain </string>
-    <string name="pecsmonuments8">Eternal Flame Monument </string>
+    <!--<string name="pecsmonuments8">Eternal Flame Monument </string>-->
     <string name="pecsmonuments9">Statue of the Holy Trinity </string>
     <string name="pecsmonuments7">Early Christian Mausoleum </string>
 
@@ -36,4 +36,40 @@
     <string name="pecsother4">National Theatre of Pécs </string>
     <string name="pecsother5">City Hall </string>
     <string name="pecsother3">Padlocks </string>
+
+    <string name="pecsmus1">museums-art-galleries/csontvary-museum.html</string>
+    <string name="pecsmus2">museums-art-galleries/museum-of-ethnography.html</string>
+    <string name="pecsmus3">cathedralandbishophric/bishops-palace-and-the-secret-passage.html</string>
+    <string name="pecsmus4">museums-art-galleries/natural-history-museum.html</string>
+    <string name="pecsmus5">museums-art-galleries/vasarely-museum.html</string>
+    <string name="pecsmus6">museums-art-galleries/vasvary-house.html</string>
+    <string name="pecsmus7">museums-art-galleries/the-museum-of-the-history-of-the-city-of-pecs.html</string>
+    <string name="pecsmus8">museums-art-galleries/zsolnay-family-and-factory-history-exhibition.html</string>
+
+    <string name="pecstemp1">religious-values/lutheran-church.html</string>
+    <string name="pecstemp2">turkish-age/franciscan-church.html</string>
+    <string name="pecstemp3">turkish-age/mosque-of-pasha-gazi-kasim.html</string>
+    <string name="pecstemp4">turkish-age/the-mosque-of-pasha-yakovali-hassan.html</string>
+    <string name="pecstemp5">religious-values/lyceum-church.html</string>
+    <string name="pecstemp6">religious-values/pius-church.html</string>
+    <string name="pecstemp7">cathedralandbishophric/cathedral.html</string>
+    <string name="pecstemp8">cathedralandbishophric/convent-church.html</string>
+    <string name="pecstemp9">religious-values/synagogue.html</string>
+
+    <string name="pecsmon1">statues-fountains/angster-monument.html</string>
+    <string name="pecsmon2">cathedralandbishophric/barbican.html</string>
+    <string name="pecsmon3">statues-fountains/equestrian-statue-of-janos-hunyadi.html</string>
+    <string name="pecsmon4">statues-fountains/statue-of-lajos-kossuth.html</string>
+    <string name="pecsmon5">cathedralandbishophric/medieval-university.html</string>
+    <string name="pecsmon6">cathedralandbishophric/statue-of-ferenc-liszt.html</string>
+    <string name="pecsmon7">unesco-world-heritage/early-christian-mausoleum.html</string>
+    <!--<string name="pecsmon8">statues-fountains/eternal-flame-monument.html</string>-->
+    <string name="pecsmon9">statues-fountains/statue-of-the-holy-trinity.html</string>
+    <string name="pecsmon10">zsolnay-tradition/zsolnay-fountain.html</string>
+
+    <string name="pecsoth1">unesco-world-heritage/cella-septichora-visitors-centre.html</string>
+    <string name="pecsoth2">interesting-buildings/kodaly-centre.html</string>
+    <string name="pecsoth3">other-attractions/padlocks.html</string>
+    <string name="pecsoth4">interesting-buildings/national-theatre-of-pecs-1-theatre-square.html</string>
+    <string name="pecsoth5">interesting-buildings/city-hall-1-szechenyi-square.html</string>
 </resources>

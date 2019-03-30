@@ -21,4 +21,24 @@
     <string name="veszpother5">Veszprém Zoo </string>
     <string name="veszpother3">Saint Stephan Viaduct </string>
     <string name="veszpother4">City Hall </string>
+
+    <string name="veszpmus1">beatified-gizella-diocese-collection</string>
+    <string name="veszpmus2">dubniczay-house-laszlo-karoly-collection</string>
+    <string name="veszpmus3">heroes-gate</string>
+
+    <string name="veszptemp1">gisella-chapel</string>
+    <string name="veszptemp2">franciscan-church</string>
+    <string name="veszptemp3">regina-mundi-church</string>
+    <string name="veszptemp4">saint-michaels-cathedral</string>
+    <string name="veszptemp5">piarist-and-garrison-church</string>
+    <string name="veszptemp6">ruins-of-the-greek-orthodox-nunnery-and-jesuit-church</string>
+
+    <string name="veszpmon1">fire-lookout-tower</string>
+    <string name="veszpmon2">walk-in-the-castle</string>
+
+    <string name="veszpoth1">herend-porcelanium</string>
+    <string name="veszpoth2">salesianum-archbishoprics-touristic-centre</string>
+    <string name="veszpoth3">saint-stephan-viaduct</string>
+    <string name="veszpoth4">city-hall</string>
+    <string name="veszpoth5">veszprem-zoo</string>
 </resources>

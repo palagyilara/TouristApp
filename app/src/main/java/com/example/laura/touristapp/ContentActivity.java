@@ -67,19 +67,6 @@ import static com.example.laura.touristapp.DatabaseHandler.TABLE_NAME;
 
 public class ContentActivity extends AppCompatActivity {
 
-   /* BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
-
-    // The name for the new dataset
-    String datasetName = "my_new_dataset";
-
-    // Prepares a new dataset
-    Dataset dataset = null;
-    DatasetInfo datasetInfo = DatasetInfo.newBuilder(datasetName).build();*/
-
-    // Creates the dataset
-   // dataset = bigquery.create(datasetInfo);
-
-   // System.out.printf("Dataset %s created.%n", dataset.getDatasetId().getDataset());
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -115,34 +102,8 @@ public class ContentActivity extends AppCompatActivity {
         wikipedia = (TextView) findViewById(R.id.wikipedia);
         speakbtn = (ImageButton) findViewById(R.id.speakbtn);
 
-        //tts = new TextToSpeech(this, this);
-        // final String[] language = extra.getStringArray("lang");
-        // final String lang = extra.getString("key1");
-        //String speech = null;
-        Paper.init(this);
-        //language[].setText(language);
         String language = Paper.book().read("language");
-        if (language == null)
-            Paper.book().write("language", "hu");
 
-        updateView((String) Paper.book().read("language"));
-
-        /*final Dialog nagDialog = new Dialog (ContentActivity.this,android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
-        nagDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        nagDialog.setCancelable(true);
-        //nagDialog.setContentView(R.layout.preview_image);
-        //Button btnClose = (Button)nagDialog.findViewById(R.id.btnIvClose);
-        ImageView ivPreview = (ImageView)nagDialog.findViewById(R.id.iv_preview_image);
-        ivPreview.setBackgroundDrawable();
-
-       /* btnClose.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-
-                nagDialog.dismiss();
-            }
-        });*/
-        //nagDialog.show();
         if (language.equals("hu")) {
 
             // title.setText("A városról");
@@ -154,70 +115,6 @@ public class ContentActivity extends AppCompatActivity {
             ContentActivity.FetchWikiDataAsync fetchWikiDataAsync = new ContentActivity.FetchWikiDataAsync();
 
             fetchWikiDataAsync.execute(WIKIPEDIA_URL);
-            /*tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-
-                @Override
-                public void onInit(int initStatus) {
-                    if (initStatus == TextToSpeech.SUCCESS) {
-                        // if (tts.isLanguageAvailable(Locale.UK) == TextToSpeech.LANG_AVAILABLE) {
-                        int result = tts.setLanguage(new Locale("hu_HU"));
-                        //tts.setLanguage(Locale.UK);
-                        Toast.makeText(ContentActivity.this, "Magyar beszéd kész", Toast.LENGTH_LONG).show();
-                        //tts.setLanguage(Locale.GERMANY);
-                        if (result == TextToSpeech.LANG_MISSING_DATA
-                                || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                            Log.e("TTS", "The Language is not supported!");
-                            Intent installIntent = new Intent();
-                            installIntent.setAction(
-                                    TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
-                            startActivity(installIntent);
-                        } else {
-                            Log.i("TTS", "Language Supported.");
-                        }
-                        Log.i("TTS", "Initialization success.");
-                        // }
-                        // tts.setLanguage(Locale.UK);
-                    } else if (initStatus == TextToSpeech.ERROR) {
-                        Toast.makeText(ContentActivity.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
-                    }
-                }
-            });*/
-            /*try (TextToSpeechClient textToSpeechClient = TextToSpeechClient.create()) {
-                // Set the text input to be synthesized
-                SynthesisInput input = SynthesisInput.newBuilder()
-                        .setText(txtWikiData.getText().toString())
-                        .build();
-
-                // Build the voice request, select the language code ("en-US") and the ssml voice gender
-                // ("neutral")
-                VoiceSelectionParams voice = VoiceSelectionParams.newBuilder()
-                        .setLanguageCode("en-US")
-                        .setSsmlGender(SsmlVoiceGender.NEUTRAL)
-                        .build();
-
-                // Select the type of audio file you want returned
-                AudioConfig audioConfig = AudioConfig.newBuilder()
-                        .setAudioEncoding(AudioEncoding.MP3)
-                        .build();
-
-                // Perform the text-to-speech request on the text input with the selected voice parameters and
-                // audio file type
-                SynthesizeSpeechResponse response = textToSpeechClient.synthesizeSpeech(input, voice,
-                        audioConfig);
-
-                // Get the audio contents from the response
-                ByteString audioContents = response.getAudioContent();
-
-                // Write the response to the output file.
-                try (OutputStream out = new FileOutputStream("output.mp3")) {
-                    out.write(audioContents.toByteArray());
-                    System.out.println("Audio content written to file \"output.mp3\"");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
 
             speakbtn.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
@@ -237,15 +134,7 @@ public class ContentActivity extends AppCompatActivity {
 
                 }
             });
-            //speakbtn.setOnClickListener(ContentActivity.this);
-            //speak();
 
-        /*Intent checkTTSIntent = new Intent();
-        checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-        startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);*/
-        /*Locale locHun = new Locale("hu");
-        myTTS.setLanguage(locHun);
-        myTTS.speak(speech, TextToSpeech.QUEUE_ADD, null);*/
         } else if (language.equals("en")) {
             // title.setText("About the city");
             String WIKIPEDIA_URL = "https://en.wikipedia.org/w/api.php?action=query&titles=" +
@@ -294,20 +183,9 @@ public class ContentActivity extends AppCompatActivity {
                     if (speechStatus == TextToSpeech.ERROR) {
                         Log.e("TTS", "Error in converting Text to Speech!");
                     }
-                    //handle user clicks here
-                    //TextView txtWikiData = (TextView) findViewById(R.id.txtWikiData);
-                    //String words = txtWikiData.getText().toString();
-                    //tts.speak(words, TextToSpeech.QUEUE_FLUSH, null);
-                    //speakWords(words);
-                    // speak(words);
-
                 }
             });
 
-            //TextToSpeech.OnInitListener
-            /*Intent checkTTSIntent = new Intent();
-            checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-            startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);*/
         } else if (language.equals("de")) {
             //title.setText("A városról");
             String WIKIPEDIA_URL = "https://de.wikipedia.org/w/api.php?action=query&titles=" +
@@ -322,7 +200,8 @@ public class ContentActivity extends AppCompatActivity {
                 @Override
                 public void onInit(int initStatus) {
                     if (initStatus == TextToSpeech.SUCCESS) {
-                        int result = tts.setLanguage(Locale.GERMAN);
+                        Locale locale = new Locale("de", "de_AT");
+                        int result = tts.setLanguage(locale);
                         //int result = tts.setLanguage(new Locale("de_AT"));
                         //if (tts.isLanguageAvailable(Locale.GERMANY) == TextToSpeech.LANG_AVAILABLE) {
                             //  tts.setLanguage(Locale.UK);
@@ -351,153 +230,20 @@ public class ContentActivity extends AppCompatActivity {
                 }
             });
             speakbtn.setOnClickListener(new View.OnClickListener() {
-                                            public void onClick(View v) {
-                                                //handle user clicks here
-                                                //TextView txtWikiData = (TextView) findViewById(R.id.txtWikiData);
-                                                //String words = txtWikiData.getText().toString();
-                                                //tts.speak(words, TextToSpeech.QUEUE_FLUSH, null);
-                                                //speakWords(words);
-                                                // speak(words);
-                                                String data = txtWikiData.getText().toString();
-                                                Log.i("TTS", "button clicked: " + data);
-                                                int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
+                public void onClick(View v) {
 
-                                                if (speechStatus == TextToSpeech.ERROR) {
-                                                    Log.e("TTS", "Error in converting Text to Speech!");
-                                                }
-
-                                            }
-                                        });
-
-            /*Intent checkTTSIntent = new Intent();
-            checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-            startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);*/
+                    String data = txtWikiData.getText().toString();
+                    Log.i("TTS", "button clicked: " + data);
+                    int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
+                    if (speechStatus == TextToSpeech.ERROR) {
+                        Log.e("TTS", "Error in converting Text to Speech!");
+                        }
+                        }
+            });
         }
 
     }
-    /*
-    @Override
-    public void onDestroy() {
-        if (tts != null) {
-            tts.stop();
-            tts.shutdown();
-        }
-        super.onDestroy();
-    }
 
-    @Override
-    public void onInit(int i) {
-        Paper.init(this);
-        //language[].setText(language);
-        String language = Paper.book().read("language");
-        if (i == TextToSpeech.SUCCESS) {
-            if(language.equals("hu")) {
-                int result = tts.setLanguage(new Locale("hu_HU"));
-                //int result = tts.setLanguage(Locale.UK);
-                if (result == TextToSpeech.LANG_MISSING_DATA
-                        || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                    Log.e("TTS", "This Language is not supported");
-                    Intent installIntent = new Intent();
-                    installIntent.setAction(
-                            TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
-                    startActivity(installIntent);
-                } else {
-                    speakbtn.setEnabled(true);
-                    speak();
-                }
-            }
-            else if(language.equals("en")) {
-                int result = tts.setLanguage(Locale.UK);
-                if (result == TextToSpeech.LANG_MISSING_DATA
-                        || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                    Log.e("TTS", "This Language is not supported");
-                } else {
-                    speakbtn.setEnabled(true);
-                    speak();
-                }
-            }
-            else if(language.equals("de")) {
-                //int result = tts.setLanguage(new Locale("nl_NL"));
-               int result = tts.setLanguage(Locale.GERMANY);
-                if (result == TextToSpeech.LANG_MISSING_DATA
-                        || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                    Log.e("TTS", "This Language is not supported");
-                    Intent installIntent = new Intent();
-                    installIntent.setAction(
-                            TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
-                    startActivity(installIntent);
-                } else {
-                    speakbtn.setEnabled(true);
-                    speak();
-                }
-            }
-
-        } else {
-
-            Log.e("TTS", "Initilization Failed!");
-        }
-    }
-
-    private void speak() {
-
-        String text = txtWikiData.getText().toString();
-        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-    }
-
-    @Override
-    public void onClick(View v) {
-        Toast.makeText(this,"Speech Created",Toast.LENGTH_SHORT).show();
-        speak();
-
-    }
-    */
-/*
-    public void onClick(View v) {
-        //handle user clicks here
-        //TextView txtWikiData = (TextView) findViewById(R.id.txtWikiData);
-        String words = txtWikiData.getText().toString();
-        tts.speak(words, TextToSpeech.QUEUE_FLUSH, null);
-        //speakWords(words);
-        // speak(words);
-
-    }*/
-
-    /*private void speakWords(String speech) {
-        tts.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
-    }*/
-/*
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == MY_DATA_CHECK_CODE) {
-            if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
-                tts = new TextToSpeech(ContentActivity.this, (TextToSpeech.OnInitListener) ContentActivity.this);
-                Toast.makeText(ContentActivity.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
-            } else {
-                Intent installTTSIntent = new Intent();
-                installTTSIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
-                startActivity(installTTSIntent);
-            }
-        }
-    }*/
-
-   /* public void onInit(int initStatus) {
-        if (initStatus == TextToSpeech.SUCCESS) {
-            if (tts.isLanguageAvailable(Locale.UK) == TextToSpeech.LANG_AVAILABLE || tts.isLanguageAvailable(Locale.GERMANY) == TextToSpeech.LANG_AVAILABLE)
-                tts.setLanguage(Locale.UK);
-                tts.setLanguage(Locale.GERMANY);
-
-           // tts.setLanguage(Locale.UK);
-        } else if (initStatus == TextToSpeech.ERROR) {
-            Toast.makeText(this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
-        }
-    }*/
-
-    /*private void speak(String text){
-
-            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-       /* else{
-            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-        }*/
-    //}
    @Override
     public void onDestroy() {
         if (tts != null) {
@@ -510,7 +256,6 @@ public class ContentActivity extends AppCompatActivity {
 
     private class FetchWikiDataAsync extends AsyncTask<String, Void, String> {
         String text1;
-        String words;
 
         @Override
         protected void onPreExecute() {
@@ -574,34 +319,34 @@ public class ContentActivity extends AppCompatActivity {
 
                 } else {*/
                 // HTML Data
-                Document doc = Jsoup.parse(formattedData);/*
-                Elements tag=doc.select ("span#Jegyzetek");
-                for(Element p : tag){
-                    words=p.text();
-                    //String text =p.html();
-                    tag.remove ( );
+                Document doc = Jsoup.parse(formattedData);
 
-                    System.out.println(tag.remove());
-                    System.out.println(doc.getElementById("Képgaléria"));
-                     }
 
-                doc.select("span[id=Jegyzetek]").remove();
-                doc.select("h2.span[id=Képek]").remove();*/
+                text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                        .replaceAll("<span id=\"Képgaléria\">(.+?)</span>","")
+                        .replaceAll("<span id=\"Képek\">(.+?)</span>","")
+                        .replaceAll("<span id=\"Galéria\">(.+?)</span>","")
+                        .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>","")
+                        .replaceAll("<span id=\"Képek_Egerről\">(.+?)</span>","")
+                        .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>","")
+                        .replaceAll("<ul class=\"gallery mw-gallery-packed\"([\\s\\S]+?)</ul>","")
+                        .replaceAll("<ul class=\"attachments\"([\\s\\S]+?)</ul>","")
+                        .replaceAll("<span id=\"Címer\">(.+?)</span>","")
+                        .replaceAll("<span id=\"References\">(.+?)</span>","")
+                        .replaceAll("<span id=\"Testvérváros\">(.+?)</span>","")
+                        .replaceAll("<span id=\"Partnerváros\">(.+?)</span>","")
+                        .replaceAll("<span id=\"Population\">(.+?)</span>","")
+                        .replaceAll("<span id=\"Image_gallery\">(.+?)</span>","")
+                        .replaceAll("<span>Vorlage:Panorama/Wartung/Para4</span>","")
+                        .replaceAll("<span id=\"Éghajlat\">(.+?)</span>","")
+                        .replaceAll("<span id=\"Éghajlata\">(.+?)</span>","")
+                        .replaceAll ("<a>","<p>")
+                        .replaceAll ("<table>","<div>")
+                        .replaceAll("<span id=\"Klima\">(.+?)</span>","")
+                        //.replaceAll("<table class=\"wikitable\"([\\s\\S]+?)</table>","")
+                        .replaceAll("<span id=\"Címer\">(.+?)</span>","")
+                        .replaceAll("<span id=\"Climate\">(.+?)</span>","");
 
-                text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>").replaceAll("<span id=\"Jegyzetek\">(.+?)</span>","").replaceAll("<span id=\"Képgaléria\">(.+?)</span>","").replaceAll("<span id=\"Képek\">(.+?)</span>","")
-                        .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>","");
-               // doc.select("span[id=Jegyzetek]").remove();
-                /*Document doc = Jsoup.parse(text1);
-                doc.select("span[id=Jegyzetek]").remove();
-                doc.select("h2.span[id=Képek]").remove();
-                //doc.getElementById("Képgaléria").remove();
-                //doc.getElementById("Jegyzetek").remove();
-                /*doc.getElementById("Képek").remove();
-                doc.getElementById("Képgaléria").remove();*/
-
-                //doc.select("h2.span#Képgaléria]").remove();
-
-                //Elements divs=doc.select("div.content-text");
                 txtWikiData.setText(Html.fromHtml(text1));
                 ContentValues values = new ContentValues();
                 //Toast.makeText(ContentActivity.this, "hiba!", Toast.LENGTH_LONG).show();
@@ -728,33 +473,48 @@ public class ContentActivity extends AppCompatActivity {
        // Cursor c = null;
         db = databaseHandler.getReadableDatabase();
         //try {
-        Toast.makeText(ContentActivity.this, "ellenőrzés!", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(ContentActivity.this, "ellenőrzés!", Toast.LENGTH_SHORT).show();
         //db.getReadableDatabase();
-        String query = "select cityname from cityinfos where cityname = ?";
-        //String Query = "Select * from " + TableName + " where " + dbfield + " = " + fieldValue;
-        Cursor cursor = db.rawQuery(query, new String[]{keyword});
-        if (cursor.getCount() <= 0) {
-            cursor.close();
-            return false;
-        }
-        cursor.close();
-        return true;
+        if (keyword.equals("Eger_(Ungarn)")) {
+            String keyword1 = "Eger";
+            String query = "select cityname from cityinfos where cityname = ?";
+            //String Query = "Select * from " + TableName + " where " + dbfield + " = " + fieldValue;
+            Cursor cursor = db.rawQuery(query, new String[]{keyword1});
 
+            if (cursor.getCount() <= 0) {
+                cursor.close();
+                return false;
+            }
+            cursor.close();
+            return true;
+        }
+        else {
+            String query = "select cityname from cityinfos where cityname = ?";
+            //String Query = "Select * from " + TableName + " where " + dbfield + " = " + fieldValue;
+            Cursor cursor = db.rawQuery(query, new String[]{keyword});
+
+            if (cursor.getCount() <= 0) {
+                cursor.close();
+                return false;
+            }
+            cursor.close();
+            return true;
+        }
     }
 
     SQLiteDatabase db;
 
     public void addData(String keyword, String infohu, String infoen, String infode) {
         String language = Paper.book().read("language");
-        Toast.makeText(ContentActivity.this, "adddata!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(ContentActivity.this, "adddata!", Toast.LENGTH_SHORT).show();
         if (CheckIsDataAlreadyInDBorNot() == false) {
             //perform inserting
             Toast.makeText(ContentActivity.this, "insert!", Toast.LENGTH_SHORT).show();
             boolean insertData = databaseHandler.addData(keyword, infohu, infoen, infode);
 
-            if (insertData)
+            /*if (insertData)
                 Toast.makeText(ContentActivity.this, "Sikeres!", Toast.LENGTH_SHORT).show();
-            else Toast.makeText(ContentActivity.this, "Sikertelen !", Toast.LENGTH_SHORT).show();
+            else Toast.makeText(ContentActivity.this, "Sikertelen !", Toast.LENGTH_SHORT).show();*/
         } else {
             Toast.makeText(ContentActivity.this, "Frissítés!", Toast.LENGTH_SHORT).show();
             db = databaseHandler.getWritableDatabase();

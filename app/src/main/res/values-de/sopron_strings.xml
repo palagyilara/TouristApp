@@ -30,15 +30,53 @@
     <string name="sopronmonuments2">Fabricius-Haus </string>
     <string name="sopronmonuments4">Postpalast </string>
     <string name="sopronmonuments5">Altes Kasino </string>
-    <!--<string name="sopronmonuments6">Scarbantia Régészeti Park muemlekek/scarbantia-regeszeti-park.html</string>-->
     <string name="sopronmonuments7">Storno-Haus </string>
     <string name="sopronmonuments9">Feuerturm </string>
     <string name="sopronmonuments11">Zichy-Meskó Palais </string>
     <string name="sopronmonuments10">Rathaus </string>
     <string name="sopronmonuments8">Dreifaltigkeitssäule </string>
-    <string name="sopronmonuments3">Picknick-Denkmal (Umbruch) </string>
+    <!--<string name="sopronmonuments3">Picknick-Denkmal (Umbruch) </string>-->
 
     <string name="sopronother1">Theater Petőfi </string>
     <string name="sopronother3">Burg Taródi </string>
     <string name="sopronother2">Soproner Stadtmauerpromenade </string>
+
+    <string name="soprmus1">museen/forstmuseum.html</string>
+    <string name="soprmus2">museen/forum-scarbantiae.html</string>
+    <string name="soprmus3">museen/geschichte-ohne-grenzen.html</string>
+    <string name="soprmus4">museen/das-zentrale-bergbaumuseum.html</string>
+    <string name="soprmus5">museen/besucherzentrum-ligneum-der-soproner-universitat.html</string>
+    <string name="soprmus6">museen/archaologische-ausstellung.html</string>
+    <string name="soprmus7">museen/romisches-lapidarium.html</string>
+    <string name="soprmus8">museen/storno-sammlung.html</string>
+    <string name="soprmus9">sakrale-denkmaler/alte-synagoge.html</string>
+
+    <string name="soprtemp1">sakrale-denkmaler/kirche-sankt-margarethe-von-ungarn-julianum.html</string>
+    <string name="soprtemp2">sakrale-denkmaler/benediktinerkirche-ziegenkirche-und-kapitelsaal.html</string>
+    <string name="soprtemp3">sakrale-denkmaler/dominikanerkirche.html</string>
+    <string name="soprtemp4">sakrale-denkmaler/evangelische-kirche.html</string>
+    <string name="soprtemp5">sakrale-denkmaler/herzjesukirche.html</string>
+    <string name="soprtemp6">sakrale-denkmaler/kirche-sankt-johannes-der-taufer-johanniterkirche.html</string>
+    <string name="soprtemp7">sakrale-denkmaler/synagoge-in-papret.html</string>
+    <string name="soprtemp8">sakrale-denkmaler/calvinistische-kirche.html</string>
+    <string name="soprtemp9">sakrale-denkmaler/die-domkirche-sankt-georg.html</string>
+    <string name="soprtemp10">sakrale-denkmaler/sankt-michaeliskirche.html</string>
+    <string name="soprtemp11">sakrale-denkmaler/ursulinenkirche.html</string>
+    <string name="soprtemp12">sakrale-denkmaler/kirche-sankt-emmerich-szent-imre.html</string>
+    <string name="soprtemp13">sakrale-denkmaler/kirche-sankt-stephan.html</string>
+
+    <string name="soprmon1">baudenkmaler/bezeredjhaus.html</string>
+    <string name="soprmon2">baudenkmaler/fabriciushaus.html</string>
+    <!--<string name="soprmon3">statuen/picknickdenkmal-umbruch.html</string>-->
+    <string name="soprmon4">baudenkmaler/postpalast.html</string>
+    <string name="soprmon5">baudenkmaler/altes-kasino.html</string>
+    <string name="soprmon7">baudenkmaler/stornohaus.html</string>
+    <string name="soprmon8">statuen/dreifaltigkeitssaule.html</string>
+    <string name="soprmon9">baudenkmaler/feuerturm.html</string>
+    <string name="soprmon10">baudenkmaler/rathaus.html</string>
+    <string name="soprmon11">baudenkmaler/zichymesko-palais.html</string>
+
+    <string name="soproth1">baudenkmaler/theater-petofi.html</string>
+    <string name="soproth2">schlosser-und-burgen/soproner-stadtmauerpromenade.html</string>
+    <string name="soproth3">schlosser-und-burgen/burg-tarodi.html</string>
 </resources>

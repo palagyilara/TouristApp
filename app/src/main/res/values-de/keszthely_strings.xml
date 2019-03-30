@@ -3,7 +3,7 @@
     <string name="keszthwebpage">die Ressource: www.keszthely.hu/de</string>
     <string name="keszthmuseum1">Das BalatonMuseum</string>
     <string name="keszthmuseum3">Festetics-Schloss</string>
-    <string name="keszthmuseum8">Júlia-Szendrey-Gedenkhaus</string>
+    <string name="keszthmuseum6">Júlia-Szendrey-Gedenkhaus</string>
 
     <string name="keszthtemplom1">Evangelische Kirche</string>
     <string name="keszthtemplom2">Basilika St. Theresa und Kloster</string>
@@ -20,5 +20,20 @@
     <string name="keszthother3">Badeinsel</string>
 
     <string name="keszthmus1">museen/balatoni-muzeum</string>
+    <string name="keszthmus3">museen/festetics-kastely</string>
+    <string name="keszthmus6">museen/szendrey-julia-emlekhaz</string>
 
+    <string name="keszthtemp1">kirchen/evangelikus_templom</string>
+    <string name="keszthtemp2">kirchen/kis_szent_terez_bazilika</string>
+    <string name="keszthtemp3">kirchen/gotikus_plebaniatemplom</string>
+    <string name="keszthtemp4">kirchen/reformatus_templom</string>
+
+    <string name="keszthmon1">denkmler/festetics-mauzoleum</string>
+    <string name="keszthmon2">denkmler/georgikon-haz</string>
+    <string name="keszthmon3">skulpturen--denkmler/helikon-emlekmu</string>
+    <string name="keszthmon4">denkmler/varoshaza_</string>
+
+    <string name="keszthoth1">andere/balaton-kongresszusi-kozpont-es-szinhaz</string>
+    <string name="keszthoth2">andere/setaloutca</string>
+    <string name="keszthoth3">andere/szigetfurdo</string>
 </resources>

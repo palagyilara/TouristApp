@@ -38,4 +38,40 @@
     <string name="szegedother4">Szeged Military Park </string>
     <string name="szegedother7">Zoo Szeged </string>
 
+    <string name="szegmus1">black-house/</string>
+    <string name="szegmus2">mora-ferenc-museum/</string>
+    <string name="szegmus3">reok-palace-2/</string>
+    <string name="szegmus4">szent-gyorgyi-albert-agora-2/</string>
+    <string name="szegmus5">albert-szent-gyorgyi-memorial-room/</string>
+    <string name="szegmus6">fortress-museum-and-stone-collection/</string>
+
+    <string name="szegtemp1">alsovarosi-church/</string>
+    <string name="szegtemp2">votive-church-2/</string>
+    <string name="szegtemp3">protestant-church/</string>
+    <string name="szegtemp4">old-synagogue/</string>
+    <string name="szegtemp5">serbian-orthodox-church/</string>
+    <string name="szegtemp6">new-synagogue-2/</string>
+
+    <string name="szegmon1">beregi-house/</string>
+    <string name="szegmon2">appartemant-house-iron-house/</string>
+    <string name="szegmon3">deutsch-palace/</string>
+    <string name="szegmon4">st-demetrius-tower/</string>
+    <string name="szegmon5">goldschmidt-palace/</string>
+    <string name="szegmon6">grof-palace/</string>
+    <string name="szegmon7">marer-house/</string>
+    <string name="szegmon8">moricz-house/</string>
+    <string name="szegmon9">raichl-house/</string>
+    <string name="szegmon10">422046-2/</string>
+    <string name="szegmon11">schaffer-palace/</string>
+
+    <string name="szegoth1">franciscan-visitor-centre-in-alsovaros/</string>
+    <string name="szegoth2">attila-jozsef-education-and-information-centre/</string>
+    <string name="szegoth3">somogyi-library/</string>
+    <string name="szegoth4">szeged-military-park/</string>
+    <string name="szegoth5">szeged-national-theatre/</string>
+    <string name="szegoth6">water-tower-in-st-steven-square/</string>
+    <string name="szegoth7">en/zoo-szeged/</string>
+    <string name="szegoth8">city-hall/</string>
+    <string name="szegoth9">musical-clock/</string>
+
 </resources>

@@ -8,8 +8,16 @@
     <string name="tihanymonuments1">Crypt of King Andrew I</string>
     <string name="tihanymonuments2">Relics of the folk architecture, and peasant houses</string>
 
-    <!--<string name="tihanyother3">Levendula Ház Látogatóközpont latnivalok/latnivalok-inner/22-levendula-haz</string>-->
     <string name="tihanyother4">Hermit\'s place</string>
     <string name="tihanyother2">Church ruins at Apáti </string>
-    <string name="tihanyother1">Gallows hill </string>
-</resources>
+
+    <!--<string name="tihanymus1">muemlekek/7-bences-apatsagi-muzeum</string>-->
+
+    <string name="tihanytemp1">artmemorials/140-bences-apatsag-barokk-temploma-en</string>
+
+    <string name="tihanymon1">artmemorials/158-i-andras-kriptaja-en</string>
+    <string name="tihanymon2">artmemorials/138-a-nepi-epiteszet-emlekei-en</string>
+
+     <string name="tihanyoth2">144-apati-templomrom-en</string>
+     <string name="tihanyoth4">151-remetetelep-baratlakasok-en</string>
+ </resources>

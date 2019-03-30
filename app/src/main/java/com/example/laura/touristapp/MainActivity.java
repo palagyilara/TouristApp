@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         Paper.init(this);
 
         //default nyelv magyar
-        String language= Paper.book().read("language");
+        final String language= Paper.book().read("language");
         if(language==null){
             Paper.book().write("language","hu");}
 
@@ -272,13 +272,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                //openContentActivity(null);
-                Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-                String keyword = btnFetchData7.getText().toString();
-                //Toast.makeText(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
-                intent.putExtra("key", keyword);
+                    Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                    String keyword = btnFetchData7.getText().toString();
+                    intent.putExtra("key", keyword);
+
+                    startActivity(intent);
+
                 //intent.putExtra("key1", lang);
-                startActivity(intent);
             }
 
         });

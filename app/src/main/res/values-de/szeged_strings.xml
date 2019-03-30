@@ -38,4 +38,40 @@
     <string name="szegedother4">Szegeder Militärpark </string>
     <string name="szegedother7">Tierpark </string>
 
+    <string name="szegmus1">schwarzes-haus/</string>
+    <string name="szegmus2">museum-ferenc-mora/</string>
+    <string name="szegmus3">palais-reok-2/</string>
+    <string name="szegmus4">albert-szent-gyorgyi-agora/</string>
+    <string name="szegmus5">gedenkzimmer-albert-szent-gyorgyis/</string>
+    <string name="szegmus6">burgmuseum-und-lapidarium/</string>
+
+    <string name="szegtemp1">unterstadtische-kirche/</string>
+    <string name="szegtemp2">die-votivkirche/</string>
+    <string name="szegtemp3">reformierte-kirche/</string>
+    <string name="szegtemp4">alte-synagoge/</string>
+    <string name="szegtemp5">serbische-kirche/</string>
+    <string name="szegtemp6">neue-synagoge-2/</string>
+
+    <string name="szegmon1">beregi-haus/</string>
+    <string name="szegmon2">das-mietshaus-vasalo-haus/</string>
+    <string name="szegmon3">palais-deutsch/</string>
+    <string name="szegmon4">demetriusturm/</string>
+    <string name="szegmon5">der-goldschmidt-palast/</string>
+    <string name="szegmon6">palais-grof/</string>
+    <string name="szegmon7">das-marer-haus/</string>
+    <string name="szegmon8">haus-moricz/</string>
+    <string name="szegmon9">der-raichl-palast/</string>
+    <string name="szegmon10">der-reformierte-palast/</string>
+    <string name="szegmon11">der-schaffer-palast/</string>
+
+    <string name="szegoth1">besucherzentrum-der-franziskaner-in-der-unterstadt/</string>
+    <string name="szegoth2">studien-und-infozentrum-attila-jozsef/</string>
+    <string name="szegoth3">bibliothek-somogyi/</string>
+    <string name="szegoth4">szegeder-militarpark/</string>
+    <string name="szegoth5">nationaltheater-von-szeged/</string>
+    <string name="szegoth6">wasserturm-auf-dem-szent-istvan-platz/</string>
+    <string name="szegoth7">de/tierpark/</string>
+    <string name="szegoth8">rathaus/</string>
+    <string name="szegoth9">musizierende-uhr/</string>
+
 </resources>

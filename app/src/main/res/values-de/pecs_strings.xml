@@ -27,7 +27,7 @@
     <string name="pecsmonuments3">Reiterdenkmal von János Hunyadi </string>
     <string name="pecsmonuments4">Statue von Lajos Kossuth </string>
     <string name="pecsmonuments10">Zsolnay Brunnen </string>
-    <string name="pecsmonuments8">Ewiglicht-Denkmal </string>
+    <!--<string name="pecsmonuments8">Ewiglicht-Denkmal </string>-->
     <string name="pecsmonuments9">Dreifaltigkeitssäule </string>
     <string name="pecsmonuments7">Frühchristliches Mausoleum</string>
 
@@ -36,4 +36,40 @@
     <string name="pecsother4">Pécser Nationaltheater </string>
     <string name="pecsother5">Rathaus</string>
     <string name="pecsother3">Schlösser </string>
+
+    <string name="pecsmus1">museen-galerien/csontvary-museum.html</string>
+    <string name="pecsmus2">museen-galerien/museum-fur-volkerkunde.html</string>
+    <string name="pecsmus3">basilika-und-bischofsamt/bischofsburg.html</string>
+    <string name="pecsmus4">museen-galerien/naturwissenschaftlichen-abteilung.html</string>
+    <string name="pecsmus5">museen-galerien/vasarelymuseum.html</string>
+    <string name="pecsmus6">museen-galerien/vasvary-haus.html</string>
+    <string name="pecsmus7">museen-galerien/stadthistorische-ausstellung.html</string>
+    <string name="pecsmus8">museen-galerien/ausstellung-zur-geschichte-der-familie-zsolnay-und-ihrer-fabrik.html</string>
+
+    <string name="pecstemp1">religiose-werte/evangelische-kirche.html</string>
+    <string name="pecstemp2">religiose-werte/franziskanerkirche.html</string>
+    <string name="pecstemp3">turkische-zeit/moschee-des-paschas-gasi-kassim.html</string>
+    <string name="pecstemp4">turkische-zeit/moschee-von-pascha-jakovali-hassan.html</string>
+    <string name="pecstemp5">religiose-werte/lyzeumkirche-kiraly-str-44.html</string>
+    <string name="pecstemp6">religiose-werte/pius-kirche.html</string>
+    <string name="pecstemp7">basilika-und-bischofsamt/dom.html</string>
+    <string name="pecstemp8">basilika-und-bischofsamt/klosterkirche.html</string>
+    <string name="pecstemp9">religiose-werte/synagoge-furdo-str-1.html</string>
+
+    <string name="pecsmon1">interassante-gebaude/die-ehemalige-angster-orgelfabrik.html</string>
+    <string name="pecsmon2">basilika-und-bischofsamt/barbakane.html</string>
+    <string name="pecsmon3">statuen-brunnen/reiterdenkmal-von-janos-hunyadi.html</string>
+    <string name="pecsmon4">statuen-brunnen/statue-von-lajos-kossuth.html</string>
+    <string name="pecsmon5">basilika-und-bischofsamt/mittelalterliche-universitat.html</string>
+    <string name="pecsmon6">basilika-und-bischofsamt/franz-liszt-statue.html</string>
+    <string name="pecsmon7">unesco-weltkulturerbe/fruhchristliches-mausoleum.html</string>
+    <!--<string name="pecsmon8">statuen-brunnen/ewiglichtdenkmal.html</string>-->
+    <string name="pecsmon9">statuen-brunnen/dreifaltigkeitssaule.html</string>
+    <string name="pecsmon10">die-stadt-der-zsolnay/zsolnay-brunnen.html</string>
+
+    <string name="pecsoth1">unesco-weltkulturerbe/besucherzentrum-cella-septichora.html</string>
+    <string name="pecsoth2">interassante-gebaude/kodalyzentrum.html</string>
+    <string name="pecsoth3">weitere-sehenswurdigkeiten/schlosser.html</string>
+    <string name="pecsoth4">interassante-gebaude/pecser-nationaltheater.html</string>
+    <string name="pecsoth5">interassante-gebaude/rathaus-szechenyi-platz-1.html</string>
 </resources>

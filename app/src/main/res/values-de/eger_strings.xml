@@ -23,6 +23,31 @@
 
     <string name="egerother3">Türkisches Bad </string>
     <string name="egerother2">Schlösserwand</string>
-    <string name="egerother1">Hochwasserschilder </string>
+    <!--<string name="egerother1">Hochwasserschilder </string>-->
     <string name="egerother4">Zsolnay-Brunnen </string>
+
+    <string name="egermus1">museen/beatles-museum-1</string>
+    <string name="egermus2">museen/erzbischofspalast-und-besucherzentrum</string>
+    <string name="egermus3">burg-von-eger/gefaengnisausstellung</string>
+    <string name="egermus4">museen/bibliothek-der-erzdiozese</string>
+    <string name="egermus5">museen/geza-gardonyi-gedenkhaus</string>
+    <string name="egermus6">burg-von-eger/panoptikum-1</string>
+    <string name="egermus7">museen/zauberturm</string>
+    <string name="egermus8">museen/stadt-unter-der-stadt</string>
+
+    <string name="egertemp1">kirchen/basilika-von-eger</string>
+    <string name="egertemp2">kirchen/minoritenkirche</string>
+    <string name="egertemp3">kirchen/raizenkirche</string>
+    <string name="egertemp4">kirchen/servitenkirche</string>
+
+    <string name="egermon1">burg-von-eger/gotischer-bischofspalast</string>
+    <string name="egermon2">burg-von-eger/heldensaal</string>
+    <string name="egermon3">burg-von-eger/kasematte</string>
+    <string name="egermon4">burg-von-eger/kalvarienhugel</string>
+    <string name="egermon5">turkische-andenken/minarett</string>
+
+    <!--<string name="egeroth1">interessantes/hochwasserschilder</string>-->
+    <string name="egeroth2">interessantes/schlosserwand</string>
+    <string name="egeroth3">turkische-andenken/turkisches-bad</string>
+    <string name="egeroth4">interessantes/zsolnay-brunnen</string>
 </resources>

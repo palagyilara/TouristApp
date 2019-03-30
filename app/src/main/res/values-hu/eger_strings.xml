@@ -23,6 +23,30 @@
 
     <string name="egerother3">Török fürdő </string>
     <string name="egerother2">Lakatfal </string>
-    <string name="egerother1">Árvíz tábla </string>
+    <!--<string name="egerother1">Árvíz tábla </string>-->
     <string name="egerother4">Zsolnay kút </string>
+
+    <string name="egermus1">muzeumok/beatles-muzeum</string>
+    <string name="egermus2">muzeumok/erseki-palota-eger</string>
+    <string name="egermus3">egri-var/bortonkiallitas</string>
+    <string name="egermus4">muzeumok/foegyhazmegyei-konyvtar</string>
+    <string name="egermus5">muzeumok/gardonyi-geza-emlekhaz</string>
+    <string name="egermus6">egri-var/panoptikum</string>
+    <string name="egermus7">muzeumok/varazstorony</string>
+    <string name="egermus8">muzeumok/varos-a-varos-alatt</string>
+
+    <string name="egertemp1">templomok/egri-bazilika</string>
+    <string name="egertemp2">templomok/minorita-templom</string>
+    <string name="egertemp3">templomok/rac-templom</string>
+    <string name="egertemp4">templomok/servita-templom</string>
+
+    <string name="egermon1">egri-var/gotikus-palota-1</string>
+    <string name="egermon2">egri-var/hosok-terme</string>
+    <string name="egermon3">egri-var/kazamata-eger-titkos-jaratok-a-var-alatt</string>
+    <string name="egermon4">egri-var/kalvaria-domb</string>
+    <string name="egermon5">torok-emlekek/minaret</string>
+
+    <string name="egeroth2">erdekessegek/lakatfal</string>
+    <string name="egeroth3">torok-emlekek/torok-furdo</string>
+    <string name="egeroth4">erdekessegek/zsolnay-kut</string>
 </resources>

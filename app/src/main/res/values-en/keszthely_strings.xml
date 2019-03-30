@@ -4,7 +4,7 @@
     <string name="keszthwebpage">Resource: www.keszthely.hu/en</string>
     <string name="keszthmuseum1">Balaton Museum </string>
     <string name="keszthmuseum3">Festetics Mansion</string>
-    <string name="keszthmuseum8">Szendrey Júlia Memorial House</string>
+    <string name="keszthmuseum6">Szendrey Júlia Memorial House</string>
 
     <string name="keszthtemplom1">Lutheran Church</string>
     <string name="keszthtemplom2">Little Saint Therese Basilica and monastery</string>
@@ -21,5 +21,21 @@
     <string name="keszthother3">Island Bath</string>
 
     <string name="keszthmus1">museums/balatoni-muzeum</string>
+    <string name="keszthmus3">museums/festetics-kastely</string>
+    <string name="keszthmus6">museums/szendrey-julia-emlekhaz</string>
+
+    <string name="keszthtemp1">temples/evangelikus_templom</string>
+    <string name="keszthtemp2">temples/kis_szent_terez_bazilika</string>
+    <string name="keszthtemp3">temples/gotikus_plebaniatemplom</string>
+    <string name="keszthtemp4">temples/reformatus_templom</string>
+
+    <string name="keszthmon1">monuments/festetics-mauzoleum</string>
+    <string name="keszthmon2">monuments/georgikon-haz</string>
+    <string name="keszthmon3">sculptures--monuments/helikon-emlekmu</string>
+    <string name="keszthmon4">monuments/varoshaza_</string>
+
+    <string name="keszthoth1">other/balaton-kongresszusi-kozpont-es-szinhaz</string>
+    <string name="keszthoth2">other/setaloutca</string>
+    <string name="keszthoth3">latnivalok/egyeb/szigetfurdoother/szigetfurdo</string>
 
 </resources>

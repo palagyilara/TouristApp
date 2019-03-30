@@ -45,6 +45,8 @@ public class MenuActivity extends AppCompatActivity {
         //String text = extra.getString(MainActivity.TAG_TEXT);
 
         final String keyword = extra.getString("key");
+
+
 		//final String lang = extra.getString("key1");
 
         btn1= (ImageButton) findViewById(R.id.cityinfo);
@@ -63,46 +65,61 @@ public class MenuActivity extends AppCompatActivity {
 
         Paper.init(this);
         //language[].setText(language);
-        String language= Paper.book().read("language");
+        final String language= Paper.book().read("language");
         if(language==null){
             Paper.book().write("language","hu");}
 
         updateView((String)Paper.book().read("language"));
 
+
+
         //városról
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, ContentActivity.class);
+                if(language.equals("de")&&keyword.equals("Eger")){
+                    Intent intent = new Intent(MenuActivity.this, ContentActivity.class);
+                    String keyword = "Eger_(Ungarn)";
+                    //Toast.makeText(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     startActivity(intent);
+
+                }
+                else {
+                    Intent intent = new Intent(MenuActivity.this, ContentActivity.class);
+                    intent.putExtra("key", keyword);
+                    startActivity(intent);
+                }
             }
         });
         //látványosságok
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, PlacesActivity.class);
-                intent.putExtra("key", keyword);
-                startActivity(intent);
+                    Intent intent = new Intent(MenuActivity.this, PlacesActivity.class);
+                    intent.putExtra("key", keyword);
+                    startActivity(intent);
+
             }
         });
         //térkép
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, MapsActivity.class);
-                intent.putExtra("key", keyword);
-                startActivity(intent);
+                    Intent intent = new Intent(MenuActivity.this, MapsActivity.class);
+                    intent.putExtra("key", keyword);
+                    startActivity(intent);
             }
         });
         //quiz
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, QuizActivity.class);
-                intent.putExtra("key", keyword);
-                startActivity(intent);
+
+                    Intent intent = new Intent(MenuActivity.this, QuizActivity.class);
+                    intent.putExtra("key", keyword);
+                    startActivity(intent);
+
             }
         });
 

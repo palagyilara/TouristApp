@@ -23,6 +23,31 @@
 
     <string name="egerother3">Turkish bath </string>
     <string name="egerother2">Padlock wall </string>
-    <string name="egerother1">Flood signs </string>
+    <!--<string name="egerother1">Flood signs </string>-->
     <string name="egerother4">Zsolnay fountain </string>
+
+    <string name="egermus1">museums/beatles-museum</string>
+    <string name="egermus2">museums/archbishops-palace-and-visitor-center</string>
+    <string name="egermus3">castle-of-eger/prison-exhibition</string>
+    <string name="egermus4">museums/archdiocese-library</string>
+    <string name="egermus5">museums/geza-gardonyi-memorial-house</string>
+    <string name="egermus6">castle-of-eger/waxworks</string>
+    <string name="egermus7">museums/magictower</string>
+    <string name="egermus8">museums/town-under-the-town</string>
+
+    <string name="egertemp1">churches/basilica-of-eger</string>
+    <string name="egertemp2">churches/minorite-church</string>
+    <string name="egertemp3">churches/serbian-church</string>
+    <string name="egertemp4">churches/servite-church</string>
+
+    <string name="egermon1">castle-of-eger/gothic-bishop-s-palace</string>
+    <string name="egermon2">castle-of-eger/heroes-hall</string>
+    <string name="egermon3">castle-of-eger/casamates</string>
+    <string name="egermon4">castle-of-eger/calvary-hill</string>
+    <string name="egermon5">turkish-memories/minaret-1</string>
+
+    <!--<string name="egeroth1">curiosities/flood-signs</string>-->
+    <string name="egeroth2">curiosities/padlock-wall</string>
+    <string name="egeroth3">turkish-memories/turkish-bath</string>
+    <string name="egeroth4">curiosities/zsolnay-fountain</string>
 </resources>

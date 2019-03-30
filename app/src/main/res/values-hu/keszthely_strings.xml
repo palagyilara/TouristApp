@@ -6,9 +6,7 @@
     <string name="keszthmuseum3">Helikon Kastélymúzeum (Festetics-kastély) </string>
     <string name="keszthmuseum4">Georgikon Majormúzeum</string>
     <string name="keszthmuseum5">Múzeum Zoo lepke- és egzotikus hüllőkiállítás</string>
-    <string name="keszthmuseum6">Rádió és Televízió Múzeum</string>
-    <string name="keszthmuseum7">Surber Zeneautomata és Fonográf Múzeuma</string>
-    <string name="keszthmuseum8">Szendrey Júlia emlékház</string>
+    <string name="keszthmuseum6">Szendrey Júlia emlékház</string>
 
     <string name="keszthtemplom1">Evangélikus templom</string>
     <string name="keszthtemplom2">Kis Szent Teréz Bazilika és rendház</string>
@@ -25,5 +23,24 @@
     <string name="keszthother3">Szigetfürdő</string>
 
     <string name="keszthmus1">muzeumok/balatoni_muzeum</string>
+    <string name="keszthmus2">muzeumok/cadillac-muzeum-veteran-auto-kiallitas</string>
+    <string name="keszthmus3">muzeumok/helikon_kastelymuzeum_festetics_kastely</string>
+    <string name="keszthmus4">muzeumok/georgikon_majormuzeum</string>
+    <string name="keszthmus5">muzeumok/muzeum-zoo</string>
+    <string name="keszthmus6">latnivalok/muzeumok/szendrey-julia-emlekhaz</string>
+
+    <string name="keszthtemp1">latnivalok/templomok/evangelikus_templom</string>
+    <string name="keszthtemp2">latnivalok/templomok/kis_szent_terez_bazilika</string>
+    <string name="keszthtemp3">latnivalok/templomok/gotikus_plebaniatemplom</string>
+    <string name="keszthtemp4">latnivalok/templomok/reformatus_templom</string>
+
+    <string name="keszthmon1">latnivalok/muemlekek/festetics-mauzoleum</string>
+    <string name="keszthmon2">latnivalok/muemlekek/georgikon-haz</string>
+    <string name="keszthmon3">latnivalok/szobrok--emlekmuvek/helikon-emlekmu</string>
+    <string name="keszthmon4">latnivalok/muemlekek/varoshaza_</string>
+
+    <string name="keszthoth1">latnivalok/egyeb/balaton-kongresszusi-kozpont-es-szinhaz</string>
+    <string name="keszthoth2">latnivalok/egyeb/setaloutca</string>
+    <string name="keszthoth3">latnivalok/egyeb/szigetfurdo</string>
 
 </resources>

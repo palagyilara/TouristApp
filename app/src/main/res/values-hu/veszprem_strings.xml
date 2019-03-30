@@ -20,4 +20,24 @@
     <string name="veszpother5">Veszprémi Állatkert </string>
     <string name="veszpother3">Szent István völgyhíd </string>
     <string name="veszpother4">Városháza </string>
+
+    <string name="veszpmus1">boldog-gizella-foegyhazmegyei-gyujtemeny</string>
+    <string name="veszpmus2">dubniczay-palota-laszlo-karoly-gyujtemeny</string>
+    <string name="veszpmus3">hosok-kapuja</string>
+
+    <string name="veszptemp1">gizella-kapolna</string>
+    <string name="veszptemp2">ferences-templom</string>
+    <string name="veszptemp3">regina-mundi-a-vilag-kiralyneja-plebaniatemplom</string>
+    <string name="veszptemp4">szent-mihaly-bazilika</string>
+    <string name="veszptemp5">szent-imre-piarista-es-helyorsegi-templom</string>
+    <string name="veszptemp6">veszpremvolgyi-gorog-apacakolostor</string>
+
+    <string name="veszpmon1">tuztorony</string>
+    <string name="veszpmon2">seta-a-varban</string>
+
+    <string name="veszpoth1">herendi-porcelanium</string>
+    <string name="veszpoth2">szalezianum-erseksegi-turisztikai-kozpont</string>
+    <string name="veszpoth3">szent-istvan-volgyhid</string>
+    <string name="veszpoth4">varoshaza</string>
+    <string name="veszpoth5">a-veszpremi-allatkert</string>
 </resources>

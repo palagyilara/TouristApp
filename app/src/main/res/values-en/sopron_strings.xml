@@ -30,15 +30,53 @@
     <string name="sopronmonuments2">Fabricius House </string>
     <string name="sopronmonuments4">Post Palace </string>
     <string name="sopronmonuments5">Old Casino </string>
-    <!--<string name="sopronmonuments6">Scarbantia Régészeti Park muemlekek/scarbantia-regeszeti-park.html</string>-->
     <string name="sopronmonuments7">Storno House </string>
     <string name="sopronmonuments9">Firewatch Tower </string>
     <string name="sopronmonuments11">Zichy-Meskó Palace </string>
     <string name="sopronmonuments10">Town Hall </string>
     <string name="sopronmonuments8">Holy Trinity Statue </string>
-    <string name="sopronmonuments3">Picnic memorial  - Breakthrough </string>
+    <!--<string name="sopronmonuments3">Picnic memorial  - Breakthrough </string>-->
 
     <string name="sopronother1">Petőfi Theater </string>
     <string name="sopronother3">Taródi castle</string>
     <string name="sopronother2">Sopron Castle Wall Promenade </string>
+
+    <string name="soprmus1">museums/forestry-museum.html</string>
+    <string name="soprmus2">museums/forum-of-scarbantiae--museum-exhibition-site.html</string>
+    <string name="soprmus3">museums/boundless-history.html</string>
+    <string name="soprmus4">museums/central-museum-of-mining-sopron.html</string>
+    <string name="soprmus5">museums/ligneum--visitor-centre-of-the-sopron-university.html</string>
+    <string name="soprmus6">museums/archaeology-exhibition.html</string>
+    <string name="soprmus7">museums/roman-lapidary.html</string>
+    <string name="soprmus8">museums/storno-collection.html</string>
+    <string name="soprmus9">museums/old-synagogue.html</string>
+
+    <string name="soprtemp1">sacral-monuments/church-of-st-margaret-of-hungary-julianeum.html</string>
+    <string name="soprtemp2">sacral-monuments/benedictine-goat-church-and-chapter-hall.html</string>
+    <string name="soprtemp3">sacral-monuments/dominican-church.html</string>
+    <string name="soprtemp4">sacral-monuments/lutheran-church.html</string>
+    <string name="soprtemp5">sacral-monuments/church-of-the-sacred-heart-of-jesus.html</string>
+    <string name="soprtemp6">sacral-monuments/church-of-st-john-the-baptist-johannite.html</string>
+    <string name="soprtemp7">sacral-monuments/synagogue-in-papret.html</string>
+    <string name="soprtemp8">sacral-monuments/reformed-church.html</string>
+    <string name="soprtemp9">sacral-monuments/the-domechurch-of-st-gyorgy-george.html</string>
+    <string name="soprtemp10">sacral-monuments/st-michaels-church.html</string>
+    <string name="soprtemp11">sacral-monuments/ursuline-church.html</string>
+    <string name="soprtemp12">sacral-monuments/church-of-st-imre-emmerich.html</string>
+    <string name="soprtemp13">sacral-monuments/st-stephen-church.html</string>
+
+    <string name="soprmon1">historical-monuments/bezeredj-house.html</string>
+    <string name="soprmon2">historical-monuments/fabricius-house.html</string>
+    <!--<string name="soprmon3">statues/picnic-memorial-breakrthrough.html</string>-->
+    <string name="soprmon4">historical-monuments/post-palace.html</string>
+    <string name="soprmon5">historical-monuments/old-casino.html</string>
+    <string name="soprmon7">historical-monuments/storno-house.html</string>
+    <string name="soprmon8">statues/holy-trinity-statue.html</string>
+    <string name="soprmon9">historical-monuments/firewatch-tower.html</string>
+    <string name="soprmon10">historical-monuments/town-hall.html</string>
+    <string name="soprmon11">historical-monuments/zichymesko-palace.html</string>
+
+    <string name="soproth1">historical-monuments/petofi-theater.html</string>
+    <string name="soproth2">manors-and-castles/sopron-castle-wall-promenade.html</string>
+    <string name="soproth3">manors-and-castles/tarodi-castle.html</string>
 </resources>

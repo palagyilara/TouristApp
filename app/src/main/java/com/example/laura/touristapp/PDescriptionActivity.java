@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +30,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Locale;
 
 import cz.msebera.android.httpclient.HttpResponse;
 import cz.msebera.android.httpclient.client.methods.HttpGet;
@@ -54,7 +59,10 @@ public class PDescriptionActivity extends AppCompatActivity {
     private Button map;
     private ProgressBar progressBar;
     private TextView title;
+    private ImageButton speakbtn;
     private TextView webpage;
+    private TextToSpeech tts;
+
 
     DatabaseHandler databaseHandler = new DatabaseHandler(this);
 
@@ -75,20 +83,156 @@ public class PDescriptionActivity extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
         title = (TextView) findViewById(R.id.title);
         webpage = (TextView) findViewById(R.id.webpage);
+        speakbtn = (ImageButton) findViewById(R.id.speakbtn);
 
+        if(language.equals("en"))
+        {
+            tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
 
-        if (keyword.equals ("Keszthely")) { //getResources().getString(R.string.keszthely)
+                @Override
+                public void onInit(int initStatus) {
+                    if (initStatus == TextToSpeech.SUCCESS) {
+                        // if (tts.isLanguageAvailable(Locale.UK) == TextToSpeech.LANG_AVAILABLE) {
+                        int result = tts.setLanguage(Locale.UK);
+                        //tts.setLanguage(Locale.UK);
+                        Toast.makeText(PDescriptionActivity.this, "Angol beszéd kész", Toast.LENGTH_LONG).show();
+                        //tts.setLanguage(Locale.GERMANY);
+                        if (result == TextToSpeech.LANG_MISSING_DATA
+                                || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                            Log.e("TTS", "The Language is not supported!");
+                            Intent installIntent = new Intent();
+                            installIntent.setAction(
+                                    TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                            startActivity(installIntent);
+                        } else {
+                            Log.i("TTS", "Language Supported.");
+                        }
+                        Log.i("TTS", "Initialization success.");
+                        // }
+                        // tts.setLanguage(Locale.UK);
+                    } else if (initStatus == TextToSpeech.ERROR) {
+                        Toast.makeText(PDescriptionActivity.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+            speakbtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    String data = txtData.getText().toString();
+                    Log.i("TTS", "button clicked: " + data);
+                    int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
+
+                    if (speechStatus == TextToSpeech.ERROR) {
+                        Log.e("TTS", "Error in converting Text to Speech!");
+                    }
+                }
+            });
+        }
+        else if(language.equals("de"))
+        {
+            tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+
+                @Override
+                public void onInit(int initStatus) {
+                    if (initStatus == TextToSpeech.SUCCESS) {
+                        int result = tts.setLanguage(Locale.GERMAN);
+                        //int result = tts.setLanguage(new Locale("de_AT"));
+                        //if (tts.isLanguageAvailable(Locale.GERMANY) == TextToSpeech.LANG_AVAILABLE) {
+                        //  tts.setLanguage(Locale.UK);
+                        // tts.setLanguage(Locale.GERMANY);
+                        Toast.makeText(PDescriptionActivity.this, "Német beszéd kész", Toast.LENGTH_LONG).show();
+                        if (result == TextToSpeech.LANG_MISSING_DATA
+                                || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                            Log.e("TTS", "The Language is not supported!");
+                            Intent installIntent = new Intent();
+                            installIntent.setAction(
+                                    TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                            startActivity(installIntent);
+                            /*Intent checkTTSIntent = new Intent();
+                            checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+                            startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);*/
+                        } else {
+                            Log.i("TTS", "Language Supported.");
+
+                        }
+                        Log.i("TTS", "Initialization success.");
+                        //  }
+                        // tts.setLanguage(Locale.UK);
+                    } else if (initStatus == TextToSpeech.ERROR) {
+                        Toast.makeText(PDescriptionActivity.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+            speakbtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    String data = txtData.getText().toString();
+                    Log.i("TTS", "button clicked: " + data);
+                    int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
+
+                    if (speechStatus == TextToSpeech.ERROR) {
+                        Log.e("TTS", "Error in converting Text to Speech!");
+                    }
+
+                }
+            });
+        }
+        else if(language.equals("hu"))
+        {
+            tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+
+                @Override
+                public void onInit(int initStatus) {
+                    if (initStatus == TextToSpeech.SUCCESS) {
+                        // if (tts.isLanguageAvailable(Locale.UK) == TextToSpeech.LANG_AVAILABLE) {
+                        Locale locale = new Locale("hu_HU", "HU");
+                        int result = tts.setLanguage(locale);
+                        Log.i("-------------", Arrays.toString(locale.getAvailableLocales()));
+                        //tts.setLanguage(Locale.UK);
+                        Toast.makeText(PDescriptionActivity.this, "Magyar beszéd kész", Toast.LENGTH_LONG).show();
+                        //tts.setLanguage(Locale.GERMANY);
+                        if (result == TextToSpeech.LANG_MISSING_DATA
+                                || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                            Log.e("TTS", "The Language is not supported!");
+                            Intent installIntent = new Intent();
+                            installIntent.setAction(
+                                    TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                            startActivity(installIntent);
+                        } else {
+                            Log.i("TTS", "Language Supported.");
+                        }
+                        Log.i("TTS", "Initialization success.");
+                        // }
+                        // tts.setLanguage(Locale.UK);
+                    } else if (initStatus == TextToSpeech.ERROR) {
+                        Toast.makeText(PDescriptionActivity.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+            speakbtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    String data = txtData.getText().toString();
+                    Log.i("TTS", "button clicked: ");
+                    int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
+
+                    if (speechStatus == TextToSpeech.ERROR) {
+                        Log.e("TTS", "Error in converting Text to Speech!");
+                    }
+                }
+            });
+        }
+
+        if (keyword.equals ("Keszthely")) { //getResources().getString(R.string.keszthely) //kész
             webpage.setText (getResources().getString(R.string.keszthwebpage));
             if (language.equals ("hu")) {
-            title.setText (placetitle); //cim beállítása
-            String url = "https://www.keszthely.hu/" +
-                    keyword1;
-            // Start AsyncTask
-            DownloadWebPageTask task = new DownloadWebPageTask ( );
-            //url átadása
-            task.execute (url);
+                title.setText (placetitle); //cim beállítása
+                String url = "https://www.keszthely.hu/" +
+                        keyword1;
+                // Start AsyncTask
+                DownloadWebPageTask task = new DownloadWebPageTask ( );
+                //url átadása
+                task.execute (url);
             }
-             else if (language.equals ("en")) {
+            else if (language.equals ("en")) {
                 title.setText (placetitle);
                 String url = "https://www.keszthely.hu/en/tourism/sights/" +
                         keyword1;
@@ -105,10 +249,9 @@ public class PDescriptionActivity extends AppCompatActivity {
                 DownloadWebPageTask task = new DownloadWebPageTask ( );
                 //url átadása
                 task.execute (url);
-
             }
         }
-        else if (keyword.equals ("Eger")) {
+        else if (keyword.equals ("Eger")) {  //kész
             webpage.setText (getResources().getString(R.string.egerwebpage));
             if (language.equals ("hu")) {
                 title.setText (placetitle); //cim beállítása
@@ -140,7 +283,7 @@ public class PDescriptionActivity extends AppCompatActivity {
             }
 
         }
-        else if (keyword.equals ("Pécs")) {
+        else if (keyword.equals ("Pécs")) { //kész
             webpage.setText (getResources().getString(R.string.pecswebpage));
             if (language.equals ("hu")) {
                 title.setText (placetitle); //cim beállítása
@@ -172,11 +315,11 @@ public class PDescriptionActivity extends AppCompatActivity {
             }
 
         }
-        else if (keyword.equals ("Sopron")) {
+        else if (keyword.equals ("Sopron")) { //kész
             webpage.setText (getResources().getString(R.string.sopronwebpage));
             title.setText (placetitle);
             if (language.equals ("hu")) {
-                 //cim beállítása
+                //cim beállítása
                 String url = "http://turizmus.sopron.hu/hu/info/latnivalok/" +
                         keyword1;
                 // Start AsyncTask
@@ -261,8 +404,7 @@ public class PDescriptionActivity extends AppCompatActivity {
 
         }
 
-
-                //címre kattintva megnyílik a térkép
+        //címre kattintva megnyílik a térkép
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -274,10 +416,18 @@ public class PDescriptionActivity extends AppCompatActivity {
                 //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                 intent.putExtra("key", keyword); //város neve
                 intent.putExtra("key1", placetitle); //látványosság neve
-               // intent.putExtra("key2", keyword1); //url neve
+                // intent.putExtra("key2", keyword1); //url neve
                 startActivity(intent);
             }
         });
+    }
+    @Override
+    public void onDestroy() {
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+        }
+        super.onDestroy();
     }
     SQLiteDatabase db;
 
@@ -309,21 +459,21 @@ public class PDescriptionActivity extends AppCompatActivity {
 
                     Elements divs = doc.select ("div.content-text");
 
-                //for(Element p : paragraphs){
-                //  words1=paragraphs.text();
-                // }
-                for (Element d : divs) {
-                    words = d.text ( );
-                    String text = d.html ( );
-                    text1 = text.replaceAll ("</p>", "\n");
-                    // System.out.println(Html.fromHtml(text1));
-                    //String[] w=words.split("<br>");
+                    //for(Element p : paragraphs){
+                    //  words1=paragraphs.text();
+                    // }
+                    for (Element d : divs) {
+                        words = d.text ( );
+                        String text = d.html ( );
+                        text1 = text.replaceAll ("</p>", "\n");
+                        // System.out.println(Html.fromHtml(text1));
+                        //String[] w=words.split("<br>");
                     /*for(String str:w)
                     {
                         System.out.println(str);
                     }*/
+                    }
                 }
-            }
                 else if (keyword.equals ("Pécs")) {
                     Elements div = doc.select ("div#cnt_lead");
                     Elements divs = doc.select ("div#cnt_text");
@@ -353,7 +503,6 @@ public class PDescriptionActivity extends AppCompatActivity {
                     }*/
                     }
                 }
-
                 else if (keyword.equals ("Eger")) {
 
                     Elements article = doc.select ("article.entry.bottom-space-md.clearfix");
@@ -379,7 +528,9 @@ public class PDescriptionActivity extends AppCompatActivity {
                     for (Element d : div) {
                         words = d.text ();
                         String text = d.html ( );
-                        text1 = text.replaceAll ("</p>", "\n").replaceAll ("<h2>", "<p>").replaceAll ("</h2>", "</p>");
+                        text1 = text.replaceAll ("</p>", "\n").replaceAll ("<h2>", "<p>")
+                                .replaceAll ("</h2>", "</p>")
+                                .replaceAll ("<img[^>]+>","");
                         // System.out.println(Html.fromHtml(text1));
                         //String[] w=words.split("<br>");
                     /*for(String str:w)
@@ -390,7 +541,7 @@ public class PDescriptionActivity extends AppCompatActivity {
                     for (Element p : divs) {
                         words = p.text ();
                         String text = p.html ( );
-                        text2 = text.replaceAll ("</p>", "\n");
+                        text2 = text.replaceAll ("</p>", "\n").replaceAll ("<img[^>]+>","");
                         // System.out.println(Html.fromHtml(text1));
                         //String[] w=words.split("<br>");
                     /*for(String str:w)
@@ -405,7 +556,12 @@ public class PDescriptionActivity extends AppCompatActivity {
                     for (Element p : div) {
                         words = p.text ();
                         String text = p.html ( );
-                        text1 = text.replaceAll ("</p>", "\n").replaceAll ("<style>(.+?)</style>", "\n").replaceAll ("<a class=\"synwed-social-button(.+?)>(.+?)</a>", "");
+                        text1 = text.replaceAll ("</p>", "\n").replaceAll ("<style([\\s\\S]+?)</style>", "")
+                                .replaceAll ("<a class=\"synved-social-button.*\"([\\s\\S]+?)</a>", "")
+                                .replaceAll ("<div id=\"upm-buttons\"([\\s\\S]+?)</div>", "")
+                                .replaceAll ("<h2>", "<h1>")
+                                .replaceAll ("</li>", "\n")
+                                .replaceAll ("<div id=\"gallery-2\"([\\s\\S]+?)</div>", "");
                         // System.out.println(Html.fromHtml(text1));
                         //String[] w=words.split("<br>");
                     /*for(String str:w)
@@ -421,7 +577,11 @@ public class PDescriptionActivity extends AppCompatActivity {
                     for (Element d : divs) {
                         words = d.text ();
                         String text = d.html ( );
-                        text1 = text.replaceAll ("</p>", "\n").replaceAll ("<h2>", "<p>").replaceAll ("</h2>", "</p>").replaceAll("<span class=\"expand-text\">(.+?)</span>","").replaceAll("<span class=\"collapse-text\">(.+?)</span>","").replaceAll("Tekintse meg a helyszínt gömbpanorámás felvételeinken is!(.+?)","").replaceAll("<div class=\"row\">(.+?)</div>","").replaceAll("<div class=\"collapse\">(.+?)</div>","").replaceAll("Tekintse meg a helyszínt gömbpanorámás felvételeinken is!","");
+                        text1 = text.replaceAll ("</p>", "\n").replaceAll ("<h2>", "<p>").
+                                replaceAll ("</h2>", "</p>").
+                                replaceAll("<span class=\"expand-text\">(.+?)</span>","").
+                                replaceAll("<span class=\"collapse-text\">(.+?)</span>","");
+
                         // System.out.println(Html.fromHtml(text1));
                         //String[] w=words.split("<br>");
                     /*for(String str:w)
@@ -432,7 +592,13 @@ public class PDescriptionActivity extends AppCompatActivity {
                     for (Element p : div) {
                         words = p.text ();
                         String text = p.html ( );
-                        text2 = text.replaceAll ("</p>", "\n");
+                        text2 = text.replaceAll ("</p>", "\n").replaceAll("Tekintse meg a helyszínt gömbpanorámás.*","")
+                                .replaceAll("<div class=\"row\"([\\s\\S]+?)</div>","").
+                                        replaceAll("<div class=\"collapse\"(.+?)</div>","")
+                                .replaceAll("<ul class=\"attachments\"([\\s\\S]+?)</ul>","")
+                                .replaceAll("<table class=\"record-details-table\"([\\s\\S]+?)</table>","")
+                                .replaceAll("<div class=\"col-sm-4.*\"([\\s\\S]+?)</div>","");
+
                         // System.out.println(Html.fromHtml(text1));
                         //String[] w=words.split("<br>");
                     /*for(String str:w)
@@ -442,11 +608,18 @@ public class PDescriptionActivity extends AppCompatActivity {
                     }
                 }
                 else if (keyword.equals ("Tihany")) {
-                    Elements divs = doc.select ("div#asamodule_search_results span");
+                    Elements divs = doc.select ("div.item-page");
                     for (Element d : divs) {
                         words = d.text ();
                         String text = d.html ( );
-                        text1 = text.replaceAll ("</p>", "\n");
+                        text1 = text.replaceAll ("<div class=\"article-header\"([\\s\\S]+?)</div>","")
+                                .replaceAll ("<div id=\"rt-wj\"([\\s\\S]+?)</div>","")
+                                .replaceAll ("<div class=\"rt-category\"([\\s\\S]+?)</div>","")
+                                .replaceAll ("<p>&nbsp;</p>","")
+                                .replaceAll ("</div>","")
+                                .replaceAll ("<a ([\\s\\S]+?)</a>","")
+                                .replaceAll ("<img[^>]+>","")
+                                .replaceAll ("<table([\\s\\S]+?)</table>","");
                         // System.out.println(Html.fromHtml(text1));
                         //String[] w=words.split("<br>");
                     /*for(String str:w)
@@ -472,13 +645,13 @@ public class PDescriptionActivity extends AppCompatActivity {
             String placetitle = extra.getString ("key1");
             String language = Paper.book().read("language");
             try{
-            super.onPostExecute(result);
-            progressBar.setVisibility(View.GONE);
-            if(text2!=null){ text1=text1+text2;
-            txtData.setText(Html.fromHtml(text1));
-            }
-            else {txtData.setText(Html.fromHtml(text1));}
-            //txtData1.setText(words1);
+                super.onPostExecute(result);
+                progressBar.setVisibility(View.GONE);
+                if(text2!=null){ text1=text1+text2;
+                    txtData.setText(Html.fromHtml(text1));
+                }
+                else {txtData.setText(Html.fromHtml(text1));}
+                //txtData1.setText(words1);
 
                 ContentValues values = new ContentValues();
                 //Toast.makeText(ContentActivity.this, "hiba!", Toast.LENGTH_LONG).show();
@@ -517,7 +690,7 @@ public class PDescriptionActivity extends AppCompatActivity {
                     if (cursor.moveToFirst()) {
                         do {
                             String infohu = cursor.getString(cursor.getColumnIndex("sightinfohu")); // Here you can get data from table and stored in string if it has only one string.
-                            text1 = infohu.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>");
+                            text1 = infohu;/*.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>");*/
                             txtData.setText(Html.fromHtml(text1));
 
 
@@ -535,7 +708,7 @@ public class PDescriptionActivity extends AppCompatActivity {
                     if (cursor.moveToFirst()) {
                         do {
                             String infoen = cursor.getString(cursor.getColumnIndex("sightinfoen")); // Here you can get data from table and stored in string if it has only one string.
-                            text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>");
+                            text1 = infoen;/*.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>");*/
                             txtData.setText(Html.fromHtml(text1));
 
                         } while (cursor.moveToNext());
@@ -552,7 +725,7 @@ public class PDescriptionActivity extends AppCompatActivity {
                     if (cursor.moveToFirst()) {
                         do {
                             String infode = cursor.getString(cursor.getColumnIndex("sightinfode")); // Here you can get data from table and stored in string if it has only one string.
-                            text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>");
+                            text1 = infode;/*.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>");*/
                             txtData.setText(Html.fromHtml(text1));
 
                         } while (cursor.moveToNext());
@@ -580,7 +753,7 @@ public class PDescriptionActivity extends AppCompatActivity {
         Toast.makeText (PDescriptionActivity.this, "ellenőrzés!", Toast.LENGTH_SHORT).show ( );
         //db.getReadableDatabase();
         Cursor cursor = null;
-        if (language.equals ("hu") /*||  language.equals ("en") ||  language.equals ("de")*/) {
+        if (language.equals ("hu") ) {
             String query = "select cityname from sightinfos where pnamehu = ?";
             cursor = db.rawQuery (query, new String[]{placetitle});
             /*if (cursor.getCount ( ) <= 0) {

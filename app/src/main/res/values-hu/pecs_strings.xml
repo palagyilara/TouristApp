@@ -27,7 +27,7 @@
     <string name="pecsmonuments3">Hunyadi János lovasszobra </string>
     <string name="pecsmonuments4">Kossuth Lajos szobra </string>
     <string name="pecsmonuments10">Zsolnay kút</string>
-    <string name="pecsmonuments8">Örökmécses-emlékmű </string>
+    <!--<string name="pecsmonuments8">Örökmécses-emlékmű </string>-->
     <string name="pecsmonuments9">Szentháromság szobor </string>
     <string name="pecsmonuments7">Ókeresztény Mauzóleum </string>
 
@@ -36,5 +36,41 @@
     <string name="pecsother4">Pécsi Nemzeti Színház </string>
     <string name="pecsother5">Városháza </string>
     <string name="pecsother3">Lakatok </string>
+
+    <string name="pecsmus1">muzeumok-galeriak/csontvary-muzeum.html</string>
+    <string name="pecsmus2">muzeumok-galeriak/neprajzi-muzeum.html</string>
+    <string name="pecsmus3">bazilika-es-kornyeke/puspoki-palota-es-a-titkos-atjaro.html</string>
+    <string name="pecsmus4">muzeumok-galeriak/termeszettudomanyi-muzeum.html</string>
+    <string name="pecsmus5">muzeumok-galeriak/vasarely-muzeum.html</string>
+    <string name="pecsmus6">muzeumok-galeriak/vasvary-haz.html</string>
+    <string name="pecsmus7">muzeumok-galeriak/varostorteneti-muzeum.html</string>
+    <string name="pecsmus8">muzeumok-galeriak/zsolnay-csalad-es-gyartorteneti-kiallitas.html</string>
+
+    <string name="pecstemp1">vallasi-ertekek/evangelikus-templom.html</string>
+    <string name="pecstemp2">vallasi-ertekek/ferences-templom.html</string>
+    <string name="pecstemp3">a-torok-kor/gazi-kaszim-pasa-dzsamija.html</string>
+    <string name="pecstemp4">a-torok-kor/jakovali-hasszan-pasa-dzsamija.html</string>
+    <string name="pecstemp5">vallasi-ertekek/lyceum-templom.html</string>
+    <string name="pecstemp6">vallasi-ertekek/pius-templom.html</string>
+    <string name="pecstemp7">bazilika-es-kornyeke/a-szekesegyhaz.html</string>
+    <string name="pecstemp8">bazilika-es-kornyeke/zardatemplom.html</string>
+    <string name="pecstemp9">vallasi-ertekek/zsinagoga.html</string>
+
+    <string name="pecsmon1">szobrok-kutak/angster-emlekmu.html</string>
+    <string name="pecsmon2">bazilika-es-kornyeke/barbakan.html</string>
+    <string name="pecsmon3">szobrok-kutak/hunyadi-janos-lovasszobra.html</string>
+    <string name="pecsmon4">szobrok-kutak/kossuth-lajos-szobra.html</string>
+    <string name="pecsmon5">bazilika-es-kornyeke/kozepkori-egyetem.html</string>
+    <string name="pecsmon6">bazilika-es-kornyeke/liszt-ferencszobor.html</string>
+    <string name="pecsmon7">unesco-vilagorokseg/okereszteny-mauzoleum.html</string>
+    <!--<string name="pecsmon8">szobrok-kutak/orokmecsesemlekmu.html</string>-->
+    <string name="pecsmon9">szobrok-kutak/szentharomsag-szobor.html</string>
+    <string name="pecsmon10">zsolnayak-varosa/zsolnay-kut.html</string>
+
+    <string name="pecsoth1">unesco-vilagorokseg/cella-septichora-latogatokozpont.html</string>
+    <string name="pecsoth2">erdekes-epuletek/kodaly-kozpont.html</string>
+    <string name="pecsoth3">egyeb-erdekessegek/lakatok.html</string>
+    <string name="pecsoth4">erdekes-epuletek/pecsi-nemzeti-szinhaz.html</string>
+    <string name="pecsoth5">erdekes-epuletek/varoshaza.html</string>
 
 </resources>

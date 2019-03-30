@@ -8,8 +8,16 @@
     <string name="tihanymonuments1">I. András kriptája</string>
     <string name="tihanymonuments2">A népi építészet emlékei </string>
 
-    <string name="tihanyother3">Levendula Ház Látogatóközpont</string>
     <string name="tihanyother4">Remetetelep (Barátlakások) </string>
     <string name="tihanyother2">Apáti templomrom </string>
-    <string name="tihanyother1">Akasztó-domb </string>
+
+    <string name="tihanymus1">muemlekek/7-bences-apatsagi-muzeum</string>
+
+    <string name="tihanytemp1">muemlekek/5-bences-apatsag-barokk-temploma</string>
+
+    <string name="tihanymon1">muemlekek/6-i-andras-kriptaja</string>
+    <string name="tihanymon2">muemlekek/8-a-nepi-epiteszet-emlekei</string>
+
+    <string name="tihanyoth2">latnivalok-inner/24-apati-templomrom</string>
+    <string name="tihanyoth4">latnivalok-inner/23-remetetelep-baratlakasok</string>
 </resources>

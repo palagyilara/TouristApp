@@ -8,8 +8,16 @@
     <string name="tihanymonuments1">Die Gruft von Andreas I. (I. András)</string>
     <string name="tihanymonuments2">Volkstümliche Baukunst, Bauernhäuser</string>
 
-    <!--<string name="tihanyother3">Levendula Ház Látogatóközpont latnivalok/latnivalok-inner/22-levendula-haz</string>-->
     <string name="tihanyother4">Einsiedlersiedlung (Mönchszellen)</string>
     <string name="tihanyother2">Kirchenruine von Apáti </string>
-    <string name="tihanyother1">Galgen-Hügel </string>
+
+    <string name="tihanymus1">muemlekek-de/280-bences-apatsagi-muzeum-de</string>
+
+    <string name="tihanytemp1">muemlekek-de/210-bences-apatsag-barokk-temploma-de</string>
+
+    <string name="tihanymon1">muemlekek-de/218-i-andras-kriptaja-de</string>
+    <string name="tihanymon2">muemlekek-de/208-a-nepi-epiteszet-emlekei-de</string>
+
+    <string name="tihanyoth2">latnivalok-inner-de/226-apati-templomrom-de</string>
+    <string name="tihanyoth4">latnivalok-inner-de/233-remetetelep-baratlakasok-de</string>
 </resources>

@@ -9,13 +9,13 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/speakbtn"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/pistara"
         android:text="@string/placestitle"
         android:textAlignment="center"
@@ -23,6 +23,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/speakbtn"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,13 +34,15 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:drawableLeft="@android:drawable/ic_menu_myplaces"
         android:drawablePadding="6dp"
         android:gravity="center_vertical"
-        android:padding="3dp"
+        android:padding="10dp"
         android:text="@string/map"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#fff"
         android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/linlay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,14 +51,13 @@
     <LinearLayout
         android:id="@+id/linlay"
         android:layout_width="match_parent"
-        android:layout_height="432dp"
+        android:layout_height="396dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toTopOf="@+id/webpage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/map">
+        app:layout_constraintStart_toStartOf="parent">
 
         <ScrollView
             android:id="@+id/scrollView3"

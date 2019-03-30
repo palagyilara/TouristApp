@@ -29,15 +29,52 @@
     <string name="sopronmonuments2">Fabricius-ház</string>
     <string name="sopronmonuments4">Postapalota </string>
     <string name="sopronmonuments5">Régi kaszinó </string>
-    <string name="sopronmonuments6">Scarbantia Régészeti Park </string>
     <string name="sopronmonuments7">Storno-ház </string>
     <string name="sopronmonuments9">Tűztorony </string>
     <string name="sopronmonuments11">Zichy-Meskó palota </string>
     <string name="sopronmonuments10">Városháza </string>
     <string name="sopronmonuments8">Szentháromság-szobor </string>
-    <string name="sopronmonuments3">Piknik-emlékmű - "Áttörés"</string>
 
     <string name="sopronother1">Petőfi Színház </string>
     <string name="sopronother3">Taródi vár </string>
     <string name="sopronother2">Soproni Várfalsétány </string>
+
+    <string name="soprmus1">muzeumok/erdeszeti-muzeum.html</string>
+    <string name="soprmus2">muzeumok/forum-scarbantiae.html</string>
+    <string name="soprmus3">muzeumok/hatartalan-tortenet.html</string>
+    <string name="soprmus4">muzeumok/kozponti-banyaszati-muzeum.html</string>
+    <string name="soprmus5">muzeumok/ligneum--soe-latogatokozpont.html</string>
+    <string name="soprmus6">muzeumok/regeszeti-kiallitas.html</string>
+    <string name="soprmus7">muzeumok/romai-kori-kotar.html</string>
+    <string name="soprmus8">muzeumok/stornogyujtemeny.html</string>
+    <string name="soprmus9">muzeumok/ozsinagoga.html</string>
+
+    <string name="soprtemp1">szakralis-emlekek/arpadhazi-szent-margit-templom-julianum.html</string>
+    <string name="soprtemp2">szakralis-emlekek/bences-kecske-templom-es-kaptalan-terem.html</string>
+    <string name="soprtemp3">szakralis-emlekek/domonkos-templom.html</string>
+    <string name="soprtemp4">szakralis-emlekek/evangelikus-templom.html</string>
+    <string name="soprtemp5">szakralis-emlekek/jezus-szive-templom.html</string>
+    <string name="soprtemp6">szakralis-emlekek/keresztelo-szent-janos-johannita-templom.html</string>
+    <string name="soprtemp7">szakralis-emlekek/papreti-zsinagoga.html</string>
+    <string name="soprtemp8">szakralis-emlekek/reformatus-templom.html</string>
+    <string name="soprtemp9">szakralis-emlekek/szent-gyorgy-templom.html</string>
+    <string name="soprtemp10">szakralis-emlekek/szent-mihaly-templom.html</string>
+    <string name="soprtemp11">szakralis-emlekek/szent-orsolya-templom-es-zarda.html</string>
+    <string name="soprtemp12">szakralis-emlekek/szent-imre-templom.html</string>
+    <string name="soprtemp13">szakralis-emlekek/szent-istvan-templom.html</string>
+
+    <string name="soprmon1">muemlekek/bezeredj-haz.html</string>
+    <string name="soprmon2">muemlekek/fabriciushaz.html</string>
+    <!--<string name="soprmon3">szobrok/piknikemlekmu-attores.html</string>-->
+    <string name="soprmon4">muemlekek/postapalota.html</string>
+    <string name="soprmon5">muemlekek/regi-kaszino.html</string>
+    <string name="soprmon7">muemlekek/stornohaz.html</string>
+    <string name="soprmon8">szobrok/szentharomsagszobor.html</string>
+    <string name="soprmon9">muemlekek/tuztorony.html</string>
+    <string name="soprmon10">muemlekek/varoshaza.html</string>
+    <string name="soprmon11">muemlekek/zichymesko-palota.html</string>
+
+    <string name="soproth1">muemlekek/petofi-szinhaz.html</string>
+    <string name="soproth2">kastelyok-es-varak/soproni-varfalsetany.html</string>
+    <string name="soproth3">kastelyok-es-varak/tarodi-var.html</string>
 </resources>
