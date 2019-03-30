@@ -129,6 +129,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         /*LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
+        boolean success = googleMap.setMapStyle(new MapStyleOptions(getResources()
+                .getString(R.string.style_json)));
+        if (!success) {
+            Log.e(TAG, "Style parsing failed.");
+        }
         if (placetitle != null)   //a leírásról megy át ide
         {
             //KESZTHELY
@@ -2151,9 +2156,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
 
 
-                mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
-                    public boolean onMarkerClick(Marker marker) {
+                    public void onInfoWindowClick(Marker marker) {
                         if (marker.getTitle().equals(getResources().getString(R.string.keszthmuseum1))) {
                             Intent intent = new Intent(MapsActivity.this, PDescriptionActivity.class);
                             //String keyword = extra.getString("key");
@@ -2392,7 +2397,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                             // Toast.makeText(MapsActivity.this, "Clicked"+marker.getTitle(), Toast.LENGTH_SHORT).show();
                         }
-                        return false;
+                        //return false;
                     }
                 });
                 //  }
