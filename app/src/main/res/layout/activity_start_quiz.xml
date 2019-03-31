@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/welcomeMainLayout"
+    tools:context=".StartQuizActivity">
+
+
+    <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
+        style="@style/roundCornerMain.welcome"
+        app:corner_radius="@dimen/radius_content">
+
+        <ImageView
+            android:id="@+id/image"
+            style="@style/welcomeMainLayout.image" />
+
+    </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        style="@style/welcomeMainLayout.layoutText">
+
+        <TextView
+            style="@style/welcomeMainLayout.textView.alpha"
+            android:text="@string/lets_see" />
+
+        <EditText
+            android:id="@+id/name"
+            style="@style/editText" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/start"
+        style="@style/welcomeMainLayout.start"
+        android:onClick="start"
+        android:text="@string/button_start" />
+</RelativeLayout>

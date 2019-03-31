@@ -116,7 +116,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    Intent intent = new Intent(MenuActivity.this, QuizActivity.class);
+                    Intent intent = new Intent(MenuActivity.this, StartQuizActivity.class);
                     intent.putExtra("key", keyword);
                     startActivity(intent);
 

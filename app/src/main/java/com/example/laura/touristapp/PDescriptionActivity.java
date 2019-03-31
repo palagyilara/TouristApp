@@ -178,7 +178,7 @@ public class PDescriptionActivity extends AppCompatActivity {
         }
         else if(language.equals("hu"))
         {
-            tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            /*tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
 
                 @Override
                 public void onInit(int initStatus) {
@@ -218,7 +218,7 @@ public class PDescriptionActivity extends AppCompatActivity {
                         Log.e("TTS", "Error in converting Text to Speech!");
                     }
                 }
-            });
+            });*/
         }
 
         if (keyword.equals ("Keszthely")) { //getResources().getString(R.string.keszthely) //kész

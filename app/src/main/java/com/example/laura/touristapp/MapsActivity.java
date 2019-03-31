@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -22,6 +24,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
@@ -125,10 +128,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //String keyword = extra.getString("key2");
         String placetitle = extra.getString("key1");
         final String language = Paper.book().read("language");
-        // Add a marker in Sydney and move the camera
-        /*LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
+
+        int height = 71;
+        int width = 50;
+        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.mipmap.museumicon);
+        Bitmap b=bitmapdraw.getBitmap();
+        Bitmap museumicon = Bitmap.createScaledBitmap(b, width, height, false);
+
         boolean success = googleMap.setMapStyle(new MapStyleOptions(getResources()
                 .getString(R.string.style_json)));
         if (!success) {
@@ -144,21 +150,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.keszthmuseum2))){//"Cadillac Múzeum")) {
-                double lat=46.764614;
-                double lng=17.24184;
+                double lat=46.7628359;
+                double lng=17.2420221;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -170,8 +174,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (46.0770945, 18.205235))
                                 .title (placetitle)
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -183,8 +186,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (46.0770945, 18.205235))
                                 .title (placetitle)
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -196,8 +198,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -209,8 +210,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -1006,8 +1006,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egerother2))) {
-                double lat=47.9001462;
-                double lng=20.3726569;
+                double lat=47.8983915;
+                double lng=20.382371053698108;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -2078,24 +2078,30 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 //if (language.equals("hu") || language.equals("en") || language.equals("de")) {
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.758834, 17.242172))
-                        .title(getResources().getString(R.string.keszthmuseum1)));
+                        .title(getResources().getString(R.string.keszthmuseum1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.7707424, 17.2418793))
-                        .title(getResources().getString(R.string.keszthmuseum3)));
+                        .title(getResources().getString(R.string.keszthmuseum3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.748101, 17.2273207))
-                        .title(getResources().getString(R.string.keszthmuseum6)));
+                        .title(getResources().getString(R.string.keszthmuseum6))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
 
                 if (language.equals("hu")) {
                     googleMap.addMarker(new MarkerOptions()
-                            .position(new LatLng(46.764614, 17.24184))
-                            .title(getResources().getString(R.string.keszthmuseum2)));
+                            .position(new LatLng(46.7628359,17.2420221))
+                            .title(getResources().getString(R.string.keszthmuseum2))
+                            .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                     googleMap.addMarker(new MarkerOptions()
                             .position(new LatLng(46.766845, 17.235827))
-                            .title(getResources().getString(R.string.keszthmuseum4)));
+                            .title(getResources().getString(R.string.keszthmuseum4))
+                            .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                     googleMap.addMarker(new MarkerOptions()
                             .position(new LatLng(46.769314, 17.242457))
-                            .title(getResources().getString(R.string.keszthmuseum5)));
+                            .title(getResources().getString(R.string.keszthmuseum5))
+                            .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 }
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7538965, 17.2401481))
@@ -2498,9 +2504,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .position(new LatLng(46.075818, 18.2265088))
                         .title(getResources().getString(R.string.pecsother5)));
 
-                mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
-                    public boolean onMarkerClick(Marker marker) {
+                    public void onInfoWindowClick(Marker marker) {
                         if (marker.getTitle().equals(getResources().getString(R.string.pecsmuseum1))) {
                             Intent intent = new Intent(MapsActivity.this, PDescriptionActivity.class);
                             //String keyword = extra.getString("key");
@@ -2936,7 +2942,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             // Toast.makeText(MapsActivity.this, "Clicked"+marker.getTitle(), Toast.LENGTH_SHORT).show();
                         }
 
-                        return false;
+                        //return false;
                     }
                 });
                 //  }
@@ -2994,9 +3000,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0900738, 17.8903271))
                         .title(getResources().getString(R.string.veszpother5)));
-                mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+               mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
-                    public boolean onMarkerClick(Marker marker) {
+                    public void onInfoWindowClick(Marker marker) {
                         if (marker.getTitle().equals(getResources().getString(R.string.veszpmuseum1))) {
                             Intent intent = new Intent(MapsActivity.this, PDescriptionActivity.class);
                             //String keyword = extra.getString("key");
@@ -3206,7 +3212,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             startActivity(intent);
                             // Toast.makeText(MapsActivity.this, "Clicked"+marker.getTitle(), Toast.LENGTH_SHORT).show();
                         }
-                        return false;
+                        //return false;
                     }
                 });
                 //  }
@@ -3268,7 +3274,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .position(new LatLng(47.9046631, 20.3741884))
                         .title(getResources().getString(R.string.egermonuments5)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9001462, 20.3726569))
+                        .position(new LatLng(47.8983915, 20.382371053698108))
                         .title(getResources().getString(R.string.egerother2)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.8984133, 20.3801665))
@@ -3276,9 +3282,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9004949, 20.3660368))
                         .title(getResources().getString(R.string.egerother4)));
-                mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+               mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
-                    public boolean onMarkerClick(Marker marker) {
+                    public void onInfoWindowClick(Marker marker) {
                         if (marker.getTitle().equals(getResources().getString(R.string.egermuseum1))) {
                             Intent intent = new Intent(MapsActivity.this, PDescriptionActivity.class);
                             //String keyword = extra.getString("key");
@@ -3540,7 +3546,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             startActivity(intent);
                             // Toast.makeText(MapsActivity.this, "Clicked"+marker.getTitle(), Toast.LENGTH_SHORT).show();
                         }
-                        return false;
+                        //return false;
                     }
                 });
                 //  }
@@ -3571,9 +3577,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .position(new LatLng(46.9228656, 17.8790849))
                         .title(getResources().getString(R.string.tihanyother4)));
 
-                mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+               mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
-                    public boolean onMarkerClick(Marker marker) {
+                    public void onInfoWindowClick(Marker marker) {
                         if (marker.getTitle().equals(getResources().getString(R.string.tihanymuseum1))) {
                             Intent intent = new Intent(MapsActivity.this, PDescriptionActivity.class);
                             //String keyword = extra.getString("key");
@@ -3655,7 +3661,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         }
 
 
-                        return false;
+                        //return false;
                     }
                 });
                 //  }
@@ -3762,9 +3768,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .position(new LatLng(46.2483304, 20.1465588))
                         .title(getResources().getString(R.string.szegedother9)));
 
-                mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+               mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
-                    public boolean onMarkerClick(Marker marker) {
+                    public void onInfoWindowClick(Marker marker) {
                         if (marker.getTitle().equals(getResources().getString(R.string.szegedmuseum1))) {
                             Intent intent = new Intent(MapsActivity.this, PDescriptionActivity.class);
                             //String keyword = extra.getString("key");
@@ -4183,7 +4189,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             // Toast.makeText(MapsActivity.this, "Clicked"+marker.getTitle(), Toast.LENGTH_SHORT).show();
                         }
 
-                        return false;
+                        //return false;
                     }
                 });
                 //  }
@@ -4296,9 +4302,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .position(new LatLng(47.6771022, 16.5564406))
                         .title(getResources().getString(R.string.sopronother3)));
 
-                mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+               mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
-                    public boolean onMarkerClick(Marker marker) {
+                    public void onInfoWindowClick(Marker marker) {
                         if (marker.getTitle().equals(getResources().getString(R.string.sopronmuseum1))) {
                             Intent intent = new Intent(MapsActivity.this, PDescriptionActivity.class);
                             //String keyword = extra.getString("key");
@@ -4772,7 +4778,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
 
-                        return false;
+                        //return false;
                     }
                 });
                 //  }

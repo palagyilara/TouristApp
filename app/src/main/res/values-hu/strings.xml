@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">TouristApp</string>
     <string name="choose">Kérem válasszon</string>
     <string name="city">Városról</string>
     <string name="places">Látványosságok</string>
@@ -24,5 +25,45 @@
     <string name="eger">Eger</string> <!--kész-->
 
     <string name="title_activity_maps">Map</string>
+
+    <string name="lets_see">Lássuk mennyire ismeri a várost!</string>
+    <string name="name">Adja meg a nevét</string>
+    <string name="player_name">player name</string>
+    <string name="player_score">score</string>
+    <string name="button_start">Kezdés</string>
+    <string name="button_start_new">Új játék</string>
+    <string name="button_submit">Kész</string>
+    <string name="contentDescription">yellow background</string>
+    <string name="validation_emptyName">Nem adott meg nevet!</string>
+    <string name="validation_error">Nem válaszolta meg az összes kérdést</string>
+    <string name="Q">q</string>
+
+    <!--Popup-->
+    <string name="congrats">Gratulálunk, %s</string>
+    <string name="score_text">Eredmény: </string>
+    <string name="score_number">X</string>
+    <string name="out_of">%d-ből ennyit talált el: %d</string>
+
+    <!--Config-->
+    <string name="number_of_questions">10</string>
+
+    <!--STATE-->
+    <string name="STATE_PLAYER_NAME">PLAYER_NAME</string>
+    <string name="STATE_Q1">STATE_Q1</string>
+    <string name="STATE_Q2">STATE_Q2</string>
+    <string name="STATE_Q3_1">STATE_Q3_1</string>
+    <string name="STATE_Q3_2">STATE_Q3_2</string>
+    <string name="STATE_Q3_3">STATE_Q3_3</string>
+    <string name="STATE_Q3_4">STATE_Q3_4</string>
+    <string name="STATE_Q4">STATE_Q4</string>
+    <string name="STATE_Q5">STATE_Q5</string>
+    <string name="STATE_Q6">STATE_Q6</string>
+    <string name="STATE_Q7_1">STATE_Q7_1</string>
+    <string name="STATE_Q7_2">STATE_Q7_1</string>
+    <string name="STATE_Q7_3">STATE_Q7_1</string>
+    <string name="STATE_Q7_4">STATE_Q7_4</string>
+    <string name="STATE_Q8">STATE_Q8</string>
+    <string name="STATE_Q9">STATE_Q9</string>
+    <string name="STATE_Q10">STATE_Q10</string>
 
 </resources>

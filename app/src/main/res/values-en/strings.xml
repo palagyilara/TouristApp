@@ -48,4 +48,22 @@
     <string name="nem">Nem</string>
     <string name="mennyibe">Mennyibe kerül?</string>
     <string name="merre">Merre van a &#8230;?</string>
+
+    <string name="lets_see">Let\'s see how well you know the city!</string>
+    <string name="name">ENTER YOUR NAME</string>
+    <string name="player_name">player name</string>
+    <string name="player_score">score</string>
+    <string name="button_start">start</string>
+    <string name="button_start_new">new game</string>
+    <string name="button_submit">submit</string>
+    <string name="contentDescription">yellow background</string>
+    <string name="validation_emptyName">Name cannot be empty</string>
+    <string name="validation_error">Not all the questions was answered</string>
+    <string name="Q">q</string>
+
+    <!--Popup-->
+    <string name="congrats">Congrats, %s</string>
+    <string name="score_text">Your final score is: </string>
+    <string name="score_number">X</string>
+    <string name="out_of">Out of %d questions you got %d right</string>
 </resources>
