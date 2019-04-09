@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choose">Bitte wählen</string>
+    <string name="choose">Bitte wählen Sie</string>
     <string name="city">über die Stadt</string>
     <string name="places">Sehenswürdigkeiten</string>
     <string name="map">Mappe</string>
@@ -26,11 +26,11 @@
     <string name="thx">Danke &#160; - &#160; </string>
     <string name="yw">Gern geschehen! &#160; - &#160; </string>
     <string name="sy">Pardon &#160; - &#160; </string>
-    <string name="pn">Excuse me &#160; - &#160; </string>
+    <string name="pn">Entschuldigung bitte &#160; - &#160; </string>
     <string name="yes">Ja &#160; - &#160; </string>
     <string name="no">Nein &#160; - &#160; </string>
-    <string name="howmuch">was kostet das? &#160; - &#160; </string>
-    <string name="where">Where is the &#8230;? &#160; - &#160; </string>
+    <string name="howmuch">Was kostet das? &#160; - &#160; </string>
+    <string name="where">Wo finde ich &#8230;? &#160; - &#160; </string>
     <string name="placestitle">Sehenswürdigkeiten</string>
     <string name="museums">Museen</string>
     <string name="churches">Kirchen</string>
@@ -48,6 +48,9 @@
     <string name="nem">Nem</string>
     <string name="mennyibe">Mennyibe kerül?</string>
     <string name="merre">Merre van a &#8230;?</string>
+
+    <string name="notiftitle">Egyéb érdekességek a város közelében</string>
+    <string name="notiftext">További információkat tudhat meg, ha az értesítésre kattint!</string>
 
     <string name="lets_see">Let\'s see how well you know the city!</string>
     <string name="name">ENTER YOUR NAME</string>

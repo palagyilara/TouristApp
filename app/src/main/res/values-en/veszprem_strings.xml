@@ -2,7 +2,7 @@
 <resources>
     <string name="veszpwebpage">Resource: www.veszpreminfo.hu/lang/en</string>
 
-    <string name="veszpmuseum3">Heroes\' Gate /</string>
+    <string name="veszpmuseum3">Heroes\' Gate</string>
     <string name="veszpmuseum2">Dubniczay Palace </string>
     <string name="veszpmuseum1">Beatified Gizella Diocese Collection </string>
 
@@ -21,6 +21,7 @@
     <string name="veszpother5">Veszprém Zoo </string>
     <string name="veszpother3">Saint Stephan Viaduct </string>
     <string name="veszpother4">City Hall </string>
+    <string name="veszpother6">Petőfi Theatre of Veszprém</string>
 
     <string name="veszpmus1">beatified-gizella-diocese-collection</string>
     <string name="veszpmus2">dubniczay-house-laszlo-karoly-collection</string>
@@ -41,4 +42,59 @@
     <string name="veszpoth3">saint-stephan-viaduct</string>
     <string name="veszpoth4">city-hall</string>
     <string name="veszpoth5">veszprem-zoo</string>
+    <string name="veszpoth6">petofi-theater-of-veszprem</string>
+
+    <!--QUIZ-->
+    <string-array name="veszprem_correctAnswersArray">
+        <item>@string/veszprem_answer_q1_3</item><!--q1-->
+        <item>@string/veszprem_answer_q2_1</item><!--q2-->
+        <item>@string/veszprem_answer_q3_3</item><!--q3-->
+        <item>@string/veszprem_answer_q4_1</item><!--q4-->
+        <item>@string/veszprem_answer_q5_1</item><!--q5-->
+        <item>@string/veszprem_answer_q6_2</item><!--q5-->
+        <item>@string/veszprem_answer_q7_2</item><!--q7-->
+        <item>@string/veszprem_answer_q8_3</item><!--q8-->
+        <item>@string/veszprem_answer_q9_1</item><!--q9-->
+        <item>@string/veszprem_answer_q10_2</item><!--q10-->
+    </string-array>
+    <string name="veszprem_q1">What is the symbol of Veszprém?</string>
+    <string name="veszprem_answer_q1_1">Heroes\' Gate</string>
+    <string name="veszprem_answer_q1_2">Fire Lookout Tower</string>
+    <string name="veszprem_answer_q1_3">Saint Stephan Viaduct</string>
+    <string name="veszprem_q2">How is Veszprém called?</string>
+    <string name="veszprem_answer_q2_1">City of queens</string>
+    <string name="veszprem_answer_q2_2">City of loyality</string>
+    <string name="veszprem_answer_q2_3">City of kings</string>
+    <string name="veszprem_q3">How high is the Fire Lookout Tower?</string>
+    <string name="veszprem_answer_q3_1">58 m</string>
+    <string name="veszprem_answer_q3_2">52 m</string>
+    <string name="veszprem_answer_q3_3">48 m</string>
+    <string name="veszprem_q4">Which Hungarian poet got the city theater its name after?</string>
+    <string name="veszprem_answer_q4_1">Sándor Petőfi</string>
+    <string name="veszprem_answer_q4_2">Attila József </string>
+    <string name="veszprem_answer_q4_3">Mihály Vörösmarty </string>
+    <string name="veszprem_q5">Which porcelain manufactory is presented by the Porcelanium?</string>
+    <string name="veszprem_answer_q5_1">Herend</string>
+    <string name="veszprem_answer_q5_2">Hollóház</string>
+    <string name="veszprem_answer_q5_3">Zsolnay</string>
+    <string name="veszprem_q6">What is the other name of the Saint Stephan bridge?</string>
+    <string name="veszprem_answer_q6_1">Chain Bridge</string>
+    <string name="veszprem_answer_q6_2">Viaduct</string>
+    <string name="veszprem_answer_q6_3">Suspension Bridge</string>
+    <string name="veszprem_q7">What was the Fire Lookout Tower originally intended for?</string>
+    <string name="veszprem_answer_q7_1">water tower</string>
+    <string name="veszprem_answer_q7_2">watchtower</string>
+    <string name="veszprem_answer_q7_3">lookout tower</string>
+    <string name="veszprem_q8">What style was the Saint Michael\'s Cathedral built in?</string>
+    <string name="veszprem_answer_q8_1">Gotic</string>
+    <string name="veszprem_answer_q8_2">Baroque</string>
+    <string name="veszprem_answer_q8_3">Neoromanesque</string>
+    <string name="veszprem_q9">What style of frescoes can be found in the Gizella Chapel?</string>
+    <string name="veszprem_answer_q9_1">Byzantine</string>
+    <string name="veszprem_answer_q9_2">Romanesque</string>
+    <string name="veszprem_answer_q9_3">Gotic</string>
+    <string name="veszprem_q10">Which building was built to commemorate the victims of World War I and the Hungarian soldiers?</string>
+    <string name="veszprem_answer_q10_1">Fire Lookout Tower</string>
+    <string name="veszprem_answer_q10_2">Heroes\'s Gate</string>
+    <string name="veszprem_answer_q10_3">Saint Stephan Viaduct</string>
 </resources>

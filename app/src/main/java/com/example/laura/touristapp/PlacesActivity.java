@@ -1364,7 +1364,7 @@ public class PlacesActivity extends AppCompatActivity {
             museum2.setText(getResources().getString(R.string.pecsmuseum2));
             museum3.setText(getResources().getString(R.string.pecsmuseum3));
             museum4.setText(getResources().getString(R.string.pecsmuseum4));
-            museum5.setText(getResources().getString(R.string.pecsmuseum1));
+            museum5.setText(getResources().getString(R.string.pecsmuseum5));
             museum6.setText(getResources().getString(R.string.pecsmuseum6));
             museum7.setText(getResources().getString(R.string.pecsmuseum7));
             museum8.setText(getResources().getString(R.string.pecsmuseum8));
@@ -1391,6 +1391,8 @@ public class PlacesActivity extends AppCompatActivity {
             other3.setText(getResources().getString(R.string.pecsother3));
             other4.setText(getResources().getString(R.string.pecsother4));
             other5.setText(getResources().getString(R.string.pecsother5));
+            other6.setText(getResources().getString(R.string.pecsother6));
+            other7.setText(getResources().getString(R.string.pecsother7));
 
             museum9.setVisibility (GONE);
             templom10.setVisibility (GONE);
@@ -1399,13 +1401,9 @@ public class PlacesActivity extends AppCompatActivity {
             templom13.setVisibility (GONE);
             monuments11.setVisibility (GONE);
             monuments8.setVisibility (GONE);
-            other6.setVisibility (GONE);
-            other7.setVisibility (GONE);
             other8.setVisibility (GONE);
             other9.setVisibility (GONE);
 
-            //if(language.equals ("hu"))
-           // {
                 //múzeumok
                 museum1.setOnClickListener(new View.OnClickListener()
                 {
@@ -1987,6 +1985,43 @@ public class PlacesActivity extends AppCompatActivity {
                     }
 
                 });
+                other6.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
+                        String placetitle = other6.getText().toString();
+                        String keyword1= getResources().getString(R.string.pecsoth6);
+                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
+                        intent.putExtra("key", keyword);
+                        intent.putExtra("key1", placetitle);
+                        intent.putExtra("key2", keyword1);
+
+                        //intent.putExtra("key1", lang);
+                        startActivity(intent);
+                    }
+
+                });
+                other7.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
+                        String placetitle = other7.getText().toString();
+                        String keyword1= getResources().getString(R.string.pecsoth7);
+                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
+                        intent.putExtra("key", keyword);
+                        intent.putExtra("key1", placetitle);
+                        intent.putExtra("key2", keyword1);
+
+                        //intent.putExtra("key1", lang);
+                        startActivity(intent);
+                    }
+
+                });
+
         }
 //----------------SOPRON--------------------------------------
         else if (keyword.equals ("Sopron")) {
@@ -2653,7 +2688,7 @@ public class PlacesActivity extends AppCompatActivity {
             museum2.setText(getResources().getString(R.string.szegedmuseum2));
             museum3.setText(getResources().getString(R.string.szegedmuseum3));
             museum4.setText(getResources().getString(R.string.szegedmuseum4));
-            museum5.setText(getResources().getString(R.string.szegedmuseum1));
+            museum5.setText(getResources().getString(R.string.szegedmuseum5));
             museum6.setText(getResources().getString(R.string.szegedmuseum6));
             templom1.setText(getResources().getString(R.string.szegedtemplom1));
             templom2.setText(getResources().getString(R.string.szegedtemplom2));
@@ -3286,6 +3321,8 @@ public class PlacesActivity extends AppCompatActivity {
             other3.setText(getResources().getString(R.string.veszpother3));
             other4.setText(getResources().getString(R.string.veszpother4));
             other5.setText(getResources().getString(R.string.veszpother5));
+            other6.setText(getResources().getString(R.string.veszpother6));
+
 
             museum4.setVisibility (GONE);
             museum5.setVisibility (GONE);
@@ -3309,7 +3346,7 @@ public class PlacesActivity extends AppCompatActivity {
             monuments9.setVisibility (GONE);
             monuments10.setVisibility (GONE);
             monuments11.setVisibility (GONE);
-            other6.setVisibility (GONE);
+            //other6.setVisibility (GONE);
             other7.setVisibility (GONE);
             other8.setVisibility (GONE);
             other9.setVisibility (GONE);
@@ -3600,6 +3637,24 @@ public class PlacesActivity extends AppCompatActivity {
                     }
 
                 });
+            other6.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
+                    String placetitle = other6.getText().toString();
+                    String keyword1= getResources().getString(R.string.veszpoth6);
+                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
+                    intent.putExtra("key", keyword);
+                    intent.putExtra("key1", placetitle);
+                    intent.putExtra("key2", keyword1);
+
+                    //intent.putExtra("key1", lang);
+                    startActivity(intent);
+                }
+
+            });
 
         }
 //----------------TIHANY--------------------------------------

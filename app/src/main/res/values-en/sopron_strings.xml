@@ -79,4 +79,58 @@
     <string name="soproth1">historical-monuments/petofi-theater.html</string>
     <string name="soproth2">manors-and-castles/sopron-castle-wall-promenade.html</string>
     <string name="soproth3">manors-and-castles/tarodi-castle.html</string>
+
+    <!--QUIZ-->
+    <string-array name="sopron_correctAnswersArray">
+        <item>@string/sopron_answer_q1_2</item><!--q1-->
+        <item>@string/sopron_answer_q2_3</item><!--q2-->
+        <item>@string/sopron_answer_q3_1</item><!--q3-->
+        <item>@string/sopron_answer_q4_1</item><!--q4-->
+        <item>@string/sopron_answer_q5_2</item><!--q5-->
+        <item>@string/sopron_answer_q6_3</item><!--q5-->
+        <item>@string/sopron_answer_q7_1</item><!--q7-->
+        <item>@string/sopron_answer_q8_2</item><!--q8-->
+        <item>@string/sopron_answer_q9_3</item><!--q9-->
+        <item>@string/sopron_answer_q10_3</item><!--q10-->
+    </string-array>
+    <string name="sopron_q1">What is the symbol of Sopron?</string>
+    <string name="sopron_answer_q1_1">Storno House</string>
+    <string name="sopron_answer_q1_2">Firewatch Tower</string>
+    <string name="sopron_answer_q1_3">Goat Chruch</string>
+    <string name="sopron_q2">What is the meaning of Civitas Fidelissima?</string>
+    <string name="sopron_answer_q2_1">The most heroic town</string>
+    <string name="sopron_answer_q2_2">The richest town</string>
+    <string name="sopron_answer_q2_3">The most loyal town</string>
+    <string name="sopron_q3">How high is the Firewatch Tower?</string>
+    <string name="sopron_answer_q3_1">58 m</string>
+    <string name="sopron_answer_q3_2">48 m</string>
+    <string name="sopron_answer_q3_3">63 m</string>
+    <string name="sopron_q4">What was Ferenc Storno\'s profession?</string>
+    <string name="sopron_answer_q4_1">art restorer, chimneysweep</string>
+    <string name="sopron_answer_q4_2">writer, art restorer</string>
+    <string name="sopron_answer_q4_3">chimneysweep, writer</string>
+    <string name="sopron_q5">What style was the famous Goat Church built in?</string>
+    <string name="sopron_answer_q5_1">Classicist</string>
+    <string name="sopron_answer_q5_2">Gotic</string>
+    <string name="sopron_answer_q5_3">Baroque</string>
+    <string name="sopron_q6">In which building can be seen the Archaeology Exhibition?</string>
+    <string name="sopron_answer_q6_1">Bezerédj House</string>
+    <string name="sopron_answer_q6_2">Storno House</string>
+    <string name="sopron_answer_q6_3">Fabricius House</string>
+    <string name="sopron_q7">Which famous composer gave his first concert in the Old Casino?</string>
+    <string name="sopron_answer_q7_1">Ferenc Liszt</string>
+    <string name="sopron_answer_q7_2">Ferenc Erkel</string>
+    <string name="sopron_answer_q7_3">Haydn</string>
+    <string name="sopron_q8">Which church is unique in Hungary with its ceramic floor?</string>
+    <string name="sopron_answer_q8_1">The Dome-Church of St György (George)</string>
+    <string name="sopron_answer_q8_2">St Michael\'s Church</string>
+    <string name="sopron_answer_q8_3">Church of St Imre (Emmerich)</string>
+    <string name="sopron_q9">Which building was built by a man in 50 years?</string>
+    <string name="sopron_answer_q9_1">Firewatch Tower</string>
+    <string name="sopron_answer_q9_2">Goat Church</string>
+    <string name="sopron_answer_q9_3">Taródi castle</string>
+    <string name="sopron_q10">Which event is held in Sopron?</string>
+    <string name="sopron_answer_q10_1">Sziget Festival</string>
+    <string name="sopron_answer_q10_2">Művészetek Völgye (Valley of Arts)</string>
+    <string name="sopron_answer_q10_3">Volt Festival</string>
 </resources>

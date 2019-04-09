@@ -20,6 +20,7 @@
     <string name="veszpother5">Veszprémi Állatkert </string>
     <string name="veszpother3">Szent István völgyhíd </string>
     <string name="veszpother4">Városháza </string>
+    <string name="veszpother6">Veszprémi Petőfi Színház </string>
 
     <string name="veszpmus1">boldog-gizella-foegyhazmegyei-gyujtemeny</string>
     <string name="veszpmus2">dubniczay-palota-laszlo-karoly-gyujtemeny</string>
@@ -40,78 +41,61 @@
     <string name="veszpoth3">szent-istvan-volgyhid</string>
     <string name="veszpoth4">varoshaza</string>
     <string name="veszpoth5">a-veszpremi-allatkert</string>
+    <string name="veszpoth6">veszpremi-petofi-szinhaz</string>
 
 
     <!--QUIZ-->
     <string-array name="veszprem_correctAnswersArray">
-        <item>@string/veszprem_answer_q1_2</item><!--q1-->
-        <item>@string/veszprem_answer_q2_3</item><!--q2-->
-        <item>@string/veszprem_answer_q4_3</item><!--q4-->
+        <item>@string/veszprem_answer_q1_3</item><!--q1-->
+        <item>@string/veszprem_answer_q2_1</item><!--q2-->
+        <item>@string/veszprem_answer_q3_3</item><!--q3-->
+        <item>@string/veszprem_answer_q4_1</item><!--q4-->
         <item>@string/veszprem_answer_q5_1</item><!--q5-->
-        <item>@string/veszprem_answer_q6_3</item><!--q5-->
-        <item>@string/veszprem_answer_q8_4</item><!--q8-->
+        <item>@string/veszprem_answer_q6_2</item><!--q5-->
+        <item>@string/veszprem_answer_q7_2</item><!--q7-->
+        <item>@string/veszprem_answer_q8_3</item><!--q8-->
         <item>@string/veszprem_answer_q9_1</item><!--q9-->
-        <item>@string/veszprem_answer_q10_3</item><!--q10-->
+        <item>@string/veszprem_answer_q10_2</item><!--q10-->
     </string-array>
-    <string-array name="veszprem_correctAnswersArray_Question3">
-        <item>@string/veszprem_answer_q3_1</item><!--q3-->
-        <item>@string/veszprem_answer_q3_2</item><!--q3-->
-    </string-array>
-    <string-array name="veszprem_correctAnswersArray_Question7">
-        <item>@string/veszprem_answer_q7_1</item><!--q7-->
-        <item>@string/veszprem_answer_q7_3</item><!--q7-->
-    </string-array>
-    <string name="veszprem_q1">How many avenues are there in NYC?</string>
-    <string name="veszprem_answer_q1_1">7</string>
-    <string name="veszprem_answer_q1_2">11</string>
-    <string name="veszprem_answer_q1_3">9</string>
-    <string name="veszprem_answer_q1_4">5</string>
-    <string name="veszprem_q2">How many streets are there in NYC?</string>
-    <string name="veszprem_answer_q2_1">30</string>
-    <string name="veszprem_answer_q2_2">87</string>
-    <string name="veszprem_answer_q2_3">214</string>
-    <string name="veszprem_answer_q2_4">301</string>
-    <string name="veszprem_q3">Which facts about NYC are true?</string>
-    <string name="veszprem_answer_q3_1">It\'s the birth place of the "Cronut"</string>
-    <string name="veszprem_answer_q3_2">It has 5 boroughs</string>
-    <string name="veszprem_answer_q3_3">It used to be called New Rome</string>
-    <string name="veszprem_answer_q3_4">The NYC NBA Team is name the NY</string>
-    <string name="veszprem_q4">Which NYC skyscraper is tallest?</string>
-    <string name="veszprem_answer_q4_1">Chrysler building</string>
-    <string name="veszprem_answer_q4_2">Empire State building</string>
-    <string name="veszprem_answer_q4_3">Freedom tower</string>
-    <string name="veszprem_answer_q4_4">Bank of America building</string>
-    <string name="veszprem_q5">On which side of Central Park is Columbus Circle?</string>
-    <string name="veszprem_answer_q5_1">South-West</string>
-    <string name="veszprem_answer_q5_2">South-East</string>
-    <string name="veszprem_answer_q5_3">North</string>
-    <string name="veszprem_answer_q5_4">East</string>
-    <string name="veszprem_q6">What was NY\'s previous name?</string>
-    <string name="veszprem_answer_q6_1">London</string>
-    <string name="veszprem_answer_q6_2">New England</string>
-    <string name="veszprem_answer_q6_3">New Amsterdam</string>
-    <string name="veszprem_answer_q6_4">York</string>
-    <string name="veszprem_q7">Who sings Empire State of Mind?</string>
-    <string name="veszprem_answer_q7_1">Alicia Keys</string>
-    <string name="veszprem_answer_q7_2">Madonna</string>
-    <string name="veszprem_answer_q7_3">Jay Z</string>
-    <string name="veszprem_answer_q7_4">Beyonce</string>
-    <string name="veszprem_q8">In which NYC neighborhood did the show Friends take place?</string>
-    <string name="veszprem_q9">In which NYC neighborhood did Jerry live in on the show Seinfeld?</string>
-    <string name="veszprem_q10">What\'s the name of NYC\'s main financial area?</string>
-    <string name="veszprem_answer_q10_1">Brick Street</string>
-    <string name="veszprem_answer_q10_2">Money Lane</string>
-    <string name="veszprem_answer_q10_3">Wall Street</string>
-    <string name="veszprem_answer_q10_4">5th avenue</string>
+    <string name="veszprem_q1">Mi Veszprém szimbóluma?</string>
+    <string name="veszprem_answer_q1_1">Hősök kapuja</string>
+    <string name="veszprem_answer_q1_2">Tűztorony</string>
+    <string name="veszprem_answer_q1_3">Szent István Völgyhíd</string>
+    <string name="veszprem_q2">Hogyan nevezik Veszprémet?</string>
+    <string name="veszprem_answer_q2_1">királynék városa</string>
+    <string name="veszprem_answer_q2_2">hűség városa</string>
+    <string name="veszprem_answer_q2_3">királyok városa</string>
+    <string name="veszprem_q3">Milyen magas a Tűztorony?</string>
+    <string name="veszprem_answer_q3_1">58 m</string>
+    <string name="veszprem_answer_q3_2">52 m</string>
+    <string name="veszprem_answer_q3_3">48 m</string>
+    <string name="veszprem_q4">Melyik költőnkről nevezték el a város színházát?</string>
+    <string name="veszprem_answer_q4_1">Petőfi Sándor</string>
+    <string name="veszprem_answer_q4_2">József Attila</string>
+    <string name="veszprem_answer_q4_3">Vörösmarty Mihály</string>
+    <string name="veszprem_q5">Melyik porcelán manufaktúrát mutatja be a Porcelanium?</string>
+    <string name="veszprem_answer_q5_1">Herendi</string>
+    <string name="veszprem_answer_q5_2">Hollóházi</string>
+    <string name="veszprem_answer_q5_3">Zsolnay</string>
+    <string name="veszprem_q6">Mi a Szent István Völgyhíd másik neve?</string>
+    <string name="veszprem_answer_q6_1">Lánchíd</string>
+    <string name="veszprem_answer_q6_2">Viadukt</string>
+    <string name="veszprem_answer_q6_3">Függőhíd</string>
+    <string name="veszprem_q7">Minek szánták eredetileg a Tűztornyot?</string>
+    <string name="veszprem_answer_q7_1">víztorony</string>
+    <string name="veszprem_answer_q7_2">őrtorony</string>
+    <string name="veszprem_answer_q7_3">kilátó</string>
+    <string name="veszprem_q8">Milyen stílusú a Szent Mihály Bazilika?</string>
+    <string name="veszprem_answer_q8_1">gótikus</string>
+    <string name="veszprem_answer_q8_2">barokk</string>
+    <string name="veszprem_answer_q8_3">neoromán</string>
+    <string name="veszprem_q9">Milyen stílusú freskók találhatók a Gizella-kápolnában?</string>
+    <string name="veszprem_answer_q9_1">bizánci</string>
+    <string name="veszprem_answer_q9_2">román</string>
+    <string name="veszprem_answer_q9_3">gótikus</string>
+    <string name="veszprem_q10">Melyik építményt építették az I. világháború áldozatainak és honvédők emlékére?</string>
+    <string name="veszprem_answer_q10_1">Tűztorony</string>
+    <string name="veszprem_answer_q10_2">Hősök Kapuja</string>
+    <string name="veszprem_answer_q10_3">Szent István Völgyhíd</string>
 
-    <string name="veszprem_answer_q8_1">Upper West Side</string>
-    <string name="veszprem_answer_q8_2">Upper East Side</string>
-    <string name="veszprem_answer_q8_3">West Village</string>
-    <string name="veszprem_answer_q8_4">Greenwich Village</string>
-
-    <string name="veszprem_answer_q9_1">Upper West Side</string>
-    <string name="veszprem_answer_q9_2">Upper East Side</string>
-    <string name="veszprem_answer_q9_3">West Village</string>
-    <string name="veszprem_answer_q9_4">Greenwich Village</string>
-
-    </resources>
+</resources>

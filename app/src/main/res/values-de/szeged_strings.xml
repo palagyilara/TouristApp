@@ -74,4 +74,59 @@
     <string name="szegoth8">rathaus/</string>
     <string name="szegoth9">musizierende-uhr/</string>
 
+    <!--QUIZ-->
+    <string-array name="szeged_correctAnswersArray">
+        <item>@string/szeged_answer_q1_1</item><!--q1-->
+        <item>@string/szeged_answer_q2_3</item><!--q2-->
+        <item>@string/szeged_answer_q3_2</item><!--q3-->
+        <item>@string/szeged_answer_q4_2</item><!--q4-->
+        <item>@string/szeged_answer_q5_1</item><!--q5-->
+        <item>@string/szeged_answer_q6_3</item><!--q5-->
+        <item>@string/szeged_answer_q7_1</item><!--q7-->
+        <item>@string/szeged_answer_q8_1</item><!--q8-->
+        <item>@string/szeged_answer_q9_3</item><!--q9-->
+        <item>@string/szeged_answer_q10_1</item><!--q10-->
+    </string-array>
+    <string name="szeged_q1">Melyik megye székhelye Szeged?</string>
+    <string name="szeged_answer_q1_1">Csongrád</string>
+    <string name="szeged_answer_q1_2">Békés</string>
+    <string name="szeged_answer_q1_3">Bács-Kiskun</string>
+    <string name="szeged_q2">Miről híres Szeged?</string>
+    <string name="szeged_answer_q2_1">szőlő</string>
+    <string name="szeged_answer_q2_2">sárgabarack</string>
+    <string name="szeged_answer_q2_3">paprika</string>
+    <string name="szeged_q3">Mi volt a városkép kialakulásának egyik legmeghatározóbb eseménye?</string>
+    <string name="szeged_answer_q3_1">földrengés</string>
+    <string name="szeged_answer_q3_2">árvíz</string>
+    <string name="szeged_answer_q3_3">II. világháború</string>
+    <string name="szeged_q4">Miért kapott Nobel-díjat Szent-Györgyi Albert?</string>
+    <string name="szeged_answer_q4_1">A vitamin felfedezése</string>
+    <string name="szeged_answer_q4_2">C vitamin felfedezése</string>
+    <string name="szeged_answer_q4_3">E vitamin felfedezése</string>
+    <string name="szeged_q5">Hogyan nevezik Szegedet?</string>
+    <string name="szeged_answer_q5_1">napfény városa</string>
+    <string name="szeged_answer_q5_2">szelek városa</string>
+    <string name="szeged_answer_q5_3">vizek városa</string>
+    <string name="szeged_q6">Mikor volt az árvíz?</string>
+    <string name="szeged_answer_q6_1">1889</string>
+    <string name="szeged_answer_q6_2">1883</string>
+    <string name="szeged_answer_q6_3">1879</string>
+    <string name="szeged_q7">Hol található Szeged?</string>
+    <string name="szeged_answer_q7_1">Tisza-Maros torkolatánál</string>
+    <string name="szeged_answer_q7_2">Körös-Maros torkolatánál</string>
+    <string name="szeged_answer_q7_3">Duna-Tisza torkolatánál</string>
+    <string name="szeged_q8">Milyen stílusú a Fogadalmi templom?</string>
+    <string name="szeged_answer_q8_1">eklektikus</string>
+    <string name="szeged_answer_q8_2">barokk</string>
+    <string name="szeged_answer_q8_3">klasszicista</string>
+    <string name="szeged_q9">Mi Szeged legrégebbi építészeti emléke?</string>
+    <string name="szeged_answer_q9_1">Régi zsinagóga</string>
+    <string name="szeged_answer_q9_2">Deutsch-palota</string>
+    <string name="szeged_answer_q9_3">Dömötör-torony</string>
+    <string name="szeged_q10">Mely rendezvény vonz számos látogatót Szegedre?</string>
+    <string name="szeged_answer_q10_1">Szabadtéri Játékok</string>
+    <string name="szeged_answer_q10_2">Virágkarnevál</string>
+    <string name="szeged_answer_q10_3">Halászlé Fesztivál</string>
+
+
 </resources>

@@ -1,6 +1,11 @@
 package com.example.laura.touristapp;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
@@ -9,19 +14,25 @@ import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMyLocationChangeListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -44,8 +55,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 import io.paperdb.Paper;
@@ -59,7 +73,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
     private boolean mLocationPermissionsGranted = false;
     private FusedLocationProviderClient fusedLocationProviderClient;
-
+    private List<Marker> markers = new ArrayList<Marker>();
+    private double currentLatitude;
+    private double currentLongitude;
+    public static final String CHANNEL_ID = "tourist_notifications";
+    public final int NOTIFICATION_ID=001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,8 +136,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+    @SuppressLint("MissingPermission")
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(final GoogleMap googleMap) {
         mMap = googleMap;
 
         final Bundle extra = getIntent().getExtras();
@@ -129,9 +148,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String placetitle = extra.getString("key1");
         final String language = Paper.book().read("language");
 
+
+        //mMap.setOnMyLocationChangeListener(this);
+
         int height = 71;
         int width = 50;
-        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.mipmap.museumicon);
+        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.museumicon);
         Bitmap b=bitmapdraw.getBitmap();
         Bitmap museumicon = Bitmap.createScaledBitmap(b, width, height, false);
 
@@ -1403,7 +1425,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsother5))) {
-                double lat=46.075818;
+                double lat=46.0936665;
+                double lng=18.2235902;
+                LatLng addr = new LatLng(lat, lng);
+                googleMap.addMarker (new MarkerOptions ( )
+                                .position (new LatLng (lat, lng))
+                                .title (placetitle)
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
+            }
+            else if(placetitle.equals (getResources().getString(R.string.pecsother6))) {
+                double lat=46.0992037;
+                double lng=18.2179472;
+                LatLng addr = new LatLng(lat, lng);
+                googleMap.addMarker (new MarkerOptions ( )
+                                .position (new LatLng (lat, lng))
+                                .title (placetitle)
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
+            }
+            else if(placetitle.equals (getResources().getString(R.string.pecsother7))) {
+                double lat=46.0758217;
                 double lng=18.2265088;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
@@ -1992,6 +2038,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
+            else if(placetitle.equals (getResources().getString(R.string.veszpother6))) {
+                double lat=47.0919435;
+                double lng=17.9046887;
+                LatLng addr = new LatLng(lat, lng);
+                googleMap.addMarker (new MarkerOptions ( )
+                                .position (new LatLng (lat, lng))
+                                .title (placetitle)
+                    /*.snippet ("RandomUSer @RandUsi")
+                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
+            }
             //TIHANY
             else if(placetitle.equals (getResources().getString(R.string.tihanymuseum1))) {
                 double lat=46.9137329;
@@ -2076,32 +2134,38 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 getLatitudeAndLongitudeFromGoogleMapForAddress(keyword, v, v1);
 
                 //if (language.equals("hu") || language.equals("en") || language.equals("de")) {
-                googleMap.addMarker(new MarkerOptions()
+                Marker m = googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.758834, 17.242172))
                         .title(getResources().getString(R.string.keszthmuseum1))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
-                googleMap.addMarker(new MarkerOptions()
+                markers.add(m);
+                Marker m1 =googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.7707424, 17.2418793))
                         .title(getResources().getString(R.string.keszthmuseum3))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
-                googleMap.addMarker(new MarkerOptions()
+                markers.add(m1);
+                Marker m2 =googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.748101, 17.2273207))
                         .title(getResources().getString(R.string.keszthmuseum6))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
+                markers.add(m2);
 
                 if (language.equals("hu")) {
-                    googleMap.addMarker(new MarkerOptions()
+                    Marker m3 =googleMap.addMarker(new MarkerOptions()
                             .position(new LatLng(46.7628359,17.2420221))
                             .title(getResources().getString(R.string.keszthmuseum2))
                             .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
-                    googleMap.addMarker(new MarkerOptions()
+                    markers.add(m3);
+                    Marker m4 =googleMap.addMarker(new MarkerOptions()
                             .position(new LatLng(46.766845, 17.235827))
                             .title(getResources().getString(R.string.keszthmuseum4))
                             .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
-                    googleMap.addMarker(new MarkerOptions()
+                    markers.add(m4);
+                    Marker m5 =googleMap.addMarker(new MarkerOptions()
                             .position(new LatLng(46.769314, 17.242457))
                             .title(getResources().getString(R.string.keszthmuseum5))
                             .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
+                    markers.add(m5);
                 }
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7538965, 17.2401481))
@@ -2501,8 +2565,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .position(new LatLng(46.0763242, 18.2284875))
                         .title(getResources().getString(R.string.pecsother4)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.075818, 18.2265088))
+                        .position(new LatLng(46.0936665,18.2235902))
                         .title(getResources().getString(R.string.pecsother5)));
+                googleMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(46.0992037,18.2179472))
+                        .title(getResources().getString(R.string.pecsother6)));
+                googleMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(46.0758217,18.2265088))
+                        .title(getResources().getString(R.string.pecsother7)));
+
 
                 mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
@@ -3000,6 +3071,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0900738, 17.8903271))
                         .title(getResources().getString(R.string.veszpother5)));
+                googleMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(47.0919435,17.9046887))
+                        .title(getResources().getString(R.string.veszpother6)));
+
                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
                     public void onInfoWindowClick(Marker marker) {
@@ -4774,10 +4849,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             // Toast.makeText(MapsActivity.this, "Clicked"+marker.getTitle(), Toast.LENGTH_SHORT).show();
                         }
 
-
-
-
-
                         //return false;
                     }
                 });
@@ -4785,37 +4856,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             }
         }
-        //setPoiClick(mMap);
-        //if(keyword.equals("Keszthely")) {
-
-
-
-
-        /*mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener () {
-            @Override
-            public void onInfoWindowClick(Marker marker) {
-                Intent intent = new Intent(MapsActivity.this,PDescriptionActivity.class);
-                // startActivity(intent);
-                //Bundle extra = getIntent().getExtras();
-                //String keyword = extra.getString("key");
-                String keyword1="muzeumok/balatoni_muzeum";
-                //Intent intent = new Intent(MapsActivity.this, PDescriptionActivity.class);
-                // String placetitle = title.getText().toString();
-                // String placetitle = museum3.getText().toString();
-                //String keyword1= "muzeumok/helikon_kastelymuzeum_festetics_kastely";
-                //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                intent.putExtra("key", keyword);
-                //intent.putExtra("key1", placetitle);
-                intent.putExtra("key2", keyword1);
-
-                //intent.putExtra("key1", lang);
-                startActivity(intent);
-
-            }
-        });*/
 
         //Enable the my-location layer over the map if location permissions are granted
-       /* getLocationPermission();
+        getLocationPermission();
         if (mLocationPermissionsGranted)
         {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
@@ -4826,54 +4869,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
 
             googleMap.setMyLocationEnabled(true);
-        }*
-
-        //Move camera to the current device location
-        getDeviceLocation(googleMap);*/
-
-//keszthely
-
-        //mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
-
-//stílus
-        /*try {
-            // Customise the styling of the base map using a JSON object defined
-            // in a raw resource file.
-            boolean success = googleMap.setMapStyle(
-                    MapStyleOptions.loadRawResourceStyle(
-                            this, R.raw.style_json));
-
-            if (!success) {
-                Log.e(TAG, "Style parsing failed.");
-            }
-        } catch (Resources.NotFoundException e) {
-            Log.e(TAG, "Can't find style. Error: ", e);
-        }*/
-
-       /* JsonTask getRequest = new JsonTask();
-        try {
-            String JSONString = getRequest.execute("https://maps.googleapis.com/maps/api/geocode/json?address="+keyword+"&sensor=false&key=AIzaSyCwh204CuSfjDv3thdb0oEpnUPS3zrlLG4").get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
 
-       /* JSONObject jsonResponse1;
-        String jsonMap1 = null;
-        try {
-            jsonResponse1 = new JSONObject(jsonMap1);
-            JSONArray cast = jsonResponse1.getJSONArray("results");
-            for (int i = 0; i < cast.length(); i++) {
-                JSONObject actor = cast.getJSONObject(i);
-                JSONObject name = actor.getJSONObject("geometry");
-                JSONObject location = name.getJSONObject("location");
-                String lat1 = location.getString("lat");
-                String lng1 = location.getString("lng");
+        //Move camera to the current device location
+        getDeviceLocation(googleMap);
+
+        //add location button click listener
+        mMap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener(){
+            @Override
+            public boolean onMyLocationButtonClick()
+            {
+                getDeviceLocation(googleMap);
+                return true;
             }
-        } catch (JSONException e) {
-            //Toast.makeText(mContext, e.toString(), Toast.LENGTH_SHORT).show();
-        }*/
+        });
 
     }
     //Check if the location permission has been granted, if not, ask for it
@@ -4885,6 +4894,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 && ContextCompat.checkSelfPermission(this.getApplicationContext(), COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)
         {
             mLocationPermissionsGranted = true;
+
         }
         else
         {
@@ -4908,12 +4918,213 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     @Override
                     public void onComplete(@NonNull Task task) {
                         if (task.isSuccessful() && task.getResult() != null) {
+                            String cityName = "Not Found";
+                            //Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
+                            Geocoder coder = new Geocoder(MapsActivity.this);
+                            List<Address> address;
                             //Set current location
                             Location currentLocation = (Location) task.getResult();
 
                             //Move map camera to the current location w/ the default zoom level
                             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(currentLocation.getLatitude(),
                                     currentLocation.getLongitude()), 17));
+                            try {
+                                /*List<Address> addresses = gcd.getFromLocation(currentLocation.getLatitude(), currentLocation.getLongitude(),
+                                        10);*/
+                                address = coder.getFromLocation(currentLocation.getLatitude(), currentLocation.getLongitude(),5);
+
+                                Log.d(TAG, "Address Latitude : " + currentLocation.getLatitude() + "Address Longitude : " + currentLocation.getLongitude());
+
+                                for (Address adrs : address) {
+                                    if (adrs != null) {
+                                        String city = adrs.getLocality();
+                                        if (city != null && !city.equals("")) {
+                                            cityName = city;
+                                            System.out.println("city :  " + cityName);
+                                        } else {
+                                            System.out.println("hiba!  ");
+                                        }
+
+                                    }
+
+                                }
+                            }
+                            catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            createNotificationChannel();
+                            if(cityName.equals("Keszthely"))
+                            {
+                                Location A=new Location("LocationA");
+                                A.setLatitude(currentLocation.getLatitude());
+                                A.setLongitude(currentLocation.getLongitude());
+
+                                Location B=new Location("LocationB");//hévíz koordinátái
+                                B.setLatitude(46.79200);
+                                B.setLongitude(17.18767);
+
+                                NumberFormat formatter = new DecimalFormat("##.00");
+                                float[] result=new float[1];
+                                Location.distanceBetween (currentLocation.getLatitude(),currentLocation.getLongitude(),46.79200, 17.18767,  result);
+                                String distance=formatter.format(result[0]/1000);
+                                //double distance=A.distanceTo(B);
+                                //System.out.println(distance);
+
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.kesztnotifurl)));
+                                PendingIntent pendingIntent = PendingIntent.getActivity(MapsActivity.this, 0, intent, 0);
+                                //mBuilder.setContentIntent(pendingIntent);
+                                //értesítés küldése
+                                NotificationCompat.Builder builder = new NotificationCompat.Builder(MapsActivity.this,CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.sign)
+                                        .setColor(getResources().getColor(R.color.colorAccent))
+                                        .setContentTitle(getResources().getString(R.string.notiftitle))
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(getResources().getString(R.string.notiftitle)))
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(getResources().getString(R.string.notiftext)+"\nEnnyi távolságra van: "+distance+"km"))
+                                        .setContentText(getResources().getString(R.string.notiftext)+"\nEnnyi távolságra van: "+distance+"km")
+                                        .setPriority(NotificationManager.IMPORTANCE_HIGH)
+                                        .setDefaults(Notification.DEFAULT_ALL)
+                                        .setContentIntent(pendingIntent)
+                                        .setAutoCancel(true);
+                                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MapsActivity.this);
+
+                                // notificationId is a unique int for each notification that you must define
+                                notificationManager.notify(NOTIFICATION_ID, builder.build());
+
+                            }
+                            else if(cityName.equals("Eger"))
+                            {
+                                // Create an explicit intent for an Activity in your app
+                                //Create the intent that’ll fire when the user taps the notification//
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://gyogyvizekvolgye.hu/"));
+                                PendingIntent pendingIntent = PendingIntent.getActivity(MapsActivity.this, 0, intent, 0);
+                                //mBuilder.setContentIntent(pendingIntent);
+                                //értesítés küldése
+                                NotificationCompat.Builder builder = new NotificationCompat.Builder(MapsActivity.this,CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.sign)
+                                        .setColor(getResources().getColor(R.color.colorAccent))
+                                        .setContentTitle(getResources().getString(R.string.notiftitle))
+                                        .setContentText(getResources().getString(R.string.notiftext))
+                                        .setPriority(NotificationManager.IMPORTANCE_HIGH)
+                                        .setDefaults(Notification.DEFAULT_ALL)
+                                        .setContentIntent(pendingIntent)
+                                        .setAutoCancel(true);
+                                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MapsActivity.this);
+
+                                // notificationId is a unique int for each notification that you must define
+                                notificationManager.notify(NOTIFICATION_ID, builder.build());
+                            }
+                            else if(cityName.equals("Pécs"))
+                            {
+                                // Create an explicit intent for an Activity in your app
+                                //Create the intent that’ll fire when the user taps the notification//
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.heviz.hu/hu"));
+                                PendingIntent pendingIntent = PendingIntent.getActivity(MapsActivity.this, 0, intent, 0);
+                                //mBuilder.setContentIntent(pendingIntent);
+                                //értesítés küldése
+                                NotificationCompat.Builder builder = new NotificationCompat.Builder(MapsActivity.this,CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.sign)
+                                        .setColor(getResources().getColor(R.color.colorAccent))
+                                        .setContentTitle(getResources().getString(R.string.notiftitle))
+                                        .setContentText(getResources().getString(R.string.notiftext))
+                                        .setPriority(NotificationManager.IMPORTANCE_HIGH)
+                                        .setDefaults(Notification.DEFAULT_ALL)
+                                        .setContentIntent(pendingIntent)
+                                        .setAutoCancel(true);
+                                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MapsActivity.this);
+
+                                // notificationId is a unique int for each notification that you must define
+                                notificationManager.notify(NOTIFICATION_ID, builder.build());
+                            }
+                            else if(cityName.equals("Sopron"))
+                            {
+                                // Create an explicit intent for an Activity in your app
+                                //Create the intent that’ll fire when the user taps the notification//
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.heviz.hu/hu"));
+                                PendingIntent pendingIntent = PendingIntent.getActivity(MapsActivity.this, 0, intent, 0);
+                                //mBuilder.setContentIntent(pendingIntent);
+                                //értesítés küldése
+                                NotificationCompat.Builder builder = new NotificationCompat.Builder(MapsActivity.this,CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.sign)
+                                        .setColor(getResources().getColor(R.color.colorAccent))
+                                        .setContentTitle(getResources().getString(R.string.notiftitle))
+                                        .setContentText(getResources().getString(R.string.notiftext))
+                                        .setPriority(NotificationManager.IMPORTANCE_HIGH)
+                                        .setDefaults(Notification.DEFAULT_ALL)
+                                        .setContentIntent(pendingIntent)
+                                        .setAutoCancel(true);
+                                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MapsActivity.this);
+
+                                // notificationId is a unique int for each notification that you must define
+                                notificationManager.notify(NOTIFICATION_ID, builder.build());
+                            }
+                            else if(cityName.equals("Tihany"))
+                            {
+                                // Create an explicit intent for an Activity in your app
+                                //Create the intent that’ll fire when the user taps the notification//
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.heviz.hu/hu"));
+                                PendingIntent pendingIntent = PendingIntent.getActivity(MapsActivity.this, 0, intent, 0);
+                                //mBuilder.setContentIntent(pendingIntent);
+                                //értesítés küldése
+                                NotificationCompat.Builder builder = new NotificationCompat.Builder(MapsActivity.this,CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.sign)
+                                        .setColor(getResources().getColor(R.color.colorAccent))
+                                        .setContentTitle(getResources().getString(R.string.notiftitle))
+                                        .setContentText(getResources().getString(R.string.notiftext))
+                                        .setPriority(NotificationManager.IMPORTANCE_HIGH)
+                                        .setDefaults(Notification.DEFAULT_ALL)
+                                        .setContentIntent(pendingIntent)
+                                        .setAutoCancel(true);
+                                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MapsActivity.this);
+
+                                // notificationId is a unique int for each notification that you must define
+                                notificationManager.notify(NOTIFICATION_ID, builder.build());
+                            }
+                            else if(cityName.equals("Szeged"))
+                            {
+                                // Create an explicit intent for an Activity in your app
+                                //Create the intent that’ll fire when the user taps the notification//
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.heviz.hu/hu"));
+                                PendingIntent pendingIntent = PendingIntent.getActivity(MapsActivity.this, 0, intent, 0);
+                                //mBuilder.setContentIntent(pendingIntent);
+                                //értesítés küldése
+                                NotificationCompat.Builder builder = new NotificationCompat.Builder(MapsActivity.this,CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.sign)
+                                        .setColor(getResources().getColor(R.color.colorAccent))
+                                        .setContentTitle(getResources().getString(R.string.notiftitle))
+                                        .setContentText(getResources().getString(R.string.notiftext))
+                                        .setPriority(NotificationManager.IMPORTANCE_HIGH)
+                                        .setDefaults(Notification.DEFAULT_ALL)
+                                        .setContentIntent(pendingIntent)
+                                        .setAutoCancel(true);
+                                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MapsActivity.this);
+
+                                // notificationId is a unique int for each notification that you must define
+                                notificationManager.notify(NOTIFICATION_ID, builder.build());
+                            }
+                            else if(cityName.equals("Veszprém"))
+                            {
+                                // Create an explicit intent for an Activity in your app
+                                //Create the intent that’ll fire when the user taps the notification//
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.heviz.hu/hu"));
+                                PendingIntent pendingIntent = PendingIntent.getActivity(MapsActivity.this, 0, intent, 0);
+                                //mBuilder.setContentIntent(pendingIntent);
+                                //értesítés küldése
+                                NotificationCompat.Builder builder = new NotificationCompat.Builder(MapsActivity.this,CHANNEL_ID)
+                                        .setSmallIcon(R.drawable.sign)
+                                        .setColor(getResources().getColor(R.color.colorAccent))
+                                        .setContentTitle(getResources().getString(R.string.notiftitle))
+                                        .setContentText(getResources().getString(R.string.notiftext))
+                                        .setPriority(NotificationManager.IMPORTANCE_HIGH)
+                                        .setDefaults(Notification.DEFAULT_ALL)
+                                        .setContentIntent(pendingIntent)
+                                        .setAutoCancel(true);
+                                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MapsActivity.this);
+
+                                // notificationId is a unique int for each notification that you must define
+                                notificationManager.notify(NOTIFICATION_ID, builder.build());
+                            }
                         } else {
                             //nyelvnek megfelelő hibaüzenet
                             if(language.equals ("hu"))
@@ -4937,8 +5148,55 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.e("MapsActivity", "getDeviceLocation: SecurityException: " + e.getMessage());
         }
     }
+
+    /*private void displayNotification(View view) {
+        createNotificationChannel();
+
+        // Create an explicit intent for an Activity in your app
+
+
+        //Create the intent that’ll fire when the user taps the notification//
+
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.heviz.hu/hu"));
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        //mBuilder.setContentIntent(pendingIntent);
+        //értesítés küldése
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,CHANNEL_ID)
+                .setSmallIcon(R.drawable.museumicon)
+                .setContentTitle("My notification")
+                .setContentText("Much longer text that cannot fit one line...")
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText("Much longer text that cannot fit one line..."))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText("jasbckjsacachlj javjskvjsalifjsl hvkahvjashva lahvjlasvhashv"))
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(NOTIFICATION_ID, builder.build());
+    }*/
+    private void createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Tourist Notifications";
+            String description = "Include all the tourist notifications";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
     public boolean getLatitudeAndLongitudeFromGoogleMapForAddress(String searchedAddress, double v, double v1){
 
+        //String cityName = "Not Found";
         Geocoder coder = new Geocoder(this);
         List<Address> address;
         try {
@@ -4951,6 +5209,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LatLng keyword = new LatLng(v, v1);
 
             Log.d(TAG, "Address Latitude : "+ location.getLatitude()+ "Address Longitude : "+ location.getLongitude());
+
             //mMap.addMarker(new MarkerOptions().position(keyword).title("Marker in Keszthely"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(keyword));
             mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
@@ -4961,114 +5220,5 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             return false;
         }
     }
-
-/*
-    private void setPoiClick(final GoogleMap map) {
-        map.setOnPoiClickListener(new GoogleMap.OnPoiClickListener() {
-            @Override
-            public void onPoiClick(PointOfInterest poi) {
-                /*Marker poiMarker = mMap.addMarker(new MarkerOptions()
-                        .position(poi.latLng)
-                        .title(poi.name));
-                Double latitude = poiMarker.getPosition().latitude;
-                Double longitude = poiMarker.getPosition().longitude;
-                Log.d("marker", String.valueOf (latitude));
-                Log.d("marker", String.valueOf (longitude));
-
-                //leírás activityre átírányít
-                poiMarker.showInfoWindow();
-                Bundle extra = getIntent().getExtras();
-                String keyword = extra.getString("key");
-
-                Intent intent = new Intent(MapsActivity.this, PDescriptionActivity.class);
-               // String placetitle = title.getText().toString();
-                // String placetitle = museum3.getText().toString();
-                //String keyword1= "muzeumok/helikon_kastelymuzeum_festetics_kastely";
-                //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                intent.putExtra("key", keyword);
-                //intent.putExtra("key1", placetitle);
-                intent.putExtra("key2", keyword1);
-
-                //intent.putExtra("key1", lang);
-                startActivity(intent);
-            }
-        });
-    }*/
-    /*
-    public void onInfoWindowClick(Marker marker) {
-        //Get memo ID via the converter in the Communications class using marker.getId() TODO: Make convertMarkerToMemo function in Communications
-
-        fragmentManager.beginTransaction().show(viewMemoFragment).addToBackStack("viewMemo").commit();
-        findViewById(R.id.FrameLayoutFragment).setClickable(true);
-
-        //TODO: Provide the MemoID to ViewMemoFragment class, so it can ask for the details of the selected memo from the Server via Communications
-
-        //Disable the currently active menu button
-        activeMenuButton.setActivated(false);
-        activeMenuButton = null;
-    }*/
-
-    /*
-
-private class JsonTask extends AsyncTask<String, String, String> {
-
-    protected void onPreExecute() {
-        super.onPreExecute();
-        // u can use a dialog here
-    }
-
-    protected String doInBackground(String... params) {
-
-
-        HttpURLConnection connection = null;
-        BufferedReader reader = null;
-
-        try {
-            URL url = new URL(params[0]);
-            connection = (HttpURLConnection) url.openConnection();
-            connection.connect();
-
-
-            InputStream stream = connection.getInputStream();
-
-            reader = new BufferedReader(new InputStreamReader(stream));
-
-            StringBuffer buffer = new StringBuffer();
-            String line = "";
-
-            while ((line = reader.readLine()) != null) {
-                buffer.append(line+"\n");
-                Log.d("Response: ", "> " + line);   //here u ll get whole response...... :-)
-
-            }
-
-            return buffer.toString();
-
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null) {
-                connection.disconnect();
-            }
-            try {
-                if (reader != null) {
-                    reader.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
-    }
-
-    @Override
-    protected void onPostExecute(String result) {
-        super.onPostExecute(result);
-        // here "result" is json as stting
-    }
-}*/
 }
 

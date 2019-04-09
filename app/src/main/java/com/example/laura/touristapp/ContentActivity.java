@@ -8,6 +8,9 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -73,14 +76,12 @@ public class ContentActivity extends AppCompatActivity {
         super.attachBaseContext(LocaleHelper.onAttach(newBase, "hu"));
     }
 
-
     //private Button btnFetchData;
     private TextView txtWikiData;
     private TextView title;
     private TextView wikipedia;
     private ImageButton speakbtn;
     private ProgressBar progressBar;
-   // private int MY_DATA_CHECK_CODE = 0;
     private TextToSpeech tts;
     // private TextToSpeech tts;
 
@@ -92,17 +93,39 @@ public class ContentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
         Bundle extra = getIntent().getExtras();
-        //String text = extra.getString(MainActivity.TAG_TEXT);
         String keyword = extra.getString("key");
+        final String language = Paper.book().read("language");
 
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
-        //etxSearch = (EditText) findViewById(R.id.etxSearch);
         txtWikiData = (TextView) findViewById(R.id.txtWikiData);
         title = (TextView) findViewById(R.id.title);
         wikipedia = (TextView) findViewById(R.id.wikipedia);
         speakbtn = (ImageButton) findViewById(R.id.speakbtn);
 
-        String language = Paper.book().read("language");
+        wikipedia.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (language.equals("hu")) {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                    intent.setData(Uri.parse("https://hu.wikipedia.org/wiki/Kezd%C5%91lap"));
+                    startActivity(intent);
+                } else if (language.equals("en")) {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                    intent.setData(Uri.parse("https://en.wikipedia.org/wiki/Main_Page"));
+                    startActivity(intent);
+                } else if (language.equals("de")) {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                    intent.setData(Uri.parse("https://de.wikipedia.org/wiki/Wikipedia:Hauptseite"));
+                    startActivity(intent);
+                }
+            }
+        });
+
 
         if (language.equals("hu")) {
 
@@ -116,24 +139,7 @@ public class ContentActivity extends AppCompatActivity {
 
             fetchWikiDataAsync.execute(WIKIPEDIA_URL);
 
-            speakbtn.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    //handle user clicks here
-                    //TextView txtWikiData = (TextView) findViewById(R.id.txtWikiData);
-                   // String words = txtWikiData.getText().toString();
-                   // tts.speak(words, TextToSpeech.QUEUE_FLUSH, null);
-                    //speakWords(words);
-                    // speak(words);
-                    String data = txtWikiData.getText().toString();
-                    Log.i("TTS", "button clicked: " + data);
-                    int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
-
-                    if (speechStatus == TextToSpeech.ERROR) {
-                        Log.e("TTS", "Error in converting Text to Speech!");
-                    }
-
-                }
-            });
+            speakbtn.setVisibility(View.INVISIBLE);
 
         } else if (language.equals("en")) {
             // title.setText("About the city");
@@ -151,11 +157,11 @@ public class ContentActivity extends AppCompatActivity {
                 @Override
                 public void onInit(int initStatus) {
                     if (initStatus == TextToSpeech.SUCCESS) {
-                       // if (tts.isLanguageAvailable(Locale.UK) == TextToSpeech.LANG_AVAILABLE) {
+                        // if (tts.isLanguageAvailable(Locale.UK) == TextToSpeech.LANG_AVAILABLE) {
                         int result = tts.setLanguage(Locale.UK);
-                            //tts.setLanguage(Locale.UK);
-                            Toast.makeText(ContentActivity.this, "Angol beszéd kész", Toast.LENGTH_LONG).show();
-                            //tts.setLanguage(Locale.GERMANY);
+                        //tts.setLanguage(Locale.UK);
+                        //Toast.makeText(ContentActivity.this, "Angol beszéd kész", Toast.LENGTH_LONG).show();
+                        //tts.setLanguage(Locale.GERMANY);
                         if (result == TextToSpeech.LANG_MISSING_DATA
                                 || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                             Log.e("TTS", "The Language is not supported!");
@@ -167,7 +173,7 @@ public class ContentActivity extends AppCompatActivity {
                             Log.i("TTS", "Language Supported.");
                         }
                         Log.i("TTS", "Initialization success.");
-                       // }
+                        // }
                         // tts.setLanguage(Locale.UK);
                     } else if (initStatus == TextToSpeech.ERROR) {
                         Toast.makeText(ContentActivity.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
@@ -204,9 +210,9 @@ public class ContentActivity extends AppCompatActivity {
                         int result = tts.setLanguage(locale);
                         //int result = tts.setLanguage(new Locale("de_AT"));
                         //if (tts.isLanguageAvailable(Locale.GERMANY) == TextToSpeech.LANG_AVAILABLE) {
-                            //  tts.setLanguage(Locale.UK);
-                           // tts.setLanguage(Locale.GERMANY);
-                            Toast.makeText(ContentActivity.this, "Német beszéd kész", Toast.LENGTH_LONG).show();
+                        //  tts.setLanguage(Locale.UK);
+                        // tts.setLanguage(Locale.GERMANY);
+                        //Toast.makeText(ContentActivity.this, "Német beszéd kész", Toast.LENGTH_LONG).show();
                         if (result == TextToSpeech.LANG_MISSING_DATA
                                 || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                             Log.e("TTS", "The Language is not supported!");
@@ -222,7 +228,7 @@ public class ContentActivity extends AppCompatActivity {
 
                         }
                         Log.i("TTS", "Initialization success.");
-                      //  }
+                        //  }
                         // tts.setLanguage(Locale.UK);
                     } else if (initStatus == TextToSpeech.ERROR) {
                         Toast.makeText(ContentActivity.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
@@ -237,14 +243,14 @@ public class ContentActivity extends AppCompatActivity {
                     int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
                     if (speechStatus == TextToSpeech.ERROR) {
                         Log.e("TTS", "Error in converting Text to Speech!");
-                        }
-                        }
+                    }
+                }
             });
         }
 
     }
 
-   @Override
+    @Override
     public void onDestroy() {
         if (tts != null) {
             tts.stop();
@@ -261,8 +267,6 @@ public class ContentActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             progressBar.setVisibility(View.VISIBLE);
-            // Toast.makeText(ContentActivity.this, "Egy pillanat...", Toast.LENGTH_SHORT).show();
-
         }
 
         @Override
@@ -299,7 +303,7 @@ public class ContentActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
+            //String formattedData = null;
             return null;
         }
 
@@ -312,224 +316,765 @@ public class ContentActivity extends AppCompatActivity {
                 super.onPostExecute(formattedData);
                 progressBar.setVisibility(View.GONE);
 
-                /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                if (keyword.equals("Eger") || keyword.equals("Eger_(Ungarn)")) //kész
+                {
+                    text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                            .replaceAll("<span id=\"Képek_Egerről\">(.+?)</span>", "")
+                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                            .replaceAll("<span id=\"Éghajlat\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Klima\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Címer\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Population\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Twin_towns_–_sister_cities\">(.+?)</span>", "")
+                            .replaceAll("Twin towns - sister cities", "")
+                            .replaceAll("Eger is twinned with:", "")
+                            .replaceAll("<span id=\"Climate\">(.+?)</span>", "");
+                } else if (keyword.equals("Keszthely")) //kész
+                {
+                    text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Image_gallery\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"References\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                            .replaceAll("<span>Vorlage:Panorama/Wartung/Para4</span>", "")
+                            .replaceAll("<span id=\"Climate\">(.+?)</span>", "");
+                } else if (keyword.equals("Pécs")) //kész
+                {
+                    text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Éghajlata\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Színházak\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Egyéb_művelődési_intézmények\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Kulturális_események\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Templomok,_vallási_épületek\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Egyéb_látnivalók\">(.+?)</span>", "")
+                            .replaceAll("<b>Helyi üzemeltetésű rádióadók:</b>", "")
+                            .replaceAll("<b>Korábban működő (megszűnt) helyi rádióadók:</b>", "")
+                            .replaceAll("<span id=\"Híres_emberek\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"További_információk\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Testvérváros\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Partnerváros\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Megjegyzések\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Klimatabelle\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Städtepartnerschaften\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Twin_towns_—_Sister_cities\"([\\s\\S]+?)</span>", "")
+                            .replaceAll("Pécs is twinned with:", "")
+                            .replaceAll("Pécs testvérvárosai és partnervárosai a következők:", "")
+                            .replaceAll("<span id=\"Image_gallery\">(.+?)</span>", "");
+                } else if (keyword.equals("Tihany")) //kész
+                {
+                    text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                            .replaceAll("<dl><dt>Korábban</dt></dl>", "")
+                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Kultur_und_Sehenswürdigkeiten\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Persönlichkeiten\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                            .replaceAll("<span id=\"Bildergalerie\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"References\">(.+?)</span>", "");
+                } else if (keyword.equals("Sopron")) //kész
+                {
+                    text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                            .replaceAll("<span id=\"Bevölkerungsentwicklung\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"References\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"International_relations\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Testvérváros\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Galéria\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Twin_towns_—_sister_cities\">(.+?)</span>", "")
+                            .replaceAll("Sopron is twinned with:", "")
+                            .replaceAll("Sopron testvérvárosai a következők:", "")
+                            .replaceAll("Profanbauten", "")
+                            .replaceAll("Moderne Bauten", "")
+                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "");
 
-                    txtWikiData.setText(Html.fromHtml
-                            (formattedData, Html.FROM_HTML_MODE_LEGACY));
+                } else if (keyword.equals("Szeged")) //kész
+                {
+                    text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                            .replaceAll("<span id=\"Városrészek\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                            .replaceAll("<sup ([\\s\\S]+?)</sup>", "")
+                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"References\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Források\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Munkanélküliség\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Largest_employers\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Main_sights\">(.+?)</span>", "")
+                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                            .replaceAll("<span id=\"A_településen_gyűjtött_népdalok\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Twin_towns_–_Sister_cities\">(.+?)</span>", "")
+                            .replaceAll("Szeged is twinned with:", "")
+                            .replaceAll("Notes", "")
+                            .replaceAll("<span id=\"Stadtteile_und_Bezirke\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Städtepartnerschaften\">(.+?)</span>", "")
+                            .replaceAll("A táblázat és a szöveg között eltérés előfordulhat!", "")
+                            .replaceAll("<span id=\"Testvérváros\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "");
 
-                } else {*/
-                // HTML Data
-                Document doc = Jsoup.parse(formattedData);
-
-
-                text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
-                        .replaceAll("<span id=\"Képgaléria\">(.+?)</span>","")
-                        .replaceAll("<span id=\"Képek\">(.+?)</span>","")
-                        .replaceAll("<span id=\"Galéria\">(.+?)</span>","")
-                        .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>","")
-                        .replaceAll("<span id=\"Képek_Egerről\">(.+?)</span>","")
-                        .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>","")
-                        .replaceAll("<ul class=\"gallery mw-gallery-packed\"([\\s\\S]+?)</ul>","")
-                        .replaceAll("<ul class=\"attachments\"([\\s\\S]+?)</ul>","")
-                        .replaceAll("<span id=\"Címer\">(.+?)</span>","")
-                        .replaceAll("<span id=\"References\">(.+?)</span>","")
-                        .replaceAll("<span id=\"Testvérváros\">(.+?)</span>","")
-                        .replaceAll("<span id=\"Partnerváros\">(.+?)</span>","")
-                        .replaceAll("<span id=\"Population\">(.+?)</span>","")
-                        .replaceAll("<span id=\"Image_gallery\">(.+?)</span>","")
-                        .replaceAll("<span>Vorlage:Panorama/Wartung/Para4</span>","")
-                        .replaceAll("<span id=\"Éghajlat\">(.+?)</span>","")
-                        .replaceAll("<span id=\"Éghajlata\">(.+?)</span>","")
-                        .replaceAll ("<a>","<p>")
-                        .replaceAll ("<table>","<div>")
-                        .replaceAll("<span id=\"Klima\">(.+?)</span>","")
-                        //.replaceAll("<table class=\"wikitable\"([\\s\\S]+?)</table>","")
-                        .replaceAll("<span id=\"Címer\">(.+?)</span>","")
-                        .replaceAll("<span id=\"Climate\">(.+?)</span>","");
+                } else if (keyword.equals("Veszprém")) //kész
+                {
+                    text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"International_relations\">(.+?)</span>", "")
+                            //.replaceAll("<span id='Twin_towns_-_Sister_cities'>(.+?)</span>","")
+                            .replaceAll("<span id=\"Twin_towns_—_Sister_cities\">(.+?)</span>", "")
+                            .replaceAll("Veszprém is twinned with:", "")
+                            .replaceAll("<span id=\"Címere\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Látnivalók\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"A_várnegyedben\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"A_várnegyeden_kívül\">(.+?)</span>", "")
+                            .replaceAll("<ul class=\"gallery mw-gallery-traditional center\"([\\s\\S]+?)</ul>", "")
+                            .replaceAll("Lásd még: Veszprém címere", "")
+                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Kerékpársport\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"A_városban_éltek\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                            .replaceAll("<span id=\"References\">(.+?)</span>", "");
+                }
 
                 txtWikiData.setText(Html.fromHtml(text1));
                 ContentValues values = new ContentValues();
                 //Toast.makeText(ContentActivity.this, "hiba!", Toast.LENGTH_LONG).show();
                 if (language.equals("hu")) {
                     //String infohu = txtWikiData.getText().toString();
-                    String infohu=formattedData;
+                    String infohu = formattedData;
                     values.put(CITYINFO_HU, infohu);
                     addData(keyword, infohu, null, null);
-                    //updateIfExistsElseInsert(keyword,infohu,null,null);
-                    // String infohu = Html.fromHtml(formattedData, Html.FROM_HTML_MODE_LEGACY).toString();
                 } else if (language.equals("en")) {
                     //String infoen = txtWikiData.getText().toString();
-                    String infoen=formattedData;
-                    // ContentValues values = new ContentValues();
+                    String infoen = formattedData;
                     values.put(CITYINFO_EN, infoen);
                     addData(keyword, null, infoen, null);
                 } else if (language.equals("de")) {
                     //String infode = txtWikiData.getText().toString();
-                    String infode=formattedData;
-                    // ContentValues values = new ContentValues();
+                    String infode = formattedData;
                     values.put(CITYINFO_DE, infode);
                     addData(keyword, null, null, infode);
                 }
 
-            } catch (Exception e) {
-               // progressBar.setVisibility(View.GONE);
-                //super.onPostExecute(formattedData);
-                Toast.makeText(ContentActivity.this, "Wifi!", Toast.LENGTH_LONG).show();
-                progressBar.setVisibility(View.VISIBLE);
-                db = databaseHandler.getWritableDatabase();
+            } catch (Exception e) { //ha nincs wifi*/
+                progressBar.setVisibility(View.GONE);
+                //Toast.makeText(ContentActivity.this, "Wifi!", Toast.LENGTH_LONG).show();
+                db = databaseHandler.getReadableDatabase();
                 if (language.equals("hu")) {
                     //Cursor cursor = db.query(DatabaseHandler.TABLE_NAME, new String[] { "cityname","cityinfohu","cityinfoen","cityinfode" },null, null, null, null, null);
-                    Cursor cursor = db.rawQuery(" SELECT * FROM " + TABLE_NAME + " WHERE " + CITYNAME + " = ? ", new String[]{keyword});
-                    if (cursor.moveToFirst()) {
-                        do {
-                            String infohu = cursor.getString(cursor.getColumnIndex("cityinfohu")); // Here you can get data from table and stored in string if it has only one string.
-                            text1 = infohu.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>").replaceAll("<span id=\"Jegyzetek\">(.+?)</span>","").replaceAll("<span id=\"Képgaléria\">(.+?)</span>","").replaceAll("<span id=\"Képek\">(.+?)</span>","")
-                                    .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>","");
-                            progressBar.setVisibility(View.GONE);
-                            txtWikiData.setText(Html.fromHtml(text1));
+                    Cursor cursor = db.rawQuery(" SELECT "+CITYINFO_HU+" FROM " + TABLE_NAME + " WHERE " + CITYNAME + " = ?", new String[]{keyword});
+
+                    try {
+                        if (cursor.moveToFirst()) {
+                            do {
+                                String infohu = cursor.getString(cursor.getColumnIndex("cityinfohu")); // Here you can get data from table and stored in string if it has only one string.
+                                if (keyword.equals("Eger")) //kész
+                                {
+                                    text1 = infohu.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<span id=\"Képek_Egerről\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<span id=\"Éghajlat\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Klima\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Population\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Twin_towns_–_sister_cities\">(.+?)</span>", "")
+                                            .replaceAll("Twin towns - sister cities", "")
+                                            .replaceAll("Eger is twinned with:", "")
+                                            .replaceAll("<span id=\"Climate\">(.+?)</span>", "");
+                                } else if (keyword.equals("Keszthely")) //kész
+                                {
+                                    text1 = infohu.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Image_gallery\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"References\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                            .replaceAll("<span>Vorlage:Panorama/Wartung/Para4</span>", "")
+                                            .replaceAll("<span id=\"Climate\">(.+?)</span>", "");
+                                } else if (keyword.equals("Pécs")) //kész
+                                {
+                                    text1 = infohu.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Éghajlata\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Színházak\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Egyéb_művelődési_intézmények\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Kulturális_események\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Templomok,_vallási_épületek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Egyéb_látnivalók\">(.+?)</span>", "")
+                                            .replaceAll("<b>Helyi üzemeltetésű rádióadók:</b>", "")
+                                            .replaceAll("<b>Korábban működő (megszűnt) helyi rádióadók:</b>", "")
+                                            .replaceAll("<span id=\"Híres_emberek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"További_információk\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Testvérváros\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Partnerváros\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Megjegyzések\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Klimatabelle\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Städtepartnerschaften\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Twin_towns_—_Sister_cities\"([\\s\\S]+?)</span>", "")
+                                            .replaceAll("Pécs is twinned with:", "")
+                                            .replaceAll("Pécs testvérvárosai és partnervárosai a következők:", "")
+                                            .replaceAll("<span id=\"Image_gallery\">(.+?)</span>", "");
+                                } else if (keyword.equals("Tihany")) //kész
+                                {
+                                    text1 = infohu.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<dl><dt>Korábban</dt></dl>", "")
+                                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Kultur_und_Sehenswürdigkeiten\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Persönlichkeiten\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<span id=\"Bildergalerie\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"References\">(.+?)</span>", "");
+                                } else if (keyword.equals("Sopron")) //kész
+                                {
+                                    text1 = infohu.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<span id=\"Bevölkerungsentwicklung\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"References\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"International_relations\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Testvérváros\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Galéria\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Twin_towns_—_sister_cities\">(.+?)</span>", "")
+                                            .replaceAll("Sopron is twinned with:", "")
+                                            .replaceAll("Sopron testvérvárosai a következők:", "")
+                                            .replaceAll("Profanbauten", "")
+                                            .replaceAll("Moderne Bauten", "")
+                                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "");
+
+                                } else if (keyword.equals("Szeged")) //kész
+                                {
+                                    text1 = infohu.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<span id=\"Városrészek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                            .replaceAll("<sup ([\\s\\S]+?)</sup>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"References\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Források\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Munkanélküliség\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Largest_employers\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Main_sights\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<span id=\"A_településen_gyűjtött_népdalok\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Twin_towns_–_Sister_cities\">(.+?)</span>", "")
+                                            .replaceAll("Szeged is twinned with:", "")
+                                            .replaceAll("Notes", "")
+                                            .replaceAll("<span id=\"Stadtteile_und_Bezirke\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Städtepartnerschaften\">(.+?)</span>", "")
+                                            .replaceAll("A táblázat és a szöveg között eltérés előfordulhat!", "")
+                                            .replaceAll("<span id=\"Testvérváros\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "");
+
+                                } else if (keyword.equals("Veszprém")) //kész
+                                {
+                                    text1 = infohu.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"International_relations\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Twin_towns_—_Sister_cities\">(.+?)</span>", "")
+                                            .replaceAll("Veszprém is twinned with:", "")
+                                            .replaceAll("<span id=\"Címere\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Látnivalók\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"A_várnegyedben\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"A_várnegyeden_kívül\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional center\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("Lásd még: Veszprém címere", "")
+                                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Kerékpársport\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"A_városban_éltek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"References\">(.+?)</span>", "");
+                                }
+                                //progressBar.setVisibility(View.GONE);
+                                txtWikiData.setText(Html.fromHtml(text1));
 
 
-                        } while (cursor.moveToNext());
+                            } while (cursor.moveToNext());
+                        }
+                        else {
+                            //progressBar.setVisibility(View.GONE);
+                            Toast.makeText(ContentActivity.this, "Kapcsolja be a wifi-t!", Toast.LENGTH_LONG).show();
+                        }
                     }
-                    if (cursor != null && !cursor.isClosed()) {
+                    catch(NullPointerException e1){
+                        //else if(!(cursor.moveToFirst())|| cursor.getCount()==0){
+                        //progressBar.setVisibility(View.GONE);
+                        Toast.makeText(ContentActivity.this, "Kapcsolja be a wifi-t!", Toast.LENGTH_LONG).show();
+                    }
+                    finally {
                         cursor.close();
-                    }
-                    if (db != null) {
-                        db.close();
                     }
 
                 } else if (language.equals("en")) {
-                    Cursor cursor = db.rawQuery(" SELECT * FROM " + TABLE_NAME + " WHERE " + CITYNAME + " = ? ", new String[]{keyword});
-                    if (cursor.moveToFirst()) {
-                        do {
-                            String infoen = cursor.getString(cursor.getColumnIndex("cityinfoen")); // Here you can get data from table and stored in string if it has only one string.
-                            text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>");
-                            txtWikiData.setText(Html.fromHtml(text1));
+                    //progressBar.setVisibility(View.VISIBLE);
+                    Cursor cursor = db.rawQuery(" SELECT "+CITYINFO_EN+" FROM " + TABLE_NAME + " WHERE " + CITYNAME + " = ? ", new String[]{keyword});
+                    //Cursor cursor = db.rawQuery(" SELECT * FROM " + TABLE_NAME + " WHERE " + CITYNAME + " = ? ", new String[]{keyword});
+                    //if(text1!=null) {
+                    try {
+                        if (cursor.moveToFirst()) {
+                            do {
+                                String infoen = cursor.getString(cursor.getColumnIndex("cityinfoen")); // Here you can get data from table and stored in string if it has only one string.
+                                // text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>");
+                                if (keyword.equals("Eger")) //kész
+                                {
+                                    text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<span id=\"Képek_Egerről\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<span id=\"Éghajlat\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Klima\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Population\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Twin_towns_–_sister_cities\">(.+?)</span>", "")
+                                            .replaceAll("Twin towns - sister cities", "")
+                                            .replaceAll("Eger is twinned with:", "")
+                                            .replaceAll("<span id=\"Climate\">(.+?)</span>", "");
+                                } else if (keyword.equals("Keszthely")) //kész
+                                {
+                                    text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Image_gallery\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"References\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                            .replaceAll("<span>Vorlage:Panorama/Wartung/Para4</span>", "")
+                                            .replaceAll("<span id=\"Climate\">(.+?)</span>", "");
+                                } else if (keyword.equals("Pécs")) //kész
+                                {
+                                    text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Éghajlata\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Színházak\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Egyéb_művelődési_intézmények\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Kulturális_események\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Templomok,_vallási_épületek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Egyéb_látnivalók\">(.+?)</span>", "")
+                                            .replaceAll("<b>Helyi üzemeltetésű rádióadók:</b>", "")
+                                            .replaceAll("<b>Korábban működő (megszűnt) helyi rádióadók:</b>", "")
+                                            .replaceAll("<span id=\"Híres_emberek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"További_információk\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Testvérváros\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Partnerváros\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Megjegyzések\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Klimatabelle\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Städtepartnerschaften\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Twin_towns_—_Sister_cities\"([\\s\\S]+?)</span>", "")
+                                            .replaceAll("Pécs is twinned with:", "")
+                                            .replaceAll("Pécs testvérvárosai és partnervárosai a következők:", "")
+                                            .replaceAll("<span id=\"Image_gallery\">(.+?)</span>", "");
+                                } else if (keyword.equals("Tihany")) //kész
+                                {
+                                    text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<dl><dt>Korábban</dt></dl>", "")
+                                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Kultur_und_Sehenswürdigkeiten\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Persönlichkeiten\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<span id=\"Bildergalerie\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"References\">(.+?)</span>", "");
+                                } else if (keyword.equals("Sopron")) //kész
+                                {
+                                    text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<span id=\"Bevölkerungsentwicklung\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"References\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"International_relations\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Testvérváros\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Galéria\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Twin_towns_—_sister_cities\">(.+?)</span>", "")
+                                            .replaceAll("Sopron is twinned with:", "")
+                                            .replaceAll("Sopron testvérvárosai a következők:", "")
+                                            .replaceAll("Profanbauten", "")
+                                            .replaceAll("Moderne Bauten", "")
+                                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "");
 
-                        } while (cursor.moveToNext());
+                                } else if (keyword.equals("Szeged")) //kész
+                                {
+                                    text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<span id=\"Városrészek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                            .replaceAll("<sup ([\\s\\S]+?)</sup>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"References\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Források\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Munkanélküliség\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Largest_employers\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Main_sights\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<span id=\"A_településen_gyűjtött_népdalok\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Twin_towns_–_Sister_cities\">(.+?)</span>", "")
+                                            .replaceAll("Szeged is twinned with:", "")
+                                            .replaceAll("Notes", "")
+                                            .replaceAll("<span id=\"Stadtteile_und_Bezirke\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Städtepartnerschaften\">(.+?)</span>", "")
+                                            .replaceAll("A táblázat és a szöveg között eltérés előfordulhat!", "")
+                                            .replaceAll("<span id=\"Testvérváros\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "");
+
+                                } else if (keyword.equals("Veszprém")) //kész
+                                {
+                                    text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"International_relations\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Twin_towns_—_Sister_cities\">(.+?)</span>", "")
+                                            .replaceAll("Veszprém is twinned with:", "")
+                                            .replaceAll("<span id=\"Címere\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Látnivalók\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"A_várnegyedben\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"A_várnegyeden_kívül\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional center\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("Lásd még: Veszprém címere", "")
+                                            .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Kerékpársport\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"A_városban_éltek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"References\">(.+?)</span>", "");
+                                }
+                                //progressBar.setVisibility(View.GONE);
+                                txtWikiData.setText(Html.fromHtml(text1));
+
+                            } while (cursor.moveToNext());
+                        }
+                        else {
+                            //progressBar.setVisibility(View.GONE);
+                            Toast.makeText(ContentActivity.this, "Turn wifi on!", Toast.LENGTH_LONG).show();
+                        }
+                    }//cursor.close();
+                   // }
+                            /*if (cursor != null && !cursor.isClosed()) {
+                                cursor.close();
+                            }
+                            if (db != null) {
+                                db.close();
+
+                            }*/
+                            catch(NullPointerException e1){
+                    //else if(!(cursor.moveToFirst())|| cursor.getCount()==0){
+                        //progressBar.setVisibility(View.GONE);
+                        Toast.makeText(ContentActivity.this, "Turn wifi on!", Toast.LENGTH_LONG).show();
                     }
-                    if (cursor != null && !cursor.isClosed()) {
+                    finally {
                         cursor.close();
                     }
-                    if (db != null) {
-                        db.close();
-                    }
+                    //cursor.close();
 
                 } else if (language.equals("de")) {
-                    Cursor cursor = db.rawQuery(" SELECT * FROM " + TABLE_NAME + " WHERE " + CITYNAME + " = ? ", new String[]{keyword});
-                    if (cursor.moveToFirst()) {
-                        do {
-                            String infode = cursor.getString(cursor.getColumnIndex("cityinfode")); // Here you can get data from table and stored in string if it has only one string.
-                            text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>");
-                            txtWikiData.setText(Html.fromHtml(text1));
+                    //progressBar.setVisibility(View.VISIBLE);
 
-                        } while (cursor.moveToNext());
+                    if (keyword.equals("Eger_(Ungarn)")) //kész
+                    {
+                        String keyword1 = "Eger";
+                        Cursor cursor = db.rawQuery(" SELECT "+CITYINFO_DE+" FROM " + TABLE_NAME + " WHERE " + CITYNAME + " = ? /*AND " + CITYINFO_HU + " !=null OR "+ CITYINFO_EN +" !=null OR "+ CITYINFO_DE +" !=null*/", new String[]{keyword1});
+                        //Log.d("CURSOR/eger", String.valueOf(cursor));
+                        try {
+                            if (cursor.moveToFirst()) {
+                                do {
+                                    String infode = cursor.getString(cursor.getColumnIndex("cityinfode")); // Here you can get data from table and stored in string if it has only one string.
+
+                                    text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                            .replaceAll("<span id=\"Képek_Egerről\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<span id=\"Éghajlat\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Klima\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Population\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                            .replaceAll("<span id=\"Twin_towns_–_sister_cities\">(.+?)</span>", "")
+                                            .replaceAll("Twin towns - sister cities", "")
+                                            .replaceAll("Eger is twinned with:", "")
+                                            .replaceAll("<span id=\"Climate\">(.+?)</span>", "");
+
+                                    //progressBar.setVisibility(View.GONE);
+                                    txtWikiData.setText(Html.fromHtml(text1));
+                                    // }
+
+                                } while (cursor.moveToNext());
+                            }
+                            else
+                            {
+                                //progressBar.setVisibility(View.GONE);
+                                Toast.makeText(ContentActivity.this, "Wifi/de!", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                        catch(NullPointerException e1){
+                            //else if(!(cursor.moveToFirst())|| cursor.getCount()==0){
+                            //progressBar.setVisibility(View.GONE);
+                            Toast.makeText(ContentActivity.this, "Wifi/de!", Toast.LENGTH_LONG).show();
+                        }
+                        finally {
+                            cursor.close();
+                        }
+
+                        //cursor.close();
                     }
-                    if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
+                    else {
+                        Cursor cursor = db.rawQuery(" SELECT "+CITYINFO_DE+" FROM " + TABLE_NAME + " WHERE " + CITYNAME + " = ? "/* + CITYINFO_HU + " !=null OR "+ CITYINFO_EN +" !=null OR "+ CITYINFO_DE +" !=null"*/, new String[]{keyword});
+
+                        try {
+                            if (cursor.moveToFirst()) {
+                                do {
+                                    String infode = cursor.getString(cursor.getColumnIndex("cityinfode")); // Here you can get data from table and stored in string if it has only one string.
+                                    if (keyword.equals("Keszthely")) //kész
+                                    {
+                                        text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                                .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Image_gallery\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"References\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                                .replaceAll("<span>Vorlage:Panorama/Wartung/Para4</span>", "")
+                                                .replaceAll("<span id=\"Climate\">(.+?)</span>", "");
+                                    } else if (keyword.equals("Pécs")) //kész
+                                    {
+                                        text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                                .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Éghajlata\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Színházak\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Egyéb_művelődési_intézmények\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Kulturális_események\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Templomok,_vallási_épületek\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Egyéb_látnivalók\">(.+?)</span>", "")
+                                                .replaceAll("<b>Helyi üzemeltetésű rádióadók:</b>", "")
+                                                .replaceAll("<b>Korábban működő (megszűnt) helyi rádióadók:</b>", "")
+                                                .replaceAll("<span id=\"Híres_emberek\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"További_információk\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Testvérváros\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Partnerváros\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Megjegyzések\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Klimatabelle\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Städtepartnerschaften\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Twin_towns_—_Sister_cities\"([\\s\\S]+?)</span>", "")
+                                                .replaceAll("Pécs is twinned with:", "")
+                                                .replaceAll("Pécs testvérvárosai és partnervárosai a következők:", "")
+                                                .replaceAll("<span id=\"Image_gallery\">(.+?)</span>", "");
+                                    } else if (keyword.equals("Tihany")) //kész
+                                    {
+                                        text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                                .replaceAll("<dl><dt>Korábban</dt></dl>", "")
+                                                .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Kultur_und_Sehenswürdigkeiten\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Persönlichkeiten\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                                .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                                                .replaceAll("<span id=\"Bildergalerie\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"References\">(.+?)</span>", "");
+                                    } else if (keyword.equals("Sopron")) //kész
+                                    {
+                                        text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                                .replaceAll("<span id=\"Bevölkerungsentwicklung\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"References\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"International_relations\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Testvérváros\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Galéria\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Twin_towns_—_sister_cities\">(.+?)</span>", "")
+                                                .replaceAll("Sopron is twinned with:", "")
+                                                .replaceAll("Sopron testvérvárosai a következők:", "")
+                                                .replaceAll("Profanbauten", "")
+                                                .replaceAll("Moderne Bauten", "")
+                                                .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "");
+
+                                    } else if (keyword.equals("Szeged")) //kész
+                                    {
+                                        text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                                .replaceAll("<span id=\"Városrészek\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                                .replaceAll("<sup ([\\s\\S]+?)</sup>", "")
+                                                .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"References\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Források\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Munkanélküliség\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Largest_employers\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Main_sights\">(.+?)</span>", "")
+                                                .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                                                .replaceAll("<span id=\"A_településen_gyűjtött_népdalok\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Twin_towns_–_Sister_cities\">(.+?)</span>", "")
+                                                .replaceAll("Szeged is twinned with:", "")
+                                                .replaceAll("Notes", "")
+                                                .replaceAll("<span id=\"Stadtteile_und_Bezirke\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Städtepartnerschaften\">(.+?)</span>", "")
+                                                .replaceAll("A táblázat és a szöveg között eltérés előfordulhat!", "")
+                                                .replaceAll("<span id=\"Testvérváros\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "");
+
+                                    } else if (keyword.equals("Veszprém")) //kész
+                                    {
+                                        text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
+                                                .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"International_relations\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Twin_towns_—_Sister_cities\">(.+?)</span>", "")
+                                                .replaceAll("Veszprém is twinned with:", "")
+                                                .replaceAll("<span id=\"Címere\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Látnivalók\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"A_várnegyedben\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"A_várnegyeden_kívül\">(.+?)</span>", "")
+                                                .replaceAll("<ul class=\"gallery mw-gallery-traditional center\"([\\s\\S]+?)</ul>", "")
+                                                .replaceAll("Lásd még: Veszprém címere", "")
+                                                .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Kerékpársport\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"A_városban_éltek\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
+                                                .replaceAll("<span id=\"References\">(.+?)</span>", "");
+                                    }
+                                    //progressBar.setVisibility(View.GONE);
+                                    txtWikiData.setText(Html.fromHtml(text1));
+
+                                } while (cursor.moveToNext());
+                            }
+                            else {
+                                //progressBar.setVisibility(View.GONE);
+                                Toast.makeText(ContentActivity.this, "Wifi!/de", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                        catch(NullPointerException e1){
+                           // progressBar.setVisibility(View.GONE);
+                            Toast.makeText(ContentActivity.this, "Wifi/de!", Toast.LENGTH_LONG).show();
+                        }
+                        finally {
+                            cursor.close();
+                        }
                     }
-                    if (db != null) {
-                        db.close();
+                }
+            }
+        }
+    }
+        private String parseJSONData(String wikiData) {
+            try {
+                // Convert String JSON (wikiData) to JSON Object
+                JSONObject rootJSON = new JSONObject(wikiData);
+                JSONObject query = rootJSON.getJSONObject("query");
+                JSONObject pages = query.getJSONObject("pages");
+                JSONObject number = pages.getJSONObject(pages.keys().next());
+                String formattedData = number.getString("extract");
+
+                return formattedData;
+
+
+            } catch (JSONException json) {
+                json.printStackTrace();
+            }
+
+            return null;
+        }
+
+
+        public boolean CheckIsDataAlreadyInDBorNot() {
+            Bundle extra = getIntent().getExtras();
+            String keyword = extra.getString("key");
+            SQLiteDatabase db;
+            // Cursor c = null;
+            db = databaseHandler.getReadableDatabase();
+            //try {
+            // Toast.makeText(ContentActivity.this, "ellenőrzés!", Toast.LENGTH_SHORT).show();
+            //db.getReadableDatabase();
+            if (keyword.equals("Eger_(Ungarn)")) {
+                String keyword1 = "Eger";
+                String query = "select cityname from cityinfos where cityname = ?";
+                //String Query = "Select * from " + TableName + " where " + dbfield + " = " + fieldValue;
+                Cursor cursor = db.rawQuery(query, new String[]{keyword1});
+
+                if (cursor.getCount() <= 0) {
+                    cursor.close();
+                    return false;
+                }
+                cursor.close();
+                return true;
+            } else {
+                String query = "select cityname from cityinfos where cityname = ?";
+                //String Query = "Select * from " + TableName + " where " + dbfield + " = " + fieldValue;
+                Cursor cursor = db.rawQuery(query, new String[]{keyword});
+
+                if (cursor.getCount() <= 0) {
+                    cursor.close();
+                    return false;
+                }
+                cursor.close();
+                return true;
+            }
+        }
+
+        SQLiteDatabase db;
+
+        public void addData(String keyword, String infohu, String infoen, String infode) {
+            String language = Paper.book().read("language");
+            //Toast.makeText(ContentActivity.this, "adddata!", Toast.LENGTH_SHORT).show();
+            if (CheckIsDataAlreadyInDBorNot() == false) {
+                //perform inserting
+                //Toast.makeText(ContentActivity.this, "insert!", Toast.LENGTH_SHORT).show();
+                boolean insertData = databaseHandler.addData(keyword, infohu, infoen, infode);
+
+            /*if (insertData)
+                Toast.makeText(ContentActivity.this, "Sikeres!", Toast.LENGTH_SHORT).show();
+            else Toast.makeText(ContentActivity.this, "Sikertelen !", Toast.LENGTH_SHORT).show();*/
+            } else {
+                Toast.makeText(ContentActivity.this, "Frissítés!", Toast.LENGTH_SHORT).show();
+                db = databaseHandler.getWritableDatabase();
+                ContentValues cv = new ContentValues();
+                if (language.equals("hu")) {
+                    cv.put(CITYINFO_HU, infohu);
+                    db.update(TABLE_NAME, cv, CITYNAME + " = ?", new String[]{keyword});
+                } else if (language.equals("en")) {
+                    cv.put(CITYINFO_EN, infoen);
+                    db.update(TABLE_NAME, cv, CITYNAME + "= ?", new String[]{keyword});
+                } else if (language.equals("de")) {
+                    if (keyword.equals("Eger_(Ungarn)")) {
+                        String keyword1 = "Eger";
+                        cv.put(CITYINFO_DE, infode);
+                        db.update(TABLE_NAME, cv, CITYNAME + "= ?", new String[]{keyword1});
+                    } else {
+                        cv.put(CITYINFO_DE, infode);
+                        db.update(TABLE_NAME, cv, CITYNAME + "= ?", new String[]{keyword});
                     }
                 }
             }
 
         }
-
-    }
-
-    private String parseJSONData(String wikiData) {
-        try {
-            // Convert String JSON (wikiData) to JSON Object
-            JSONObject rootJSON = new JSONObject(wikiData);
-            JSONObject query = rootJSON.getJSONObject("query");
-            JSONObject pages = query.getJSONObject("pages");
-            JSONObject number = pages.getJSONObject(pages.keys().next());
-            String formattedData = number.getString("extract");
-
-            return formattedData;
-
-
-        } catch (JSONException json) {
-            json.printStackTrace();
-        }
-
-        return null;
-    }
-
-    //nyelvnek megfelelően változtatja a címet
-    private void updateView(String lang) {
-        Context context = LocaleHelper.setLocale(this, lang);
-        Resources resources = context.getResources();
-
-        title.setText(resources.getString(R.string.citytitle));
-        wikipedia.setText(resources.getString(R.string.wikipedia));
-    }
-
-    public boolean CheckIsDataAlreadyInDBorNot() {
-        Bundle extra = getIntent().getExtras();
-        String keyword = extra.getString("key");
-        SQLiteDatabase db;
-       // Cursor c = null;
-        db = databaseHandler.getReadableDatabase();
-        //try {
-       // Toast.makeText(ContentActivity.this, "ellenőrzés!", Toast.LENGTH_SHORT).show();
-        //db.getReadableDatabase();
-        if (keyword.equals("Eger_(Ungarn)")) {
-            String keyword1 = "Eger";
-            String query = "select cityname from cityinfos where cityname = ?";
-            //String Query = "Select * from " + TableName + " where " + dbfield + " = " + fieldValue;
-            Cursor cursor = db.rawQuery(query, new String[]{keyword1});
-
-            if (cursor.getCount() <= 0) {
-                cursor.close();
-                return false;
-            }
-            cursor.close();
-            return true;
-        }
-        else {
-            String query = "select cityname from cityinfos where cityname = ?";
-            //String Query = "Select * from " + TableName + " where " + dbfield + " = " + fieldValue;
-            Cursor cursor = db.rawQuery(query, new String[]{keyword});
-
-            if (cursor.getCount() <= 0) {
-                cursor.close();
-                return false;
-            }
-            cursor.close();
-            return true;
-        }
-    }
-
-    SQLiteDatabase db;
-
-    public void addData(String keyword, String infohu, String infoen, String infode) {
-        String language = Paper.book().read("language");
-        //Toast.makeText(ContentActivity.this, "adddata!", Toast.LENGTH_SHORT).show();
-        if (CheckIsDataAlreadyInDBorNot() == false) {
-            //perform inserting
-            Toast.makeText(ContentActivity.this, "insert!", Toast.LENGTH_SHORT).show();
-            boolean insertData = databaseHandler.addData(keyword, infohu, infoen, infode);
-
-            /*if (insertData)
-                Toast.makeText(ContentActivity.this, "Sikeres!", Toast.LENGTH_SHORT).show();
-            else Toast.makeText(ContentActivity.this, "Sikertelen !", Toast.LENGTH_SHORT).show();*/
-        } else {
-            Toast.makeText(ContentActivity.this, "Frissítés!", Toast.LENGTH_SHORT).show();
-            db = databaseHandler.getWritableDatabase();
-            ContentValues cv = new ContentValues();
-            if (language.equals("hu")) {
-                cv.put(CITYINFO_HU, infohu);
-                db.update(TABLE_NAME, cv, CITYNAME + " = ?", new String[]{keyword});
-            } else if (language.equals("en")) {
-                cv.put(CITYINFO_EN, infoen);
-                db.update(TABLE_NAME, cv, CITYNAME + "= ?", new String[]{keyword});
-            } else if (language.equals("de")) {
-                cv.put(CITYINFO_DE, infode);
-                db.update(TABLE_NAME, cv, CITYNAME + "= ?", new String[]{keyword});
-            }
-        }
-
-    }
+    //}
 }

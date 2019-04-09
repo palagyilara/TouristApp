@@ -74,4 +74,59 @@
     <string name="szegoth8">city-hall/</string>
     <string name="szegoth9">musical-clock/</string>
 
+    <!--QUIZ-->
+    <string-array name="szeged_correctAnswersArray">
+        <item>@string/szeged_answer_q1_1</item><!--q1-->
+        <item>@string/szeged_answer_q2_3</item><!--q2-->
+        <item>@string/szeged_answer_q3_2</item><!--q3-->
+        <item>@string/szeged_answer_q4_2</item><!--q4-->
+        <item>@string/szeged_answer_q5_1</item><!--q5-->
+        <item>@string/szeged_answer_q6_3</item><!--q5-->
+        <item>@string/szeged_answer_q7_1</item><!--q7-->
+        <item>@string/szeged_answer_q8_1</item><!--q8-->
+        <item>@string/szeged_answer_q9_3</item><!--q9-->
+        <item>@string/szeged_answer_q10_1</item><!--q10-->
+    </string-array>
+    <string name="szeged_q1">Which county does Szeged belong to?</string>
+    <string name="szeged_answer_q1_1">Csongrád</string>
+    <string name="szeged_answer_q1_2">Békés</string>
+    <string name="szeged_answer_q1_3">Bács-Kiskun</string>
+    <string name="szeged_q2">What is Szeged famous for?</string>
+    <string name="szeged_answer_q2_1">grape</string>
+    <string name="szeged_answer_q2_2">apricot</string>
+    <string name="szeged_answer_q2_3">paprika</string>
+    <string name="szeged_q3">What was one of the most important events in the formation of the cityscape?</string>
+    <string name="szeged_answer_q3_1">earthquake</string>
+    <string name="szeged_answer_q3_2">flood</string>
+    <string name="szeged_answer_q3_3">World War II</string>
+    <string name="szeged_q4">Why was Nobel Prize awarded to Albert Szent-Györgyi?</string>
+    <string name="szeged_answer_q4_1">discovering vitamin A</string>
+    <string name="szeged_answer_q4_2">discovering vitamin C</string>
+    <string name="szeged_answer_q4_3">discovering vitamin E</string>
+    <string name="szeged_q5">How is Szeged called?</string>
+    <string name="szeged_answer_q5_1">City of sunshine</string>
+    <string name="szeged_answer_q5_2">City of winds</string>
+    <string name="szeged_answer_q5_3">City of waters</string>
+    <string name="szeged_q6">When was the great flood?</string>
+    <string name="szeged_answer_q6_1">1889</string>
+    <string name="szeged_answer_q6_2">1883</string>
+    <string name="szeged_answer_q6_3">1879</string>
+    <string name="szeged_q7">Where can be Szeged found?</string>
+    <string name="szeged_answer_q7_1">At the mouth of Tisza-Maros</string>
+    <string name="szeged_answer_q7_2">At the mouth of Körös-Maros</string>
+    <string name="szeged_answer_q7_3">At the mouth of Duna-Tisza</string>
+    <string name="szeged_q8">What style was the Votive Church built in?</string>
+    <string name="szeged_answer_q8_1">Eclectic</string>
+    <string name="szeged_answer_q8_2">Baroque</string>
+    <string name="szeged_answer_q8_3">Classicist</string>
+    <string name="szeged_q9">What is the oldest architectural monument of Szeged?</string>
+    <string name="szeged_answer_q9_1">Old Synagogue</string>
+    <string name="szeged_answer_q9_2">Deutsch Place</string>
+    <string name="szeged_answer_q9_3">St. Demetrius Tower</string>
+    <string name="szeged_q10">Which event attracts many visitors to Szeged?</string>
+    <string name="szeged_answer_q10_1">Open Air (Theatre) Festival</string>
+    <string name="szeged_answer_q10_2">Flower Festival</string>
+    <string name="szeged_answer_q10_3">Fish soup Festival</string>
+
+
 </resources>

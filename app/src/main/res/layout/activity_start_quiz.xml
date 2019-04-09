@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/welcomeMainLayout"
+    android:id="@+id/startquizbg"
     tools:context=".StartQuizActivity">
 
 
-    <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
+    <!--<com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
         style="@style/roundCornerMain.welcome"
         app:corner_radius="@dimen/radius_content">
 
@@ -14,7 +15,7 @@
             android:id="@+id/image"
             style="@style/welcomeMainLayout.image" />
 
-    </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
+    </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>-->
 
 
     <LinearLayout

@@ -79,4 +79,58 @@
     <string name="soproth1">baudenkmaler/theater-petofi.html</string>
     <string name="soproth2">schlosser-und-burgen/soproner-stadtmauerpromenade.html</string>
     <string name="soproth3">schlosser-und-burgen/burg-tarodi.html</string>
+
+    <!--QUIZ-->
+    <string-array name="sopron_correctAnswersArray">
+        <item>@string/sopron_answer_q1_2</item><!--q1-->
+        <item>@string/sopron_answer_q2_3</item><!--q2-->
+        <item>@string/sopron_answer_q3_1</item><!--q3-->
+        <item>@string/sopron_answer_q4_1</item><!--q4-->
+        <item>@string/sopron_answer_q5_2</item><!--q5-->
+        <item>@string/sopron_answer_q6_3</item><!--q5-->
+        <item>@string/sopron_answer_q7_1</item><!--q7-->
+        <item>@string/sopron_answer_q8_2</item><!--q8-->
+        <item>@string/sopron_answer_q9_3</item><!--q9-->
+        <item>@string/sopron_answer_q10_3</item><!--q10-->
+    </string-array>
+    <string name="sopron_q1">Mi Sopron jelképe?</string>
+    <string name="sopron_answer_q1_1">Storno-ház</string>
+    <string name="sopron_answer_q1_2">Tűztorony</string>
+    <string name="sopron_answer_q1_3">Kecske-templom</string>
+    <string name="sopron_q2">Mit jelent a Civitas fidelissima?</string>
+    <string name="sopron_answer_q2_1">A leghősiesebb város</string>
+    <string name="sopron_answer_q2_2">A leggazdagabb város</string>
+    <string name="sopron_answer_q2_3">A leghűségesebb város</string>
+    <string name="sopron_q3">Milyen magas a Tűztorony?</string>
+    <string name="sopron_answer_q3_1">58 m</string>
+    <string name="sopron_answer_q3_2">48 m</string>
+    <string name="sopron_answer_q3_3">63 m</string>
+    <string name="sopron_q4">Mi volt Storno Ferenc foglalkozása?</string>
+    <string name="sopron_answer_q4_1">restaurátor, kéményseprő</string>
+    <string name="sopron_answer_q4_2">író, restaurátor</string>
+    <string name="sopron_answer_q4_3">kéményseprő, író</string>
+    <string name="sopron_q5">Milyen stílusban épült a híres soproni Kecske-templom?</string>
+    <string name="sopron_answer_q5_1">klasszicista</string>
+    <string name="sopron_answer_q5_2">gótikus</string>
+    <string name="sopron_answer_q5_3">barokk</string>
+    <string name="sopron_q6">Melyik épület ad otthont a Régészeti kiállításnak?</string>
+    <string name="sopron_answer_q6_1">Bezerédj-ház</string>
+    <string name="sopron_answer_q6_2">Storno-ház</string>
+    <string name="sopron_answer_q6_3">Fabricius-ház</string>
+    <string name="sopron_q7">Mely híres zeneszerző adta első hangversenyét a Régi Kaszinóban?</string>
+    <string name="sopron_answer_q7_1">Liszt Ferenc</string>
+    <string name="sopron_answer_q7_2">Erkel Ferenc</string>
+    <string name="sopron_answer_q7_3">Haydn</string>
+    <string name="sopron_q8">Mely templomnak egyedülálló Magyarországon a kerámiapadlója?</string>
+    <string name="sopron_answer_q8_1">Szent György templom</string>
+    <string name="sopron_answer_q8_2">Szent Mihály templom</string>
+    <string name="sopron_answer_q8_3">Szent Imre templom</string>
+    <string name="sopron_q9">Melyik épületet építette egy ember 50 év alatt?</string>
+    <string name="sopron_answer_q9_1">Tűztorony</string>
+    <string name="sopron_answer_q9_2">Kecske-templom</string>
+    <string name="sopron_answer_q9_3">Taródi vár</string>
+    <string name="sopron_q10">Milyen rendezvényt tartanak Sopronban?</string>
+    <string name="sopron_answer_q10_1">Sziget Fesztivál</string>
+    <string name="sopron_answer_q10_2">Művészetek völgye</string>
+    <string name="sopron_answer_q10_3">Volt Fesztivál</string>
 </resources>

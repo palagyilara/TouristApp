@@ -32,27 +32,24 @@
 
                     <RadioGroup
                         android:id="@+id/q1"
-                        style="@style/radioGroupHorizontal">
+                        style="@style/radioGroup">
 
                         <RadioButton
                             android:id="@+id/q1_1"
-                            style="@style/radioButtonHorizontal"/>
-                            <!-- -->
+                            style="@style/radioButton"/>
+
 
                         <RadioButton
                             android:id="@+id/q1_2"
-                            style="@style/radioButtonHorizontal"
+                            style="@style/radioButton"
                              />
 
                         <RadioButton
                             android:id="@+id/q1_3"
-                            style="@style/radioButtonHorizontal"
+                            style="@style/radioButton"
                              />
 
-                        <RadioButton
-                            android:id="@+id/q1_4"
-                            style="@style/radioButtonHorizontal"
-                         />
+
                     </RadioGroup>
 
                     <View style="@style/viewLine" />
@@ -81,10 +78,7 @@
                             style="@style/radioButtonHorizontal"
                              />
 
-                        <RadioButton
-                            android:id="@+id/q2_4"
-                            style="@style/radioButtonHorizontal"
-                             />
+
                     </RadioGroup>
 
                     <View style="@style/viewLine" />
@@ -94,28 +88,27 @@
                         style="@style/title"
                         android:id="@+id/question3" />
 
-                    <LinearLayout style="@style/checkBoxTitle">
+                    <RadioGroup
+                        android:id="@+id/q3"
+                        style="@style/radioGroup">
 
-                        <CheckBox
+                        <RadioButton
                             android:id="@+id/q3_1"
-                            style="@style/checkBox"
+                            style="@style/radioButton"
                              />
 
-                        <CheckBox
+                        <RadioButton
                             android:id="@+id/q3_2"
-                            style="@style/checkBox"
+                            style="@style/radioButton"
                              />
 
-                        <CheckBox
+                        <RadioButton
                             android:id="@+id/q3_3"
-                            style="@style/checkBox"
+                            style="@style/radioButton"
                              />
 
-                        <CheckBox
-                            android:id="@+id/q3_4"
-                            style="@style/checkBox"
-                             />
-                    </LinearLayout>
+
+                    </RadioGroup>
 
                     <View style="@style/viewLine" />
 
@@ -143,10 +136,7 @@
                             style="@style/radioButton"
                              />
 
-                        <RadioButton
-                            android:id="@+id/q4_4"
-                            style="@style/radioButton"
-                             />
+
                     </RadioGroup>
 
                     <View style="@style/viewLine" />
@@ -175,10 +165,7 @@
                             style="@style/radioButton"
                              />
 
-                        <RadioButton
-                            android:id="@+id/q5_4"
-                            style="@style/radioButton"
-                             />
+
                     </RadioGroup>
 
                     <View style="@style/viewLine" />
@@ -207,10 +194,6 @@
                             style="@style/radioButton"
                              />
 
-                        <RadioButton
-                            android:id="@+id/q6_4"
-                            style="@style/radioButton"
-                             />
                     </RadioGroup>
 
                     <View style="@style/viewLine" />
@@ -220,28 +203,27 @@
                         style="@style/title"
                         android:id="@+id/question7" />
 
-                    <LinearLayout style="@style/checkBoxTitle">
+                <RadioGroup
+                    android:id="@+id/q7"
+                    style="@style/radioGroupHorizontal">
 
-                        <CheckBox
+                        <RadioButton
                             android:id="@+id/q7_1"
-                            style="@style/checkBox"
+                            style="@style/radioButtonHorizontal"
                              />
 
-                        <CheckBox
+                        <RadioButton
                             android:id="@+id/q7_2"
-                            style="@style/checkBox"
+                            style="@style/radioButtonHorizontal"
                              />
 
-                        <CheckBox
+                        <RadioButton
                             android:id="@+id/q7_3"
-                            style="@style/checkBox"
+                            style="@style/radioButtonHorizontal"
                              />
 
-                        <CheckBox
-                            android:id="@+id/q7_4"
-                            style="@style/checkBox"
-                             />
-                    </LinearLayout>
+
+                </RadioGroup>
 
                     <View style="@style/viewLine" />
 
@@ -269,10 +251,7 @@
                             style="@style/radioButton"
                             />
 
-                        <RadioButton
-                            android:id="@+id/q8_4"
-                            style="@style/radioButton"
-                             />
+
                     </RadioGroup>
 
                     <View style="@style/viewLine" />
@@ -284,33 +263,23 @@
 
                     <RadioGroup
                         android:id="@+id/q9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        style="@style/radioGroupHorizontal">
 
                         <RadioButton
                             android:id="@+id/q9_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            style="@style/radioButtonHorizontal"
                              />
 
                         <RadioButton
                             android:id="@+id/q9_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            style="@style/radioButtonHorizontal"
                             />
 
                         <RadioButton
                             android:id="@+id/q9_3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            style="@style/radioButtonHorizontal"
                             />
 
-                        <RadioButton
-                            android:id="@+id/q9_4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                           />
                     </RadioGroup>
 
                     <View
@@ -324,27 +293,23 @@
 
                     <RadioGroup
                         android:id="@+id/q10"
-                        style="@style/radioGroup">
+                        style="@style/radioGroupHorizontal">
 
                         <RadioButton
                             android:id="@+id/q10_1"
-                            style="@style/radioButton"
+                            style="@style/radioButtonHorizontal"
                              />
 
                         <RadioButton
                             android:id="@+id/q10_2"
-                            style="@style/radioButton"
+                            style="@style/radioButtonHorizontal"
                              />
 
                         <RadioButton
                             android:id="@+id/q10_3"
-                            style="@style/radioButton"
+                            style="@style/radioButtonHorizontal"
                              />
 
-                        <RadioButton
-                            android:id="@+id/q10_4"
-                            style="@style/radioButton"
-                             />
                     </RadioGroup>
                 </LinearLayout>
 

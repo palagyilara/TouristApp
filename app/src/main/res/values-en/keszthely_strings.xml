@@ -38,4 +38,60 @@
     <string name="keszthoth2">other/setaloutca</string>
     <string name="keszthoth3">latnivalok/egyeb/szigetfurdoother/szigetfurdo</string>
 
+    <string name="kesztnotifurl">https://www.heviz.hu/hu</string>
+
+<!--QUIZ-->
+    <string-array name="keszthely_correctAnswersArray">
+        <item>@string/keszthely_answer_q1_3</item><!--q1-->
+        <item>@string/keszthely_answer_q2_2</item><!--q2-->
+        <item>@string/keszthely_answer_q3_1</item><!--q3-->
+        <item>@string/keszthely_answer_q4_2</item><!--q4-->
+        <item>@string/keszthely_answer_q5_3</item><!--q5-->
+        <item>@string/keszthely_answer_q6_3</item><!--q5-->
+        <item>@string/keszthely_answer_q7_1</item><!--q7-->
+        <item>@string/keszthely_answer_q8_3</item><!--q8-->
+        <item>@string/keszthely_answer_q9_2</item><!--q9-->
+        <item>@string/keszthely_answer_q10_1</item><!--q10-->
+    </string-array>
+    <string name="keszthely_q1">Which county does Keszthely belong to?</string>
+    <string name="keszthely_answer_q1_1">Somogy</string>
+    <string name="keszthely_answer_q1_2">Veszprém</string>
+    <string name="keszthely_answer_q1_3">Zala</string>
+    <string name="keszthely_q2">Which family\'s castle is in the city? </string>
+    <string name="keszthely_answer_q2_1">Eszterházy</string>
+    <string name="keszthely_answer_q2_2">Festetics</string>
+    <string name="keszthely_answer_q2_3">Teleki</string>
+    <string name="keszthely_q3">What style was the Castle build in?</string>
+    <string name="keszthely_answer_q3_1">Baroque</string>
+    <string name="keszthely_answer_q3_2">Classicist</string>
+    <string name="keszthely_answer_q3_3">Eclectic</string>
+    <string name="keszthely_q4">What is Keszthely the capital of?</string>
+    <string name="keszthely_answer_q4_1">Lake Fertő</string>
+    <string name="keszthely_answer_q4_2">Lake Balaton</string>
+    <string name="keszthely_answer_q4_3">Lake Velence</string>
+    <string name="keszthely_q5">What agricultural machine can be found in the Georgikon Manor Museum?</string>
+    <string name="keszthely_answer_q5_1">seed drill</string>
+    <string name="keszthely_answer_q5_2">threshing machine</string>
+    <string name="keszthely_answer_q5_3">steam-plough</string>
+    <string name="keszthely_q6">What was Fenékpuszta római neve?</string> <!--más lesz-->
+    <string name="keszthely_answer_q6_1">Gorsium</string>
+    <string name="keszthely_answer_q6_2">Arabona</string>
+    <string name="keszthely_answer_q6_3">Valcum</string>
+    <string name="keszthely_q7">In Hungary which convent has the largest church in the city?</string>
+    <string name="keszthely_answer_q7_1">Carmelite</string>
+    <string name="keszthely_answer_q7_2">Franciscan</string>
+    <string name="keszthely_answer_q7_3">Dominican</string>
+    <string name="keszthely_q8">Which museum presents the characteristics of Lake Balaton?</string>
+    <string name="keszthely_answer_q8_1">Georgikon Manor Museum</string>
+    <string name="keszthely_answer_q8_2">Hunting Museum</string>
+    <string name="keszthely_answer_q8_3">Balaton Museum</string>
+    <string name="keszthely_q9">What style was the Our Lady of Hungary Parish Church built in?</string>
+    <string name="keszthely_answer_q9_1">Renaissance</string>
+    <string name="keszthely_answer_q9_2">Gothic</string>
+    <string name="keszthely_answer_q9_3">Classicist</string>
+    <string name="keszthely_q10">What artistic student event is being held in Keszthely?</string>
+    <string name="keszthely_answer_q10_1">Helikon</string>
+    <string name="keszthely_answer_q10_2">Georgikon</string>
+    <string name="keszthely_answer_q10_3">DiákFest</string>
+
 </resources>

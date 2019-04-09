@@ -194,7 +194,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">vertical</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:background">@color/ColorBackgroundDarkGray</item>
+        <!--<item name="android:background">@color/ColorBackgroundDarkGray</item>--> <!--háttérkép-->
         <item name="android:textSize">@dimen/text_size_35</item>
     </style>
 
@@ -261,6 +261,12 @@
     <style name="welcomeMainLayout.textView.alpha">
         <item name="android:alpha">0.8</item>
         <item name="android:textSize">@dimen/text_size_30</item>
+        <item name="android:color">#FFFFFF</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:shadowDx">1.5</item>
+        <item name="android:shadowDy">1.3</item>
+
     </style>
 
     <style name="welcomeMainLayout.textViewAlpaLand" parent="welcomeMainLayout.textView.alpha">
@@ -272,7 +278,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:paddingTop">@dimen/edit_text_padding_top_30</item>
-        <item name="android:backgroundTint">@color/colorAccent</item>
+        <item name="android:backgroundTint">@color/colorPrimaryDark</item>
         <item name="android:hint">@string/name</item>
         <item name="android:textColorHighlight">@android:color/transparent</item>
         <item name="android:textColorHint">@color/gray</item>
@@ -297,6 +303,10 @@
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:layout_marginBottom">@dimen/start_button_margin_bottom</item>
         <item name="android:textSize">@dimen/text_size_35</item>
+        <item name="android:shadowColor">#FFFFFF</item>
+        <item name="android:shadowRadius">1.6</item>
+        <item name="android:shadowDx">1.5</item>
+        <item name="android:shadowDy">1.3</item>
     </style>
 
     <style name="startButton" parent="welcomeMainLayout.start">
@@ -324,12 +334,12 @@
 
     <style name="resultMainLayout.image">
         <item name="android:alpha">@dimen/alpha_5</item>
-        <item name="android:background">@drawable/background_black_white2</item>
+        <!--<item name="android:background">@drawable/background_black_white2</item>-->
     </style>
 
     <style name="resultMainLayout.imagePopup">
         <item name="android:layout_height">@dimen/bg_popup_height</item>
-        <item name="android:background">@drawable/result_bg_yellow</item>
+        <!--<item name="android:background">@drawable/result_bg_yellow</item>--> <!--cimerek-->
         <item name="android:scaleType">fitStart</item>
     </style>
 

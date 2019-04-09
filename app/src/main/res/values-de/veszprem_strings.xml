@@ -20,6 +20,7 @@
     <string name="veszpother5">Veszprémer Zoo </string>
     <string name="veszpother3">Sankt Stephan Talbrücke </string>
     <string name="veszpother4">Rathaus </string>
+    <string name="veszpother6">Veszprémer Petőfi Theater </string>
 
     <string name="veszpmus1">bischofliche-sammlung-selige-gisela</string>
     <string name="veszpmus2">dubniczay-haus</string>
@@ -40,4 +41,59 @@
     <string name="veszpoth3">sankt-stephan-talbrucke</string>
     <string name="veszpoth4">rathaus</string>
     <string name="veszpoth5">veszpremer-zoo</string>
+    <string name="veszpoth6">veszpremer-petofi-theater</string>
+
+    <!--QUIZ-->
+    <string-array name="veszprem_correctAnswersArray">
+        <item>@string/veszprem_answer_q1_3</item><!--q1-->
+        <item>@string/veszprem_answer_q2_1</item><!--q2-->
+        <item>@string/veszprem_answer_q3_3</item><!--q3-->
+        <item>@string/veszprem_answer_q4_1</item><!--q4-->
+        <item>@string/veszprem_answer_q5_1</item><!--q5-->
+        <item>@string/veszprem_answer_q6_2</item><!--q5-->
+        <item>@string/veszprem_answer_q7_2</item><!--q7-->
+        <item>@string/veszprem_answer_q8_3</item><!--q8-->
+        <item>@string/veszprem_answer_q9_1</item><!--q9-->
+        <item>@string/veszprem_answer_q10_2</item><!--q10-->
+    </string-array>
+    <string name="veszprem_q1">Mi Veszprém szimbóluma?</string>
+    <string name="veszprem_answer_q1_1">Hősök kapuja</string>
+    <string name="veszprem_answer_q1_2">Tűztorony</string>
+    <string name="veszprem_answer_q1_3">Szent István Völgyhíd</string>
+    <string name="veszprem_q2">Hogyan nevezik Veszprémet?</string>
+    <string name="veszprem_answer_q2_1">királynék városa</string>
+    <string name="veszprem_answer_q2_2">hűség városa</string>
+    <string name="veszprem_answer_q2_3">királyok városa</string>
+    <string name="veszprem_q3">Milyen magas A Tűztorony?</string>
+    <string name="veszprem_answer_q3_1">58 m</string>
+    <string name="veszprem_answer_q3_2">52 m</string>
+    <string name="veszprem_answer_q3_3">48 m</string>
+    <string name="veszprem_q4">Melyik költőnkről nevezték el a város színházát?</string>
+    <string name="veszprem_answer_q4_1">Petőfi Sándor</string>
+    <string name="veszprem_answer_q4_2">József Attila</string>
+    <string name="veszprem_answer_q4_3">Vörösmarty Mihály</string>
+    <string name="veszprem_q5">Melyik porcelán manufaktúrát mutatja be a Porcelanium?</string>
+    <string name="veszprem_answer_q5_1">Herendi</string>
+    <string name="veszprem_answer_q5_2">Hollóházi</string>
+    <string name="veszprem_answer_q5_3">Zsolnay</string>
+    <string name="veszprem_q6">Mi a Szent István Völgyhíd másik neve?</string>
+    <string name="veszprem_answer_q6_1">Lánchíd</string>
+    <string name="veszprem_answer_q6_2">Viadukt</string>
+    <string name="veszprem_answer_q6_3">Függőhíd</string>
+    <string name="veszprem_q7">Minek szánták eredetileg a Tűztornyot?</string>
+    <string name="veszprem_answer_q7_1">víztorony</string>
+    <string name="veszprem_answer_q7_2">őrtorony</string>
+    <string name="veszprem_answer_q7_3">kilátó</string>
+    <string name="veszprem_q8">Milyen stílusú a Szent Mihály Bazilika?</string>
+    <string name="veszprem_answer_q8_1">gótikus</string>
+    <string name="veszprem_answer_q8_2">barokk</string>
+    <string name="veszprem_answer_q8_3">neoromán</string>
+    <string name="veszprem_q9">Milyen stílusú freskók találhatók a Gizella-kápolnában?</string>
+    <string name="veszprem_answer_q9_1">bizánci</string>
+    <string name="veszprem_answer_q9_2">román</string>
+    <string name="veszprem_answer_q9_3">gótikus</string>
+    <string name="veszprem_q10">Melyik építményt építették az I. világháború áldozatainak és honvédők emlékére?</string>
+    <string name="veszprem_answer_q10_1">Tűztorony</string>
+    <string name="veszprem_answer_q10_2">Hősök Kapuja</string>
+    <string name="veszprem_answer_q10_3">Szent István Völgyhíd</string>
 </resources>

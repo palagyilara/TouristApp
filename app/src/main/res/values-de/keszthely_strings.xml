@@ -36,4 +36,60 @@
     <string name="keszthoth1">andere/balaton-kongresszusi-kozpont-es-szinhaz</string>
     <string name="keszthoth2">andere/setaloutca</string>
     <string name="keszthoth3">andere/szigetfurdo</string>
+
+    <string name="kesztnotifurl">https://www.heviz.hu/hu</string>
+
+    <string-array name="keszthely_correctAnswersArray">
+        <item>@string/keszthely_answer_q1_3</item><!--q1-->
+        <item>@string/keszthely_answer_q2_2</item><!--q2-->
+        <item>@string/keszthely_answer_q3_1</item><!--q3-->
+        <item>@string/keszthely_answer_q4_2</item><!--q4-->
+        <item>@string/keszthely_answer_q5_3</item><!--q5-->
+        <item>@string/keszthely_answer_q6_3</item><!--q5-->
+        <item>@string/keszthely_answer_q7_1</item><!--q7-->
+        <item>@string/keszthely_answer_q8_3</item><!--q8-->
+        <item>@string/keszthely_answer_q9_2</item><!--q9-->
+        <item>@string/keszthely_answer_q10_1</item><!--q10-->
+    </string-array>
+    <string name="keszthely_q1">Melyik megye települése Keszthely?</string>
+    <string name="keszthely_answer_q1_1">Somogy</string>
+    <string name="keszthely_answer_q1_2">Veszprém</string>
+    <string name="keszthely_answer_q1_3">Zala</string>
+    <string name="keszthely_q2">Mely család kastélya található a városban?</string>
+    <string name="keszthely_answer_q2_1">Eszterházy</string>
+    <string name="keszthely_answer_q2_2">Festetics</string>
+    <string name="keszthely_answer_q2_3">Teleki</string>
+    <string name="keszthely_q3">Milyen stílusú a kastély?</string>
+    <string name="keszthely_answer_q3_1">barokk</string>
+    <string name="keszthely_answer_q3_2">klasszicista</string>
+    <string name="keszthely_answer_q3_3">eklektikus</string>
+    <string name="keszthely_q4">Minek a fővárosa Keszthely?</string>
+    <string name="keszthely_answer_q4_1">Fertő-tó</string>
+    <string name="keszthely_answer_q4_2">Balaton</string>
+    <string name="keszthely_answer_q4_3">Velencei-tó</string>
+    <string name="keszthely_q5">Milyen mezőgazdasági erőgép található a Georgikon Majormúzeumban?</string>
+    <string name="keszthely_answer_q5_1">vetőgép</string>
+    <string name="keszthely_answer_q5_2">cséplőgép</string>
+    <string name="keszthely_answer_q5_3">gőzeke</string>
+    <string name="keszthely_q6">Mi volt Fenékpuszta római neve?</string>
+    <string name="keszthely_answer_q6_1">Gorsium</string>
+    <string name="keszthely_answer_q6_2">Arabona</string>
+    <string name="keszthely_answer_q6_3">Valcum</string>
+    <string name="keszthely_q7">Mely szerzetesrend legnagyobb temploma található a városban? </string>
+    <string name="keszthely_answer_q7_1">karmelita</string>
+    <string name="keszthely_answer_q7_2">ferences</string>
+    <string name="keszthely_answer_q7_3">domonkos</string>
+    <string name="keszthely_q8">A Balaton jellegzetességeit, mely múzeum mutatja be?</string>
+    <string name="keszthely_answer_q8_1">Georgikon Majormúzeum</string>
+    <string name="keszthely_answer_q8_2">Vadászati Múzeum</string>
+    <string name="keszthely_answer_q8_3">Balatoni Múzeum</string>
+    <string name="keszthely_q9">Milyen stílusú a főtéri Magyarok Nagyasszonya Plébániatemplom?</string>
+    <string name="keszthely_answer_q9_1">reneszánsz</string>
+    <string name="keszthely_answer_q9_2">gótikus</string>
+    <string name="keszthely_answer_q9_3">klasszicista</string>
+    <string name="keszthely_q10">Milyen művészeti diákrendezvénynek helyszíne Keszthely?</string>
+    <string name="keszthely_answer_q10_1">Helikon</string>
+    <string name="keszthely_answer_q10_2">Georgikon</string>
+    <string name="keszthely_answer_q10_3">DiákFest</string>
+
 </resources>

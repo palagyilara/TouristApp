@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import io.paperdb.Paper;
@@ -14,6 +15,7 @@ public class StartQuizActivity extends AppCompatActivity {
     private final String STATE_PLAYER_NAME = "PLAYER_NAME";
     private String playerName;
     private EditText nameEditText;
+    private RelativeLayout layout;
 
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
@@ -33,7 +35,26 @@ public class StartQuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         int layoutId = R.layout.activity_start_quiz;
         setContentView(layoutId);
+        Bundle extra = getIntent().getExtras();
+        final String keyword = extra.getString("key");
         String language= Paper.book().read("language");
+        layout =(RelativeLayout)findViewById(R.id.startquizbg);
+
+        if(keyword.equals("Eger")){
+            layout.setBackgroundResource(R.mipmap.egerbg);}
+        else if(keyword.equals("Keszthely")){
+            layout.setBackgroundResource(R.mipmap.keszthelybg);}
+        else if(keyword.equals("Pécs")){
+            layout.setBackgroundResource(R.mipmap.pecsbg);}
+        else if(keyword.equals("Sopron")){
+            layout.setBackgroundResource(R.mipmap.sopronbg);}
+        else if(keyword.equals("Szeged")){
+            layout.setBackgroundResource(R.mipmap.szegedbg);}
+        else if(keyword.equals("Tihany")){
+            layout.setBackgroundResource(R.mipmap.tihanybg);}
+        else if(keyword.equals("Veszprém")){
+            layout.setBackgroundResource(R.mipmap.veszprembg);}
+
         initialStates();
     }
 

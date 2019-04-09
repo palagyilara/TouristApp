@@ -5,7 +5,7 @@
     <string name="city">Városról</string>
     <string name="places">Látványosságok</string>
     <string name="map">Térkép</string>
-    <string name="quiz">Quiz</string>
+    <string name="quiz">Kvíz</string>
     <string name="citytitle">A városról</string>
     <string name="wikipedia">Forrás: Wikipédia</string>
     <string name="placestitle">Nevezetességek</string>
@@ -25,6 +25,9 @@
     <string name="eger">Eger</string> <!--kész-->
 
     <string name="title_activity_maps">Map</string>
+
+    <string name="notiftitle">Közelében egyéb látnivalók találhatók!</string>
+    <string name="notiftext">További információkat tudhat meg, ha az értesítésre kattint!</string>
 
     <string name="lets_see">Lássuk mennyire ismeri a várost!</string>
     <string name="name">Adja meg a nevét</string>

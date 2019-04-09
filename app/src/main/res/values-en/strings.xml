@@ -49,6 +49,9 @@
     <string name="mennyibe">Mennyibe kerül?</string>
     <string name="merre">Merre van a &#8230;?</string>
 
+    <string name="notiftitle">Egyéb érdekességek a város közelében</string>
+    <string name="notiftext">További információkat tudhat meg, ha az értesítésre kattint!</string>
+
     <string name="lets_see">Let\'s see how well you know the city!</string>
     <string name="name">ENTER YOUR NAME</string>
     <string name="player_name">player name</string>
