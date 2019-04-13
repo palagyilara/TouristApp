@@ -50,6 +50,9 @@
     <string name="egeroth3">torok-emlekek/torok-furdo</string>
     <string name="egeroth4">erdekessegek/zsolnay-kut</string>
 
+    <!--TÉRKÉP-->
+    <string name="egernotifurl">http://gyogyvizekvolgye.hu</string>
+
     <!--QUIZ-->
     <string-array name="eger_correctAnswersArray">
         <item>@string/eger_answer_q1_2</item><!--q1-->

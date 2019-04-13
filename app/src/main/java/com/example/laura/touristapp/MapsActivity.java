@@ -73,9 +73,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
     private boolean mLocationPermissionsGranted = false;
     private FusedLocationProviderClient fusedLocationProviderClient;
-    private List<Marker> markers = new ArrayList<Marker>();
-    private double currentLatitude;
-    private double currentLongitude;
+   // private List<Marker> markers = new ArrayList<Marker>();
+    //private double currentLatitude;
+   // private double currentLongitude;
     public static final String CHANNEL_ID = "tourist_notifications";
     public final int NOTIFICATION_ID=001;
 
@@ -83,46 +83,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-
-        // Bundle extra = getIntent().getExtras();
-        //String text = extra.getString(MainActivity.TAG_TEXT);
-        // String keyword = extra.getString("key");
-        //String placetitle = extra.getString("addr");
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-        /*if (Geocoder.isPresent()) {
-            try {
-                String location = keyword;
-                Geocoder gc = new Geocoder(this);
-                List<Address> addresses = gc.getFromLocationName(location, 5); // get the found Address Objects
-
-                List<LatLng> ll = new ArrayList<LatLng>(addresses.size()); // A list to save the coordinates if they are available
-                for (Address a : addresses) {
-                    if (a.hasLatitude() && a.hasLongitude()) {
-                        ll.add(new LatLng(a.getLatitude(), a.getLongitude()));
-                    }
-                }
-            } catch (IOException e) {
-                // handle the exception
-            }
-        }*/
-        /*
-        org.osmdroid.views.MapView mapView = (org.osmdroid.views.MapView) findViewById(R.id.map_view); //resolve the map view by id given in the layout
-        mapView.setTileSource(new OnlineTileSourceBase("Google Maps", ResourceProxy.string.unknown, 1, 20, 256, ".png", "http://mt3.google.com/vt/v=w2.97") {
-            @Override
-            public String getTileURLString(final MapTile aTile) {
-                /*
-                 * GOOGLE MAPS URL looks like
-                 * base url	const	x	y zoom
-                 * http://mt3.google.com/vt/v=w2.97&x=74327&y=50500&z=17
-                 //
-                return getBaseUrl() + "&x=" + aTile.getX() + "&y=" + aTile.getY() + "&z=" + aTile.getZoomLevel();
-            }
-        });
-        mapView.setUseDataConnection(false); //this actually makes the controller use only offline tiles*/
 
     }
 
@@ -154,8 +117,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         int height = 71;
         int width = 50;
         BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.museumicon);
+        BitmapDrawable bitmapdraw2=(BitmapDrawable)getResources().getDrawable(R.drawable.monumentsicon);
+        BitmapDrawable bitmapdraw3=(BitmapDrawable)getResources().getDrawable(R.drawable.churchicon);
+        BitmapDrawable bitmapdraw4=(BitmapDrawable)getResources().getDrawable(R.drawable.othericon);
         Bitmap b=bitmapdraw.getBitmap();
+        Bitmap b2=bitmapdraw2.getBitmap();
+        Bitmap b3=bitmapdraw3.getBitmap();
+        Bitmap b4=bitmapdraw4.getBitmap();
         Bitmap museumicon = Bitmap.createScaledBitmap(b, width, height, false);
+        Bitmap churchicon = Bitmap.createScaledBitmap(b2, width, height, false);
+        Bitmap monumenticon = Bitmap.createScaledBitmap(b3, width, height, false);
+        Bitmap othericon = Bitmap.createScaledBitmap(b4, width, height, false);
+
 
         boolean success = googleMap.setMapStyle(new MapStyleOptions(getResources()
                 .getString(R.string.style_json)));
@@ -244,6 +217,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -257,6 +231,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -270,6 +245,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -283,6 +259,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -296,6 +273,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -309,6 +287,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -322,6 +301,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -335,6 +315,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -348,6 +329,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -361,6 +343,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -374,6 +357,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -388,6 +372,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -401,6 +386,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -414,6 +400,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -427,6 +414,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -440,6 +428,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -453,6 +442,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -466,6 +456,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -479,6 +470,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -492,6 +484,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -505,6 +498,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -518,6 +512,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -531,6 +526,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -544,6 +540,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -557,6 +554,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -570,6 +568,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -583,6 +582,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -596,6 +596,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -609,6 +610,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -622,6 +624,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -635,6 +638,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -648,6 +652,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -661,6 +666,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -674,6 +680,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -687,6 +694,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -700,6 +708,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -713,6 +722,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -726,6 +736,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -739,6 +750,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -752,6 +764,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -765,6 +778,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -778,6 +792,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -790,6 +805,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -803,6 +819,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -816,6 +833,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -830,6 +848,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -842,6 +861,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -854,6 +874,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -866,6 +887,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -878,6 +900,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -890,6 +913,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -902,6 +926,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -914,6 +939,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -926,6 +952,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -938,6 +965,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -950,6 +978,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -962,6 +991,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -974,6 +1004,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -986,6 +1017,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -998,6 +1030,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1010,6 +1043,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1022,6 +1056,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1034,6 +1069,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1046,6 +1082,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1058,6 +1095,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1071,6 +1109,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1083,6 +1122,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1095,6 +1135,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1107,6 +1148,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1119,6 +1161,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1131,6 +1174,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1143,6 +1187,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1155,6 +1200,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1167,6 +1213,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1179,6 +1226,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1191,6 +1239,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1203,6 +1252,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1215,6 +1265,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1227,6 +1278,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1239,6 +1291,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1251,6 +1304,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1263,6 +1317,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1275,6 +1330,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1287,6 +1343,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1299,6 +1356,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1311,6 +1369,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1323,6 +1382,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1335,6 +1395,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1347,6 +1408,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1359,6 +1421,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1371,6 +1434,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1383,6 +1447,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1395,6 +1460,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1407,6 +1473,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1419,6 +1486,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1431,6 +1499,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1443,6 +1512,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1455,6 +1525,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1468,6 +1539,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1480,6 +1552,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1492,6 +1565,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1504,6 +1578,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1516,6 +1591,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1528,6 +1604,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1540,6 +1617,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1552,6 +1630,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1564,6 +1643,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1576,6 +1656,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1588,6 +1669,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1600,6 +1682,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1612,6 +1695,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1624,6 +1708,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1636,6 +1721,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1648,6 +1734,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1660,6 +1747,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1672,6 +1760,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1684,6 +1773,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1696,6 +1786,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1708,6 +1799,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1720,6 +1812,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1732,6 +1825,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1744,6 +1838,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1756,6 +1851,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1768,6 +1864,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1780,6 +1877,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1792,6 +1890,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1804,6 +1903,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1816,6 +1916,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1828,6 +1929,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1840,6 +1942,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1853,6 +1956,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1865,6 +1969,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1877,6 +1982,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1889,6 +1995,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1901,6 +2008,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1913,6 +2021,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1925,6 +2034,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1937,6 +2047,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1949,6 +2060,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1961,6 +2073,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1973,6 +2086,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1985,6 +2099,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -1997,6 +2112,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -2009,6 +2125,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -2021,6 +2138,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -2033,6 +2151,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -2045,6 +2164,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -2058,6 +2178,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -2070,6 +2191,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -2082,6 +2204,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -2094,6 +2217,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -2106,6 +2230,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -2118,6 +2243,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
@@ -2134,94 +2260,99 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 getLatitudeAndLongitudeFromGoogleMapForAddress(keyword, v, v1);
 
                 //if (language.equals("hu") || language.equals("en") || language.equals("de")) {
-                Marker m = googleMap.addMarker(new MarkerOptions()
+                googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.758834, 17.242172))
                         .title(getResources().getString(R.string.keszthmuseum1))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
-                markers.add(m);
-                Marker m1 =googleMap.addMarker(new MarkerOptions()
+                googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.7707424, 17.2418793))
                         .title(getResources().getString(R.string.keszthmuseum3))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
-                markers.add(m1);
-                Marker m2 =googleMap.addMarker(new MarkerOptions()
+                googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.748101, 17.2273207))
                         .title(getResources().getString(R.string.keszthmuseum6))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
-                markers.add(m2);
 
                 if (language.equals("hu")) {
-                    Marker m3 =googleMap.addMarker(new MarkerOptions()
+                   googleMap.addMarker(new MarkerOptions()
                             .position(new LatLng(46.7628359,17.2420221))
                             .title(getResources().getString(R.string.keszthmuseum2))
                             .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
-                    markers.add(m3);
-                    Marker m4 =googleMap.addMarker(new MarkerOptions()
+                    googleMap.addMarker(new MarkerOptions()
                             .position(new LatLng(46.766845, 17.235827))
                             .title(getResources().getString(R.string.keszthmuseum4))
                             .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
-                    markers.add(m4);
-                    Marker m5 =googleMap.addMarker(new MarkerOptions()
+                  googleMap.addMarker(new MarkerOptions()
                             .position(new LatLng(46.769314, 17.242457))
                             .title(getResources().getString(R.string.keszthmuseum5))
                             .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
-                    markers.add(m5);
                 }
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7538965, 17.2401481))
                                 .title(getResources().getString(R.string.keszthmonuments1))
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.767877, 17.236742))
                                 .title(getResources().getString(R.string.keszthmonuments2))
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7610521, 17.2483782))
                                 .title(getResources().getString(R.string.keszthmonuments3))
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.765719, 17.243219))
                                 .title(getResources().getString(R.string.keszthmonuments4))
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7645622, 17.2402638))
                                 .title(getResources().getString(R.string.keszthtemplom1))
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7701547, 17.2515696))
                                 .title(getResources().getString(R.string.keszthtemplom2))
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
 
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7647133, 17.2436778))
                                 .title(getResources().getString(R.string.keszthtemplom3))
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
 
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.761552, 17.244678))
                                 .title(getResources().getString(R.string.keszthtemplom4))
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7657888, 17.2437286))
                                 .title(getResources().getString(R.string.keszthother1))
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7670602, 17.2426282))
                                 .title(getResources().getString(R.string.keszthother2))
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.757526, 17.251271))
                                 .title(getResources().getString(R.string.keszthother3))
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
                     /*.snippet ("RandomUSer @RandUsi")
                     .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
 
@@ -2479,100 +2610,132 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0773908, 18.2230137))
-                        .title(getResources().getString(R.string.pecsmuseum1)));
+                        .title(getResources().getString(R.string.pecsmuseum1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0726386, 18.2249645))
-                        .title(getResources().getString(R.string.pecsmuseum2)));
+                        .title(getResources().getString(R.string.pecsmuseum2))
+                    .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0785646, 18.221054))
-                        .title(getResources().getString(R.string.pecsmuseum3)));
+                        .title(getResources().getString(R.string.pecsmuseum3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.072237, 18.2221122))
-                        .title(getResources().getString(R.string.pecsmuseum4)));
+                        .title(getResources().getString(R.string.pecsmuseum4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0788438, 18.2267868))
-                        .title(getResources().getString(R.string.pecsmuseum5)));
+                        .title(getResources().getString(R.string.pecsmuseum5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0766305, 18.2309945))
-                        .title(getResources().getString(R.string.pecsmuseum6)));
+                        .title(getResources().getString(R.string.pecsmuseum6))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0762209, 18.2354356))
-                        .title(getResources().getString(R.string.pecsmuseum7)));
+                        .title(getResources().getString(R.string.pecsmuseum7))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.077271, 18.2452212))
-                        .title(getResources().getString(R.string.pecsmuseum8)));
+                        .title(getResources().getString(R.string.pecsmuseum8))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0738589, 18.2232321))
-                        .title(getResources().getString(R.string.pecstemplom1)));
+                        .title(getResources().getString(R.string.pecstemplom1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0752522, 18.2224311))
-                        .title(getResources().getString(R.string.pecstemplom2)));
+                        .title(getResources().getString(R.string.pecstemplom2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0770345, 18.2257623))
-                        .title(getResources().getString(R.string.pecstemplom3)));
+                        .title(getResources().getString(R.string.pecstemplom3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0741435, 18.2188625))
-                        .title(getResources().getString(R.string.pecstemplom4)));
+                        .title(getResources().getString(R.string.pecstemplom4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0769493, 18.2320399))
-                        .title(getResources().getString(R.string.pecstemplom5)));
+                        .title(getResources().getString(R.string.pecstemplom5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.075954, 18.203835))
-                        .title(getResources().getString(R.string.pecstemplom6)));
+                        .title(getResources().getString(R.string.pecstemplom6))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0786287, 18.2236178))
-                        .title(getResources().getString(R.string.pecstemplom7)));
+                        .title(getResources().getString(R.string.pecstemplom7))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0766556, 18.2234497))
-                        .title(getResources().getString(R.string.pecstemplom8)));
+                        .title(getResources().getString(R.string.pecstemplom8))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0773776, 18.2214592))
-                        .title(getResources().getString(R.string.pecsmonuments1)));
+                        .title(getResources().getString(R.string.pecsmonuments1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0778378, 18.2193047))
-                        .title(getResources().getString(R.string.pecsmonuments2)));
+                        .title(getResources().getString(R.string.pecsmonuments2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0773762, 18.2039496))
-                        .title(getResources().getString(R.string.pecsmonuments3)));
+                        .title(getResources().getString(R.string.pecsmonuments3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0773735, 18.2039496))
-                        .title(getResources().getString(R.string.pecsmonuments4)));
+                        .title(getResources().getString(R.string.pecsmonuments4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.07893, 18.2215971))
-                        .title(getResources().getString(R.string.pecsmonuments5)));
+                        .title(getResources().getString(R.string.pecsmonuments5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0778534, 18.2210087))
-                        .title(getResources().getString(R.string.pecsmonuments6)));
+                        .title(getResources().getString(R.string.pecsmonuments6))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0773789, 18.2215465))
-                        .title(getResources().getString(R.string.pecsmonuments7)));
+                        .title(getResources().getString(R.string.pecsmonuments7))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0764501, 18.2259261))
-                        .title(getResources().getString(R.string.pecsmonuments9)));
+                        .title(getResources().getString(R.string.pecsmonuments9))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0752504, 18.2265603))
-                        .title(getResources().getString(R.string.pecsmonuments10)));
+                        .title(getResources().getString(R.string.pecsmonuments10))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0777617, 18.2222228))
-                        .title(getResources().getString(R.string.pecsother1)));
+                        .title(getResources().getString(R.string.pecsother1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0753909, 18.2423596))
-                        .title(getResources().getString(R.string.pecsother2)));
+                        .title(getResources().getString(R.string.pecsother2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0775223, 18.2244006))
-                        .title(getResources().getString(R.string.pecsother3)));
+                        .title(getResources().getString(R.string.pecsother3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0763242, 18.2284875))
-                        .title(getResources().getString(R.string.pecsother4)));
+                        .title(getResources().getString(R.string.pecsother4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0936665,18.2235902))
-                        .title(getResources().getString(R.string.pecsother5)));
+                        .title(getResources().getString(R.string.pecsother5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0992037,18.2179472))
-                        .title(getResources().getString(R.string.pecsother6)));
+                        .title(getResources().getString(R.string.pecsother6))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.0758217,18.2265088))
-                        .title(getResources().getString(R.string.pecsother7)));
+                        .title(getResources().getString(R.string.pecsother7))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
 
 
                 mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
@@ -3025,55 +3188,72 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0968899, 17.9004597))
-                        .title(getResources().getString(R.string.veszpmuseum1)));
+                        .title(getResources().getString(R.string.veszpmuseum1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0963527, 17.9010344))
-                        .title(getResources().getString(R.string.veszpmuseum2)));
+                        .title(getResources().getString(R.string.veszpmuseum2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0951768, 17.9034555))
-                        .title(getResources().getString(R.string.veszpmuseum3)));
+                        .title(getResources().getString(R.string.veszpmuseum3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0960185, 17.9038667))
-                        .title(getResources().getString(R.string.veszptemplom1)));
+                        .title(getResources().getString(R.string.veszptemplom1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0969428, 17.9006188))
-                        .title(getResources().getString(R.string.veszptemplom2)));
+                        .title(getResources().getString(R.string.veszptemplom2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0912095, 17.9029352))
-                        .title(getResources().getString(R.string.veszptemplom3)));
+                        .title(getResources().getString(R.string.veszptemplom3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0969959, 17.9007181))
-                        .title(getResources().getString(R.string.veszptemplom4)));
+                        .title(getResources().getString(R.string.veszptemplom4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.096161, 17.9016633))
-                        .title(getResources().getString(R.string.veszptemplom5)));
+                        .title(getResources().getString(R.string.veszptemplom5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0986044, 17.8855273))
-                        .title(getResources().getString(R.string.veszptemplom6)));
+                        .title(getResources().getString(R.string.veszptemplom6))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0947685, 17.9034529))
-                        .title(getResources().getString(R.string.veszpmonuments1)));
+                        .title(getResources().getString(R.string.veszpmonuments1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0967623, 17.9004738))
-                        .title(getResources().getString(R.string.veszpmonuments2)));
+                        .title(getResources().getString(R.string.veszpmonuments2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.1315369, 17.752226))
-                        .title(getResources().getString(R.string.veszpother1)));
+                        .title(getResources().getString(R.string.veszpother1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0964995, 17.9008702))
-                        .title(getResources().getString(R.string.veszpother2)));
+                        .title(getResources().getString(R.string.veszpother2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0973491, 17.8940295))
-                        .title(getResources().getString(R.string.veszpother3)));
+                        .title(getResources().getString(R.string.veszpother3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0946597, 17.9040699))
-                        .title(getResources().getString(R.string.veszpother4)));
+                        .title(getResources().getString(R.string.veszpother4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0900738, 17.8903271))
-                        .title(getResources().getString(R.string.veszpother5)));
+                        .title(getResources().getString(R.string.veszpother5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.0919435,17.9046887))
-                        .title(getResources().getString(R.string.veszpother6)));
+                        .title(getResources().getString(R.string.veszpother6))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
 
                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
@@ -3299,64 +3479,84 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9032908, 20.3677279))
-                        .title(getResources().getString(R.string.egermuseum1)));
+                        .title(getResources().getString(R.string.egermuseum1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9006942, 20.3713843))
-                        .title(getResources().getString(R.string.egermuseum2)));
+                        .title(getResources().getString(R.string.egermuseum2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9040518, 20.3774534))
-                        .title(getResources().getString(R.string.egermuseum3)));
+                        .title(getResources().getString(R.string.egermuseum3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.8997995, 20.3739947))
-                        .title(getResources().getString(R.string.egermuseum4)));
+                        .title(getResources().getString(R.string.egermuseum4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9062166, 20.379653))
-                        .title(getResources().getString(R.string.egermuseum5)));
+                        .title(getResources().getString(R.string.egermuseum5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9040518, 20.3774534))
-                        .title(getResources().getString(R.string.egermuseum6)));
+                        .title(getResources().getString(R.string.egermuseum6))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9001024, 20.3740198))
-                        .title(getResources().getString(R.string.egermuseum7)));
+                        .title(getResources().getString(R.string.egermuseum7))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.901712, 20.3693688))
-                        .title(getResources().getString(R.string.egermuseum8)));
+                        .title(getResources().getString(R.string.egermuseum8))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.8993289, 20.3710419))
-                        .title(getResources().getString(R.string.egertemplom1)));
+                        .title(getResources().getString(R.string.egertemplom1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9021424, 20.3752444))
-                        .title(getResources().getString(R.string.egertemplom2)));
+                        .title(getResources().getString(R.string.egertemplom2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9079947, 20.3681148))
-                        .title(getResources().getString(R.string.egertemplom3)));
+                        .title(getResources().getString(R.string.egertemplom3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9064777, 20.3750527))
-                        .title(getResources().getString(R.string.egertemplom4)));
+                        .title(getResources().getString(R.string.egertemplom4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9040518, 20.3774534))
-                        .title(getResources().getString(R.string.egermonuments1)));
+                        .title(getResources().getString(R.string.egermonuments1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9040518, 20.3774534))
-                        .title(getResources().getString(R.string.egermonuments2)));
+                        .title(getResources().getString(R.string.egermonuments2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9040262, 20.3782185))
-                        .title(getResources().getString(R.string.egermonuments3)));
+                        .title(getResources().getString(R.string.egermonuments3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.903957, 20.3776593))
-                        .title(getResources().getString(R.string.egermonuments4)));
+                        .title(getResources().getString(R.string.egermonuments4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9046631, 20.3741884))
-                        .title(getResources().getString(R.string.egermonuments5)));
+                        .title(getResources().getString(R.string.egermonuments5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.8983915, 20.382371053698108))
-                        .title(getResources().getString(R.string.egerother2)));
+                        .title(getResources().getString(R.string.egerother2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.8984133, 20.3801665))
-                        .title(getResources().getString(R.string.egerother3)));
+                        .title(getResources().getString(R.string.egerother3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.9004949, 20.3660368))
-                        .title(getResources().getString(R.string.egerother4)));
+                        .title(getResources().getString(R.string.egerother4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
                     public void onInfoWindowClick(Marker marker) {
@@ -3634,23 +3834,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (language.equals("hu") || language.equals("de")) {
                     googleMap.addMarker(new MarkerOptions()
                             .position(new LatLng(46.9137329, 17.8870437))
-                            .title(getResources().getString(R.string.tihanymuseum1)));
+                            .title(getResources().getString(R.string.tihanymuseum1))
+                            .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 }
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.9139608, 17.8873191))
-                        .title(getResources().getString(R.string.tihanytemplom1)));
+                        .title(getResources().getString(R.string.tihanytemplom1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.9139608, 17.8873191))
-                        .title(getResources().getString(R.string.tihanymonuments1)));
+                        .title(getResources().getString(R.string.tihanymonuments1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.9152689, 17.8888649))
-                        .title(getResources().getString(R.string.tihanymonuments2)));
+                        .title(getResources().getString(R.string.tihanymonuments2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.9205442, 17.8516349))
-                        .title(getResources().getString(R.string.tihanyother2)));
+                        .title(getResources().getString(R.string.tihanyother2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.9228656, 17.8790849))
-                        .title(getResources().getString(R.string.tihanyother4)));
+                        .title(getResources().getString(R.string.tihanyother4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
 
                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
@@ -3748,100 +3954,132 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2501173, 20.1458641))
-                        .title(getResources().getString(R.string.szegedmuseum1)));
+                        .title(getResources().getString(R.string.szegedmuseum1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2522423, 20.1489384))
-                        .title(getResources().getString(R.string.szegedmuseum2)));
+                        .title(getResources().getString(R.string.szegedmuseum2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2516199, 20.1432357))
-                        .title(getResources().getString(R.string.szegedmuseum3)));
+                        .title(getResources().getString(R.string.szegedmuseum3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2518393, 20.137555))
-                        .title(getResources().getString(R.string.szegedmuseum4)));
+                        .title(getResources().getString(R.string.szegedmuseum4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2460051, 20.1467269))
-                        .title(getResources().getString(R.string.szegedmuseum5)));
+                        .title(getResources().getString(R.string.szegedmuseum5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.252662, 20.149028))
-                        .title(getResources().getString(R.string.szegedmuseum6)));
+                        .title(getResources().getString(R.string.szegedmuseum6))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2406015, 20.1343618))
-                        .title(getResources().getString(R.string.szegedtemplom1)));
+                        .title(getResources().getString(R.string.szegedtemplom1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2489098, 20.1469379))
-                        .title(getResources().getString(R.string.szegedtemplom2)));
+                        .title(getResources().getString(R.string.szegedtemplom2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2565648, 20.1322785))
-                        .title(getResources().getString(R.string.szegedtemplom3)));
+                        .title(getResources().getString(R.string.szegedtemplom3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2538745, 20.141478))
-                        .title(getResources().getString(R.string.szegedtemplom4)));
+                        .title(getResources().getString(R.string.szegedtemplom4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2493521, 20.1475635))
-                        .title(getResources().getString(R.string.szegedtemplom5)));
+                        .title(getResources().getString(R.string.szegedtemplom5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2537523, 20.1398553))
-                        .title(getResources().getString(R.string.szegedtemplom6)));
+                        .title(getResources().getString(R.string.szegedtemplom6))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2526651, 20.1505455))
-                        .title(getResources().getString(R.string.szegedmonuments1)));
+                        .title(getResources().getString(R.string.szegedmonuments1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2551466, 20.14817))
-                        .title(getResources().getString(R.string.szegedmonuments2)));
+                        .title(getResources().getString(R.string.szegedmonuments2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2542448, 20.1502987))
-                        .title(getResources().getString(R.string.szegedmonuments3)));
+                        .title(getResources().getString(R.string.szegedmonuments3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2486067, 20.1463703))
-                        .title(getResources().getString(R.string.szegedmonuments4)));
+                        .title(getResources().getString(R.string.szegedmonuments4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.255279, 20.1425635))
-                        .title(getResources().getString(R.string.szegedmonuments5)));
+                        .title(getResources().getString(R.string.szegedmonuments5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2563774, 20.1490909))
-                        .title(getResources().getString(R.string.szegedmonuments6)));
+                        .title(getResources().getString(R.string.szegedmonuments6))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2460051, 20.1467269))
-                        .title(getResources().getString(R.string.szegedmonuments7)));
+                        .title(getResources().getString(R.string.szegedmonuments7))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2576495, 20.1483944))
-                        .title(getResources().getString(R.string.szegedmonuments8)));
+                        .title(getResources().getString(R.string.szegedmonuments8))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2476294, 20.1438307))
-                        .title(getResources().getString(R.string.szegedmonuments9)));
+                        .title(getResources().getString(R.string.szegedmonuments9))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2562191, 20.1490457))
-                        .title(getResources().getString(R.string.szegedmonuments10)));
+                        .title(getResources().getString(R.string.szegedmonuments10))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2533589, 20.146697))
-                        .title(getResources().getString(R.string.szegedmonuments11)));
+                        .title(getResources().getString(R.string.szegedmonuments11))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2407471, 20.1341353))
-                        .title(getResources().getString(R.string.szegedother1)));
+                        .title(getResources().getString(R.string.szegedother1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2470482, 20.1404639))
-                        .title(getResources().getString(R.string.szegedother2)));
+                        .title(getResources().getString(R.string.szegedother2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.249616, 20.1465198))
-                        .title(getResources().getString(R.string.szegedother3)));
+                        .title(getResources().getString(R.string.szegedother3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2667839, 20.1067816))
-                        .title(getResources().getString(R.string.szegedother4)));
+                        .title(getResources().getString(R.string.szegedother4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2536776, 20.1495615))
-                        .title(getResources().getString(R.string.szegedother5)));
+                        .title(getResources().getString(R.string.szegedother5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2582467, 20.1480737))
-                        .title(getResources().getString(R.string.szegedother6)));
+                        .title(getResources().getString(R.string.szegedother6))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2508192, 20.1213621))
-                        .title(getResources().getString(R.string.szegedother7)));
+                        .title(getResources().getString(R.string.szegedother7))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2542614, 20.1484052))
-                        .title(getResources().getString(R.string.szegedother8)));
+                        .title(getResources().getString(R.string.szegedother8))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(46.2483304, 20.1465588))
-                        .title(getResources().getString(R.string.szegedother9)));
+                        .title(getResources().getString(R.string.szegedother9))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
 
                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
@@ -4276,106 +4514,140 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6859625, 16.5877292))
-                        .title(getResources().getString(R.string.sopronmuseum1)));
+                        .title(getResources().getString(R.string.sopronmuseum1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.68602, 16.589138))
-                        .title(getResources().getString(R.string.sopronmuseum2)));
+                        .title(getResources().getString(R.string.sopronmuseum2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6865675, 16.5887225))
-                        .title(getResources().getString(R.string.sopronmuseum3)));
+                        .title(getResources().getString(R.string.sopronmuseum3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6861546, 16.5878403))
-                        .title(getResources().getString(R.string.sopronmuseum4)));
+                        .title(getResources().getString(R.string.sopronmuseum4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6801243, 16.5757588))
-                        .title(getResources().getString(R.string.sopronmuseum5)));
+                        .title(getResources().getString(R.string.sopronmuseum5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6865343, 16.5884332))
-                        .title(getResources().getString(R.string.sopronmuseum6)));
+                        .title(getResources().getString(R.string.sopronmuseum6))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6865379, 16.5884332))
-                        .title(getResources().getString(R.string.sopronmuseum7)));
+                        .title(getResources().getString(R.string.sopronmuseum7))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6865675, 16.5887225))
-                        .title(getResources().getString(R.string.sopronmuseum8)));
+                        .title(getResources().getString(R.string.sopronmuseum8))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6849766, 16.5882953))
-                        .title(getResources().getString(R.string.sopronmuseum9)));
+                        .title(getResources().getString(R.string.sopronmuseum9))
+                        .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6767011, 16.5726721))
-                        .title(getResources().getString(R.string.soprontemplom1)));
+                        .title(getResources().getString(R.string.soprontemplom1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6860906, 16.5882303))
-                        .title(getResources().getString(R.string.soprontemplom2)));
+                        .title(getResources().getString(R.string.soprontemplom2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6823196, 16.5877663))
-                        .title(getResources().getString(R.string.soprontemplom3)));
+                        .title(getResources().getString(R.string.soprontemplom3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6842216, 16.5875043))
-                        .title(getResources().getString(R.string.soprontemplom4)));
+                        .title(getResources().getString(R.string.soprontemplom4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6860398, 16.5791263))
-                        .title(getResources().getString(R.string.soprontemplom5)));
+                        .title(getResources().getString(R.string.soprontemplom5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6889156, 16.5903373))
-                        .title(getResources().getString(R.string.soprontemplom6)));
+                        .title(getResources().getString(R.string.soprontemplom6))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6827106, 16.5930383))
-                        .title(getResources().getString(R.string.soprontemplom7)));
+                        .title(getResources().getString(R.string.soprontemplom7))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6817506, 16.5800903))
-                        .title(getResources().getString(R.string.soprontemplom8)));
+                        .title(getResources().getString(R.string.soprontemplom8))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6853287, 16.5894621))
-                        .title(getResources().getString(R.string.soprontemplom9)));
+                        .title(getResources().getString(R.string.soprontemplom9))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6888445, 16.5950182))
-                        .title(getResources().getString(R.string.soprontemplom10)));
+                        .title(getResources().getString(R.string.soprontemplom10))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6837786, 16.5886713))
-                        .title(getResources().getString(R.string.soprontemplom11)));
+                        .title(getResources().getString(R.string.soprontemplom11))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6928676, 16.5743193))
-                        .title(getResources().getString(R.string.soprontemplom12)));
+                        .title(getResources().getString(R.string.soprontemplom12))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6801826, 16.5943413))
-                        .title(getResources().getString(R.string.soprontemplom13)));
+                        .title(getResources().getString(R.string.soprontemplom13))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6857246, 16.5875402))
-                        .title(getResources().getString(R.string.sopronmonuments1)));
+                        .title(getResources().getString(R.string.sopronmonuments1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6865675, 16.5887225))
-                        .title(getResources().getString(R.string.sopronmonuments2)));
+                        .title(getResources().getString(R.string.sopronmonuments2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6826123, 16.5801612))
-                        .title(getResources().getString(R.string.sopronmonuments4)));
+                        .title(getResources().getString(R.string.sopronmonuments4))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6837866, 16.5860852))
-                        .title(getResources().getString(R.string.sopronmonuments5)));
+                        .title(getResources().getString(R.string.sopronmonuments5))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6865276, 16.5889952))
-                        .title(getResources().getString(R.string.sopronmonuments7)));
+                        .title(getResources().getString(R.string.sopronmonuments7))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6863651, 16.5887217))
-                        .title(getResources().getString(R.string.sopronmonuments8)));
+                        .title(getResources().getString(R.string.sopronmonuments8))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6865439, 16.5888589))
-                        .title(getResources().getString(R.string.sopronmonuments9)));
+                        .title(getResources().getString(R.string.sopronmonuments9))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6865296, 16.589204))
-                        .title(getResources().getString(R.string.sopronmonuments10)));
+                        .title(getResources().getString(R.string.sopronmonuments10))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6852996, 16.5882934))
-                        .title(getResources().getString(R.string.sopronmonuments11)));
+                        .title(getResources().getString(R.string.sopronmonuments11))
+                        .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6843078,16.5857144))
-                        .title(getResources().getString(R.string.sopronother1)));
+                        .title(getResources().getString(R.string.sopronother1))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6867339, 16.5875822))
-                        .title(getResources().getString(R.string.sopronother2)));
+                        .title(getResources().getString(R.string.sopronother2))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(47.6771022, 16.5564406))
-                        .title(getResources().getString(R.string.sopronother3)));
+                        .title(getResources().getString(R.string.sopronother3))
+                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
 
                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                     @Override
@@ -4981,8 +5253,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                         .setStyle(new NotificationCompat.BigTextStyle()
                                                 .bigText(getResources().getString(R.string.notiftitle)))
                                         .setStyle(new NotificationCompat.BigTextStyle()
-                                                .bigText(getResources().getString(R.string.notiftext)+"\nEnnyi távolságra van: "+distance+"km"))
-                                        .setContentText(getResources().getString(R.string.notiftext)+"\nEnnyi távolságra van: "+distance+"km")
+                                                .bigText(getResources().getString(R.string.notiftext)+"\n"+(getResources().getString(R.string.distance))+distance+"km"))
+                                        .setContentText(getResources().getString(R.string.notiftext)+"\n"+(getResources().getString(R.string.distance))+distance+"km")
                                         .setPriority(NotificationManager.IMPORTANCE_HIGH)
                                         .setDefaults(Notification.DEFAULT_ALL)
                                         .setContentIntent(pendingIntent)
@@ -4995,9 +5267,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             }
                             else if(cityName.equals("Eger"))
                             {
-                                // Create an explicit intent for an Activity in your app
-                                //Create the intent that’ll fire when the user taps the notification//
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://gyogyvizekvolgye.hu/"));
+                                Location A=new Location("LocationA");
+                                A.setLatitude(currentLocation.getLatitude());
+                                A.setLongitude(currentLocation.getLongitude());
+
+                                Location B=new Location("LocationB");//Egerszalók koordinátái
+                                B.setLatitude(47.8772783);
+                                B.setLongitude(20.2546512);
+
+                                NumberFormat formatter = new DecimalFormat("##.00");
+                                float[] result=new float[1];
+                                Location.distanceBetween (currentLocation.getLatitude(),currentLocation.getLongitude(),47.8772783, 20.2546512,  result);
+                                String distance=formatter.format(result[0]/1000);
+                                //double distance=A.distanceTo(B);
+                                //System.out.println(distance);
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.egernotifurl)));
                                 PendingIntent pendingIntent = PendingIntent.getActivity(MapsActivity.this, 0, intent, 0);
                                 //mBuilder.setContentIntent(pendingIntent);
                                 //értesítés küldése
@@ -5005,7 +5289,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                         .setSmallIcon(R.drawable.sign)
                                         .setColor(getResources().getColor(R.color.colorAccent))
                                         .setContentTitle(getResources().getString(R.string.notiftitle))
-                                        .setContentText(getResources().getString(R.string.notiftext))
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(getResources().getString(R.string.notiftitle)))
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(getResources().getString(R.string.notiftext)+"\n"+(getResources().getString(R.string.distance))+distance+"km"))
+                                        .setContentText(getResources().getString(R.string.notiftext)+"\n"+(getResources().getString(R.string.distance))+distance+"km")
                                         .setPriority(NotificationManager.IMPORTANCE_HIGH)
                                         .setDefaults(Notification.DEFAULT_ALL)
                                         .setContentIntent(pendingIntent)
@@ -5014,12 +5302,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                                 // notificationId is a unique int for each notification that you must define
                                 notificationManager.notify(NOTIFICATION_ID, builder.build());
+
                             }
                             else if(cityName.equals("Pécs"))
                             {
-                                // Create an explicit intent for an Activity in your app
-                                //Create the intent that’ll fire when the user taps the notification//
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.heviz.hu/hu"));
+                                Location A=new Location("LocationA");
+                                A.setLatitude(currentLocation.getLatitude());
+                                A.setLongitude(currentLocation.getLongitude());
+
+                                Location B=new Location("LocationB");//Harkány koordinátái
+                                B.setLatitude(45.8384895);
+                                B.setLongitude(18.1070513);
+
+                                NumberFormat formatter = new DecimalFormat("##.00");
+                                float[] result=new float[1];
+                                Location.distanceBetween (currentLocation.getLatitude(),currentLocation.getLongitude(),45.8384895, 18.1070513,  result);
+                                String distance=formatter.format(result[0]/1000);
+                                //double distance=A.distanceTo(B);
+                                //System.out.println(distance);
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.pecsnotifurl)));
                                 PendingIntent pendingIntent = PendingIntent.getActivity(MapsActivity.this, 0, intent, 0);
                                 //mBuilder.setContentIntent(pendingIntent);
                                 //értesítés küldése
@@ -5027,7 +5328,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                         .setSmallIcon(R.drawable.sign)
                                         .setColor(getResources().getColor(R.color.colorAccent))
                                         .setContentTitle(getResources().getString(R.string.notiftitle))
-                                        .setContentText(getResources().getString(R.string.notiftext))
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(getResources().getString(R.string.notiftitle)))
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(getResources().getString(R.string.notiftext)+"\n"+(getResources().getString(R.string.distance))+distance+"km"))
+                                        .setContentText(getResources().getString(R.string.notiftext)+"\n"+(getResources().getString(R.string.distance))+distance+"km")
                                         .setPriority(NotificationManager.IMPORTANCE_HIGH)
                                         .setDefaults(Notification.DEFAULT_ALL)
                                         .setContentIntent(pendingIntent)
@@ -5039,9 +5344,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             }
                             else if(cityName.equals("Sopron"))
                             {
-                                // Create an explicit intent for an Activity in your app
-                                //Create the intent that’ll fire when the user taps the notification//
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.heviz.hu/hu"));
+                                Location A=new Location("LocationA");
+                                A.setLatitude(currentLocation.getLatitude());
+                                A.setLongitude(currentLocation.getLongitude());
+
+                                Location B=new Location("LocationB");//Fertőrákos koordinátái
+                                B.setLatitude(47.7254102);
+                                B.setLongitude(16.5643462);
+
+                                NumberFormat formatter = new DecimalFormat("##.00");
+                                float[] result=new float[1];
+                                Location.distanceBetween (currentLocation.getLatitude(),currentLocation.getLongitude(),47.7254102, 16.5643462,  result);
+                                String distance=formatter.format(result[0]/1000);
+                                //double distance=A.distanceTo(B);
+                                //System.out.println(distance);
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.sopronnotifurl)));
                                 PendingIntent pendingIntent = PendingIntent.getActivity(MapsActivity.this, 0, intent, 0);
                                 //mBuilder.setContentIntent(pendingIntent);
                                 //értesítés küldése
@@ -5049,7 +5366,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                         .setSmallIcon(R.drawable.sign)
                                         .setColor(getResources().getColor(R.color.colorAccent))
                                         .setContentTitle(getResources().getString(R.string.notiftitle))
-                                        .setContentText(getResources().getString(R.string.notiftext))
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(getResources().getString(R.string.notiftitle)))
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(getResources().getString(R.string.notiftext)+"\n"+(getResources().getString(R.string.distance))+distance+"km"))
+                                        .setContentText(getResources().getString(R.string.notiftext)+"\n"+(getResources().getString(R.string.distance))+distance+"km")
                                         .setPriority(NotificationManager.IMPORTANCE_HIGH)
                                         .setDefaults(Notification.DEFAULT_ALL)
                                         .setContentIntent(pendingIntent)
@@ -5061,9 +5382,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             }
                             else if(cityName.equals("Tihany"))
                             {
-                                // Create an explicit intent for an Activity in your app
-                                //Create the intent that’ll fire when the user taps the notification//
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.heviz.hu/hu"));
+                                Location A=new Location("LocationA");
+                                A.setLatitude(currentLocation.getLatitude());
+                                A.setLongitude(currentLocation.getLongitude());
+
+                                Location B=new Location("LocationB");//Balatonfüred koordinátái
+                                B.setLatitude(46.9615058);
+                                B.setLongitude(17.8185803);
+
+                                NumberFormat formatter = new DecimalFormat("##.00");
+                                float[] result=new float[1];
+                                Location.distanceBetween (currentLocation.getLatitude(),currentLocation.getLongitude(),46.9615058, 17.8185803,  result);
+                                String distance=formatter.format(result[0]/1000);
+                                //double distance=A.distanceTo(B);
+                                //System.out.println(distance);
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.tihanynotifurl)));
                                 PendingIntent pendingIntent = PendingIntent.getActivity(MapsActivity.this, 0, intent, 0);
                                 //mBuilder.setContentIntent(pendingIntent);
                                 //értesítés küldése
@@ -5071,7 +5404,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                         .setSmallIcon(R.drawable.sign)
                                         .setColor(getResources().getColor(R.color.colorAccent))
                                         .setContentTitle(getResources().getString(R.string.notiftitle))
-                                        .setContentText(getResources().getString(R.string.notiftext))
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(getResources().getString(R.string.notiftitle)))
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(getResources().getString(R.string.notiftext)+"\n"+(getResources().getString(R.string.distance))+distance+"km"))
+                                        .setContentText(getResources().getString(R.string.notiftext)+"\n"+(getResources().getString(R.string.distance))+distance+"km")
                                         .setPriority(NotificationManager.IMPORTANCE_HIGH)
                                         .setDefaults(Notification.DEFAULT_ALL)
                                         .setContentIntent(pendingIntent)
@@ -5083,9 +5420,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             }
                             else if(cityName.equals("Szeged"))
                             {
-                                // Create an explicit intent for an Activity in your app
-                                //Create the intent that’ll fire when the user taps the notification//
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.heviz.hu/hu"));
+                                Location A=new Location("LocationA");
+                                A.setLatitude(currentLocation.getLatitude());
+                                A.setLongitude(currentLocation.getLongitude());
+
+                                Location B=new Location("LocationB");//Mórahalom koordinátái
+                                B.setLatitude(46.2132871);
+                                B.setLongitude(19.9639141);
+
+                                NumberFormat formatter = new DecimalFormat("##.00");
+                                float[] result=new float[1];
+                                Location.distanceBetween (currentLocation.getLatitude(),currentLocation.getLongitude(),46.2132871, 19.9639141,  result);
+                                String distance=formatter.format(result[0]/1000);
+                                //double distance=A.distanceTo(B);
+                                //System.out.println(distance);
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.szegednotifurl)));
                                 PendingIntent pendingIntent = PendingIntent.getActivity(MapsActivity.this, 0, intent, 0);
                                 //mBuilder.setContentIntent(pendingIntent);
                                 //értesítés küldése
@@ -5093,7 +5442,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                         .setSmallIcon(R.drawable.sign)
                                         .setColor(getResources().getColor(R.color.colorAccent))
                                         .setContentTitle(getResources().getString(R.string.notiftitle))
-                                        .setContentText(getResources().getString(R.string.notiftext))
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(getResources().getString(R.string.notiftitle)))
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(getResources().getString(R.string.notiftext)+"\n"+(getResources().getString(R.string.distance))+distance+"km"))
+                                        .setContentText(getResources().getString(R.string.notiftext)+"\n"+(getResources().getString(R.string.distance))+distance+"km")
                                         .setPriority(NotificationManager.IMPORTANCE_HIGH)
                                         .setDefaults(Notification.DEFAULT_ALL)
                                         .setContentIntent(pendingIntent)
@@ -5105,9 +5458,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             }
                             else if(cityName.equals("Veszprém"))
                             {
-                                // Create an explicit intent for an Activity in your app
-                                //Create the intent that’ll fire when the user taps the notification//
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.heviz.hu/hu"));
+                                Location A=new Location("LocationA");
+                                A.setLatitude(currentLocation.getLatitude());
+                                A.setLongitude(currentLocation.getLongitude());
+
+                                Location B=new Location("LocationB");//Balatonalmádi koordinátái
+                                B.setLatitude(47.0853602);
+                                B.setLongitude(17.9109363);
+
+                                NumberFormat formatter = new DecimalFormat("##.00");
+                                float[] result=new float[1];
+                                Location.distanceBetween (currentLocation.getLatitude(),currentLocation.getLongitude(),47.0853602, 17.9109363,  result);
+                                String distance=formatter.format(result[0]/1000);
+                                //double distance=A.distanceTo(B);
+                                //System.out.println(distance);
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.veszpnotifurl)));
                                 PendingIntent pendingIntent = PendingIntent.getActivity(MapsActivity.this, 0, intent, 0);
                                 //mBuilder.setContentIntent(pendingIntent);
                                 //értesítés küldése
@@ -5115,7 +5480,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                         .setSmallIcon(R.drawable.sign)
                                         .setColor(getResources().getColor(R.color.colorAccent))
                                         .setContentTitle(getResources().getString(R.string.notiftitle))
-                                        .setContentText(getResources().getString(R.string.notiftext))
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(getResources().getString(R.string.notiftitle)))
+                                        .setStyle(new NotificationCompat.BigTextStyle()
+                                                .bigText(getResources().getString(R.string.notiftext)+"\n"+(getResources().getString(R.string.distance))+distance+"km"))
+                                        .setContentText(getResources().getString(R.string.notiftext)+"\n"+(getResources().getString(R.string.distance))+distance+"km")
                                         .setPriority(NotificationManager.IMPORTANCE_HIGH)
                                         .setDefaults(Notification.DEFAULT_ALL)
                                         .setContentIntent(pendingIntent)
@@ -5137,7 +5506,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                         Toast.LENGTH_SHORT).show();}
                             else if(language.equals ("de"))
                             {
-                                Toast.makeText(MapsActivity.this, "Unfortunately, we were unable to determine your current location./de",
+                                Toast.makeText(MapsActivity.this, "Leider konnten wir Ihren aktuellen Standort nicht ermitteln.",
                                         Toast.LENGTH_SHORT).show();}
                         }
                     }

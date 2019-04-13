@@ -51,6 +51,9 @@
     <string name="egeroth3">turkish-memories/turkish-bath</string>
     <string name="egeroth4">curiosities/zsolnay-fountain</string>
 
+    <string name="egernotifurl">http://gyogyvizekvolgye.hu/en/</string>
+
+
     <!--QUIZ-->
     <string-array name="eger_correctAnswersArray">
         <item>@string/eger_answer_q1_2</item><!--q1-->

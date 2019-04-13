@@ -77,6 +77,9 @@
     <string name="pecsoth6">mecseki-latnivalok/tvtorony.html</string>
     <string name="pecsoth5">mecseki-latnivalok/allatkert.html</string>
 
+    <string name="pecsnotifurl">http://turizmus.harkany.hu/hu</string>
+
+
     <!--QUIZ-->
     <string-array name="pecs_correctAnswersArray">
         <item>@string/pecs_answer_q1_2</item><!--q1-->

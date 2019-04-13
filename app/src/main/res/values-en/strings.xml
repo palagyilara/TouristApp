@@ -49,8 +49,9 @@
     <string name="mennyibe">Mennyibe kerül?</string>
     <string name="merre">Merre van a &#8230;?</string>
 
-    <string name="notiftitle">Egyéb érdekességek a város közelében</string>
-    <string name="notiftext">További információkat tudhat meg, ha az értesítésre kattint!</string>
+    <string name="notiftitle">Another city in your area!</string>
+    <string name="distance">The distance: </string>
+    <string name="notiftext">For more information please click on the notification!</string>
 
     <string name="lets_see">Let\'s see how well you know the city!</string>
     <string name="name">ENTER YOUR NAME</string>
@@ -58,7 +59,7 @@
     <string name="player_score">score</string>
     <string name="button_start">start</string>
     <string name="button_start_new">new game</string>
-    <string name="button_submit">submit</string>
+    <string name="button_submit">Submit</string>
     <string name="contentDescription">yellow background</string>
     <string name="validation_emptyName">Name cannot be empty</string>
     <string name="validation_error">Not all the questions was answered</string>
@@ -66,6 +67,8 @@
 
     <!--Popup-->
     <string name="congrats">Congrats, %s</string>
+    <string name="congrats1">Alright %s</string>
+    <string name="congrats2">Oh %s maybe next time</string>
     <string name="score_text">Your final score is: </string>
     <string name="score_number">X</string>
     <string name="out_of">Out of %d questions you got %d right</string>

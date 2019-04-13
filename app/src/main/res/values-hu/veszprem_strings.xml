@@ -43,6 +43,8 @@
     <string name="veszpoth5">a-veszpremi-allatkert</string>
     <string name="veszpoth6">veszpremi-petofi-szinhaz</string>
 
+    <string name="veszpnotifurl">https://balaton-almadi.hu/</string>
+
 
     <!--QUIZ-->
     <string-array name="veszprem_correctAnswersArray">

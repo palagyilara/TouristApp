@@ -21,6 +21,8 @@
     <string name="tihanyoth2">latnivalok-inner/24-apati-templomrom</string>
     <string name="tihanyoth4">latnivalok-inner/23-remetetelep-baratlakasok</string>
 
+    <string name="tihanynotifurl">http://turizmus.balatonfured.hu/</string>
+
     <!--QUIZ-->
     <string-array name="tihany_correctAnswersArray">
         <item>@string/tihany_answer_q1_3</item><!--q1-->

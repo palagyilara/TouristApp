@@ -332,10 +332,6 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
-    <style name="resultMainLayout.image">
-        <item name="android:alpha">@dimen/alpha_5</item>
-        <!--<item name="android:background">@drawable/background_black_white2</item>-->
-    </style>
 
     <style name="resultMainLayout.imagePopup">
         <item name="android:layout_height">@dimen/bg_popup_height</item>
@@ -351,7 +347,7 @@
 
     <style name="popup.title">
         <item name="android:layout_below">@id/image</item>
-        <item name="android:text">@string/congrats</item>
+        <!--<item name="android:text">@string/congrats</item>-->
         <item name="android:textStyle">bold</item>
     </style>
 

@@ -44,6 +44,9 @@
     <string name="veszpoth5">veszprem-zoo</string>
     <string name="veszpoth6">petofi-theater-of-veszprem</string>
 
+    <string name="veszpnotifurl">https://balaton-almadi.hu/en</string>
+
+
     <!--QUIZ-->
     <string-array name="veszprem_correctAnswersArray">
         <item>@string/veszprem_answer_q1_3</item><!--q1-->

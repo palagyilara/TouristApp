@@ -43,6 +43,8 @@
     <string name="veszpoth5">veszpremer-zoo</string>
     <string name="veszpoth6">veszpremer-petofi-theater</string>
 
+    <string name="veszpnotifurl">https://balaton-almadi.hu/de</string>
+
     <!--QUIZ-->
     <string-array name="veszprem_correctAnswersArray">
         <item>@string/veszprem_answer_q1_3</item><!--q1-->

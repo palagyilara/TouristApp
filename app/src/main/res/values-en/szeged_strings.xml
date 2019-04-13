@@ -74,6 +74,9 @@
     <string name="szegoth8">city-hall/</string>
     <string name="szegoth9">musical-clock/</string>
 
+    <string name="szegednotifurl">https://www.erzsebetfurdo.morahalom.hu/en/index.html</string>
+
+
     <!--QUIZ-->
     <string-array name="szeged_correctAnswersArray">
         <item>@string/szeged_answer_q1_1</item><!--q1-->

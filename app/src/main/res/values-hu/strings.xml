@@ -26,11 +26,12 @@
 
     <string name="title_activity_maps">Map</string>
 
-    <string name="notiftitle">Közelében egyéb látnivalók találhatók!</string>
+    <string name="notiftitle">Közelében egyéb látnivalók</string>
+    <string name="distance">Ennyi távolságra van:</string>
     <string name="notiftext">További információkat tudhat meg, ha az értesítésre kattint!</string>
 
     <string name="lets_see">Lássuk mennyire ismeri a várost!</string>
-    <string name="name">Adja meg a nevét</string>
+    <string name="name">ADJA MEG A NEVÉT</string>
     <string name="player_name">player name</string>
     <string name="player_score">score</string>
     <string name="button_start">Kezdés</string>
@@ -43,6 +44,8 @@
 
     <!--Popup-->
     <string name="congrats">Gratulálunk, %s</string>
+    <string name="congrats1">Jól van %s</string>
+    <string name="congrats2">Ez most nem sikerült %s</string>
     <string name="score_text">Eredmény: </string>
     <string name="score_number">X</string>
     <string name="out_of">%d-ből ennyit talált el: %d</string>

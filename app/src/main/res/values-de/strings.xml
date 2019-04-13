@@ -49,25 +49,26 @@
     <string name="mennyibe">Mennyibe kerül?</string>
     <string name="merre">Merre van a &#8230;?</string>
 
-    <string name="notiftitle">Egyéb érdekességek a város közelében</string>
-    <string name="notiftext">További információkat tudhat meg, ha az értesítésre kattint!</string>
+    <string name="notiftitle">Andere Punkte von Interesse</string>
+    <string name="distance">So weit weg: </string>
+    <string name="notiftext">Für weitere Informationen klicken Sie auf die Benachrichtigung!</string>
 
-    <string name="lets_see">Let\'s see how well you know the city!</string>
-    <string name="name">ENTER YOUR NAME</string>
+    <string name="lets_see">Mal sehen, wie gut du die Stadt kennst!</string>
+    <string name="name">GIB DEINEN NAMEN EIN</string>
     <string name="player_name">player name</string>
     <string name="player_score">score</string>
     <string name="button_start">start</string>
-    <string name="button_start_new">new game</string>
-    <string name="button_submit">submit</string>
+    <string name="button_start_new">neues Spiel</string>
+    <string name="button_submit">Einreichen</string>
     <string name="contentDescription">yellow background</string>
-    <string name="validation_emptyName">Name cannot be empty</string>
-    <string name="validation_error">Not all the questions was answered</string>
+    <string name="validation_emptyName">Name darf nicht leer sein</string>
+    <string name="validation_error">Nicht alle Fragen wurden beantwortet</string>
     <string name="Q">q</string>
 
     <!--Popup-->
-    <string name="congrats">Congrats, %s</string>
-    <string name="score_text">Your final score is: </string>
+    <string name="congrats">Glückwunsch, %s</string>
+    <string name="score_text">Ihr Endergebnis ist: </string>
     <string name="score_number">X</string>
-    <string name="out_of">You got %d out of %d questions right</string>
+    <string name="out_of">Sie haben %d von %d Fragen richtig beantwortet</string>
 
 </resources>

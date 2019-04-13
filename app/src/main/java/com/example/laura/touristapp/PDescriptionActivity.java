@@ -183,7 +183,47 @@ public class PDescriptionActivity extends AppCompatActivity {
         }
         else if(language.equals("hu"))
         {
-            speakbtn.setVisibility(View.INVISIBLE);
+            //speakbtn.setVisibility(View.INVISIBLE);
+            tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+
+                @Override
+                public void onInit(int initStatus) {
+                    if (initStatus == TextToSpeech.SUCCESS) {
+                        Locale loc = new Locale("hu_HU");
+                        int result = tts.setLanguage(loc);
+                        if (result == TextToSpeech.LANG_MISSING_DATA
+                                || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                            Log.e("TTS", "The Language is not supported!");
+                            Intent installIntent = new Intent();
+                            installIntent.setAction(
+                                    TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                            startActivity(installIntent);
+
+                        } else {
+                            Log.i("TTS", "Language Supported.");
+
+                        }
+                        Log.i("TTS", "Initialization success.");
+                        //  }
+                        // tts.setLanguage(Locale.UK);
+                    } else if (initStatus == TextToSpeech.ERROR) {
+                        Toast.makeText(PDescriptionActivity.this, "Hiba történt!", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+            speakbtn.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    String data = txtData.getText().toString();
+                    //Log.i("TTS", "button clicked: " + data);
+                    int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
+
+                    if (speechStatus == TextToSpeech.ERROR) {
+                        Log.e("TTS", "Error in converting Text to Speech!");
+                    }
+
+                }
+            });
         }
 
         if (keyword.equals ("Keszthely")) { //getResources().getString(R.string.keszthely) //kész
@@ -384,17 +424,16 @@ public class PDescriptionActivity extends AppCompatActivity {
         });
     }
     @Override
-    public void onDestroy() {
+    public void onPause() {
         if (tts != null) {
             tts.stop();
             tts.shutdown();
         }
-        super.onDestroy();
+        super.onPause();
     }
     SQLiteDatabase db;
 
     private class DownloadWebPageTask extends AsyncTask<String, Void, String> {
-        String words;
         String text1;
         String text2;
 
@@ -440,23 +479,25 @@ public class PDescriptionActivity extends AppCompatActivity {
                     Elements divs = doc.select ("div.content-text");
 
                     for (Element d : divs) {
-                        words = d.text ( );
+                        //words = d.text ( );
                         String text = d.html ( );
                         text1 = text.replaceAll ("</p>", "\n");
                     }
+                    //Log.d("szoveg",words);
                 }
                 else if (keyword.equals ("Pécs")) {
                     Elements div = doc.select ("div#cnt_lead");
                     Elements divs = doc.select ("div#cnt_text");
 
                     for (Element d : div) {
-                        words = d.text ( );
+                        //words = d.text ( );
                         String text = d.html ( );
-                        text1 = text.replaceAll ("</p>", "\n").replaceAll ("<h2>", "<p>").replaceAll ("</h2>", "</p>");
+                        text1 = text.replaceAll ("</p>", "\n").replaceAll ("<h2>", "<p>")
+                                .replaceAll ("</h2>", "</p>");
 
                     }
                     for (Element p : divs) {
-                        words = p.text ( );
+                       // words = p.text ( );
                         String text = p.html ( );
                         text2 = text.replaceAll ("</p>", "\n");
                     }
@@ -465,7 +506,7 @@ public class PDescriptionActivity extends AppCompatActivity {
 
                     Elements article = doc.select ("article.entry.bottom-space-md.clearfix");
                     for (Element d : article) {
-                        words = d.text ();
+                        //words = d.text ();
                         String text = d.html ( );
                         text1 = text.replaceAll ("</p>", "\n");
 
@@ -476,7 +517,7 @@ public class PDescriptionActivity extends AppCompatActivity {
                     Elements divs = doc.select ("div#cnt_text");
 
                     for (Element d : div) {
-                        words = d.text ();
+                        //words = d.text ();
                         String text = d.html ( );
                         text1 = text.replaceAll ("</p>", "\n").replaceAll ("<h2>", "<p>")
                                 .replaceAll ("</h2>", "</p>")
@@ -484,7 +525,7 @@ public class PDescriptionActivity extends AppCompatActivity {
 
                     }
                     for (Element p : divs) {
-                        words = p.text ();
+                       // words = p.text ();
                         String text = p.html ( );
                         text2 = text.replaceAll ("</p>", "\n").replaceAll ("<img[^>]+>","");
 
@@ -493,7 +534,7 @@ public class PDescriptionActivity extends AppCompatActivity {
                 else if (keyword.equals ("Szeged")) {
                     Elements div = doc.select ("div.single-content");
                     for (Element p : div) {
-                        words = p.text ();
+                        //words = p.text ();
                         String text = p.html ( );
                         text1 = text.replaceAll ("</p>", "\n").replaceAll ("<style([\\s\\S]+?)</style>", "")
                                 .replaceAll ("<a class=\"synved-social-button.*\"([\\s\\S]+?)</a>", "")
@@ -508,7 +549,7 @@ public class PDescriptionActivity extends AppCompatActivity {
                     Elements div = doc.select ("div.tab-pane.detail.fade.active.in");
 
                     for (Element d : divs) {
-                        words = d.text ();
+                       // words = d.text ();
                         String text = d.html ( );
                         text1 = text.replaceAll ("</p>", "\n").replaceAll ("<h2>", "<p>").
                                 replaceAll ("</h2>", "</p>").
@@ -516,7 +557,7 @@ public class PDescriptionActivity extends AppCompatActivity {
                                 replaceAll("<span class=\"collapse-text\">(.+?)</span>","");
                     }
                     for (Element p : div) {
-                        words = p.text ();
+                       // words = p.text ();
                         String text = p.html ( );
                         text2 = text.replaceAll ("</p>", "\n").replaceAll("Tekintse meg a helyszínt gömbpanorámás.*","")
                                 .replaceAll("Click here to see the.*","")
@@ -531,7 +572,7 @@ public class PDescriptionActivity extends AppCompatActivity {
                 else if (keyword.equals ("Tihany")) {
                     Elements divs = doc.select ("div.item-page");
                     for (Element d : divs) {
-                        words = d.text ();
+                       // words = d.text ();
                         String text = d.html ( );
                         text1 = text.replaceAll ("<div class=\"article-header\"([\\s\\S]+?)</div>","")
                                 .replaceAll ("<div id=\"rt-wj\"([\\s\\S]+?)</div>","")
@@ -562,7 +603,6 @@ public class PDescriptionActivity extends AppCompatActivity {
             try{
                 //System.out.println(text1+text2);
                 super.onPostExecute(result);
-                Log.d("SZOVEG", text1);
                 progressBar.setVisibility(View.GONE);
                 if(text2!=null && text1!=null){ text1=text1+text2;
                     txtData.setText(Html.fromHtml(text1));
@@ -674,7 +714,7 @@ public class PDescriptionActivity extends AppCompatActivity {
                     }
                     else {
                         //progressBar.setVisibility(View.GONE);
-                        Toast.makeText(PDescriptionActivity.this, "Wifi", Toast.LENGTH_LONG).show();
+                        Toast.makeText(PDescriptionActivity.this, "Wifi einschalten!", Toast.LENGTH_LONG).show();
                     }
                /* }
                     catch(NullPointerException e1){

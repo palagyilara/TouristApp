@@ -1,11 +1,13 @@
 package com.example.laura.touristapp;
 
 import android.content.Intent;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import io.paperdb.Paper;
@@ -21,6 +23,7 @@ public class ResultActivity extends AppCompatActivity {
     private TextView scoreTextView;
     private TextView outOfTextView;
     public ImageView cimerek;
+    private ConstraintLayout layout;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -44,14 +47,33 @@ public class ResultActivity extends AppCompatActivity {
         int layoutId = R.layout.activity_result;
         setContentView(layoutId);
         String language= Paper.book().read("language");
+        //Bundle extra = getIntent().getExtras();
+        layout =(ConstraintLayout)findViewById(R.id.resultbg);
 
         Intent intent = getIntent();
         playerName = intent.getStringExtra(STATE_PLAYER_NAME);
+        String keyword = intent.getStringExtra("key");
         correctAnswer = intent.getIntExtra(STATE_SCORE, 0);
         nameTextView = findViewById(R.id.textCongrats);
         scoreTextView = findViewById(R.id.theScore);
         outOfTextView = findViewById(R.id.outOf);
         cimerek=findViewById(R.id.image);
+
+        if(keyword.equals("Eger")){
+            layout.setBackgroundResource(R.mipmap.egerbg);}
+        else if(keyword.equals("Keszthely")){
+            layout.setBackgroundResource(R.mipmap.keszthelybg);}
+        else if(keyword.equals("Pécs")){
+            layout.setBackgroundResource(R.mipmap.pecsbg);}
+        else if(keyword.equals("Sopron")){
+            layout.setBackgroundResource(R.mipmap.sopronbg);}
+        else if(keyword.equals("Szeged")){
+            layout.setBackgroundResource(R.mipmap.szegedbg);}
+        else if(keyword.equals("Tihany")){
+            layout.setBackgroundResource(R.mipmap.tihanybg);}
+        else if(keyword.equals("Veszprém")){
+            layout.setBackgroundResource(R.mipmap.veszprembg);}
+
         FillTextPopUp();
     }
 
@@ -92,13 +114,13 @@ public class ResultActivity extends AppCompatActivity {
         }
         }
         else if(correctAnswer==5 || correctAnswer==4){
-            String congrats = getString(R.string.congrats);
+            String congrats = getString(R.string.congrats1);
             nameTextView.setText(String.format(congrats,playerName));
             //:| fej
             cimerek.setBackground(ResourcesCompat.getDrawable(getResources(), R.mipmap.confused, null));
         }
         else {
-            String congrats = getString(R.string.congrats);
+            String congrats = getString(R.string.congrats2);
             nameTextView.setText(String.format(congrats,playerName));
             //:( fej
             cimerek.setBackground(ResourcesCompat.getDrawable(getResources(), R.mipmap.sad, null));

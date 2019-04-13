@@ -74,6 +74,9 @@
     <string name="szegoth8">rathaus/</string>
     <string name="szegoth9">musizierende-uhr/</string>
 
+    <string name="szegednotifurl">https://www.erzsebetfurdo.morahalom.hu/de/index.html</string>
+
+
     <!--QUIZ-->
     <string-array name="szeged_correctAnswersArray">
         <item>@string/szeged_answer_q1_1</item><!--q1-->

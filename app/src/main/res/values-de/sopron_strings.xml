@@ -80,6 +80,8 @@
     <string name="soproth2">schlosser-und-burgen/soproner-stadtmauerpromenade.html</string>
     <string name="soproth3">schlosser-und-burgen/burg-tarodi.html</string>
 
+    <string name="sopronnotifurl">http://www.fertorakos.hu/deutsch/teil-des-welterbes/</string>
+
     <!--QUIZ-->
     <string-array name="sopron_correctAnswersArray">
         <item>@string/sopron_answer_q1_2</item><!--q1-->

@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResultActivity">
+    tools:context=".ResultActivity"
+    android:id="@+id/resultbg">
 
     <RelativeLayout style="@style/resultMainLayout">
-
-        <ImageView style="@style/resultMainLayout.image" />
 
         <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
             android:id="@+id/roundKornerRelativeLayout"

@@ -51,6 +51,8 @@
     <string name="egeroth3">turkische-andenken/turkisches-bad</string>
     <string name="egeroth4">interessantes/zsolnay-brunnen</string>
 
+    <string name="egernotifurl">http://gyogyvizekvolgye.hu/en/</string>
+
     <!--QUIZ-->
     <string-array name="eger_correctAnswersArray">
         <item>@string/eger_answer_q1_2</item><!--q1-->

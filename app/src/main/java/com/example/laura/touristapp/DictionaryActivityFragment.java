@@ -131,15 +131,10 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//View myView = inflater.inflate(R.layout.fragment_dictionary, container, false);
 		setContentView(R.layout.fragment_dictionary);
-		Log.i("TTS", "dictionaryActivityFragment!! ");
-		//Paper.init(this);
-		//language[].setText(language);
+
 		final String language = Paper.book().read("language");
-		//Bundle extra = getIntent().getExtras();
-        //Toast.makeText(DictionaryActivityFragment.this, "disctionary Activityfragment", Toast.LENGTH_LONG).show();
-		//button = (Button) findViewById(R.id.button);
+
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
         text = (TextView) findViewById(R.id.result);
         text1 = (TextView) findViewById(R.id.text1);
@@ -181,31 +176,7 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 		ll=(LinearLayout) findViewById(R.id.ll);
         searchlo=(LinearLayout) findViewById(R.id.searchlo);
 
-		//boolean check = false;
         searchlo.setVisibility(View.INVISIBLE);  //keresett szó eredménye
-        /*text1.setVisibility(View.VISIBLE);
-        text2.setVisibility(View.VISIBLE);
-        text3.setVisibility(View.VISIBLE);
-        text4.setVisibility(View.VISIBLE);
-        text5.setVisibility(View.VISIBLE);
-        text6.setVisibility(View.VISIBLE);
-        text7.setVisibility(View.VISIBLE);
-        text8.setVisibility(View.VISIBLE);
-        text9.setVisibility(View.VISIBLE);
-        text10.setVisibility(View.VISIBLE);
-        text11.setVisibility(View.VISIBLE);
-
-		text01.setVisibility(View.VISIBLE);
-		text02.setVisibility(View.VISIBLE);
-		text03.setVisibility(View.VISIBLE);
-		text04.setVisibility(View.VISIBLE);
-		text05.setVisibility(View.VISIBLE);
-		text06.setVisibility(View.VISIBLE);
-		text07.setVisibility(View.VISIBLE);
-		text08.setVisibility(View.VISIBLE);
-		text09.setVisibility(View.VISIBLE);
-		text010.setVisibility(View.VISIBLE);
-		text011.setVisibility(View.VISIBLE);*/
 
 
 		word.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -226,7 +197,7 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 				return false;
 			}
 		});
-		/*tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+		tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
 
 			@Override
 			public void onInit(int initStatus) {
@@ -235,7 +206,7 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 					Locale loc = new Locale("hu_HU");
 					int result = tts.setLanguage(loc);
 					//tts.setLanguage(Locale.UK);
-					Toast.makeText(DictionaryActivityFragment.this, "Magyar beszéd kész", Toast.LENGTH_LONG).show();
+					//Toast.makeText(DictionaryActivityFragment.this, "Magyar beszéd kész", Toast.LENGTH_LONG).show();
 					//tts.setLanguage(Locale.GERMANY);
 					if (result == TextToSpeech.LANG_MISSING_DATA
 							|| result == TextToSpeech.LANG_NOT_SUPPORTED) {
@@ -254,14 +225,14 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 					Toast.makeText(DictionaryActivityFragment.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
 				}
 			}
-		});*/
+		});
 		lo1.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 
-				Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
 				String data = text01.getText().toString();
-				Log.i("TTS", "button clicked: " + data);
+				//Log.i("TTS", "button clicked: " + data);
 				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
 				if (speechStatus == TextToSpeech.ERROR) {
@@ -274,8 +245,13 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				String data = text02.getText().toString();
+				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
+				if (speechStatus == TextToSpeech.ERROR) {
+					Log.e("TTS", "Error in converting Text to Speech!");
+				}
 			}
 		});
 
@@ -283,15 +259,26 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				String data = text03.getText().toString();
+				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
+				if (speechStatus == TextToSpeech.ERROR) {
+					Log.e("TTS", "Error in converting Text to Speech!");
+				}
 			}
 		});
 		lo4.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 
-				Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				String data = text04.getText().toString();
+				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
+
+				if (speechStatus == TextToSpeech.ERROR) {
+					Log.e("TTS", "Error in converting Text to Speech!");
+				}
 
 			}
 		});
@@ -299,92 +286,106 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				String data = text05.getText().toString();
+				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
+				if (speechStatus == TextToSpeech.ERROR) {
+					Log.e("TTS", "Error in converting Text to Speech!");
+				}
 			}
 		});
 		lo6.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 
-				Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				String data = text06.getText().toString();
+				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
+				if (speechStatus == TextToSpeech.ERROR) {
+					Log.e("TTS", "Error in converting Text to Speech!");
+				}
 			}
 		});
 		lo7.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 
-				Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				String data = text07.getText().toString();
+				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
+				if (speechStatus == TextToSpeech.ERROR) {
+					Log.e("TTS", "Error in converting Text to Speech!");
+				}
 			}
 		});
 		lo8.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 
-				Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				String data = text08.getText().toString();
+				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
+				if (speechStatus == TextToSpeech.ERROR) {
+					Log.e("TTS", "Error in converting Text to Speech!");
+				}
 			}
 		});
 		lo9.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 
-				Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				String data = text09.getText().toString();
+				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
+				if (speechStatus == TextToSpeech.ERROR) {
+					Log.e("TTS", "Error in converting Text to Speech!");
+				}
 			}
 		});
 		lo10.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 
-				Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				String data = text010.getText().toString();
+				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
+				if (speechStatus == TextToSpeech.ERROR) {
+					Log.e("TTS", "Error in converting Text to Speech!");
+				}
 			}
 		});
 		lo11.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 
-				Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				String data = text011.getText().toString();
+				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
+				if (speechStatus == TextToSpeech.ERROR) {
+					Log.e("TTS", "Error in converting Text to Speech!");
+				}
 			}
 		});
-
-		/*button.setOnClickListener(new View.OnClickListener() {
+		text.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				text.setVisibility(View.VISIBLE);
-				text1.setVisibility(View.INVISIBLE);
-				text2.setVisibility(View.INVISIBLE);
-				text3.setVisibility(View.INVISIBLE);
-				text4.setVisibility(View.INVISIBLE);
-				text5.setVisibility(View.INVISIBLE);
-				text6.setVisibility(View.INVISIBLE);
-				text7.setVisibility(View.INVISIBLE);
-				text8.setVisibility(View.INVISIBLE);
-				text9.setVisibility(View.INVISIBLE);
-				text10.setVisibility(View.INVISIBLE);
-				text11.setVisibility(View.INVISIBLE);
-				text01.setVisibility(View.INVISIBLE);
-				text02.setVisibility(View.INVISIBLE);
-				text03.setVisibility(View.INVISIBLE);
-				text04.setVisibility(View.INVISIBLE);
-				text05.setVisibility(View.INVISIBLE);
-				text06.setVisibility(View.INVISIBLE);
-				text07.setVisibility(View.INVISIBLE);
-				text08.setVisibility(View.INVISIBLE);
-				text09.setVisibility(View.INVISIBLE);
-				text010.setVisibility(View.INVISIBLE);
-				text011.setVisibility(View.INVISIBLE);
-				beginLookup(view);
-				/*String phrase = word.getText().toString();
-				DictionaryActivityFragment.dictionaryLookupTask dictionaryLookupTask = new DictionaryActivityFragment.dictionaryLookupTask();
-				dictionaryLookupTask.execute(fromLang,toLang,phrase);*//*
-			}
-		});*/
 
+				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
+				String data = text.getText().toString();
+				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
+
+				if (speechStatus == TextToSpeech.ERROR) {
+					Log.e("TTS", "Error in converting Text to Speech!");
+				}
+			}
+		});
 
 	}
 	private void performSearch(String languagePair) {
@@ -395,29 +396,9 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 		InputMethodManager in = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 		in.hideSoftInputFromWindow(word.getWindowToken(), 0);
         String textToBeTranslated = word.getText().toString();
-        //String textToBeTranslated = "Hello world, yeah I know it is stereotye.";
-        /*if (language.equals ("en")) {
-            String languagePair = "en-hu";*/
+
             Translate(textToBeTranslated,languagePair);
 
-        /*} else if (language.equals ("de")) {
-            String languagePair = "de-hu";
-            Translate(textToBeTranslated,languagePair);
-        }*/
-		//GoogleTranslate googleTranslate = new GoogleTranslate();
-// Perform the translation by invoking the execute method, but first save the result in a String.
-// The second parameter is the source language, the third is the terget language
-		/*try {
-			//String result = googleTranslate.execute(word.getText().toString (), "en", "hu").get();
-			text.setText(result);
-		} catch (ExecutionException e) {
-			e.printStackTrace ( );
-
-		} catch (InterruptedException e) {
-			e.printStackTrace ( );
-			Toast.makeText(DictionaryActivityFragment.this, "Wifi!", Toast.LENGTH_LONG).show();
-		}*/
-		//beginLookup();
 	}
     //Function for calling executing the Translator Background Task
     void Translate(String textToBeTranslated,String languagePair){
@@ -444,6 +425,7 @@ public class DictionaryActivityFragment extends AppCompatActivity{
             String languagePair = params[1];
 
             String jsonString;
+            final String language = Paper.book().read("language");
 
             try {
                 //Set up the translation call URL
@@ -490,27 +472,44 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 
             } catch (MalformedURLException e) {
                // Toast.makeText(DictionaryActivityFragment.this, "nincs wifi!", Toast.LENGTH_LONG).show();
-                e.printStackTrace();
-				return null;
+
+               e.printStackTrace();
+               return null;
 
 			} catch (IOException e) {
                // Toast.makeText(DictionaryActivityFragment.this, "nincs wifi!", Toast.LENGTH_LONG).show();
+                /*if(language.equals("en")){
+                    String resultString="No result";
+                    e.printStackTrace();
+                    return resultString;}
+                else if(language.equals("de")){
+                    String resultString="kein Ergebnis";
+                    e.printStackTrace();
+                    return resultString;}*/
                 e.printStackTrace();
 				return null;
 
 			}
+			if(language.equals("en")){
+				String resultString="No result";
+				//e.printStackTrace();
+				return resultString;}
+			else if(language.equals("de")){
+				String resultString="kein Ergebnis";
+				//e.printStackTrace();
+				return resultString;}
 
 				return null;
         }
 
         @Override
         protected void onPostExecute(String resultString) {
-
+			final String textToBeTranslated = word.getText().toString();
             final String language = Paper.book().read("language");
             //if( isInternetAvailable()==true){
 			if (resultString==null) { // code if not connected
 				progressBar.setVisibility(View.GONE);
-				final String textToBeTranslated = word.getText().toString();
+				//final String textToBeTranslated = word.getText().toString();
 				AlertDialog.Builder builder = new AlertDialog.Builder(DictionaryActivityFragment.this);
 				if(language.equals ("en")){
 					builder.setMessage("Turn wifi on!");
@@ -540,30 +539,30 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 				}
 				AlertDialog alert11 = builder.create();
 				alert11.show();
-			}
-			else if(resultString=="")
-			{
-				Toast.makeText(DictionaryActivityFragment.this, "nincs eredmeny!", Toast.LENGTH_LONG).show();
 
 			}
 			else { // code if connected
 				super.onPostExecute(resultString);
+				if(resultString.equals(textToBeTranslated)) {
+                    if (language.equals("en")) {
+                        progressBar.setVisibility(View.GONE);
+                        text.setText("No result");
+                        //Toast.makeText(DictionaryActivityFragment.this, "No result", Toast.LENGTH_LONG).show();
+                    } else if (language.equals("de")) {
+                        progressBar.setVisibility(View.GONE);
+                        text.setText("kein Ergebnis");
+                        //Toast.makeText(DictionaryActivityFragment.this, "kein Ergebnis", Toast.LENGTH_LONG).show();
+                    }
+                }else{
 				progressBar.setVisibility(View.GONE);
-				text.setText(resultString);			}
-               /* try{
-                super.onPostExecute(resultString);
-                progressBar.setVisibility(View.GONE);
-                text.setText(resultString);
-           }
-                      //  else  {      // Toast.makeText(DictionaryActivityFragment.this, "nincs wifi!", Toast.LENGTH_LONG).show();
-            catch (Exception e){
-                if(language.equals("en")){
-                Toast.makeText (DictionaryActivityFragment.this, "Turn wifi on!", Toast.LENGTH_LONG).show ( );}
-                else if(language.equals("de")){
-                    Toast.makeText (DictionaryActivityFragment.this, "Turn wifi on/de!", Toast.LENGTH_LONG).show ( );}
-           }*/
+				text.setText(resultString);
+				}
+
+			}
+
 
         }
+
 
         /*@Override
         protected void onProgressUpdate(Void... values) {
@@ -870,12 +869,12 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 		return URL_PREFIX + URL_FROMLANG_PARAM + fromLang + URL_TOLANG_PARAM + toLang + URL_FORMAT_PARAM + URL_PHRASE_PARAM + phrase+ "&pretty=true" +"&tm=false";
 	}*/
 	@Override
-	public void onDestroy() {
+	public void onPause() {
 		if (tts != null) {
 			tts.stop();
 			tts.shutdown();
 		}
-		super.onDestroy();
+		super.onPause();
 	}
 
 	//JSONObject response;
@@ -912,22 +911,4 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 		return null;
 	}*/
 
-	/*@Override
-	public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-		switch (parent.getId()){
-			case R.id.spinnerFrom:
-				//fromLang = LanguageCodeEnum.getISO((String) parent.getItemAtPosition(position));
-                fromLang = LanguageCodeEnum.getFullLang((String) parent.getItemAtPosition(position));
-				break;
-			default:
-				toLang = LanguageCodeEnum.getISO((String) parent.getItemAtPosition(position));
-				break;
-		}
-	}
-
-	@Override
-	public void onNothingSelected(AdapterView<?> parent) {
-		//Nothing yet
-	}*/
 }

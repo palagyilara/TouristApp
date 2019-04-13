@@ -78,6 +78,9 @@
     <string name="soproth2">kastelyok-es-varak/soproni-varfalsetany.html</string>
     <string name="soproth3">kastelyok-es-varak/tarodi-var.html</string>
 
+    <string name="sopronnotifurl">http://www.fertorakos.hu/</string>
+
+
     <!--QUIZ-->
     <string-array name="sopron_correctAnswersArray">
         <item>@string/sopron_answer_q1_2</item><!--q1-->

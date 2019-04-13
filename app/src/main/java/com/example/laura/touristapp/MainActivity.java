@@ -30,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
  //public static final String TAG_TEXT = "com.example.laura.touristapp.TAG_TEXT";
    public TextView choose;
    public Button btnFetchData1;
-   public Button btnFetchData2;
-   public Button btnFetchData3;
+  // public Button btnFetchData2;
+   //public Button btnFetchData3;
    public Button btnFetchData4;
-   public Button btnFetchData5;
+  // public Button btnFetchData5;
    public Button btnFetchData6;
    public Button btnFetchData7;
    public Button btnFetchData8;
@@ -45,14 +45,6 @@ public class MainActivity extends AppCompatActivity {
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(LocaleHelper.onAttach(newBase,"hu"));
     }
-
-
-   // private TextView txtWikiData;
-    //private ProgressBar progressBar;
-   // private EditText etxSearch;
-
-    // Http Request Methods
-    // http://www.restapitutorial.com/lessons/httpmethods.html
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

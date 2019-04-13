@@ -80,7 +80,6 @@ public class ContentActivity extends AppCompatActivity {
     private TextView txtWikiData;
     private TextView title;
     private TextView wikipedia;
-    private ImageButton speakbtn;
     private ProgressBar progressBar;
     private TextToSpeech tts;
     // private TextToSpeech tts;
@@ -100,7 +99,6 @@ public class ContentActivity extends AppCompatActivity {
         txtWikiData = (TextView) findViewById(R.id.txtWikiData);
         title = (TextView) findViewById(R.id.title);
         wikipedia = (TextView) findViewById(R.id.wikipedia);
-        speakbtn = (ImageButton) findViewById(R.id.speakbtn);
 
         wikipedia.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -132,14 +130,13 @@ public class ContentActivity extends AppCompatActivity {
             // title.setText("A városról");
             String WIKIPEDIA_URL = "https://hu.wikipedia.org/w/api.php?action=query&titles=" +
                     keyword +
-                    "&prop=revisions&rvprop=content&format=json&prop=extracts";
+                    "&format=json&prop=extracts";
 
             // Start AsyncTask
             ContentActivity.FetchWikiDataAsync fetchWikiDataAsync = new ContentActivity.FetchWikiDataAsync();
 
             fetchWikiDataAsync.execute(WIKIPEDIA_URL);
 
-            speakbtn.setVisibility(View.INVISIBLE);
 
         } else if (language.equals("en")) {
             // title.setText("About the city");
@@ -152,7 +149,7 @@ public class ContentActivity extends AppCompatActivity {
 
             fetchWikiDataAsync.execute(WIKIPEDIA_URL);
             //speakbtn.setOnClickListener(ContentActivity.this);
-            tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            /*tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
 
                 @Override
                 public void onInit(int initStatus) {
@@ -190,7 +187,7 @@ public class ContentActivity extends AppCompatActivity {
                         Log.e("TTS", "Error in converting Text to Speech!");
                     }
                 }
-            });
+            });*/
 
         } else if (language.equals("de")) {
             //title.setText("A városról");
@@ -201,7 +198,7 @@ public class ContentActivity extends AppCompatActivity {
             // Start AsyncTask
             ContentActivity.FetchWikiDataAsync fetchWikiDataAsync = new ContentActivity.FetchWikiDataAsync();
             fetchWikiDataAsync.execute(WIKIPEDIA_URL);
-            tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            /*tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
 
                 @Override
                 public void onInit(int initStatus) {
@@ -222,7 +219,7 @@ public class ContentActivity extends AppCompatActivity {
                             startActivity(installIntent);
                             /*Intent checkTTSIntent = new Intent();
                             checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-                            startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);*/
+                            startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);
                         } else {
                             Log.i("TTS", "Language Supported.");
 
@@ -245,11 +242,11 @@ public class ContentActivity extends AppCompatActivity {
                         Log.e("TTS", "Error in converting Text to Speech!");
                     }
                 }
-            });
+            });*/
         }
 
     }
-
+/*
     @Override
     public void onDestroy() {
         if (tts != null) {
@@ -257,7 +254,7 @@ public class ContentActivity extends AppCompatActivity {
             tts.shutdown();
         }
         super.onDestroy();
-    }
+    }*/
 
 
     private class FetchWikiDataAsync extends AsyncTask<String, Void, String> {
@@ -625,6 +622,7 @@ public class ContentActivity extends AppCompatActivity {
                     }
                     finally {
                         cursor.close();
+                        db.close();
                     }
 
                 } else if (language.equals("en")) {
@@ -774,15 +772,7 @@ public class ContentActivity extends AppCompatActivity {
                             //progressBar.setVisibility(View.GONE);
                             Toast.makeText(ContentActivity.this, "Turn wifi on!", Toast.LENGTH_LONG).show();
                         }
-                    }//cursor.close();
-                   // }
-                            /*if (cursor != null && !cursor.isClosed()) {
-                                cursor.close();
-                            }
-                            if (db != null) {
-                                db.close();
-
-                            }*/
+                    }
                             catch(NullPointerException e1){
                     //else if(!(cursor.moveToFirst())|| cursor.getCount()==0){
                         //progressBar.setVisibility(View.GONE);
@@ -827,16 +817,17 @@ public class ContentActivity extends AppCompatActivity {
                             else
                             {
                                 //progressBar.setVisibility(View.GONE);
-                                Toast.makeText(ContentActivity.this, "Wifi/de!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(ContentActivity.this, "Wifi einschalten!", Toast.LENGTH_LONG).show();
                             }
                         }
                         catch(NullPointerException e1){
                             //else if(!(cursor.moveToFirst())|| cursor.getCount()==0){
                             //progressBar.setVisibility(View.GONE);
-                            Toast.makeText(ContentActivity.this, "Wifi/de!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ContentActivity.this, "Wifi einschalten!", Toast.LENGTH_LONG).show();
                         }
                         finally {
                             cursor.close();
+                            db.close();
                         }
 
                         //cursor.close();
@@ -970,15 +961,16 @@ public class ContentActivity extends AppCompatActivity {
                             }
                             else {
                                 //progressBar.setVisibility(View.GONE);
-                                Toast.makeText(ContentActivity.this, "Wifi!/de", Toast.LENGTH_LONG).show();
+                                Toast.makeText(ContentActivity.this, "Wifi einschalten!", Toast.LENGTH_LONG).show();
                             }
                         }
                         catch(NullPointerException e1){
                            // progressBar.setVisibility(View.GONE);
-                            Toast.makeText(ContentActivity.this, "Wifi/de!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ContentActivity.this, "Wifi einschalten!", Toast.LENGTH_LONG).show();
                         }
                         finally {
                             cursor.close();
+                            db.close();
                         }
                     }
                 }
@@ -1054,7 +1046,7 @@ public class ContentActivity extends AppCompatActivity {
                 Toast.makeText(ContentActivity.this, "Sikeres!", Toast.LENGTH_SHORT).show();
             else Toast.makeText(ContentActivity.this, "Sikertelen !", Toast.LENGTH_SHORT).show();*/
             } else {
-                Toast.makeText(ContentActivity.this, "Frissítés!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ContentActivity.this, "Frissítés!", Toast.LENGTH_SHORT).show();
                 db = databaseHandler.getWritableDatabase();
                 ContentValues cv = new ContentValues();
                 if (language.equals("hu")) {

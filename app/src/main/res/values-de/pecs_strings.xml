@@ -77,6 +77,8 @@
     <string name="pecsoth6">sehenswurdigkeiten-der-mecsek/fernsehturm.html</string>
     <string name="pecsoth5">sehenswurdigkeiten-der-mecsek/tiergarten.html</string>
 
+    <string name="pecsnotifurl">http://turizmus.harkany.hu/de</string>
+
     <!--QUIZ-->
     <string-array name="pecs_correctAnswersArray">
         <item>@string/pecs_answer_q1_2</item><!--q1-->

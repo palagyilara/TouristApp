@@ -61,21 +61,21 @@
 
                     <RadioGroup
                         android:id="@+id/q2"
-                        style="@style/radioGroupHorizontal">
+                        style="@style/radioGroup">
 
                         <RadioButton
                             android:id="@+id/q2_1"
-                            style="@style/radioButtonHorizontal"
+                            style="@style/radioButton"
                              />
 
                         <RadioButton
                             android:id="@+id/q2_2"
-                            style="@style/radioButtonHorizontal"
+                            style="@style/radioButton"
                              />
 
                         <RadioButton
                             android:id="@+id/q2_3"
-                            style="@style/radioButtonHorizontal"
+                            style="@style/radioButton"
                              />
 
 
@@ -205,21 +205,21 @@
 
                 <RadioGroup
                     android:id="@+id/q7"
-                    style="@style/radioGroupHorizontal">
+                    style="@style/radioGroup">
 
                         <RadioButton
                             android:id="@+id/q7_1"
-                            style="@style/radioButtonHorizontal"
+                            style="@style/radioButton"
                              />
 
                         <RadioButton
                             android:id="@+id/q7_2"
-                            style="@style/radioButtonHorizontal"
+                            style="@style/radioButton"
                              />
 
                         <RadioButton
                             android:id="@+id/q7_3"
-                            style="@style/radioButtonHorizontal"
+                            style="@style/radioButton"
                              />
 
 
@@ -263,21 +263,21 @@
 
                     <RadioGroup
                         android:id="@+id/q9"
-                        style="@style/radioGroupHorizontal">
+                        style="@style/radioGroup">
 
                         <RadioButton
                             android:id="@+id/q9_1"
-                            style="@style/radioButtonHorizontal"
+                            style="@style/radioButton"
                              />
 
                         <RadioButton
                             android:id="@+id/q9_2"
-                            style="@style/radioButtonHorizontal"
+                            style="@style/radioButton"
                             />
 
                         <RadioButton
                             android:id="@+id/q9_3"
-                            style="@style/radioButtonHorizontal"
+                            style="@style/radioButton"
                             />
 
                     </RadioGroup>
@@ -293,21 +293,21 @@
 
                     <RadioGroup
                         android:id="@+id/q10"
-                        style="@style/radioGroupHorizontal">
+                        style="@style/radioGroup">
 
                         <RadioButton
                             android:id="@+id/q10_1"
-                            style="@style/radioButtonHorizontal"
+                            style="@style/radioButton"
                              />
 
                         <RadioButton
                             android:id="@+id/q10_2"
-                            style="@style/radioButtonHorizontal"
+                            style="@style/radioButton"
                              />
 
                         <RadioButton
                             android:id="@+id/q10_3"
-                            style="@style/radioButtonHorizontal"
+                            style="@style/radioButton"
                              />
 
                     </RadioGroup>

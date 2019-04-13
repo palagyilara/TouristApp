@@ -21,6 +21,8 @@
      <string name="tihanyoth2">144-apati-templomrom-en</string>
      <string name="tihanyoth4">151-remetetelep-baratlakasok-en</string>
 
+    <string name="tihanynotifurl">http://turizmus.balatonfured.hu/en/</string>
+
     <!--QUIZ-->
     <string-array name="tihany_correctAnswersArray">
         <item>@string/tihany_answer_q1_3</item><!--q1-->
