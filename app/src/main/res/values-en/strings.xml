@@ -69,7 +69,7 @@
     <string name="congrats">Congrats, %s</string>
     <string name="congrats1">Alright %s</string>
     <string name="congrats2">Oh %s maybe next time</string>
-    <string name="score_text">Your final score is: </string>
+    <string name="score_text">Score: </string>
     <string name="score_number">X</string>
     <string name="out_of">Out of %d questions you got %d right</string>
 </resources>

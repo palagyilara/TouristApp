@@ -304,6 +304,7 @@ public class ContentActivity extends AppCompatActivity {
             return null;
         }
 
+
         @Override
         protected void onPostExecute(String formattedData) {
             Bundle extra = getIntent().getExtras();

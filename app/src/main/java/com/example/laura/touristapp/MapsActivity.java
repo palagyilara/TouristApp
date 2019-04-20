@@ -125,9 +125,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Bitmap b3=bitmapdraw3.getBitmap();
         Bitmap b4=bitmapdraw4.getBitmap();
         Bitmap museumicon = Bitmap.createScaledBitmap(b, width, height, false);
-        Bitmap churchicon = Bitmap.createScaledBitmap(b2, width, height, false);
-        Bitmap monumenticon = Bitmap.createScaledBitmap(b3, width, height, false);
+        Bitmap monumenticon = Bitmap.createScaledBitmap(b2, width, height, false);
+        Bitmap churchicon = Bitmap.createScaledBitmap(b3, width, height, false);
         Bitmap othericon = Bitmap.createScaledBitmap(b4, width, height, false);
+
+
 
 
         boolean success = googleMap.setMapStyle(new MapStyleOptions(getResources()
@@ -1103,8 +1105,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             //PÉCS
             else if(placetitle.equals (getResources().getString(R.string.pecsmuseum1))) {
-                double lat=46.0773908;
-                double lng=18.2230137;
+                double lat=46.0774363;
+                double lng=18.2251688;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1116,8 +1118,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmuseum2))) {
-                double lat=46.0726386;
-                double lng=18.2249645;
+                double lat=46.0728161;
+                double lng=18.224205;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1129,8 +1131,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmuseum3))) {
-                double lat=46.0785646;
-                double lng=18.221054;
+                double lat=46.0780827;
+                double lng=18.2229969;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1143,7 +1145,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmuseum4))) {
                 double lat=46.072237;
-                double lng=18.2221122;
+                double lng=18.2243009;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1155,8 +1157,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmuseum5))) {
-                double lat=46.0788438;
-                double lng=18.2267868;
+                double lat=46.0786386;
+                double lng=18.2268778;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1168,8 +1170,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmuseum6))) {
-                double lat=46.0766305;
-                double lng=18.2309945;
+                double lat=46.0768488;
+                double lng=18.2318707;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1181,8 +1183,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmuseum7))) {
-                double lat=46.0762209;
-                double lng=18.2354356;
+                double lat=46.0761733;
+                double lng=18.2356353;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1194,8 +1196,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmuseum8))) {
-                double lat=46.077271;
-                double lng=18.2452212;
+                double lat=46.0777739;
+                double lng=18.2456665;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1207,8 +1209,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecstemplom1))) {
-                double lat=46.0738589;
-                double lng=18.2232321;
+                double lat=46.073992;
+                double lng=18.225395;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1233,8 +1235,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecstemplom3))) {
-                double lat=46.0770345;
-                double lng=18.2257623;
+                double lat=46.077047;
+                double lng=18.227954;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1246,8 +1248,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecstemplom4))) {
-                double lat=46.0741435;
-                double lng=18.2188625;
+                double lat=46.074151;
+                double lng=18.221052;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1272,8 +1274,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecstemplom6))) {
-                double lat=46.075954;
-                double lng=18.203835;
+                double lat=46.076399;
+                double lng=18.207258;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1298,8 +1300,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecstemplom8))) {
-                double lat=46.0766556;
-                double lng=18.2234497;
+                double lat=46.0765762;
+                double lng=18.2238443;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1311,8 +1313,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecstemplom9))) {
-                double lat=46.074892;
-                double lng=18.2285562;
+                double lat=46.074157;
+                double lng=18.231098;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1324,8 +1326,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmonuments1))) {
-                double lat=46.0773776;
-                double lng=18.2214592;
+                double lat=46.077386;
+                double lng=18.221459;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1337,8 +1339,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmonuments2))) {
-                double lat=46.0778378;
-                double lng=18.2193047;
+                double lat=46.077847;
+                double lng=18.221493;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1350,8 +1352,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmonuments3))) {
-                double lat=46.0773762;
-                double lng=18.2039496;
+                double lat=46.076281;
+                double lng=18.228343;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1363,8 +1365,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmonuments4))) {
-                double lat=46.0773735;
-                double lng=18.2039496;
+                double lat=46.074060;
+                double lng=18.229488;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1376,8 +1378,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmonuments5))) {
-                double lat=46.07893;
-                double lng=18.2215971;
+                double lat=46.078938;
+                double lng=18.223787;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1390,7 +1392,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmonuments6))) {
                 double lat=46.0778534;
-                double lng=18.2210087;
+                double lng=18.2231974;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1403,7 +1405,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmonuments7))) {
                 double lat=46.0773789;
-                double lng=18.2215465;
+                double lng=18.2237352;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1416,7 +1418,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmonuments9))) {
                 double lat=46.0764501;
-                double lng=18.2259261;
+                double lng=18.2281148;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1429,7 +1431,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsmonuments10))) {
                 double lat=46.0752504;
-                double lng=18.2265603;
+                double lng=18.228749;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1442,7 +1444,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsother1))) {
                 double lat=46.0777617;
-                double lng=18.2222228;
+                double lng=18.2244115;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1455,7 +1457,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsother2))) {
                 double lat=46.0753909;
-                double lng=18.2423596;
+                double lng=18.2445483;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1468,7 +1470,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsother3))) {
                 double lat=46.0775223;
-                double lng=18.2244006;
+                double lng=18.2265893;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1481,7 +1483,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsother4))) {
                 double lat=46.0763242;
-                double lng=18.2284875;
+                double lng=18.2306762;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1494,7 +1496,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsother5))) {
                 double lat=46.0936665;
-                double lng=18.2235902;
+                double lng=18.2257789;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1506,8 +1508,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsother6))) {
-                double lat=46.0992037;
-                double lng=18.2179472;
+                double lat=46.0993215;
+                double lng=18.2201211;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -1519,8 +1521,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.pecsother7))) {
-                double lat=46.0758217;
-                double lng=18.2265088;
+                double lat=46.0758308;
+                double lng=18.2288294;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
@@ -2609,39 +2611,39 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 getLatitudeAndLongitudeFromGoogleMapForAddress(keyword, v, v1);
 
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0773908, 18.2230137))
+                        .position(new LatLng(46.0774363, 18.2251688))
                         .title(getResources().getString(R.string.pecsmuseum1))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0726386, 18.2249645))
+                        .position(new LatLng(46.0728161, 18.224205))
                         .title(getResources().getString(R.string.pecsmuseum2))
                     .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0785646, 18.221054))
+                        .position(new LatLng(46.0780827, 18.2229969))
                         .title(getResources().getString(R.string.pecsmuseum3))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.072237, 18.2221122))
+                        .position(new LatLng(46.072237, 18.2243009))
                         .title(getResources().getString(R.string.pecsmuseum4))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0788438, 18.2267868))
+                        .position(new LatLng(46.0786386, 18.2268778))
                         .title(getResources().getString(R.string.pecsmuseum5))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0766305, 18.2309945))
+                        .position(new LatLng(46.0768488, 18.2318707))
                         .title(getResources().getString(R.string.pecsmuseum6))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0762209, 18.2354356))
+                        .position(new LatLng(46.0761733, 18.2356353))
                         .title(getResources().getString(R.string.pecsmuseum7))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.077271, 18.2452212))
+                        .position(new LatLng(46.0777739, 18.2456665))
                         .title(getResources().getString(R.string.pecsmuseum8))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0738589, 18.2232321))
+                        .position(new LatLng(46.073992, 18.225395))
                         .title(getResources().getString(R.string.pecstemplom1))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
@@ -2649,11 +2651,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .title(getResources().getString(R.string.pecstemplom2))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0770345, 18.2257623))
+                        .position(new LatLng(46.077047, 18.227954))
                         .title(getResources().getString(R.string.pecstemplom3))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0741435, 18.2188625))
+                        .position(new LatLng(46.074151,18.221052))
                         .title(getResources().getString(R.string.pecstemplom4))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
@@ -2661,7 +2663,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .title(getResources().getString(R.string.pecstemplom5))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.075954, 18.203835))
+                        .position(new LatLng(46.076399, 18.207258))
                         .title(getResources().getString(R.string.pecstemplom6))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
@@ -2669,71 +2671,75 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .title(getResources().getString(R.string.pecstemplom7))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0766556, 18.2234497))
+                        .position(new LatLng(46.076788, 18.223839))
                         .title(getResources().getString(R.string.pecstemplom8))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0773776, 18.2214592))
+                        .position(new LatLng(46.074157, 18.231098))
+                        .title(getResources().getString(R.string.pecstemplom9))
+                        .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
+                googleMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(46.077386, 18.221459))
                         .title(getResources().getString(R.string.pecsmonuments1))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0778378, 18.2193047))
+                        .position(new LatLng(46.077847, 18.221493))
                         .title(getResources().getString(R.string.pecsmonuments2))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0773762, 18.2039496))
+                        .position(new LatLng(46.076281, 18.228343))
                         .title(getResources().getString(R.string.pecsmonuments3))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0773735, 18.2039496))
+                        .position(new LatLng(46.074060, 18.229488))
                         .title(getResources().getString(R.string.pecsmonuments4))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.07893, 18.2215971))
+                        .position(new LatLng(46.078938, 18.223787))
                         .title(getResources().getString(R.string.pecsmonuments5))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0778534, 18.2210087))
+                        .position(new LatLng(46.0778534, 18.2231974))
                         .title(getResources().getString(R.string.pecsmonuments6))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0773789, 18.2215465))
+                        .position(new LatLng(46.0773789, 18.2237352))
                         .title(getResources().getString(R.string.pecsmonuments7))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0764501, 18.2259261))
+                        .position(new LatLng(46.0764501, 18.2281148))
                         .title(getResources().getString(R.string.pecsmonuments9))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0752504, 18.2265603))
+                        .position(new LatLng(46.0752504, 18.228749))
                         .title(getResources().getString(R.string.pecsmonuments10))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0777617, 18.2222228))
+                        .position(new LatLng(46.0777617, 18.2244115))
                         .title(getResources().getString(R.string.pecsother1))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0753909, 18.2423596))
+                        .position(new LatLng(46.0753909, 18.2445483))
                         .title(getResources().getString(R.string.pecsother2))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0775223, 18.2244006))
+                        .position(new LatLng(46.0775223, 18.2265893))
                         .title(getResources().getString(R.string.pecsother3))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0763242, 18.2284875))
+                        .position(new LatLng(46.0763242, 18.2306762))
                         .title(getResources().getString(R.string.pecsother4))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0936665,18.2235902))
+                        .position(new LatLng(46.0936665,18.2257789))
                         .title(getResources().getString(R.string.pecsother5))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0992037,18.2179472))
+                        .position(new LatLng(46.0993215,18.2201211))
                         .title(getResources().getString(R.string.pecsother6))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.0758217,18.2265088))
+                        .position(new LatLng(46.0758308,18.2288294))
                         .title(getResources().getString(R.string.pecsother7))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
 
@@ -5227,17 +5233,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             createNotificationChannel();
                             if(cityName.equals("Keszthely"))
                             {
-                                Location A=new Location("LocationA");
+                                /*Location A=new Location("LocationA");
                                 A.setLatitude(currentLocation.getLatitude());
                                 A.setLongitude(currentLocation.getLongitude());
 
                                 Location B=new Location("LocationB");//hévíz koordinátái
                                 B.setLatitude(46.79200);
-                                B.setLongitude(17.18767);
+                                B.setLongitude(17.18767);*/
 
                                 NumberFormat formatter = new DecimalFormat("##.00");
                                 float[] result=new float[1];
-                                Location.distanceBetween (currentLocation.getLatitude(),currentLocation.getLongitude(),46.79200, 17.18767,  result);
+                                Location.distanceBetween (currentLocation.getLatitude(),currentLocation.getLongitude(),46.79200, 17.18767,result);
                                 String distance=formatter.format(result[0]/1000);
                                 //double distance=A.distanceTo(B);
                                 //System.out.println(distance);

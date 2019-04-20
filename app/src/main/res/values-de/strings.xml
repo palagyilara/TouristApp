@@ -67,7 +67,9 @@
 
     <!--Popup-->
     <string name="congrats">Glückwunsch, %s</string>
-    <string name="score_text">Ihr Endergebnis ist: </string>
+    <string name="congrats1">Gut %s</string>
+    <string name="congrats2">es ist jetzt nicht gelungen %s</string>
+    <string name="score_text">Ergebnis: </string>
     <string name="score_number">X</string>
     <string name="out_of">Sie haben %d von %d Fragen richtig beantwortet</string>
 

@@ -641,17 +641,18 @@ public class PDescriptionActivity extends AppCompatActivity {
                 db = databaseHandler.getReadableDatabase();
                 if (language.equals("hu")) {
                     //Cursor cursor = db.query(DatabaseHandler.TABLE_NAME, new String[] { "cityname","cityinfohu","cityinfoen","cityinfode" },null, null, null, null, null);
-                    Cursor cursor = db.rawQuery(" SELECT * FROM " + TABLE1_NAME + " WHERE " + PLACENAME_HU + " = ? ", new String[]{placetitle});
+                    Cursor cursor = db.rawQuery(" SELECT * FROM " + TABLE1_NAME + " WHERE " + PLACENAME_HU + " = ? and "+CITYNAME1+" = ?" , new String[]{placetitle,keyword});
                     //try {
-                        if (cursor.moveToFirst()) {
-                            do {
+                        if (cursor.moveToNext()) {
+                            //do {
+                                String cityname=cursor.getString(cursor.getColumnIndex("cityname"));
                                 String infohu = cursor.getString(cursor.getColumnIndex("sightinfohu")); // Here you can get data from table and stored in string if it has only one string.
                                 text1 = infohu;
                                 txtData.setText(Html.fromHtml(text1));
 
-
-                            } while (cursor.moveToNext());
-                        }
+                            } //cursor.close();
+                            //while (cursor.moveToNext());
+                      //  }
                         else {
                             //progressBar.setVisibility(View.GONE);
                             Toast.makeText(PDescriptionActivity.this, "Kapcsolja be a wifi-t!", Toast.LENGTH_LONG).show();
@@ -672,15 +673,15 @@ public class PDescriptionActivity extends AppCompatActivity {
                     }*/
 
                 } else if (language.equals("en")) {
-                    Cursor cursor = db.rawQuery(" SELECT * FROM " + TABLE1_NAME + " WHERE " + PLACENAME_EN + " = ? ", new String[]{placetitle});
+                    Cursor cursor = db.rawQuery(" SELECT * FROM " + TABLE1_NAME + " WHERE " + PLACENAME_EN + " = ? and "+CITYNAME1+" = ?" , new String[]{placetitle,keyword});
                     //try {
-                        if (cursor.moveToFirst()) {
-                            do {
+                    if (cursor.moveToNext()) {
+                                String cityname=cursor.getString(cursor.getColumnIndex("cityname"));
                                 String infoen = cursor.getString(cursor.getColumnIndex("sightinfoen")); // Here you can get data from table and stored in string if it has only one string.
                                 text1 = infoen;
                                 txtData.setText(Html.fromHtml(text1));
 
-                            } while (cursor.moveToNext());
+                           // } //while (cursor.moveToNext());
                         }
                         else {
                             //progressBar.setVisibility(View.GONE);
@@ -702,15 +703,16 @@ public class PDescriptionActivity extends AppCompatActivity {
                     }*/
 
                 } else if (language.equals("de")) {
-                    Cursor cursor = db.rawQuery(" SELECT * FROM " + TABLE1_NAME + " WHERE " + PLACENAME_DE + " = ? ", new String[]{placetitle});
+                    Cursor cursor = db.rawQuery(" SELECT * FROM " + TABLE1_NAME + " WHERE " + PLACENAME_DE + " = ? and "+CITYNAME1+" = ?" , new String[]{placetitle,keyword});
                     //try{
-                    if (cursor.moveToFirst()) {
-                        do {
+                    if (cursor.moveToNext()) {
+                       // do {
+                            String cityname=cursor.getString(cursor.getColumnIndex("cityname"));
                             String infode = cursor.getString(cursor.getColumnIndex("sightinfode")); // Here you can get data from table and stored in string if it has only one string.
                             text1 = infode;
                             txtData.setText(Html.fromHtml(text1));
 
-                        } while (cursor.moveToNext());
+                      //  } while (cursor.moveToNext());
                     }
                     else {
                         //progressBar.setVisibility(View.GONE);
@@ -733,7 +735,7 @@ public class PDescriptionActivity extends AppCompatActivity {
         String language = Paper.book ( ).read ("language");
         Bundle extra = getIntent ( ).getExtras ( );
         String placetitle = extra.getString ("key1");
-        // String keyword = extra.getString("key");
+         String keyword = extra.getString("key");
         SQLiteDatabase db;
         db = databaseHandler.getReadableDatabase ( );
         //try {
@@ -741,14 +743,14 @@ public class PDescriptionActivity extends AppCompatActivity {
         //db.getReadableDatabase();
         Cursor cursor = null;
         if (language.equals ("hu") ) {
-            String query = "select cityname from sightinfos where pnamehu = ?";
-            cursor = db.rawQuery (query, new String[]{placetitle});
+            String query = "select * from sightinfos where pnamehu = ? and cityname= ?";
+            cursor = db.rawQuery (query, new String[]{placetitle,keyword});
         } else if (language.equals ("en")) {
-            String query = "select cityname from sightinfos where pnameen = ?";
-            cursor = db.rawQuery (query, new String[]{placetitle});
+            String query = "select * from sightinfos where pnameen = ?  and cityname= ?";
+            cursor = db.rawQuery (query, new String[]{placetitle,keyword});
         } else if (language.equals ("de")) {
-            String query = "select cityname from sightinfos where pnamede = ?";
-            cursor = db.rawQuery (query, new String[]{placetitle});
+            String query = "select * from sightinfos where pnamede = ?  and cityname= ?";
+            cursor = db.rawQuery (query, new String[]{placetitle,keyword});
         }
         if (cursor.getCount ( ) <= 0) {
             cursor.close ( );
@@ -764,10 +766,10 @@ public class PDescriptionActivity extends AppCompatActivity {
         //Toast.makeText (PDescriptionActivity.this, "adddata!", Toast.LENGTH_SHORT).show ( );
         if (CheckIsDataAlreadyInDBorNot ( ) == false) {
             //perform inserting
-           // Toast.makeText (PDescriptionActivity.this, "insert!", Toast.LENGTH_SHORT).show ( );
+            //Toast.makeText (PDescriptionActivity.this, "insert!", Toast.LENGTH_SHORT).show ( );
             boolean insertData = databaseHandler.addData1(keyword, pnamehu,pnameen,pnamede, infohu, infoen, infode);
 
-            /*if (insertData)
+           /* if (insertData)
                 Toast.makeText (PDescriptionActivity.this, "Sikeres!", Toast.LENGTH_SHORT).show ( );
             else Toast.makeText (PDescriptionActivity.this, "Sikertelen !", Toast.LENGTH_SHORT).show ( );*/
         } else {
@@ -777,15 +779,15 @@ public class PDescriptionActivity extends AppCompatActivity {
             if (language.equals ("hu")) {
                 cv.put (SIGHTINFO_HU, infohu);
                 cv.put (PLACENAME_HU, pnamehu);
-                db.update (TABLE1_NAME, cv, PLACENAME_HU + " = ?", new String[]{pnamehu});
+                db.update (TABLE1_NAME, cv, PLACENAME_HU + " = ? and "+CITYNAME1+" = ?", new String[]{pnamehu,keyword});
             } else if (language.equals ("en")) {
                 cv.put (SIGHTINFO_EN, infoen);
                 cv.put (PLACENAME_EN, pnameen);
-                db.update (TABLE1_NAME, cv, PLACENAME_EN + "= ?", new String[]{pnameen});
+                db.update (TABLE1_NAME, cv, PLACENAME_EN + "= ? and "+CITYNAME1+" = ?", new String[]{pnameen,keyword});
             } else if (language.equals ("de")) {
                 cv.put (SIGHTINFO_DE, infode);
                 cv.put (PLACENAME_DE, pnamede);
-                db.update (TABLE1_NAME, cv, PLACENAME_DE + "= ?", new String[]{pnamede});
+                db.update (TABLE1_NAME, cv, PLACENAME_DE + "= ? and "+CITYNAME1+" = ?", new String[]{pnamede,keyword});
             }
         }
     }

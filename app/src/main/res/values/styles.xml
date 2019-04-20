@@ -83,7 +83,6 @@
     <style name="logoImage" parent="Theme.AppCompat.CompactMenu">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/height</item>
-        <item name="android:background">@drawable/backround_cab_land</item>
         <item name="android:scaleType">fitStart</item>
     </style>
 

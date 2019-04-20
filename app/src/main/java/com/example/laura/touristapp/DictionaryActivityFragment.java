@@ -547,15 +547,21 @@ public class DictionaryActivityFragment extends AppCompatActivity{
                     if (language.equals("en")) {
                         progressBar.setVisibility(View.GONE);
                         text.setText("No result");
+                        text.setClickable(false);
                         //Toast.makeText(DictionaryActivityFragment.this, "No result", Toast.LENGTH_LONG).show();
                     } else if (language.equals("de")) {
                         progressBar.setVisibility(View.GONE);
                         text.setText("kein Ergebnis");
+                        text.setClickable(false);
                         //Toast.makeText(DictionaryActivityFragment.this, "kein Ergebnis", Toast.LENGTH_LONG).show();
                     }
                 }else{
 				progressBar.setVisibility(View.GONE);
 				text.setText(resultString);
+				if(resultString.equals("No result")||resultString.equals("kein Ergebnis"))
+				{
+					text.setClickable(false);
+				}
 				}
 
 			}

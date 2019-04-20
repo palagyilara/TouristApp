@@ -83,4 +83,12 @@ public class StartQuizActivity extends AppCompatActivity {
         }
         return valid;
     }
+    @Override
+    public void onBackPressed() {
+        Bundle extra = getIntent().getExtras();
+        String keyword = extra.getString("key");
+        Intent intent = new Intent(this, MenuActivity.class);
+        intent.putExtra("key", keyword);
+        startActivity(intent);
+    }
 }

@@ -111,7 +111,7 @@ public class PlacesActivity extends AppCompatActivity {
         other9 = (Button) findViewById(R.id.other9);
 
 //----------------KESZTHELY--------------------------------------
-        if(keyword.equals ("Keszthely")){
+        if(keyword.equals ("Keszthely")) {
             museum1.setText(getResources().getString(R.string.keszthmuseum1));
             museum3.setText(getResources().getString(R.string.keszthmuseum3));
             museum6.setText(getResources().getString(R.string.keszthmuseum6));
@@ -127,47 +127,55 @@ public class PlacesActivity extends AppCompatActivity {
             other2.setText(getResources().getString(R.string.keszthother2));
             other3.setText(getResources().getString(R.string.keszthother3));
 
+            //hátterek
+           /* museum1.setBackground(getDrawable(R.drawable.balatonimuz));
+            museum3.setBackground(getDrawable(R.drawable.kastelymuz));
+            museum6.setBackground(getDrawable(R.drawable.szendreyemlek));
+            templom1.setBackground(getDrawable(R.drawable.evangelikustemp));
+            templom2.setBackground(getDrawable(R.drawable.karmel));
+            templom3.setBackground(getDrawable(R.drawable.foteritemp));
+            templom4.setBackground(getDrawable(R.drawable.reformtemp));
+            monuments1.setBackground(getDrawable(R.drawable.muazolem));
+            monuments2.setBackground(getDrawable(R.drawable.georgikonhaz));
+            monuments3.setBackground(getDrawable(R.drawable.helikonemlekmu));
+            monuments4.setBackground(getDrawable(R.drawable.varoshaza));
+            other1.setBackground(getDrawable(R.drawable.szinhaz));
+            other2.setBackground(getDrawable(R.drawable.setalou));
+            other3.setBackground(getDrawable(R.drawable.szigetfurdo));*/
 
-            museum7.setVisibility (GONE);
-            museum8.setVisibility (GONE);
-            museum9.setVisibility (GONE);
+
+            museum7.setVisibility(GONE);
+            museum8.setVisibility(GONE);
+            museum9.setVisibility(GONE);
             monuments5.setVisibility(GONE);
-            monuments6.setVisibility (GONE);
-            monuments7.setVisibility (GONE);
-            monuments8.setVisibility (GONE);
-            monuments9.setVisibility (GONE);
-            monuments10.setVisibility (GONE);
-            monuments11.setVisibility (GONE);
-            templom5.setVisibility (GONE);
-            templom6.setVisibility (GONE);
-            templom7.setVisibility (GONE);
-            templom8.setVisibility (GONE);
-            templom9.setVisibility (GONE);
-            templom10.setVisibility (GONE);
-            templom11.setVisibility (GONE);
-            templom12.setVisibility (GONE);
-            templom13.setVisibility (GONE);
-            other4.setVisibility (GONE);
-            other5.setVisibility (GONE);
-            other6.setVisibility (GONE);
-            other7.setVisibility (GONE);
-            other8.setVisibility (GONE);
-            other9.setVisibility (GONE);
+            monuments6.setVisibility(GONE);
+            monuments7.setVisibility(GONE);
+            monuments8.setVisibility(GONE);
+            monuments9.setVisibility(GONE);
+            monuments10.setVisibility(GONE);
+            monuments11.setVisibility(GONE);
+            templom5.setVisibility(GONE);
+            templom6.setVisibility(GONE);
+            templom7.setVisibility(GONE);
+            templom8.setVisibility(GONE);
+            templom9.setVisibility(GONE);
+            templom10.setVisibility(GONE);
+            templom11.setVisibility(GONE);
+            templom12.setVisibility(GONE);
+            templom13.setVisibility(GONE);
+            other4.setVisibility(GONE);
+            other5.setVisibility(GONE);
+            other6.setVisibility(GONE);
+            other7.setVisibility(GONE);
+            other8.setVisibility(GONE);
+            other9.setVisibility(GONE);
 
-            if(language.equals ("hu"))
-        {
-            museum4.setText(getResources().getString(R.string.keszthmuseum4));
-            museum5.setText(getResources().getString(R.string.keszthmuseum5));
-            museum2.setText(getResources().getString(R.string.keszthmuseum2));
-            //múzeumok
-            museum1.setOnClickListener(new View.OnClickListener()
-            {
+            museum1.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = museum1.getText().toString();
-                    String keyword1= getResources().getString(R.string.keszthmus1);
+                    String keyword1 = getResources().getString(R.string.keszthmus1);
                     //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
@@ -178,14 +186,54 @@ public class PlacesActivity extends AppCompatActivity {
                 }
 
             });
-                museum2.setOnClickListener(new View.OnClickListener()
-                {
+            museum3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
+                    String placetitle = museum3.getText().toString();
+                    String keyword1 = getResources().getString(R.string.keszthmus3);
+                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
+                    intent.putExtra("key", keyword);
+                    intent.putExtra("key1", placetitle);
+                    intent.putExtra("key2", keyword1);
+
+                    //intent.putExtra("key1", lang);
+                    startActivity(intent);
+                }
+
+            });
+            museum6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
+                    String placetitle = museum6.getText().toString();
+                    String keyword1 = getResources().getString(R.string.keszthmus6);
+                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
+                    intent.putExtra("key", keyword);
+                    intent.putExtra("key1", placetitle);
+                    intent.putExtra("key2", keyword1);
+
+                    //intent.putExtra("key1", lang);
+                    startActivity(intent);
+                }
+
+            });
+            if (language.equals("hu")) {
+                museum2.setBackground(getDrawable(R.drawable.cadillacmuz));
+                museum4.setBackground(getDrawable(R.drawable.georgikonmuz));
+                museum5.setBackground(getDrawable(R.drawable.muzeumzoo));
+
+                museum4.setText(getResources().getString(R.string.keszthmuseum4));
+                museum5.setText(getResources().getString(R.string.keszthmuseum5));
+                museum2.setText(getResources().getString(R.string.keszthmuseum2));
+                //múzeumok
+
+                museum2.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v)
-                    {
+                    public void onClick(View v) {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum2.getText().toString();
-                        String keyword1= "muzeumok/cadillac-muzeum-veteran-auto-kiallitas";
+                        String keyword1 = getResources().getString(R.string.keszthmus2);
                         //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
@@ -196,51 +244,29 @@ public class PlacesActivity extends AppCompatActivity {
                     }
 
                 });
-            museum3.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-                    Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                    String placetitle = museum3.getText().toString();
-                    String keyword1= "muzeumok/helikon_kastelymuzeum_festetics_kastely";
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                    intent.putExtra("key", keyword);
-                    intent.putExtra("key1", placetitle);
-                    intent.putExtra("key2", keyword1);
-
-                    //intent.putExtra("key1", lang);
-                    startActivity(intent);
-                }
-
-            });
-            museum4.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-                    Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                    String placetitle = museum4.getText().toString();
-                    String keyword1= "muzeumok/georgikon_majormuzeum";
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                    intent.putExtra("key", keyword); //város neve
-                    intent.putExtra("key1", placetitle); //látványosság neve
-                    intent.putExtra("key2", keyword1); //url cime
-
-                    //intent.putExtra("key1", lang);
-                    startActivity(intent);
-                }
-
-            });
-
-                museum5.setOnClickListener(new View.OnClickListener()
-                {
+                museum4.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v)
-                    {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
+                        String placetitle = museum4.getText().toString();
+                        String keyword1 = getResources().getString(R.string.keszthmus4);
+                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
+                        intent.putExtra("key", keyword); //város neve
+                        intent.putExtra("key1", placetitle); //látványosság neve
+                        intent.putExtra("key2", keyword1); //url cime
+
+                        //intent.putExtra("key1", lang);
+                        startActivity(intent);
+                    }
+
+                });
+
+                museum5.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum5.getText().toString();
-                        String keyword1= "muzeumok/muzeum-zoo";
+                        String keyword1 = getResources().getString(R.string.keszthmus5);
                         //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
@@ -251,33 +277,14 @@ public class PlacesActivity extends AppCompatActivity {
                     }
 
                 });
-            museum6.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-                    Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                    String placetitle = museum6.getText().toString();
-                    String keyword1= "latnivalok/muzeumok/szendrey-julia-emlekhaz";
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                    intent.putExtra("key", keyword);
-                    intent.putExtra("key1", placetitle);
-                    intent.putExtra("key2", keyword1);
-
-                    //intent.putExtra("key1", lang);
-                    startActivity(intent);
-                }
-
-            });
+            }
             //templomok
-            templom1.setOnClickListener(new View.OnClickListener()
-            {
+            templom1.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = templom1.getText().toString();
-                    String keyword1= "latnivalok/templomok/evangelikus_templom";
+                    String keyword1 = getResources().getString(R.string.keszthtemp1);
                     //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
@@ -288,14 +295,12 @@ public class PlacesActivity extends AppCompatActivity {
                 }
 
             });
-            templom2.setOnClickListener(new View.OnClickListener()
-            {
+            templom2.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = templom2.getText().toString();
-                    String keyword1= "latnivalok/templomok/kis_szent_terez_bazilika";
+                    String keyword1 = getResources().getString(R.string.keszthtemp2);
                     //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
@@ -306,32 +311,28 @@ public class PlacesActivity extends AppCompatActivity {
                 }
 
             });
-        templom3.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-            Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-            String placetitle = templom3.getText().toString();
-            String keyword1= "latnivalok/templomok/gotikus_plebaniatemplom";
-                //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                intent.putExtra("key", keyword);
-            intent.putExtra("key1", placetitle);
-            intent.putExtra("key2", keyword1);
-
-                //intent.putExtra("key1", lang);
-            startActivity(intent);
-            }
-
-        });
-            templom4.setOnClickListener(new View.OnClickListener()
-            {
+            templom3.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
+                    Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
+                    String placetitle = templom3.getText().toString();
+                    String keyword1 = getResources().getString(R.string.keszthtemp3);
+                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
+                    intent.putExtra("key", keyword);
+                    intent.putExtra("key1", placetitle);
+                    intent.putExtra("key2", keyword1);
+
+                    //intent.putExtra("key1", lang);
+                    startActivity(intent);
+                }
+
+            });
+            templom4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = templom4.getText().toString();
-                    String keyword1= "latnivalok/templomok/reformatus_templom";
+                    String keyword1 = getResources().getString(R.string.keszthtemp4);
                     //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
@@ -343,14 +344,12 @@ public class PlacesActivity extends AppCompatActivity {
 
             });
             //műemlékek
-            monuments1.setOnClickListener(new View.OnClickListener()
-            {
+            monuments1.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = monuments1.getText().toString();
-                    String keyword1= "latnivalok/muemlekek/festetics-mauzoleum";
+                    String keyword1 = getResources().getString(R.string.keszthmon1);
                     //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
@@ -361,14 +360,12 @@ public class PlacesActivity extends AppCompatActivity {
                 }
 
             });
-            monuments2.setOnClickListener(new View.OnClickListener()
-            {
+            monuments2.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = monuments2.getText().toString();
-                    String keyword1= "latnivalok/muemlekek/georgikon-haz";
+                    String keyword1 = getResources().getString(R.string.keszthmon2);
                     //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
@@ -379,14 +376,12 @@ public class PlacesActivity extends AppCompatActivity {
                 }
 
             });
-            monuments3.setOnClickListener(new View.OnClickListener()
-            {
+            monuments3.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = monuments3.getText().toString();
-                    String keyword1= "latnivalok/szobrok--emlekmuvek/helikon-emlekmu";
+                    String keyword1 = getResources().getString(R.string.keszthmon3);
                     //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
@@ -397,14 +392,12 @@ public class PlacesActivity extends AppCompatActivity {
                 }
 
             });
-            monuments4.setOnClickListener(new View.OnClickListener()
-            {
+            monuments4.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = monuments4.getText().toString();
-                    String keyword1= "latnivalok/muemlekek/varoshaza_";
+                    String keyword1 = getResources().getString(R.string.keszthmon4);
                     //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
@@ -416,14 +409,12 @@ public class PlacesActivity extends AppCompatActivity {
 
             });
             //egyéb
-            other1.setOnClickListener(new View.OnClickListener()
-            {
+            other1.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = other1.getText().toString();
-                    String keyword1= "latnivalok/egyeb/balaton-kongresszusi-kozpont-es-szinhaz";
+                    String keyword1 = getResources().getString(R.string.keszthoth1);
                     //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
@@ -434,14 +425,12 @@ public class PlacesActivity extends AppCompatActivity {
                 }
 
             });
-            other2.setOnClickListener(new View.OnClickListener()
-            {
+            other2.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = other2.getText().toString();
-                    String keyword1= "latnivalok/egyeb/setaloutca";
+                    String keyword1 = getResources().getString(R.string.keszthoth2);
                     //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
@@ -452,14 +441,12 @@ public class PlacesActivity extends AppCompatActivity {
                 }
 
             });
-            other3.setOnClickListener(new View.OnClickListener()
-            {
+            other3.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = other3.getText().toString();
-                    String keyword1= "latnivalok/egyeb/szigetfurdo";
+                    String keyword1 = getResources().getString(R.string.keszthoth3);
                     //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
@@ -470,461 +457,11 @@ public class PlacesActivity extends AppCompatActivity {
                 }
 
             });
-        }
-        else if(language.equals ("en"))
-        {
-                //museums
-                museum1.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = museum1.getText ( ).toString ( );
-                        String keyword1 = "museums/balatoni-muzeum";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                museum3.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = museum3.getText ( ).toString ( );
-                        String keyword1 = "museums/festetics-kastely";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                museum6.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = museum6.getText ( ).toString ( );
-                        String keyword1 = "museums/szendrey-julia-emlekhaz";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                museum2.setVisibility (GONE);
-                museum4.setVisibility (GONE);
-                museum5.setVisibility (GONE);
-                //temples
-                templom1.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = templom1.getText ( ).toString ( );
-                        String keyword1 = "temples/evangelikus_templom";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                templom2.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = templom2.getText ( ).toString ( );
-                        String keyword1 = "temples/kis_szent_terez_bazilika";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                templom3.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = templom3.getText ( ).toString ( );
-                        String keyword1 = "temples/gotikus_plebaniatemplom";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                templom4.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = templom4.getText ( ).toString ( );
-                        String keyword1 = "temples/reformatus_templom";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                monuments1.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = monuments1.getText ( ).toString ( );
-                        String keyword1 = "monuments/festetics-mauzoleum";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                monuments2.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = monuments2.getText ( ).toString ( );
-                        String keyword1 = "monuments/georgikon-haz";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                monuments3.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = monuments3.getText ( ).toString ( );
-                        String keyword1 = "sculptures--monuments/helikon-emlekmu";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                monuments4.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = monuments4.getText ( ).toString ( );
-                        String keyword1 = "monuments/varoshaza_";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                //egyéb
-                other1.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other1.getText ( ).toString ( );
-                        String keyword1 = "other/balaton-kongresszusi-kozpont-es-szinhaz";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                other2.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other2.getText ( ).toString ( );
-                        String keyword1 = "other/setaloutca";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                other3.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other3.getText ( ).toString ( );
-                        String keyword1 = "other/szigetfurdo";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-
-            }
-
-        else if(language.equals ("de"))
-        {
-                //museums
-                museum1.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = museum1.getText ( ).toString ( );
-                        String keyword1 = "museen/balatoni-muzeum";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                museum3.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = museum3.getText ( ).toString ( );
-                        String keyword1 = "museen/festetics-kastely";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                museum6.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = museum6.getText ( ).toString ( );
-                        String keyword1 = "museen/szendrey-julia-emlekhaz";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-            museum2.setVisibility (GONE);
-            museum4.setVisibility (GONE);
-            museum5.setVisibility (GONE);
-                templom1.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = templom1.getText ( ).toString ( );
-                        String keyword1 = "kirchen/evangelikus_templom";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                templom2.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = templom2.getText ( ).toString ( );
-                        String keyword1 = "kirchen/kis_szent_terez_bazilika";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                templom3.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = templom3.getText ( ).toString ( );
-                        String keyword1 = "kirchen/gotikus_plebaniatemplom";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                templom4.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = templom4.getText ( ).toString ( );
-                        String keyword1 = "kirchen/reformatus_templom";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                monuments1.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = monuments1.getText ( ).toString ( );
-                        String keyword1 = "denkmler/festetics-mauzoleum";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                monuments2.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = monuments2.getText ( ).toString ( );
-                        String keyword1 = "denkmler/georgikon-haz";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                monuments3.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = monuments3.getText ( ).toString ( );
-                        String keyword1 = "skulpturen--denkmler/helikon-emlekmu";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                monuments4.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = monuments4.getText ( ).toString ( );
-                        String keyword1 = "denkmler/varoshaza_";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                //egyéb
-                other1.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other1.getText ( ).toString ( );
-                        String keyword1 = "andere/balaton-kongresszusi-kozpont-es-szinhaz";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                other2.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other2.getText ( ).toString ( );
-                        String keyword1 = "andere/setaloutca";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
-                other3.setOnClickListener (new View.OnClickListener ( ) {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent (PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other3.getText ( ).toString ( );
-                        String keyword1 = "andere/szigetfurdo";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra ("key1", placetitle);
-                        intent.putExtra ("key2", keyword1);
-                        //intent.putExtra("key1", lang);
-                        startActivity (intent);
-                    }
-
-                });
+         if (language.equals("en") || language.equals("de")) {
+                museum2.setVisibility(GONE);
+                museum4.setVisibility(GONE);
+                museum5.setVisibility(GONE);
             }
         }
 //----------------EGER--------------------------------------
