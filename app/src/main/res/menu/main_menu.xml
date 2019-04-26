@@ -10,16 +10,15 @@
         app:showAsAction="always" />-->
     <item
         android:id="@+id/language_hu"
+        android:layout_width="match_parent"
         android:title="Magyar"
         app:showAsAction="never" />
     <item
         android:id="@+id/language_en"
         android:title="English"
-        app:showAsAction="never"
-        />
+        app:showAsAction="never" />
     <item
         android:id="@+id/language_de"
         android:title="Deutsch"
-        app:showAsAction="never"
-        />
+        app:showAsAction="never" />
 </menu>

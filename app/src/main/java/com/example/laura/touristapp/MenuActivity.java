@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.laura.touristapp.Helper.LocaleHelper;
 
@@ -42,12 +41,7 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         Bundle extra = getIntent().getExtras();
-        //String text = extra.getString(MainActivity.TAG_TEXT);
-
         final String keyword = extra.getString("key");
-
-
-		//final String lang = extra.getString("key1");
 
         btn1= (ImageButton) findViewById(R.id.cityinfo);
         btn2= (ImageButton) findViewById(R.id.places);
@@ -127,7 +121,7 @@ public class MenuActivity extends AppCompatActivity {
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, DictionaryActivityFragment.class);
+                Intent intent = new Intent(MenuActivity.this, DictionaryActivity.class);
                // intent.putExtra("key", keyword);
                 startActivity(intent);
             }

@@ -127,22 +127,6 @@ public class PlacesActivity extends AppCompatActivity {
             other2.setText(getResources().getString(R.string.keszthother2));
             other3.setText(getResources().getString(R.string.keszthother3));
 
-            //hátterek
-           /* museum1.setBackground(getDrawable(R.drawable.balatonimuz));
-            museum3.setBackground(getDrawable(R.drawable.kastelymuz));
-            museum6.setBackground(getDrawable(R.drawable.szendreyemlek));
-            templom1.setBackground(getDrawable(R.drawable.evangelikustemp));
-            templom2.setBackground(getDrawable(R.drawable.karmel));
-            templom3.setBackground(getDrawable(R.drawable.foteritemp));
-            templom4.setBackground(getDrawable(R.drawable.reformtemp));
-            monuments1.setBackground(getDrawable(R.drawable.muazolem));
-            monuments2.setBackground(getDrawable(R.drawable.georgikonhaz));
-            monuments3.setBackground(getDrawable(R.drawable.helikonemlekmu));
-            monuments4.setBackground(getDrawable(R.drawable.varoshaza));
-            other1.setBackground(getDrawable(R.drawable.szinhaz));
-            other2.setBackground(getDrawable(R.drawable.setalou));
-            other3.setBackground(getDrawable(R.drawable.szigetfurdo));*/
-
 
             museum7.setVisibility(GONE);
             museum8.setVisibility(GONE);
@@ -176,12 +160,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = museum1.getText().toString();
                     String keyword1 = getResources().getString(R.string.keszthmus1);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -192,12 +174,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = museum3.getText().toString();
                     String keyword1 = getResources().getString(R.string.keszthmus3);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -208,20 +188,15 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = museum6.getText().toString();
                     String keyword1 = getResources().getString(R.string.keszthmus6);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
             });
             if (language.equals("hu")) {
-                museum2.setBackground(getDrawable(R.drawable.cadillacmuz));
-                museum4.setBackground(getDrawable(R.drawable.georgikonmuz));
-                museum5.setBackground(getDrawable(R.drawable.muzeumzoo));
 
                 museum4.setText(getResources().getString(R.string.keszthmuseum4));
                 museum5.setText(getResources().getString(R.string.keszthmuseum5));
@@ -234,7 +209,6 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum2.getText().toString();
                         String keyword1 = getResources().getString(R.string.keszthmus2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
@@ -250,12 +224,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum4.getText().toString();
                         String keyword1 = getResources().getString(R.string.keszthmus4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword); //város neve
                         intent.putExtra("key1", placetitle); //látványosság neve
                         intent.putExtra("key2", keyword1); //url cime
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -267,12 +239,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum5.getText().toString();
                         String keyword1 = getResources().getString(R.string.keszthmus5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -285,12 +255,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = templom1.getText().toString();
                     String keyword1 = getResources().getString(R.string.keszthtemp1);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -301,12 +269,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = templom2.getText().toString();
                     String keyword1 = getResources().getString(R.string.keszthtemp2);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -317,12 +283,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = templom3.getText().toString();
                     String keyword1 = getResources().getString(R.string.keszthtemp3);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -333,12 +297,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = templom4.getText().toString();
                     String keyword1 = getResources().getString(R.string.keszthtemp4);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -350,12 +312,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = monuments1.getText().toString();
                     String keyword1 = getResources().getString(R.string.keszthmon1);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -366,12 +326,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = monuments2.getText().toString();
                     String keyword1 = getResources().getString(R.string.keszthmon2);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -382,12 +340,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = monuments3.getText().toString();
                     String keyword1 = getResources().getString(R.string.keszthmon3);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -398,12 +354,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = monuments4.getText().toString();
                     String keyword1 = getResources().getString(R.string.keszthmon4);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -415,12 +369,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = other1.getText().toString();
                     String keyword1 = getResources().getString(R.string.keszthoth1);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -431,12 +383,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = other2.getText().toString();
                     String keyword1 = getResources().getString(R.string.keszthoth2);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -447,12 +397,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = other3.getText().toString();
                     String keyword1 = getResources().getString(R.string.keszthoth3);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -483,7 +431,6 @@ public class PlacesActivity extends AppCompatActivity {
             monuments3.setText(getResources().getString(R.string.egermonuments3));
             monuments4.setText(getResources().getString(R.string.egermonuments4));
             monuments5.setText(getResources().getString(R.string.egermonuments5));
-            other2.setText(getResources().getString(R.string.egerother2));
             other3.setText(getResources().getString(R.string.egerother3));
             other4.setText(getResources().getString(R.string.egerother4));
 
@@ -504,6 +451,7 @@ public class PlacesActivity extends AppCompatActivity {
             monuments10.setVisibility (GONE);
             monuments11.setVisibility (GONE);
             other1.setVisibility (GONE);
+            other2.setVisibility (GONE);
             other5.setVisibility (GONE);
             other6.setVisibility (GONE);
             other7.setVisibility (GONE);
@@ -521,12 +469,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum1.getText().toString();
                         String keyword1= getResources().getString(R.string.egermus1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -539,7 +485,6 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum2.getText().toString();
                         String keyword1= getResources().getString(R.string.egermus2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
@@ -556,12 +501,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum3.getText().toString();
                         String keyword1= getResources().getString(R.string.egermus3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -574,12 +517,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum4.getText().toString();
                         String keyword1= getResources().getString(R.string.egermus4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword); //város neve
                         intent.putExtra("key1", placetitle); //látványosság neve
                         intent.putExtra("key2", keyword1); //url cime
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -592,12 +533,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum5.getText().toString();
                         String keyword1= getResources().getString(R.string.egermus5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword); //város neve
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -610,12 +549,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum6.getText().toString();
                         String keyword1= getResources().getString(R.string.egermus6);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -628,12 +565,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum7.getText().toString();
                         String keyword1= getResources().getString(R.string.egermus7);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -646,12 +581,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum8.getText().toString();
                         String keyword1=getResources().getString(R.string.egermus8);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -666,12 +599,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom1.getText().toString();
                         String keyword1= getResources().getString(R.string.egertemp1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -684,12 +615,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom2.getText().toString();
                         String keyword1= getResources().getString(R.string.egertemp2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -702,12 +631,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom3.getText().toString();
                         String keyword1= getResources().getString(R.string.egertemp3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -720,12 +647,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom4.getText().toString();
                         String keyword1= getResources().getString(R.string.egertemp4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -739,12 +664,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments1.getText().toString();
                         String keyword1= getResources().getString(R.string.egermon1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -757,12 +680,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments2.getText().toString();
                         String keyword1= getResources().getString(R.string.egermon2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -775,12 +696,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments3.getText().toString();
                         String keyword1= getResources().getString(R.string.egermon3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -793,12 +712,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments4.getText().toString();
                         String keyword1= getResources().getString(R.string.egermon4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -811,53 +728,16 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments5.getText().toString();
                         String keyword1= getResources().getString(R.string.egermon5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
                 });
                 //egyéb
-                /*other1.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other1.getText().toString();
-                        String keyword1= getResources().getString(R.string.egeroth1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });*/
-                other2.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other2.getText().toString();
-                        String keyword1= getResources().getString(R.string.egeroth2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });
                 other3.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
@@ -866,12 +746,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other3.getText().toString();
                         String keyword1= getResources().getString(R.string.egeroth3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -884,12 +762,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other4.getText().toString();
                         String keyword1= getResources().getString(R.string.egeroth4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -950,12 +826,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum1.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmus1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -968,7 +842,6 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum2.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmus2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
@@ -985,12 +858,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum3.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmus3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1003,12 +874,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum4.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmus4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword); //város neve
                         intent.putExtra("key1", placetitle); //látványosság neve
                         intent.putExtra("key2", keyword1); //url cime
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1021,12 +890,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum5.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmus5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword); //város neve
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1039,12 +906,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum6.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmus6);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1057,12 +922,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum7.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmus7);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1075,12 +938,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum8.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmus8);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1095,12 +956,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom1.getText().toString();
                         String keyword1= getResources().getString(R.string.pecstemp1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1113,12 +972,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom2.getText().toString();
                         String keyword1= getResources().getString(R.string.pecstemp2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1131,12 +988,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom3.getText().toString();
                         String keyword1= getResources().getString(R.string.pecstemp3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1149,12 +1004,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom4.getText().toString();
                         String keyword1= getResources().getString(R.string.pecstemp4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1167,12 +1020,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom5.getText().toString();
                         String keyword1= getResources().getString(R.string.pecstemp5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1185,12 +1036,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom6.getText().toString();
                         String keyword1= getResources().getString(R.string.pecstemp6);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1203,12 +1052,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom7.getText().toString();
                         String keyword1= getResources().getString(R.string.pecstemp7);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1221,12 +1068,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom8.getText().toString();
                         String keyword1= getResources().getString(R.string.pecstemp8);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1239,12 +1084,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom9.getText().toString();
                         String keyword1= getResources().getString(R.string.pecstemp9);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1259,12 +1102,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = monuments1.getText().toString();
                     String keyword1= getResources().getString(R.string.pecsmon1);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -1277,12 +1118,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments2.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmon2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1295,12 +1134,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments3.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmon3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1313,12 +1150,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments4.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmon4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1331,12 +1166,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments5.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmon5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1349,12 +1182,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments6.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmon6);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1367,34 +1198,14 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments7.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmon7);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
                 });
-                /*monuments8.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = monuments8.getText().toString();
-                        String keyword1= getResources().getString(R.string.pecsmon8);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });*/
                 monuments9.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
@@ -1403,12 +1214,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments9.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmon9);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1421,12 +1230,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments10.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsmon10);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1440,12 +1247,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other1.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsoth1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1458,12 +1263,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other2.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsoth2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1476,12 +1279,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other3.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsoth3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1494,12 +1295,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other4.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsoth4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1512,12 +1311,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other5.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsoth5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1530,12 +1327,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other6.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsoth6);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1548,12 +1343,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other7.getText().toString();
                         String keyword1= getResources().getString(R.string.pecsoth7);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1566,7 +1359,7 @@ public class PlacesActivity extends AppCompatActivity {
             museum2.setText(getResources().getString(R.string.sopronmuseum2));
             museum3.setText(getResources().getString(R.string.sopronmuseum3));
             museum4.setText(getResources().getString(R.string.sopronmuseum4));
-            museum5.setText(getResources().getString(R.string.sopronmuseum1));
+            museum5.setText(getResources().getString(R.string.sopronmuseum5));
             museum6.setText(getResources().getString(R.string.sopronmuseum6));
             museum7.setText(getResources().getString(R.string.sopronmuseum7));
             museum8.setText(getResources().getString(R.string.sopronmuseum8));
@@ -1614,7 +1407,6 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum1.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmus1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
@@ -1630,7 +1422,6 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum2.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmus2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
@@ -1646,7 +1437,6 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum3.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmus3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
@@ -1662,12 +1452,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum4.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmus4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword); //város neve
                         intent.putExtra("key1", placetitle); //látványosság neve
                         intent.putExtra("key2", keyword1); //url cime
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1680,12 +1468,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum5.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmus5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword); //város neve
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1698,12 +1484,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum6.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmus6);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1716,12 +1500,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum7.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmus7);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1734,12 +1516,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum8.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmus8);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1752,12 +1532,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum9.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmus9);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1772,12 +1550,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom1.getText().toString();
                         String keyword1= getResources().getString(R.string.soprtemp1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1790,12 +1566,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom2.getText().toString();
                         String keyword1= getResources().getString(R.string.soprtemp2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1808,12 +1582,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom3.getText().toString();
                         String keyword1= getResources().getString(R.string.soprtemp3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1826,12 +1598,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom4.getText().toString();
                         String keyword1= getResources().getString(R.string.soprtemp4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1844,12 +1614,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom5.getText().toString();
                         String keyword1= getResources().getString(R.string.soprtemp5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1862,12 +1630,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom6.getText().toString();
                         String keyword1= getResources().getString(R.string.soprtemp6);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1880,12 +1646,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom7.getText().toString();
                         String keyword1= getResources().getString(R.string.soprtemp7);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1898,12 +1662,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom8.getText().toString();
                         String keyword1= getResources().getString(R.string.soprtemp8);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1916,12 +1678,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom9.getText().toString();
                         String keyword1= getResources().getString(R.string.soprtemp9);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1934,12 +1694,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom10.getText().toString();
                         String keyword1= getResources().getString(R.string.soprtemp10);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1952,12 +1710,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom11.getText().toString();
                         String keyword1= getResources().getString(R.string.soprtemp11);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1970,12 +1726,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom12.getText().toString();
                         String keyword1= getResources().getString(R.string.soprtemp12);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -1988,12 +1742,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom13.getText().toString();
                         String keyword1= getResources().getString(R.string.soprtemp13);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2007,12 +1759,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments1.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmon1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2025,12 +1775,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments2.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmon2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2043,12 +1791,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments4.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmon4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2061,12 +1807,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments5.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmon5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2080,12 +1824,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments7.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmon7);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2098,12 +1840,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments8.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmon8);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2116,12 +1856,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments9.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmon9);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2134,12 +1872,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments10.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmon10);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2152,12 +1888,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments11.getText().toString();
                         String keyword1= getResources().getString(R.string.soprmon11);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2171,12 +1905,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other1.getText().toString();
                         String keyword1= getResources().getString(R.string.soproth1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2189,12 +1921,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other2.getText().toString();
                         String keyword1= getResources().getString(R.string.soproth2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2207,12 +1937,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other3.getText().toString();
                         String keyword1= getResources().getString(R.string.soproth3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2274,7 +2002,6 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum1.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmus1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
@@ -2290,7 +2017,6 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum2.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmus2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
@@ -2306,7 +2032,6 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum3.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmus3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
@@ -2322,12 +2047,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum4.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmus4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword); //város neve
                         intent.putExtra("key1", placetitle); //látványosság neve
                         intent.putExtra("key2", keyword1); //url cime
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2340,12 +2063,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum5.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmus5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword); //város neve
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2358,12 +2079,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum6.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmus6);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2377,12 +2096,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom1.getText().toString();
                         String keyword1= getResources().getString(R.string.szegtemp1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2395,12 +2112,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom2.getText().toString();
                         String keyword1= getResources().getString(R.string.szegtemp2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2413,12 +2128,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom3.getText().toString();
                         String keyword1= getResources().getString(R.string.szegtemp3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2431,12 +2144,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom4.getText().toString();
                         String keyword1=getResources().getString(R.string.szegtemp4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2449,12 +2160,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom5.getText().toString();
                         String keyword1= getResources().getString(R.string.szegtemp5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2467,12 +2176,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom6.getText().toString();
                         String keyword1= getResources().getString(R.string.szegtemp6);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2486,12 +2193,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments1.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmon1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2504,12 +2209,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments2.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmon2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2522,12 +2225,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments3.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmon3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2540,12 +2241,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments4.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmon4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2558,12 +2257,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments5.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmon5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2576,12 +2273,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments6.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmon6);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2594,12 +2289,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments7.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmon7);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2612,12 +2305,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments8.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmon8);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2630,12 +2321,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments9.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmon9);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2648,12 +2337,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments10.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmon10);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2666,12 +2353,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments11.getText().toString();
                         String keyword1= getResources().getString(R.string.szegmon11);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2685,12 +2370,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other1.getText().toString();
                         String keyword1= getResources().getString(R.string.szegoth1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2703,12 +2386,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other2.getText().toString();
                         String keyword1= getResources().getString(R.string.szegoth2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2721,12 +2402,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other3.getText().toString();
                         String keyword1= getResources().getString(R.string.szegoth3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2739,12 +2418,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other4.getText().toString();
                         String keyword1= getResources().getString(R.string.szegoth4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2757,12 +2434,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other5.getText().toString();
                         String keyword1= getResources().getString(R.string.szegoth5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2775,12 +2450,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other6.getText().toString();
                         String keyword1= getResources().getString(R.string.szegoth6);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2793,12 +2466,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other7.getText().toString();
                         String keyword1= getResources().getString(R.string.szegoth7);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2811,12 +2482,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other8.getText().toString();
                         String keyword1= getResources().getString(R.string.szegoth8);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2829,12 +2498,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other9.getText().toString();
                         String keyword1= getResources().getString(R.string.szegoth9);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2897,7 +2564,6 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum1.getText().toString();
                         String keyword1= getResources().getString(R.string.veszpmus1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
@@ -2913,7 +2579,6 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum2.getText().toString();
                         String keyword1= getResources().getString(R.string.veszpmus2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
@@ -2929,7 +2594,6 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum3.getText().toString();
                         String keyword1= getResources().getString(R.string.veszpmus3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
@@ -2946,12 +2610,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom1.getText().toString();
                         String keyword1= getResources().getString(R.string.veszptemp1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2964,12 +2626,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom2.getText().toString();
                         String keyword1= getResources().getString(R.string.veszptemp2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -2982,12 +2642,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom3.getText().toString();
                         String keyword1= getResources().getString(R.string.veszptemp3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -3000,12 +2658,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom4.getText().toString();
                         String keyword1= getResources().getString(R.string.veszptemp4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -3018,12 +2674,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom5.getText().toString();
                         String keyword1= getResources().getString(R.string.veszptemp5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -3036,12 +2690,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom6.getText().toString();
                         String keyword1= getResources().getString(R.string.veszptemp6);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -3055,12 +2707,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments1.getText().toString();
                         String keyword1= getResources().getString(R.string.veszpmon1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -3073,12 +2723,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments2.getText().toString();
                         String keyword1= getResources().getString(R.string.veszpmon2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -3092,12 +2740,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other1.getText().toString();
                         String keyword1= getResources().getString(R.string.veszpoth1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -3110,12 +2756,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other2.getText().toString();
                         String keyword1= getResources().getString(R.string.veszpoth2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -3128,12 +2772,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other3.getText().toString();
                         String keyword1= getResources().getString(R.string.veszpoth3);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -3146,12 +2788,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other4.getText().toString();
                         String keyword1= getResources().getString(R.string.veszpoth4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -3164,12 +2804,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other5.getText().toString();
                         String keyword1= getResources().getString(R.string.veszpoth5);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -3182,12 +2820,10 @@ public class PlacesActivity extends AppCompatActivity {
                     Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                     String placetitle = other6.getText().toString();
                     String keyword1= getResources().getString(R.string.veszpoth6);
-                    //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                     intent.putExtra("key", keyword);
                     intent.putExtra("key1", placetitle);
                     intent.putExtra("key2", keyword1);
 
-                    //intent.putExtra("key1", lang);
                     startActivity(intent);
                 }
 
@@ -3248,7 +2884,6 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = museum1.getText().toString();
                         String keyword1 = getResources().getString(R.string.tihanymus1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
@@ -3273,12 +2908,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = templom1.getText().toString();
                         String keyword1= getResources().getString(R.string.tihanytemp1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -3292,12 +2925,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments1.getText().toString();
                         String keyword1= getResources().getString(R.string.tihanymon1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -3310,35 +2941,15 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = monuments2.getText().toString();
                         String keyword1= getResources().getString(R.string.tihanymon2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
                 });
                 //egyéb
-                /*other1.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other1.getText().toString();
-                        String keyword1= getResources().getString(R.string.tihanyoth1);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });*/
                 other2.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
@@ -3347,12 +2958,10 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other2.getText().toString();
                         String keyword1= getResources().getString(R.string.tihanyoth2);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
@@ -3366,262 +2975,14 @@ public class PlacesActivity extends AppCompatActivity {
                         Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
                         String placetitle = other4.getText().toString();
                         String keyword1= getResources().getString(R.string.tihanyoth4);
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
                         intent.putExtra("key", keyword);
                         intent.putExtra("key1", placetitle);
                         intent.putExtra("key2", keyword1);
 
-                        //intent.putExtra("key1", lang);
                         startActivity(intent);
                     }
 
                 });
             }
-
-                //templomok
-                /*templom1.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = templom1.getText().toString();
-                        String keyword1= "artmemorials/140-bences-apatsag-barokk-temploma-en";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });
-                //műemlékek
-                monuments1.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = monuments1.getText().toString();
-                        String keyword1= "artmemorials/158-i-andras-kriptaja-en";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });
-                monuments2.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = monuments2.getText().toString();
-                        String keyword1= "artmemorials/138-a-nepi-epiteszet-emlekei-en";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });
-                //egyéb
-                other1.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other1.getText().toString();
-                        String keyword1= "25-akaszto-domb-en";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });
-                other2.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other2.getText().toString();
-                        String keyword1= "144-apati-templomrom-en";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });
-                other4.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other4.getText().toString();
-                        String keyword1= "151-remetetelep-baratlakasok-en";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });
-            }
-            else if()
-            {
-                museum1.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = templom1.getText().toString();
-                        String keyword1= "muemlekek-de/280-bences-apatsagi-muzeum-de";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });
-                //templomok
-                templom1.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = templom1.getText().toString();
-                        String keyword1= "muemlekek-de/210-bences-apatsag-barokk-temploma-de";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });
-                //műemlékek
-                monuments1.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = monuments1.getText().toString();
-                        String keyword1= "muemlekek-de/218-i-andras-kriptaja-de";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });
-                monuments2.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = monuments2.getText().toString();
-                        String keyword1= "muemlekek-de/208-a-nepi-epiteszet-emlekei-de";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });
-                //egyéb
-                other1.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other1.getText().toString();
-                        String keyword1= "latnivalok-inner-de/225-akaszto-domb-de";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });
-                other2.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other2.getText().toString();
-                        String keyword1= "latnivalok-inner-de/226-apati-templomrom-de";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });
-                other4.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(PlacesActivity.this, PDescriptionActivity.class);
-                        String placetitle = other4.getText().toString();
-                        String keyword1= "latnivalok-inner-de/233-remetetelep-baratlakasok-de";
-                        //Toast.makeText(MainActivity.this, keyword1, Toast.LENGTH_SHORT).show();
-                        intent.putExtra("key", keyword);
-                        intent.putExtra("key1", placetitle);
-                        intent.putExtra("key2", keyword1);
-
-                        //intent.putExtra("key1", lang);
-                        startActivity(intent);
-                    }
-
-                });
-            }
-        }*/
     }
 }

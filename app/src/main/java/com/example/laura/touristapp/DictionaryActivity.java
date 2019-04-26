@@ -3,27 +3,19 @@ package com.example.laura.touristapp;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.speech.tts.TextToSpeech;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 /*
@@ -36,30 +28,21 @@ import com.google.cloud.translate.TranslateOptions;
 import com.google.cloud.translate.Translation;*/
 
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.Locale;
-import java.util.concurrent.ExecutionException;
-
-import javax.net.ssl.HttpsURLConnection;
 
 import io.paperdb.Paper;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class DictionaryActivityFragment extends AppCompatActivity{
+public class DictionaryActivity extends AppCompatActivity{
 	private TextToSpeech tts;
 	EditText word;
 	TextView text;
@@ -114,7 +97,7 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 	static InputStream iStream = null;
 	URL JSONurl;*/
 
-	/*public DictionaryActivityFragment() {
+	/*public DictionaryActivity() {
 	    return;
 
 	}
@@ -122,7 +105,7 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 	Context context=this;
 	//Intent intent;
 
-	/*public DictionaryActivityFragment(Context context) {
+	/*public DictionaryActivity(Context context) {
 		this.context = context;
 	}*/
 	//@Override
@@ -206,7 +189,7 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 					Locale loc = new Locale("hu_HU");
 					int result = tts.setLanguage(loc);
 					//tts.setLanguage(Locale.UK);
-					//Toast.makeText(DictionaryActivityFragment.this, "Magyar beszéd kész", Toast.LENGTH_LONG).show();
+					//Toast.makeText(DictionaryActivity.this, "Magyar beszéd kész", Toast.LENGTH_LONG).show();
 					//tts.setLanguage(Locale.GERMANY);
 					if (result == TextToSpeech.LANG_MISSING_DATA
 							|| result == TextToSpeech.LANG_NOT_SUPPORTED) {
@@ -222,7 +205,7 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 					// }
 					// tts.setLanguage(Locale.UK);
 				} else if (initStatus == TextToSpeech.ERROR) {
-					Toast.makeText(DictionaryActivityFragment.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
+					Toast.makeText(DictionaryActivity.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
 				}
 			}
 		});
@@ -230,7 +213,6 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
 				String data = text01.getText().toString();
 				//Log.i("TTS", "button clicked: " + data);
 				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
@@ -245,7 +227,6 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
 				String data = text02.getText().toString();
 				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
@@ -259,7 +240,6 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
 				String data = text03.getText().toString();
 				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
@@ -272,7 +252,6 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
 				String data = text04.getText().toString();
 				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
@@ -286,7 +265,6 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
 				String data = text05.getText().toString();
 				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
@@ -299,7 +277,6 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
 				String data = text06.getText().toString();
 				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
@@ -312,7 +289,6 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
 				String data = text07.getText().toString();
 				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
@@ -325,7 +301,6 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
 				String data = text08.getText().toString();
 				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
@@ -338,7 +313,6 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
 				String data = text09.getText().toString();
 				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
@@ -351,7 +325,6 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
 				String data = text010.getText().toString();
 				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
@@ -364,7 +337,6 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
 				String data = text011.getText().toString();
 				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
@@ -377,7 +349,6 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			@Override
 			public void onClick(View view) {
 
-				//Toast.makeText(DictionaryActivityFragment.this, "Kattintva!", Toast.LENGTH_SHORT).show();
 				String data = text.getText().toString();
 				int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
@@ -402,7 +373,7 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 	}
     //Function for calling executing the Translator Background Task
     void Translate(String textToBeTranslated,String languagePair){
-        DictionaryActivityFragment.translatorBackgroundTask translatorBackgroundTask= new DictionaryActivityFragment.translatorBackgroundTask(context);
+        DictionaryActivity.translatorBackgroundTask translatorBackgroundTask= new DictionaryActivity.translatorBackgroundTask(context);
         translatorBackgroundTask.execute(textToBeTranslated,languagePair); // Returns the translated text as a String
     }
     public class translatorBackgroundTask extends AsyncTask<String, Void, String> {
@@ -416,7 +387,7 @@ public class DictionaryActivityFragment extends AppCompatActivity{
         protected void onPreExecute() {
             super.onPreExecute();
             progressBar.setVisibility(View.VISIBLE);
-			//Toast.makeText(DictionaryActivityFragment.this, "Egy pillanat...", Toast.LENGTH_SHORT).show();
+			//Toast.makeText(DictionaryActivity.this, "Egy pillanat...", Toast.LENGTH_SHORT).show();
         }
         @Override
         protected String doInBackground(String[] params) {
@@ -471,21 +442,10 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 				}
 
             } catch (MalformedURLException e) {
-               // Toast.makeText(DictionaryActivityFragment.this, "nincs wifi!", Toast.LENGTH_LONG).show();
-
                e.printStackTrace();
                return null;
 
 			} catch (IOException e) {
-               // Toast.makeText(DictionaryActivityFragment.this, "nincs wifi!", Toast.LENGTH_LONG).show();
-                /*if(language.equals("en")){
-                    String resultString="No result";
-                    e.printStackTrace();
-                    return resultString;}
-                else if(language.equals("de")){
-                    String resultString="kein Ergebnis";
-                    e.printStackTrace();
-                    return resultString;}*/
                 e.printStackTrace();
 				return null;
 
@@ -510,7 +470,7 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 			if (resultString==null) { // code if not connected
 				progressBar.setVisibility(View.GONE);
 				//final String textToBeTranslated = word.getText().toString();
-				AlertDialog.Builder builder = new AlertDialog.Builder(DictionaryActivityFragment.this);
+				AlertDialog.Builder builder = new AlertDialog.Builder(DictionaryActivity.this);
 				if(language.equals ("en")){
 					builder.setMessage("Turn wifi on!");
 					builder.setCancelable(true);
@@ -525,10 +485,10 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 							});
 				}
 				else if(language.equals ("de")){
-					builder.setMessage("Turn wifi on!/de");
+					builder.setMessage("Wifi einschalten!");
 					builder.setCancelable(true);
 					builder.setPositiveButton (
-							"TRY AGAIN/de",
+							"ERNEUT VERSUCHEN",
 							new DialogInterface.OnClickListener ( ) {
 								public void onClick(DialogInterface dialog, int id) {
 									dialog.cancel ( );
@@ -548,12 +508,12 @@ public class DictionaryActivityFragment extends AppCompatActivity{
                         progressBar.setVisibility(View.GONE);
                         text.setText("No result");
                         text.setClickable(false);
-                        //Toast.makeText(DictionaryActivityFragment.this, "No result", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(DictionaryActivity.this, "No result", Toast.LENGTH_LONG).show();
                     } else if (language.equals("de")) {
                         progressBar.setVisibility(View.GONE);
                         text.setText("kein Ergebnis");
                         text.setClickable(false);
-                        //Toast.makeText(DictionaryActivityFragment.this, "kein Ergebnis", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(DictionaryActivity.this, "kein Ergebnis", Toast.LENGTH_LONG).show();
                     }
                 }else{
 				progressBar.setVisibility(View.GONE);
@@ -563,317 +523,9 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 					text.setClickable(false);
 				}
 				}
-
 			}
-
-
         }
-
-
-        /*@Override
-        protected void onProgressUpdate(Void... values) {
-            super.onProgressUpdate (values);
-			progressBar.setVisibility(View.VISIBLE);
-        }*/
-    }/*
-	private boolean isNetworkConnected() {
-		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-
-		return cm.getActiveNetworkInfo() != null;
-	}*/
-	/*public boolean isInternetAvailable() {
-		try {
-			InetAddress ipAddr = InetAddress.getByName("google.com");
-			//You can replace it with your name
-			return !ipAddr.equals("");
-
-		} catch (Exception e) {
-			return false;
-		}
-	}*/
-
-	/*private void beginLookup(){
-		String phrase = word.getText().toString();
-		Log.i("TTS", "button clicked: " + fromLang);
-		Log.i("TTS", "button clicked: " + toLang);
-		Log.i("TTS", "button clicked: " + phrase);
-       // Toast.makeText(DictionaryActivityFragment.this, "disctionaryActivityfragment", Toast.LENGTH_LONG).show();
-		/*Intent intent = new Intent(DictionaryActivityFragment.this, DictionaryLookupTask.class);
-		//String keyword = btnFetchData.getText().toString();
-		//Toast.makeText(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
-		intent.putExtra("fromLang", fromLang);
-		intent.putExtra("toLang", toLang);
-		intent.putExtra("phrase", phrase);
-		DictionaryActivityFragment.GoogleTranslate googleTranslate = new DictionaryActivityFragment.GoogleTranslate();
-		googleTranslate.execute(fromLang,toLang,phrase);
-		//intent.putExtra("key1", lang);
-		//startActivity(intent);
-		//new DictionaryLookupTask(getContext()).execute(fromLang, toLang, phrase);
-	}*/
-	/*
-	public class GoogleTranslate extends AsyncTask<String, Void, String> {
-
-		/*
-		 * Your Google API Key here
-
-
-		private final String API_KEY = "";
-
-		/*
-		 * Performing the translation in background process
-
-
-		@Override
-		protected String doInBackground(String... params){
-
-			/*
-			 *  The text which will be translated
-
-
-			final String textToTranslate = params[0];
-
-			/*
-			 * The source language to be translated
-
-
-			final String SOURCE_LANGUAGE = params[1];
-
-			/*
-			 * The wished language to be translated to
-
-
-			final String TARGET_LANGUAGE = params[2];
-
-			try {
-
-				/*
-				 * Objects needed for the translate object
-				 */
-
-				//NetHttpTransport netHttpTransport 	= new NetHttpTransport();
-
-				//JacksonFactory jacksonFactory 		= new JacksonFactory();
-
-				/*
-				 * Creating the Google Translate object
-
-				TranslateOptions options = TranslateOptions.newBuilder()
-						.setApiKey(API_KEY)
-						.build();
-				Translate translate = options.getService();
-				//Translate translate = new Translate.Builder(netHttpTransport, jacksonFactory, null).build();
-
-				/*
-				 * Setting the textToTranslate, the API_KEY and TARGET_LANGUAGE
-
-				final Translation translation =
-						translate.translate(textToTranslate, Translate.TranslateOption.sourceLanguage (SOURCE_LANGUAGE),Translate.TranslateOption.targetLanguage(TARGET_LANGUAGE));
-
-				/*Translate.Translations.List listToTranslate = translate.new Translations().list(
-						Arrays.asList(textToTranslate), TARGET_LANGUAGE).setKey(API_KEY);
-
-				/*
-				 * If you want to let Google detects the language automatically, remove the next line
-				 * This line set the source language of the translated text
-				 */
-
-				//translation.setSource(SOURCE_LANGUAGE);
-
-				/*
-				 * Executing the translation and saving the response in the response object
-				 */
-
-				//TranslationsListResponse response = listToTranslate.execute();
-
-				/*
-				 * The response has the form of: {"translatedText":"blabla"}
-				 * We need only the translated text between the second double quotes pair
-				 * therefore using getTranslatedText
-
-                Log.i("Google Response ", translation.getTranslatedText());
-                //Log.i("Google Response ", e.getMessage());
-				return translation.getTranslatedText();
-			} catch (Exception e){
-
-				Log.e("Google Response ", e.getMessage());
-
-				/*
-				 * I would return empty string if there is an error
-				 * to let the method which invoked the translating method know that there is an error
-				 * and subsequently it deals with it
-
-
-				return "";
-			}
-		}
-	}*/
-	/*public class dictionaryLookupTask extends AsyncTask<String, Void, String> {
-
-		/*Context context;
-		//Intent intent;
-
-		public dictionaryLookupTask(){
-			this.context = context.getApplicationContext();
-		}
-
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-
-		}
-
-		@Override
-		protected String doInBackground(String[] params) {
-			String phrase = word.getText().toString();
-			//String sURL = params[0];
-			String url = urlMaker(fromLang, toLang, phrase);
-			Log.i("TTS", fromLang);
-			Log.i("TTS", toLang);
-			Log.i("TTS", phrase);
-			String line;
-			String jsonString = "";
-			try {
-				JSONurl = new URL(url);
-				HttpsURLConnection urlConnection = (HttpsURLConnection) JSONurl.openConnection();
-
-				//URL url = new URL(sURL);        // Convert String URL to java.net.URL
-				// Connection: to Wikipedia API
-				//HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-				urlConnection.setRequestMethod("GET");
-				urlConnection.connect();
-				Log.i("TTS", "connect");
-
-				BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-				//StringBuilder stringBuilder = new StringBuilder();
-				/*InputStream inputStream = urlConnection.getInputStream();
-				InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
-				BufferedReader br = new BufferedReader(inputStreamReader);
-
-				StringBuilder stringBuilder = new StringBuilder();
-				//String line;
-				while ((line = br.readLine()) != null){
-					stringBuilder.append(line + '\n');
-					Log.i("TTS", "stringbuilder");
-				}
-				jsonString = stringBuilder.toString();
-				Log.i("json", jsonString);/*
-				while ((line = bufferedReader.readLine()) != null) {
-					stringBuilder.append(line);
-				}*/
-
-				/*String jsonString = stringBuilder.toString();
-				Log.i("json", jsonString);
-
-				return jsonString;
-/*
-                try {
-                    JSONObject response = new JSONObject(jsonString);
-                    JSONResponseParser parser = new JSONResponseParser(response);
-                    String[] translations = parser.getTranslations();
-                    //String phrase= parser.getPhrase();
-
-                    /*toLangText.setText("\tTo: " + parser.getToLang());
-                    fromLangText.setText("\tFrom: " + parser.getFromLang());
-                    phraseText.setText(parser.getPhrase());*/
-                    //text.setText(translations[0]);
-                   // return translations;
-/*
-                } catch (JSONException e) {
-                    e.printStackTrace();
-					//Log.i("json", jsonString);
-					Log.i("json", "rossz!");
-                }
-				// Parse JSON Data
-				//String jsonS = parseJSONData(jsonString);
-
-				//openContentActivity(formattedData);
-				//return jsonS;
-
-
-			} catch (IOException e) {
-				e.printStackTrace();
-				Log.i("exception", "hiba");
-				return e.toString();
-			}
-
-			//return null;
-		}
-/*
-		@Override
-		protected JSONObject doInBackground(String[] params) {
-			//DictionaryLookup lookup = new DictionaryLookup(params[0], params[1], params[2]); //meghívódik a dictionarylookup
-			DictionaryLookup lookup = new DictionaryLookup(fromLang, toLang, word.getText().toString()); //meghívódik a dictionarylookup
-       /* intent = new Intent(DictionaryActivityFragment.this, DictionaryLookup.class);
-        intent.putExtra("fromLang", params[0]);
-        intent.putExtra("toLang", params[1]);
-        intent.putExtra("phrase", params[2]);
-			try {
-				return lookup.getLookUpData ();
-			} catch (IOException e) {
-				e.printStackTrace();
-				return new JSONObject();
-			}
-		}
-
-		@Override
-		protected void onPostExecute(String jsonS) {
-
-			//JSONObject response = null;
-			try {
-				/*response = new JSONObject(result);
-				JSONResponseParser parser = new JSONResponseParser(response);
-				String[] translations = parser.getTranslations();
-				super.onPostExecute(jsonS);
-				text.setText(jsonS);
-			} catch (Exception e) {
-				//e.printStackTrace();
-				Toast.makeText(DictionaryActivityFragment.this, "Wifi!", Toast.LENGTH_LONG).show();
-				Toast.makeText(DictionaryActivityFragment.this, "nincs eredmény!", Toast.LENGTH_LONG).show();
-			}
-			/*String jsonString = intent.getStringExtra("JSONObject");
-			Intent intent = new Intent(context, DictionaryLookupActivityFragment.class);
-			intent.putExtra("JSONObject", result.toString());
-			//.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			context.startActivity(intent);*/
-			//String res=result.toString();
-
-			//String res = text.getText().toString();
-			//Log.i("TTS", res);
-				//super.onPostExecute(result);
-					/*JSONObject response = new JSONObject(jsonString);
-					JSONResponseParser parser = new JSONResponseParser(response);
-					String[] translations = parser.getTranslations();
-
-            /*toLangText.setText("\tTo: " + parser.getToLang());
-            fromLangText.setText("\tFrom: " + parser.getFromLang());
-            phraseText.setText(parser.getPhrase());*/
-					//text.setText(translations[0]);
-
-				/*} catch (JSONException e) {
-					e.printStackTrace();
-				Toast.makeText(DictionaryActivityFragment.this, "nincs eredmény!", Toast.LENGTH_LONG).show();
-				}
-				/*JSONObject response = new JSONObject(jsonString);
-				JSONResponseParser parser = new JSONResponseParser(response);
-				String[] translations = parser.getTranslations();
-*/
-				//toLang.setText("\tTo: " + parser.getToLang());
-				//fromLangText.setText("\tFrom: " + parser.getFromLang());
-				//phraseText.setText(parser.getPhrase());
-				//text.setText(result);
-				//progressBar.setVisibility(View.GONE);
-				//text.setText(res);
-			/*} catch (Exception e) {
-				Toast.makeText(DictionaryActivityFragment.this, "nincs eredmény!", Toast.LENGTH_LONG).show();
-			}
-
-
-		}
-	}*/
-	/*public String urlMaker(String fromLang, String toLang, String phrase){
-		return URL_PREFIX + URL_FROMLANG_PARAM + fromLang + URL_TOLANG_PARAM + toLang + URL_FORMAT_PARAM + URL_PHRASE_PARAM + phrase+ "&pretty=true" +"&tm=false";
-	}*/
+    }
 	@Override
 	public void onPause() {
 		if (tts != null) {
@@ -882,39 +534,5 @@ public class DictionaryActivityFragment extends AppCompatActivity{
 		}
 		super.onPause();
 	}
-
-	//JSONObject response;
-	/*private String parseJSONData(String jsonString) {
-		try {
-			// Convert String JSON (wikiData) to JSON Object
-			/*String translations = "";
-			JSONArray tuc = response.getJSONArray("tuc");
-			JSONObject meaning;
-			for (int i = 0; ((i < tuc.length()) && (i < 6)); i++) {
-				meaning = tuc.getJSONObject(i);
-				meaning = meaning.getJSONObject("phrase");
-				translations = meaning.getString("text");
-			}
-			return translations;*//*
-			Log.i("json", "parse");
-			JSONObject meaning = new JSONObject(jsonString);
-			//JSONObject meaning = null;
-			meaning = meaning.getJSONObject("phrase");
-			String jsonS = meaning.getString("text");
-			Log.i("json", jsonS);
-			//JSONObject query = rootJSON.getJSONObject("query");
-			//JSONObject pages = query.getJSONObject("pages");
-			//JSONObject number = pages.getJSONObject(pages.keys().next());
-			//String jsonS = number.getString("extract");
-
-			return jsonS;
-
-
-		} catch (JSONException json) {
-			json.printStackTrace();
-		}
-
-		return null;
-	}*/
 
 }

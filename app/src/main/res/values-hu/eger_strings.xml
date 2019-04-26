@@ -22,7 +22,6 @@
     <string name="egermonuments5">Minaret </string>
 
     <string name="egerother3">Török fürdő </string>
-    <string name="egerother2">Lakatfal </string>
     <!--<string name="egerother1">Árvíz tábla </string>-->
     <string name="egerother4">Zsolnay kút </string>
 
@@ -46,7 +45,6 @@
     <string name="egermon4">egri-var/kalvaria-domb</string>
     <string name="egermon5">torok-emlekek/minaret</string>
 
-    <string name="egeroth2">erdekessegek/lakatfal</string>
     <string name="egeroth3">torok-emlekek/torok-furdo</string>
     <string name="egeroth4">erdekessegek/zsolnay-kut</string>
 

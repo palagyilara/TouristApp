@@ -59,7 +59,7 @@
             android:label="@string/title_activity_maps"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".DictionaryActivityFragment"
+            android:name=".DictionaryActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustNothing" />

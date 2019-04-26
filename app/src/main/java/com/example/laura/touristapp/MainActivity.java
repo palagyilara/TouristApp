@@ -30,15 +30,12 @@ public class MainActivity extends AppCompatActivity {
  //public static final String TAG_TEXT = "com.example.laura.touristapp.TAG_TEXT";
    public TextView choose;
    public Button btnFetchData1;
-  // public Button btnFetchData2;
-   //public Button btnFetchData3;
+   public Button btnFetchData2;
+   public Button btnFetchData3;
    public Button btnFetchData4;
-  // public Button btnFetchData5;
+   public Button btnFetchData5;
    public Button btnFetchData6;
    public Button btnFetchData7;
-   public Button btnFetchData8;
-   public Button btnFetchData9;
-    public Button btnFetchData10;
    public ImageButton popupbtn;
 
     @Override
@@ -52,20 +49,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       // progressBar = (ProgressBar) findViewById(R.id.progressbar);
-        //etxSearch = (EditText) findViewById(R.id.etxSearch);
-       // txtWikiData = (TextView) findViewById(R.id.txtWikiData);
         choose =(TextView) findViewById(R.id.choose);
         btnFetchData1 = (Button) findViewById(R.id.btnFetchData1);
-       /* btnFetchData2 = (Button) findViewById(R.id.btnFetchData2);
-        btnFetchData3 = (Button) findViewById(R.id.btnFetchData3);*/
-        btnFetchData4 = (Button) findViewById(R.id.btnFetchData4);
-        //btnFetchData5 = (Button) findViewById(R.id.btnFetchData5);
-        btnFetchData6 = (Button) findViewById(R.id.btnFetchData6);
-        btnFetchData7 = (Button) findViewById(R.id.btnFetchData7);
-        btnFetchData8 = (Button) findViewById(R.id.btnFetchData8);
-        btnFetchData9 = (Button) findViewById(R.id.btnFetchData9);
-        btnFetchData10 = (Button) findViewById(R.id.btnFetchData10);
+        btnFetchData2 = (Button) findViewById(R.id.btnFetchData4);
+        btnFetchData3 = (Button) findViewById(R.id.btnFetchData6);
+        btnFetchData4 = (Button) findViewById(R.id.btnFetchData7);
+        btnFetchData5 = (Button) findViewById(R.id.btnFetchData8);
+        btnFetchData6 = (Button) findViewById(R.id.btnFetchData9);
+        btnFetchData7 = (Button) findViewById(R.id.btnFetchData10);
         popupbtn=(ImageButton) findViewById(R.id.popup);
 
 
@@ -113,44 +104,73 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                //openContentActivity(null);
                 Intent intent = new Intent(MainActivity.this, MenuActivity.class);
                 String keyword = btnFetchData1.getText().toString();
-                //Toast.makeText(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
                 intent.putExtra("key", keyword);
-                //intent.putExtra("key1", lang);
                 startActivity(intent);
                 }
 
         });
 
-        btnFetchData4.setOnClickListener(new View.OnClickListener()
+        btnFetchData2.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                //openContentActivity(null);
                 Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-                String keyword = btnFetchData4.getText().toString();
-                //Toast.makeText(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
+                String keyword = btnFetchData2.getText().toString();
                 intent.putExtra("key", keyword);
-                //intent.putExtra("key1", lang);
                 startActivity(intent);
             }
 
         });
 
+        btnFetchData3.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                String keyword = btnFetchData3.getText().toString();
+                intent.putExtra("key", keyword);
+                startActivity(intent);
+            }
+
+        });
+        btnFetchData4.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                    Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                    String keyword = btnFetchData4.getText().toString();
+                    intent.putExtra("key", keyword);
+
+                    startActivity(intent);
+
+            }
+
+        });
+        btnFetchData5.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                String keyword = btnFetchData5.getText().toString();
+                intent.putExtra("key", keyword);
+                startActivity(intent);
+            }
+
+        });
         btnFetchData6.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                //openContentActivity(null);
                 Intent intent = new Intent(MainActivity.this, MenuActivity.class);
                 String keyword = btnFetchData6.getText().toString();
-                //Toast.makeText(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
                 intent.putExtra("key", keyword);
-                //intent.putExtra("key1", lang);
                 startActivity(intent);
             }
 
@@ -160,57 +180,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                    Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-                    String keyword = btnFetchData7.getText().toString();
-                    intent.putExtra("key", keyword);
-
-                    startActivity(intent);
-
-                //intent.putExtra("key1", lang);
-            }
-
-        });
-        btnFetchData8.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                //openContentActivity(null);
                 Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-                String keyword = btnFetchData8.getText().toString();
-                //Toast.makeText(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
+                String keyword = btnFetchData7.getText().toString();
                 intent.putExtra("key", keyword);
-                //intent.putExtra("key1", lang);
-                startActivity(intent);
-            }
-
-        });
-        btnFetchData9.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                //openContentActivity(null);
-                Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-                String keyword = btnFetchData9.getText().toString();
-                //Toast.makeText(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
-                intent.putExtra("key", keyword);
-                //intent.putExtra("key1", lang);
-                startActivity(intent);
-            }
-
-        });
-        btnFetchData10.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                //openContentActivity(null);
-                Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-                String keyword = btnFetchData10.getText().toString();
-                //Toast.makeText(MainActivity.this, keyword, Toast.LENGTH_SHORT).show();
-                intent.putExtra("key", keyword);
-                //intent.putExtra("key1", lang);
                 startActivity(intent);
             }
 

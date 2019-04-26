@@ -8,14 +8,12 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -25,14 +23,11 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
-
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.GoogleMap.OnMyLocationChangeListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -40,28 +35,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PointOfInterest;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.concurrent.ExecutionException;
-
 import io.paperdb.Paper;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -73,9 +52,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
     private boolean mLocationPermissionsGranted = false;
     private FusedLocationProviderClient fusedLocationProviderClient;
-   // private List<Marker> markers = new ArrayList<Marker>();
-    //private double currentLatitude;
-   // private double currentLongitude;
     public static final String CHANNEL_ID = "tourist_notifications";
     public final int NOTIFICATION_ID=001;
 
@@ -219,9 +195,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -233,9 +207,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -247,9 +219,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -261,9 +231,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -275,9 +243,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -289,9 +255,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -303,9 +267,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -317,9 +279,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -331,9 +291,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -345,9 +303,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
@@ -359,747 +315,626 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             //SOPRON
             else if(placetitle.equals (getResources().getString(R.string.sopronmuseum1))) {
-                double lat=47.6859625;
-                double lng=16.5877292;
+                double lat=47.685981;
+                double lng=16.589924;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmuseum2))) {
-                double lat=47.68602;
-                double lng=16.589138;
+                double lat=47.685799;
+                double lng=16.591313;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmuseum3))) {
-                double lat=47.6865675;
-                double lng=16.5887225;
+                double lat=47.686534;
+                double lng=16.591185;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmuseum4))) {
-                double lat=47.6861546;
-                double lng=16.5878403;
+                double lat=47.686156;
+                double lng=16.590030;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmuseum5))) {
-                double lat=47.6801243;
-                double lng=16.5757588;
+                double lat=47.679744;
+                double lng=16.576039;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmuseum6))) {
-                double lat=47.6865343;
-                double lng=16.5884332;
+                double lat=47.686567;
+                double lng=16.590913;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmuseum7))) {
-                double lat=47.6865379;
-                double lng=16.5884332;
+                double lat=47.686567;
+                double lng=16.590901;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmuseum8))) {
-                double lat=47.6865675;
-                double lng=16.5887225;
+                double lat=47.686530;
+                double lng=16.591170;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmuseum9))) {
-                double lat=47.6849766;
-                double lng=16.5882953;
+                double lat=47.684986;
+                double lng=16.590485;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.soprontemplom1))) {
-                double lat=47.676427;
+                double lat=47.676434;
                 double lng=16.576738;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.soprontemplom2))) {
-                double lat=47.686087;
-                double lng=16.590419;
+                double lat=47.686095;
+                double lng=16.590418;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.soprontemplom3))) {
-                double lat=47.6822631;
-                double lng=16.5900476;
+                double lat=47.682270;
+                double lng=16.590048;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.soprontemplom4))) {
-                double lat=47.6842216;
-                double lng=16.5875043;
+                double lat=47.685252;
+                double lng=16.589420;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.soprontemplom5))) {
-                double lat=47.6860398;
-                double lng=16.5791263;
+                double lat=47.686005;
+                double lng=16.581807;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.soprontemplom6))) {
-                double lat=47.6889156;
-                double lng=16.5903373;
+                double lat=47.689191;
+                double lng=16.592056;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.soprontemplom7))) {
-                double lat=47.6827106;
-                double lng=16.5930383;
+                double lat=47.682699;
+                double lng=16.595741;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.soprontemplom8))) {
-                double lat=47.6820183;
-                double lng=16.5697732;
+                double lat=47.681764;
+                double lng=16.582261;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.soprontemplom9))) {
-                double lat=47.6852427;
-                double lng=16.5719104;
+                double lat=47.685238;
+                double lng=16.591638;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.soprontemplom10))) {
-                double lat=47.6820068;
-                double lng=16.5883899;
+                double lat=47.689091;
+                double lng=16.597830;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.soprontemplom11))) {
-                double lat=47.6841548;
-                double lng=16.5897922;
+                double lat=47.683724;
+                double lng=16.590293;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.soprontemplom12))) {
-                double lat=47.6928676;
-                double lng=16.5743193;
+                double lat=47.693666;
+                double lng=16.578010;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.soprontemplom13))) {
-                double lat=47.6801826;
-                double lng=16.5943413;
+                double lat=47.679624;
+                double lng=16.596308;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmonuments1))) {
-                double lat=47.6857246;
-                double lng=16.5875402;
+                double lat=47.685731;
+                double lng=16.589732;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmonuments2))) {
-                double lat=47.6865379;
-                double lng=16.5884332;
+                double lat=47.686575;
+                double lng=16.590924;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmonuments4))) {
-                double lat=47.6824615;
-                double lng=16.5872532;
+                double lat=47.682511;
+                double lng=16.589326;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmonuments5))) {
-                double lat=47.6837866;
-                double lng=16.5860852;
+                double lat=47.683790;
+                double lng=16.588275;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmonuments7))) {
-                double lat=47.6865675;
-                double lng=16.5887225;
+                double lat=47.686541;
+                double lng=16.591183;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmonuments8))) {
-                double lat=47.6863651;
-                double lng=16.5887217;
+                double lat=47.686358;
+                double lng=16.590692;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmonuments9))) {
-                double lat=47.6865675;
-                double lng=16.5887225;
+                double lat=47.686796;
+                double lng=16.591317;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmonuments10))) {
-                double lat=47.6864904;
-                double lng=16.5895486;
+                double lat=47.686534;
+                double lng=16.591392;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronmonuments11))) {
-                double lat=47.6852996;
-                double lng=16.5882934;
+                double lat=47.685304;
+                double lng=16.590481;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronother1))) {
-                double lat=47.6834616;
-                double lng=16.5860603;
+                double lat=47.684317;
+                double lng=16.587903;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronother2))) {
-                double lat=47.6867339;
-                double lng=16.5875822;
+                double lat=47.686738;
+                double lng=16.589770;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             else if(placetitle.equals (getResources().getString(R.string.sopronother3))) {
-                double lat=47.6770986;
-                double lng=16.5586293;
+                double lat=47.677104;
+                double lng=16.560818;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 
             }
             //EGER
             else if(placetitle.equals (getResources().getString(R.string.egermuseum1))) {
-                double lat=47.9032908;
-                double lng=20.3677279;
+                double lat=47.903303;
+                double lng=20.369916;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egermuseum2))) {
-                double lat=47.9006942;
-                double lng=20.3713843;
+                double lat=47.900709;
+                double lng=20.373571;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egermuseum3))) {
-                double lat=47.9040518;
-                double lng=20.3774534;
+                double lat=47.904060;
+                double lng=20.379644;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egermuseum4))) {
-                double lat=47.8997995;
-                double lng=20.3739947;
+                double lat=47.899806;
+                double lng=20.376183;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egermuseum5))) {
-                double lat=47.9062166;
-                double lng=20.379653;
+                double lat=47.906225;
+                double lng=20.381839;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egermuseum6))) {
-                double lat=47.9040518;
-                double lng=20.3774534;
+                double lat=47.9050028;
+                double lng=20.3785702;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egermuseum7))) {
-                double lat=47.9001024;
-                double lng=20.3740198;
+                double lat=47.900109;
+                double lng=20.376209;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egermuseum8))) {
-                double lat=47.901712;
-                double lng=20.3693688;
+                double lat=47.901714;
+                double lng=20.371557;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egertemplom1))) {
-                double lat=47.8993289;
-                double lng=20.3710419;
+                double lat=47.899447;
+                double lng=20.373275;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egertemplom2))) {
-                double lat=47.9021424;
-                double lng=20.3752444;
+                double lat=47.902130;
+                double lng=20.377360;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egertemplom3))) {
-                double lat=47.9079947;
-                double lng=20.3681148;
+                double lat=47.908003;
+                double lng=20.370304;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egertemplom4))) {
-                double lat=47.9064777;
-                double lng=20.3750527;
+                double lat=47.906483;
+                double lng=20.377239;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egermonuments1))) {
-                double lat=47.9040518;
-                double lng=20.3774534;
+                double lat=47.904899;
+                double lng=20.379180;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egermonuments2))) {
-                double lat=47.9040518;
-                double lng=20.3774534;
+                double lat=47.904994;
+                double lng=20.379735;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egermonuments3))) {
-                double lat=47.9040262;
-                double lng=20.3782185;
+                double lat=47.904038;
+                double lng=20.380405;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egermonuments4))) {
-                double lat=47.903957;
-                double lng=20.3776593;
+                double lat=47.9038117;
+                double lng=20.380052;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egermonuments5))) {
-                double lat=47.9046631;
-                double lng=20.3741884;
+                double lat=47.904670;
+                double lng=20.376380;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
-                mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
-            }
-            else if(placetitle.equals (getResources().getString(R.string.egerother2))) {
-                double lat=47.8983915;
-                double lng=20.382371053698108;
-                LatLng addr = new LatLng(lat, lng);
-                googleMap.addMarker (new MarkerOptions ( )
-                                .position (new LatLng (lat, lng))
-                                .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egerother3))) {
-                double lat=47.8984133;
-                double lng=20.3801665;
+                double lat=47.898426;
+                double lng=20.382300;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.egerother4))) {
-                double lat=47.9004949;
-                double lng=20.3660368;
+                double lat=47.900018;
+                double lng=20.368221;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1111,9 +946,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1124,9 +957,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1137,9 +968,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1150,9 +979,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1163,9 +990,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1176,9 +1001,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1189,9 +1012,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1202,9 +1023,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1215,9 +1034,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1228,9 +1045,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1241,9 +1056,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1254,9 +1067,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1267,9 +1078,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1280,9 +1089,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1293,9 +1100,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1306,9 +1111,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1319,9 +1122,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1332,9 +1133,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1345,9 +1144,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1358,9 +1155,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1371,9 +1166,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1384,9 +1177,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1397,9 +1188,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1410,9 +1199,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1423,9 +1210,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1436,9 +1221,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1449,9 +1232,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1462,9 +1243,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1475,9 +1254,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1488,9 +1265,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1501,9 +1276,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1514,9 +1287,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -1527,727 +1298,615 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             //SZEGED
             else if(placetitle.equals (getResources().getString(R.string.szegedmuseum1))) {
-                double lat=46.2501173;
-                double lng=20.1458641;
+                double lat=46.250122;
+                double lng=20.148052;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmuseum2))) {
-                double lat=46.2522423;
-                double lng=20.1489384;
+                double lat=46.252322;
+                double lng=20.152070;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmuseum3))) {
-                double lat=46.2516199;
-                double lng=20.1432357;
+                double lat=46.251626;
+                double lng=20.145421;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmuseum4))) {
-                double lat=46.2518393;
-                double lng=20.137555;
+                double lat=46.251847;
+                double lng=20.139742;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmuseum5))) {
-                double lat=46.2460051;
-                double lng=20.1467269;
+                double lat=46.246010;
+                double lng=20.148913;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmuseum6))) {
-                double lat=46.252662;
-                double lng=20.149028;
+                double lat=46.252883;
+                double lng=20.152508;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedtemplom1))) {
-                double lat=46.2406015;
-                double lng=20.1343618;
+                double lat=46.240605;
+                double lng=20.136553;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedtemplom2))) {
-                double lat=46.2489098;
-                double lng=20.1469379;
+                double lat=46.248917;
+                double lng=20.149127;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedtemplom3))) {
-                double lat=46.2565648;
-                double lng=20.1322785;
+                double lat=46.256567;
+                double lng=20.149790;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedtemplom4))) {
-                double lat=46.2538745;
-                double lng=20.141478;
+                double lat=46.253881;
+                double lng=20.143668;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedtemplom5))) {
-                double lat=46.2493521;
-                double lng=20.1475635;
+                double lat=46.249344;
+                double lng=20.150202;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedtemplom6))) {
-                double lat=46.2537523;
-                double lng=20.1398553;
+                double lat=46.254381;
+                double lng=20.142581;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmonuments1))) {
-                double lat=46.2526651;
-                double lng=20.1505455;
+                double lat=46.252632;
+                double lng=20.150707;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmonuments2))) {
-                double lat=46.2551466;
-                double lng=20.14817;
+                double lat=46.255166;
+                double lng=20.150281;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmonuments3))) {
-                double lat=46.2542448;
-                double lng=20.1502987;
+                double lat=46.254340;
+                double lng=20.152542;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmonuments4))) {
-                double lat=46.2486067;
-                double lng=20.1463703;
+                double lat=46.248618;
+                double lng=20.148558;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmonuments5))) {
-                double lat=46.255279;
-                double lng=20.1425635;
+                double lat=46.256393;
+                double lng=20.145992;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmonuments6))) {
-                double lat=46.2563774;
-                double lng=20.1490909;
+                double lat=46.256386;
+                double lng=20.151278;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmonuments7))) {
-                double lat=46.2460051;
-                double lng=20.1467269;
+                double lat=46.246014;
+                double lng=20.148921;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmonuments8))) {
-                double lat=46.2576495;
-                double lng=20.1483944;
+                double lat=46.257660;
+                double lng=20.150582;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmonuments9))) {
-                double lat=46.2476294;
-                double lng=20.1438307;
+                double lat=46.247635;
+                double lng=20.146013;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmonuments10))) {
-                double lat=46.2562191;
-                double lng=20.1490457;
+                double lat=46.256323;
+                double lng=20.148884;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedmonuments11))) {
-                double lat=46.2533589;
-                double lng=20.146697;
+                double lat=46.253403;
+                double lng=20.146555;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedother1))) {
-                double lat=46.2407471;
-                double lng=20.1341353;
+                double lat=46.240742;
+                double lng=20.136523;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedother2))) {
-                double lat=46.2470482;
-                double lng=20.1404639;
+                double lat=46.247050;
+                double lng=20.141941;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedother3))) {
-                double lat=46.249616;
-                double lng=20.1465198;
+                double lat=46.249359;
+                double lng=20.148440;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedother4))) {
-                double lat=46.2667839;
-                double lng=20.1067816;
+                double lat=46.266011;
+                double lng=20.107649;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedother5))) {
-                double lat=46.2536776;
-                double lng=20.1495615;
+                double lat=46.253562;
+                double lng=20.151951;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedother6))) {
-                double lat=46.2582467;
-                double lng=20.1480737;
+                double lat=46.258509;
+                double lng=20.150179;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedother7))) {
-                double lat=46.2508192;
-                double lng=20.1213621;
+                double lat=46.251724;
+                double lng=20.118307;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedother8))) {
-                double lat=46.2542614;
-                double lng=20.1484052;
+                double lat=46.254436;
+                double lng=20.148101;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.szegedother9))) {
-                double lat=46.2483304;
-                double lng=20.1465588;
+                double lat=46.247746;
+                double lng=20.148362;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             //VESZPRÉM
             else if(placetitle.equals (getResources().getString(R.string.veszpmuseum1))) {
-                double lat=47.0968899;
-                double lng=17.9004597;
+                double lat=47.096896;
+                double lng=17.902650;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszpmuseum2))) {
-                double lat=47.0963527;
-                double lng=17.9010344;
+                double lat=47.096360;
+                double lng=17.903224;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszpmuseum3))) {
-                double lat=47.0951768;
-                double lng=17.9034555;
+                double lat=47.095182;
+                double lng=17.905642;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszptemplom1))) {
-                double lat=47.0960185;
-                double lng=17.9038667;
+                double lat=47.096155;
+                double lng=17.903933;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszptemplom2))) {
-                double lat=47.0969428;
-                double lng=17.9006188;
+                double lat=47.096950;
+                double lng=17.902806;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszptemplom3))) {
-                double lat=47.0912095;
-                double lng=17.9029352;
+                double lat=47.091214;
+                double lng=17.905127;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszptemplom4))) {
-                double lat=47.0969959;
-                double lng=17.9007181;
+                double lat=47.097004;
+                double lng=17.902904;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszptemplom5))) {
-                double lat=47.096161;
-                double lng=17.9016633;
+                double lat=47.096169;
+                double lng=17.903852;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszptemplom6))) {
-                double lat=47.0986044;
-                double lng=17.8855273;
+                double lat=47.098615;
+                double lng=17.887715;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszpmonuments1))) {
-                double lat=47.0947685;
-                double lng=17.9034529;
+                double lat=47.094778;
+                double lng=17.905642;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszpmonuments2))) {
-                double lat=47.0967623;
-                double lng=17.9004738;
+                double lat=47.096771;
+                double lng=17.902664;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszpother1))) {
-                double lat=47.1315369;
-                double lng=17.752226;
+                double lat=47.131837;
+                double lng=17.753536;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszpother2))) {
-                double lat=47.0964995;
-                double lng=17.9008702;
+                double lat=47.096509;
+                double lng=17.903060;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszpother3))) {
-                double lat=47.0973491;
-                double lng=17.8940295;
+                double lat=47.097356;
+                double lng=17.896220;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszpother4))) {
-                double lat=47.0946597;
-                double lng=17.9040699;
+                double lat=47.094669;
+                double lng=17.906259;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszpother5))) {
-                double lat=47.0900738;
-                double lng=17.8903271;
+                double lat=47.090083;
+                double lng=17.892516;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.veszpother6))) {
-                double lat=47.0919435;
-                double lng=17.9046887;
+                double lat=47.091949;
+                double lng=17.906879;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             //TIHANY
             else if(placetitle.equals (getResources().getString(R.string.tihanymuseum1))) {
-                double lat=46.9137329;
-                double lng=17.8870437;
+                double lat=46.914028;
+                double lng=17.889674;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.tihanytemplom1))) {
-                double lat=46.9139608;
-                double lng=17.8873191;
+                double lat=46.913966;
+                double lng=17.889508;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.tihanymonuments1))) {
-                double lat=46.9139608;
-                double lng=17.8873191;
+                double lat=46.913856;
+                double lng=17.889450;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.tihanymonuments2))) {
-                double lat=46.9152689;
-                double lng=17.8888649;
+                double lat=46.915193;
+                double lng=17.888701;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.tihanyother2))) {
-                double lat=46.9205442;
-                double lng=17.8516349;
+                double lat=46.920618;
+                double lng=17.853829;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
             else if(placetitle.equals (getResources().getString(R.string.tihanyother4))) {
-                double lat=46.9228656;
-                double lng=17.8790849;
+                double lat=46.923023;
+                double lng=17.879058;
                 LatLng addr = new LatLng(lat, lng);
                 googleMap.addMarker (new MarkerOptions ( )
                                 .position (new LatLng (lat, lng))
                                 .title (placetitle)
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(addr));
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
             }
@@ -2292,71 +1951,49 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7538965, 17.2401481))
                                 .title(getResources().getString(R.string.keszthmonuments1))
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.767877, 17.236742))
                                 .title(getResources().getString(R.string.keszthmonuments2))
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7610521, 17.2483782))
                                 .title(getResources().getString(R.string.keszthmonuments3))
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.765719, 17.243219))
                                 .title(getResources().getString(R.string.keszthmonuments4))
-                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7645622, 17.2402638))
                                 .title(getResources().getString(R.string.keszthtemplom1))
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7701547, 17.2515696))
                                 .title(getResources().getString(R.string.keszthtemplom2))
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
 
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7647133, 17.2436778))
                                 .title(getResources().getString(R.string.keszthtemplom3))
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
 
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.761552, 17.244678))
                                 .title(getResources().getString(R.string.keszthtemplom4))
-                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7657888, 17.2437286))
                                 .title(getResources().getString(R.string.keszthother1))
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.7670602, 17.2426282))
                                 .title(getResources().getString(R.string.keszthother2))
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(46.757526, 17.251271))
                                 .title(getResources().getString(R.string.keszthother3))
-                                .icon(BitmapDescriptorFactory.fromBitmap(othericon))
-                    /*.snippet ("RandomUSer @RandUsi")
-                    .icon (bitmapDescriptorFromVector (this, R.drawable.mk_starred))*/);
+                                .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
 
 
                 mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
@@ -3193,71 +2830,71 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 getLatitudeAndLongitudeFromGoogleMapForAddress(keyword, v, v1);
 
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0968899, 17.9004597))
+                        .position(new LatLng(47.096896, 17.902650))
                         .title(getResources().getString(R.string.veszpmuseum1))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0963527, 17.9010344))
+                        .position(new LatLng(47.096360, 17.903224))
                         .title(getResources().getString(R.string.veszpmuseum2))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0951768, 17.9034555))
+                        .position(new LatLng(47.095182, 17.905642))
                         .title(getResources().getString(R.string.veszpmuseum3))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0960185, 17.9038667))
+                        .position(new LatLng(47.096155, 17.903933))
                         .title(getResources().getString(R.string.veszptemplom1))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0969428, 17.9006188))
+                        .position(new LatLng(47.096950, 17.902806))
                         .title(getResources().getString(R.string.veszptemplom2))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0912095, 17.9029352))
+                        .position(new LatLng(47.091214, 17.905127))
                         .title(getResources().getString(R.string.veszptemplom3))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0969959, 17.9007181))
+                        .position(new LatLng(47.097004, 17.902904))
                         .title(getResources().getString(R.string.veszptemplom4))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.096161, 17.9016633))
+                        .position(new LatLng(47.096169, 17.903852))
                         .title(getResources().getString(R.string.veszptemplom5))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0986044, 17.8855273))
+                        .position(new LatLng(47.098615, 17.887715))
                         .title(getResources().getString(R.string.veszptemplom6))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0947685, 17.9034529))
+                        .position(new LatLng(47.094778, 17.905642))
                         .title(getResources().getString(R.string.veszpmonuments1))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0967623, 17.9004738))
+                        .position(new LatLng(47.096771, 17.902664))
                         .title(getResources().getString(R.string.veszpmonuments2))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.1315369, 17.752226))
+                        .position(new LatLng(47.131837, 17.753536))
                         .title(getResources().getString(R.string.veszpother1))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0964995, 17.9008702))
+                        .position(new LatLng(47.096509, 17.903060))
                         .title(getResources().getString(R.string.veszpother2))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0973491, 17.8940295))
+                        .position(new LatLng(47.097356, 17.896220))
                         .title(getResources().getString(R.string.veszpother3))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0946597, 17.9040699))
+                        .position(new LatLng(47.094669, 17.906259))
                         .title(getResources().getString(R.string.veszpother4))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0900738, 17.8903271))
+                        .position(new LatLng(47.090083, 17.892516))
                         .title(getResources().getString(R.string.veszpother5))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.0919435,17.9046887))
+                        .position(new LatLng(47.091949, 17.906879))
                         .title(getResources().getString(R.string.veszpother6))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
 
@@ -3484,83 +3121,79 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 getLatitudeAndLongitudeFromGoogleMapForAddress(keyword, v, v1);
 
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9032908, 20.3677279))
+                        .position(new LatLng(47.903303, 20.369916))
                         .title(getResources().getString(R.string.egermuseum1))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9006942, 20.3713843))
+                        .position(new LatLng(47.900709, 20.373571))
                         .title(getResources().getString(R.string.egermuseum2))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9040518, 20.3774534))
+                        .position(new LatLng(47.904060, 20.379644))
                         .title(getResources().getString(R.string.egermuseum3))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.8997995, 20.3739947))
+                        .position(new LatLng(47.899806, 20.376183))
                         .title(getResources().getString(R.string.egermuseum4))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9062166, 20.379653))
+                        .position(new LatLng(47.906225, 20.381839))
                         .title(getResources().getString(R.string.egermuseum5))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9040518, 20.3774534))
+                        .position(new LatLng(47.9050028,20.3785702))
                         .title(getResources().getString(R.string.egermuseum6))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9001024, 20.3740198))
+                        .position(new LatLng(47.900109, 20.376209))
                         .title(getResources().getString(R.string.egermuseum7))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.901712, 20.3693688))
+                        .position(new LatLng(47.901714, 20.371557))
                         .title(getResources().getString(R.string.egermuseum8))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.8993289, 20.3710419))
+                        .position(new LatLng(47.899447, 20.373275))
                         .title(getResources().getString(R.string.egertemplom1))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9021424, 20.3752444))
+                        .position(new LatLng(47.902130, 20.377360))
                         .title(getResources().getString(R.string.egertemplom2))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9079947, 20.3681148))
+                        .position(new LatLng(47.908003, 20.370304))
                         .title(getResources().getString(R.string.egertemplom3))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9064777, 20.3750527))
+                        .position(new LatLng(47.906483, 20.377239))
                         .title(getResources().getString(R.string.egertemplom4))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9040518, 20.3774534))
+                        .position(new LatLng(47.904899, 20.379180))
                         .title(getResources().getString(R.string.egermonuments1))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9040518, 20.3774534))
+                        .position(new LatLng(47.904994, 20.379735))
                         .title(getResources().getString(R.string.egermonuments2))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9040262, 20.3782185))
+                        .position(new LatLng(47.904038, 20.380405))
                         .title(getResources().getString(R.string.egermonuments3))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.903957, 20.3776593))
+                        .position(new LatLng(47.9038117,20.380052))
                         .title(getResources().getString(R.string.egermonuments4))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9046631, 20.3741884))
+                        .position(new LatLng(47.904670, 20.376380))
                         .title(getResources().getString(R.string.egermonuments5))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.8983915, 20.382371053698108))
-                        .title(getResources().getString(R.string.egerother2))
-                        .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
-                googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.8984133, 20.3801665))
+                        .position(new LatLng(47.898426, 20.382300))
                         .title(getResources().getString(R.string.egerother3))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.9004949, 20.3660368))
+                        .position(new LatLng(47.900018, 20.368221))
                         .title(getResources().getString(R.string.egerother4))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
@@ -3787,20 +3420,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             //intent.putExtra("key1", lang);
                             startActivity(intent);
                             // Toast.makeText(MapsActivity.this, "Clicked"+marker.getTitle(), Toast.LENGTH_SHORT).show();
-                        }  else if (marker.getTitle().equals(getResources().getString(R.string.egerother2))) {
-                            Intent intent = new Intent(MapsActivity.this, PDescriptionActivity.class);
-                            //String keyword = extra.getString("key");
-                            String keyword1 = getResources().getString(R.string.egeroth2); //""
-                            String placetitle = marker.getTitle();
-                            // Toast.makeText(MapsActivity.this, "Clicked" + marker.getTitle(), Toast.LENGTH_SHORT).show();
-                            // String placetitle = museum3.getText().toString();
-                            intent.putExtra("key", keyword);
-                            intent.putExtra("key1", placetitle);
-                            intent.putExtra("key2", keyword1);
-                            //intent.putExtra("key1", lang);
-                            startActivity(intent);
-                            // Toast.makeText(MapsActivity.this, "Clicked"+marker.getTitle(), Toast.LENGTH_SHORT).show();
-                        } else if (marker.getTitle().equals(getResources().getString(R.string.egerother3))) {
+                        }   else if (marker.getTitle().equals(getResources().getString(R.string.egerother3))) {
                             Intent intent = new Intent(MapsActivity.this, PDescriptionActivity.class);
                             //String keyword = extra.getString("key");
                             String keyword1 = getResources().getString(R.string.egeroth3); //""
@@ -3839,28 +3459,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 if (language.equals("hu") || language.equals("de")) {
                     googleMap.addMarker(new MarkerOptions()
-                            .position(new LatLng(46.9137329, 17.8870437))
+                            .position(new LatLng(46.914028, 17.889674))
                             .title(getResources().getString(R.string.tihanymuseum1))
                             .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 }
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.9139608, 17.8873191))
+                        .position(new LatLng(46.913966, 17.889508))
                         .title(getResources().getString(R.string.tihanytemplom1))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.9139608, 17.8873191))
+                        .position(new LatLng(46.913856, 17.889450))
                         .title(getResources().getString(R.string.tihanymonuments1))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.9152689, 17.8888649))
+                        .position(new LatLng(46.915193, 17.888701))
                         .title(getResources().getString(R.string.tihanymonuments2))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.9205442, 17.8516349))
+                        .position(new LatLng(46.920618, 17.853829))
                         .title(getResources().getString(R.string.tihanyother2))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.9228656, 17.8790849))
+                        .position(new LatLng(46.923023, 17.879058))
                         .title(getResources().getString(R.string.tihanyother4))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
 
@@ -3959,131 +3579,131 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 getLatitudeAndLongitudeFromGoogleMapForAddress(keyword, v, v1);
 
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2501173, 20.1458641))
+                        .position(new LatLng(46.250122, 20.148052))
                         .title(getResources().getString(R.string.szegedmuseum1))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2522423, 20.1489384))
+                        .position(new LatLng(46.252322, 20.152070))
                         .title(getResources().getString(R.string.szegedmuseum2))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2516199, 20.1432357))
+                        .position(new LatLng(46.251626, 20.145421))
                         .title(getResources().getString(R.string.szegedmuseum3))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2518393, 20.137555))
+                        .position(new LatLng(46.251847, 20.139742))
                         .title(getResources().getString(R.string.szegedmuseum4))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2460051, 20.1467269))
+                        .position(new LatLng(46.246010, 20.148913))
                         .title(getResources().getString(R.string.szegedmuseum5))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.252662, 20.149028))
+                        .position(new LatLng(46.252883, 20.152508))
                         .title(getResources().getString(R.string.szegedmuseum6))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2406015, 20.1343618))
+                        .position(new LatLng(46.240605, 20.136553))
                         .title(getResources().getString(R.string.szegedtemplom1))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2489098, 20.1469379))
+                        .position(new LatLng(46.248917, 20.149127))
                         .title(getResources().getString(R.string.szegedtemplom2))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2565648, 20.1322785))
+                        .position(new LatLng(46.256567, 20.149790))
                         .title(getResources().getString(R.string.szegedtemplom3))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2538745, 20.141478))
+                        .position(new LatLng(46.253881, 20.143668))
                         .title(getResources().getString(R.string.szegedtemplom4))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2493521, 20.1475635))
+                        .position(new LatLng(46.249344, 20.150202))
                         .title(getResources().getString(R.string.szegedtemplom5))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2537523, 20.1398553))
+                        .position(new LatLng(46.254381, 20.142581))
                         .title(getResources().getString(R.string.szegedtemplom6))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2526651, 20.1505455))
+                        .position(new LatLng(46.252632, 20.150707))
                         .title(getResources().getString(R.string.szegedmonuments1))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2551466, 20.14817))
+                        .position(new LatLng(46.255166, 20.150281))
                         .title(getResources().getString(R.string.szegedmonuments2))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2542448, 20.1502987))
+                        .position(new LatLng(46.254340, 20.152542))
                         .title(getResources().getString(R.string.szegedmonuments3))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2486067, 20.1463703))
+                        .position(new LatLng(46.248618, 20.148558))
                         .title(getResources().getString(R.string.szegedmonuments4))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.255279, 20.1425635))
+                        .position(new LatLng(46.256393, 20.145992))
                         .title(getResources().getString(R.string.szegedmonuments5))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2563774, 20.1490909))
+                        .position(new LatLng(46.256386, 20.151278))
                         .title(getResources().getString(R.string.szegedmonuments6))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2460051, 20.1467269))
+                        .position(new LatLng(46.246014, 20.148921))
                         .title(getResources().getString(R.string.szegedmonuments7))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2576495, 20.1483944))
+                        .position(new LatLng(46.257660, 20.150582))
                         .title(getResources().getString(R.string.szegedmonuments8))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2476294, 20.1438307))
+                        .position(new LatLng(46.247635, 20.146013))
                         .title(getResources().getString(R.string.szegedmonuments9))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2562191, 20.1490457))
+                        .position(new LatLng(46.256323, 20.148884))
                         .title(getResources().getString(R.string.szegedmonuments10))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2533589, 20.146697))
+                        .position(new LatLng(46.253403, 20.146555))
                         .title(getResources().getString(R.string.szegedmonuments11))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2407471, 20.1341353))
+                        .position(new LatLng(46.240742, 20.136523))
                         .title(getResources().getString(R.string.szegedother1))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2470482, 20.1404639))
+                        .position(new LatLng(46.247050, 20.141941))
                         .title(getResources().getString(R.string.szegedother2))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.249616, 20.1465198))
+                        .position(new LatLng(46.249359, 20.148440))
                         .title(getResources().getString(R.string.szegedother3))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2667839, 20.1067816))
+                        .position(new LatLng(46.266011, 20.107649))
                         .title(getResources().getString(R.string.szegedother4))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2536776, 20.1495615))
+                        .position(new LatLng(46.253562, 20.151951))
                         .title(getResources().getString(R.string.szegedother5))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2582467, 20.1480737))
+                        .position(new LatLng(46.258509, 20.150179))
                         .title(getResources().getString(R.string.szegedother6))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2508192, 20.1213621))
+                        .position(new LatLng(46.251724, 20.118307))
                         .title(getResources().getString(R.string.szegedother7))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2542614, 20.1484052))
+                        .position(new LatLng(46.254436, 20.148101))
                         .title(getResources().getString(R.string.szegedother8))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(46.2483304, 20.1465588))
+                        .position(new LatLng(46.247746, 20.148362))
                         .title(getResources().getString(R.string.szegedother9))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
 
@@ -4519,139 +4139,139 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 getLatitudeAndLongitudeFromGoogleMapForAddress(keyword, v, v1);
 
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6859625, 16.5877292))
+                        .position(new LatLng(47.685981, 16.589924))
                         .title(getResources().getString(R.string.sopronmuseum1))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.68602, 16.589138))
+                        .position(new LatLng(47.685799, 16.591313))
                         .title(getResources().getString(R.string.sopronmuseum2))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6865675, 16.5887225))
+                        .position(new LatLng(47.686534, 16.591185))
                         .title(getResources().getString(R.string.sopronmuseum3))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6861546, 16.5878403))
+                        .position(new LatLng(47.686156, 16.590030))
                         .title(getResources().getString(R.string.sopronmuseum4))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6801243, 16.5757588))
+                        .position(new LatLng(47.679744, 16.576039))
                         .title(getResources().getString(R.string.sopronmuseum5))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6865343, 16.5884332))
+                        .position(new LatLng(47.686567, 16.590913))
                         .title(getResources().getString(R.string.sopronmuseum6))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6865379, 16.5884332))
+                        .position(new LatLng(47.686567, 16.590901))
                         .title(getResources().getString(R.string.sopronmuseum7))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6865675, 16.5887225))
+                        .position(new LatLng(47.686530, 16.591170))
                         .title(getResources().getString(R.string.sopronmuseum8))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6849766, 16.5882953))
+                        .position(new LatLng(47.684986, 16.590485))
                         .title(getResources().getString(R.string.sopronmuseum9))
                         .icon(BitmapDescriptorFactory.fromBitmap(museumicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6767011, 16.5726721))
+                        .position(new LatLng(47.676434, 16.576738))
                         .title(getResources().getString(R.string.soprontemplom1))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6860906, 16.5882303))
+                        .position(new LatLng(47.686095, 16.590418))
                         .title(getResources().getString(R.string.soprontemplom2))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6823196, 16.5877663))
+                        .position(new LatLng(47.682270, 16.590048))
                         .title(getResources().getString(R.string.soprontemplom3))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6842216, 16.5875043))
+                        .position(new LatLng(47.685252, 16.589420))
                         .title(getResources().getString(R.string.soprontemplom4))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6860398, 16.5791263))
+                        .position(new LatLng(47.686005, 16.581807))
                         .title(getResources().getString(R.string.soprontemplom5))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6889156, 16.5903373))
+                        .position(new LatLng(47.689191, 16.592056))
                         .title(getResources().getString(R.string.soprontemplom6))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6827106, 16.5930383))
+                        .position(new LatLng(47.682699, 16.595741))
                         .title(getResources().getString(R.string.soprontemplom7))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6817506, 16.5800903))
+                        .position(new LatLng(47.681764, 16.582261))
                         .title(getResources().getString(R.string.soprontemplom8))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6853287, 16.5894621))
+                        .position(new LatLng(47.685238, 16.591638))
                         .title(getResources().getString(R.string.soprontemplom9))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6888445, 16.5950182))
+                        .position(new LatLng(47.689091, 16.597830))
                         .title(getResources().getString(R.string.soprontemplom10))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6837786, 16.5886713))
+                        .position(new LatLng(47.683724, 16.590293))
                         .title(getResources().getString(R.string.soprontemplom11))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6928676, 16.5743193))
+                        .position(new LatLng(47.693666, 16.578010))
                         .title(getResources().getString(R.string.soprontemplom12))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6801826, 16.5943413))
+                        .position(new LatLng(47.679624, 16.596308))
                         .title(getResources().getString(R.string.soprontemplom13))
                         .icon(BitmapDescriptorFactory.fromBitmap(churchicon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6857246, 16.5875402))
+                        .position(new LatLng(47.685731, 16.589732))
                         .title(getResources().getString(R.string.sopronmonuments1))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6865675, 16.5887225))
+                        .position(new LatLng(47.686575, 16.590924))
                         .title(getResources().getString(R.string.sopronmonuments2))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6826123, 16.5801612))
+                        .position(new LatLng(47.682511, 16.589326))
                         .title(getResources().getString(R.string.sopronmonuments4))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6837866, 16.5860852))
+                        .position(new LatLng(47.683790, 16.588275))
                         .title(getResources().getString(R.string.sopronmonuments5))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6865276, 16.5889952))
+                        .position(new LatLng(47.686541, 16.591183))
                         .title(getResources().getString(R.string.sopronmonuments7))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6863651, 16.5887217))
+                        .position(new LatLng(47.686358, 16.590692))
                         .title(getResources().getString(R.string.sopronmonuments8))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6865439, 16.5888589))
+                        .position(new LatLng(47.686796, 16.591317))
                         .title(getResources().getString(R.string.sopronmonuments9))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6865296, 16.589204))
+                        .position(new LatLng(47.686534, 16.591392))
                         .title(getResources().getString(R.string.sopronmonuments10))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6852996, 16.5882934))
+                        .position(new LatLng(47.685304, 16.590481))
                         .title(getResources().getString(R.string.sopronmonuments11))
                         .icon(BitmapDescriptorFactory.fromBitmap(monumenticon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6843078,16.5857144))
+                        .position(new LatLng(47.684317, 16.587903))
                         .title(getResources().getString(R.string.sopronother1))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6867339, 16.5875822))
+                        .position(new LatLng(47.686738, 16.589770))
                         .title(getResources().getString(R.string.sopronother2))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(47.6771022, 16.5564406))
+                        .position(new LatLng(47.677104, 16.560818))
                         .title(getResources().getString(R.string.sopronother3))
                         .icon(BitmapDescriptorFactory.fromBitmap(othericon)));
 
@@ -5126,11 +4746,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             startActivity(intent);
                             // Toast.makeText(MapsActivity.this, "Clicked"+marker.getTitle(), Toast.LENGTH_SHORT).show();
                         }
-
-                        //return false;
                     }
                 });
-                //  }
 
             }
         }
@@ -5273,13 +4890,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             }
                             else if(cityName.equals("Eger"))
                             {
-                                Location A=new Location("LocationA");
+                                /*Location A=new Location("LocationA");
                                 A.setLatitude(currentLocation.getLatitude());
                                 A.setLongitude(currentLocation.getLongitude());
 
                                 Location B=new Location("LocationB");//Egerszalók koordinátái
                                 B.setLatitude(47.8772783);
-                                B.setLongitude(20.2546512);
+                                B.setLongitude(20.2546512);*/
 
                                 NumberFormat formatter = new DecimalFormat("##.00");
                                 float[] result=new float[1];
@@ -5312,13 +4929,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             }
                             else if(cityName.equals("Pécs"))
                             {
-                                Location A=new Location("LocationA");
+                                /*Location A=new Location("LocationA");
                                 A.setLatitude(currentLocation.getLatitude());
                                 A.setLongitude(currentLocation.getLongitude());
 
                                 Location B=new Location("LocationB");//Harkány koordinátái
                                 B.setLatitude(45.8384895);
-                                B.setLongitude(18.1070513);
+                                B.setLongitude(18.1070513);*/
 
                                 NumberFormat formatter = new DecimalFormat("##.00");
                                 float[] result=new float[1];
@@ -5350,13 +4967,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             }
                             else if(cityName.equals("Sopron"))
                             {
-                                Location A=new Location("LocationA");
+                                /*Location A=new Location("LocationA");
                                 A.setLatitude(currentLocation.getLatitude());
                                 A.setLongitude(currentLocation.getLongitude());
 
                                 Location B=new Location("LocationB");//Fertőrákos koordinátái
                                 B.setLatitude(47.7254102);
-                                B.setLongitude(16.5643462);
+                                B.setLongitude(16.5643462);*/
 
                                 NumberFormat formatter = new DecimalFormat("##.00");
                                 float[] result=new float[1];
@@ -5388,13 +5005,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             }
                             else if(cityName.equals("Tihany"))
                             {
-                                Location A=new Location("LocationA");
+                               /* Location A=new Location("LocationA");
                                 A.setLatitude(currentLocation.getLatitude());
                                 A.setLongitude(currentLocation.getLongitude());
 
                                 Location B=new Location("LocationB");//Balatonfüred koordinátái
                                 B.setLatitude(46.9615058);
-                                B.setLongitude(17.8185803);
+                                B.setLongitude(17.8185803);*/
 
                                 NumberFormat formatter = new DecimalFormat("##.00");
                                 float[] result=new float[1];
@@ -5426,13 +5043,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             }
                             else if(cityName.equals("Szeged"))
                             {
-                                Location A=new Location("LocationA");
+                                /*Location A=new Location("LocationA");
                                 A.setLatitude(currentLocation.getLatitude());
                                 A.setLongitude(currentLocation.getLongitude());
 
                                 Location B=new Location("LocationB");//Mórahalom koordinátái
                                 B.setLatitude(46.2132871);
-                                B.setLongitude(19.9639141);
+                                B.setLongitude(19.9639141);*/
 
                                 NumberFormat formatter = new DecimalFormat("##.00");
                                 float[] result=new float[1];
@@ -5464,13 +5081,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             }
                             else if(cityName.equals("Veszprém"))
                             {
-                                Location A=new Location("LocationA");
+                               /* Location A=new Location("LocationA");
                                 A.setLatitude(currentLocation.getLatitude());
                                 A.setLongitude(currentLocation.getLongitude());
 
                                 Location B=new Location("LocationB");//Balatonalmádi koordinátái
                                 B.setLatitude(47.0853602);
-                                B.setLongitude(17.9109363);
+                                B.setLongitude(17.9109363);*/
 
                                 NumberFormat formatter = new DecimalFormat("##.00");
                                 float[] result=new float[1];
@@ -5504,7 +5121,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             //nyelvnek megfelelő hibaüzenet
                             if(language.equals ("hu"))
                             {
-                                Toast.makeText(MapsActivity.this, "Sajnáljuk, nem tudtuk bemérni a jelenlegi tartózkodási helyét!",
+                                Toast.makeText(MapsActivity.this, "Sajnáljuk, nem tudtuk bemérni a jelenlegi tartózkodási helyét.",
                                         Toast.LENGTH_SHORT).show();}
                             else if(language.equals ("en"))
                             {
@@ -5523,36 +5140,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.e("MapsActivity", "getDeviceLocation: SecurityException: " + e.getMessage());
         }
     }
-
-    /*private void displayNotification(View view) {
-        createNotificationChannel();
-
-        // Create an explicit intent for an Activity in your app
-
-
-        //Create the intent that’ll fire when the user taps the notification//
-
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.heviz.hu/hu"));
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
-        //mBuilder.setContentIntent(pendingIntent);
-        //értesítés küldése
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,CHANNEL_ID)
-                .setSmallIcon(R.drawable.museumicon)
-                .setContentTitle("My notification")
-                .setContentText("Much longer text that cannot fit one line...")
-                .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText("Much longer text that cannot fit one line..."))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText("jasbckjsacachlj javjskvjsalifjsl hvkahvjashva lahvjlasvhashv"))
-                .setContentIntent(pendingIntent)
-                .setAutoCancel(true);
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-
-        // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(NOTIFICATION_ID, builder.build());
-    }*/
     private void createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library

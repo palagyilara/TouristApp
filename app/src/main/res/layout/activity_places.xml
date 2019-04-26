@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/placestitle"
-        android:layout_width="246dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -19,7 +19,7 @@
         android:text="@string/placestitle"
         android:textAlignment="center"
         android:textColor="#FF009688"
-        android:textSize="35sp"
+        android:textSize="@dimen/choose_size"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="459dp"
+        android:layout_height="@dimen/dict_size"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -40,7 +40,7 @@
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="446dp"
+            android:layout_height="match_parent"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
@@ -58,18 +58,18 @@
 
                 <TextView
                     android:id="@+id/museums"
-                    android:layout_width="222dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:text="@string/museums"
                     android:textAlignment="inherit"
                     android:textColor="#FF009688"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/text_size" />
 
                 <Button
                     android:id="@+id/museum1"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -85,7 +85,7 @@
                 <Button
                     android:id="@+id/museum2"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -101,7 +101,7 @@
                 <Button
                     android:id="@+id/museum3"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -117,7 +117,7 @@
                 <Button
                     android:id="@+id/museum4"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:backgroundTint="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -133,7 +133,7 @@
                 <Button
                     android:id="@+id/museum5"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -149,7 +149,7 @@
                 <Button
                     android:id="@+id/museum6"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -165,7 +165,7 @@
                 <Button
                     android:id="@+id/museum7"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -181,7 +181,7 @@
                 <Button
                     android:id="@+id/museum8"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -197,7 +197,7 @@
                 <Button
                     android:id="@+id/museum9"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -212,18 +212,18 @@
 
                 <TextView
                     android:id="@+id/monuments"
-                    android:layout_width="222dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:text="@string/monuments"
                     android:textAlignment="inherit"
                     android:textColor="#FF009688"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/text_size" />
 
                 <Button
                     android:id="@+id/monuments1"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -239,7 +239,7 @@
                 <Button
                     android:id="@+id/monuments2"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -255,7 +255,7 @@
                 <Button
                     android:id="@+id/monuments3"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -271,7 +271,7 @@
                 <Button
                     android:id="@+id/monuments4"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -287,7 +287,7 @@
                 <Button
                     android:id="@+id/monuments5"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -303,7 +303,7 @@
                 <Button
                     android:id="@+id/monuments6"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -319,7 +319,7 @@
                 <Button
                     android:id="@+id/monuments7"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -335,7 +335,7 @@
                 <Button
                     android:id="@+id/monuments8"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -351,7 +351,7 @@
                 <Button
                     android:id="@+id/monuments9"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -367,7 +367,7 @@
                 <Button
                     android:id="@+id/monuments10"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -383,7 +383,7 @@
                 <Button
                     android:id="@+id/monuments11"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -398,18 +398,18 @@
 
                 <TextView
                     android:id="@+id/churches"
-                    android:layout_width="222dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:text="@string/churches"
                     android:textAlignment="inherit"
                     android:textColor="#FF009688"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/text_size" />
 
                 <Button
                     android:id="@+id/templom1"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -425,7 +425,7 @@
                 <Button
                     android:id="@+id/templom2"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -441,7 +441,7 @@
                 <Button
                     android:id="@+id/templom3"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -457,7 +457,7 @@
                 <Button
                     android:id="@+id/templom4"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -473,7 +473,7 @@
                 <Button
                     android:id="@+id/templom5"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -489,7 +489,7 @@
                 <Button
                     android:id="@+id/templom6"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -505,7 +505,7 @@
                 <Button
                     android:id="@+id/templom7"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -521,7 +521,7 @@
                 <Button
                     android:id="@+id/templom8"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -537,7 +537,7 @@
                 <Button
                     android:id="@+id/templom9"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -553,7 +553,7 @@
                 <Button
                     android:id="@+id/templom10"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -569,7 +569,7 @@
                 <Button
                     android:id="@+id/templom11"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -585,7 +585,7 @@
                 <Button
                     android:id="@+id/templom12"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -601,7 +601,7 @@
                 <Button
                     android:id="@+id/templom13"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -617,18 +617,18 @@
 
                 <TextView
                     android:id="@+id/other"
-                    android:layout_width="222dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:text="@string/other"
                     android:textAlignment="inherit"
                     android:textColor="#FF009688"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/text_size" />
 
                 <Button
                     android:id="@+id/other1"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -644,7 +644,7 @@
                 <Button
                     android:id="@+id/other2"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -660,7 +660,7 @@
                 <Button
                     android:id="@+id/other3"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -676,7 +676,7 @@
                 <Button
                     android:id="@+id/other4"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -692,7 +692,7 @@
                 <Button
                     android:id="@+id/other5"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -708,7 +708,7 @@
                 <Button
                     android:id="@+id/other6"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -724,7 +724,7 @@
                 <Button
                     android:id="@+id/other7"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -740,7 +740,7 @@
                 <Button
                     android:id="@+id/other8"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"
@@ -756,7 +756,7 @@
                 <Button
                     android:id="@+id/other9"
                     android:layout_width="match_parent"
-                    android:layout_height="82dp"
+                    android:layout_height="@dimen/placebtn_size"
                     android:layout_marginBottom="5dp"
                     android:background="#9f9f9f"
                     android:fontFamily="@font/pistara"

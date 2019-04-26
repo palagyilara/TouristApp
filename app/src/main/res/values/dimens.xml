@@ -64,4 +64,5 @@
     <!--Result Screen Land-->
     <dimen name="popup_text_padding_land">0dp</dimen>
     <dimen name="popup_button_marginButtom_land">8dp</dimen>
+
 </resources>

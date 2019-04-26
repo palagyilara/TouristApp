@@ -22,16 +22,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Locale;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -39,15 +29,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-import cz.msebera.android.httpclient.HttpResponse;
-import cz.msebera.android.httpclient.client.methods.HttpGet;
-import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
 import io.paperdb.Paper;
-
-import static com.example.laura.touristapp.DatabaseHandler.CITYINFO_DE;
-import static com.example.laura.touristapp.DatabaseHandler.CITYINFO_EN;
-import static com.example.laura.touristapp.DatabaseHandler.CITYINFO_HU;
-import static com.example.laura.touristapp.DatabaseHandler.CITYNAME;
 import static com.example.laura.touristapp.DatabaseHandler.CITYNAME1;
 import static com.example.laura.touristapp.DatabaseHandler.PLACENAME_DE;
 import static com.example.laura.touristapp.DatabaseHandler.PLACENAME_EN;
@@ -56,7 +38,6 @@ import static com.example.laura.touristapp.DatabaseHandler.SIGHTINFO_DE;
 import static com.example.laura.touristapp.DatabaseHandler.SIGHTINFO_EN;
 import static com.example.laura.touristapp.DatabaseHandler.SIGHTINFO_HU;
 import static com.example.laura.touristapp.DatabaseHandler.TABLE1_NAME;
-import static com.example.laura.touristapp.DatabaseHandler.TABLE_NAME;
 
 public class PDescriptionActivity extends AppCompatActivity {
 
@@ -76,7 +57,6 @@ public class PDescriptionActivity extends AppCompatActivity {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_pdescription);
         Bundle extra = getIntent().getExtras ();
-        //String text = extra.getString(MainActivity.TAG_TEXT);
         String placetitle = extra.getString ("key1");
         final String keyword1 = extra.getString ("key2");
         final String keyword = extra.getString ("key");
@@ -97,11 +77,7 @@ public class PDescriptionActivity extends AppCompatActivity {
                 @Override
                 public void onInit(int initStatus) {
                     if (initStatus == TextToSpeech.SUCCESS) {
-                        // if (tts.isLanguageAvailable(Locale.UK) == TextToSpeech.LANG_AVAILABLE) {
                         int result = tts.setLanguage(Locale.UK);
-                        //tts.setLanguage(Locale.UK);
-                        //Toast.makeText(PDescriptionActivity.this, "Angol beszéd kész", Toast.LENGTH_LONG).show();
-                        //tts.setLanguage(Locale.GERMANY);
                         if (result == TextToSpeech.LANG_MISSING_DATA
                                 || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                             Log.e("TTS", "The Language is not supported!");
@@ -140,11 +116,6 @@ public class PDescriptionActivity extends AppCompatActivity {
                 public void onInit(int initStatus) {
                     if (initStatus == TextToSpeech.SUCCESS) {
                         int result = tts.setLanguage(Locale.GERMAN);
-                        //int result = tts.setLanguage(new Locale("de_AT"));
-                        //if (tts.isLanguageAvailable(Locale.GERMANY) == TextToSpeech.LANG_AVAILABLE) {
-                        //  tts.setLanguage(Locale.UK);
-                        // tts.setLanguage(Locale.GERMANY);
-                        //Toast.makeText(PDescriptionActivity.this, "Német beszéd kész", Toast.LENGTH_LONG).show();
                         if (result == TextToSpeech.LANG_MISSING_DATA
                                 || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                             Log.e("TTS", "The Language is not supported!");
@@ -152,16 +123,11 @@ public class PDescriptionActivity extends AppCompatActivity {
                             installIntent.setAction(
                                     TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
                             startActivity(installIntent);
-                            /*Intent checkTTSIntent = new Intent();
-                            checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-                            startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);*/
                         } else {
                             Log.i("TTS", "Language Supported.");
 
                         }
                         Log.i("TTS", "Initialization success.");
-                        //  }
-                        // tts.setLanguage(Locale.UK);
                     } else if (initStatus == TextToSpeech.ERROR) {
                         Toast.makeText(PDescriptionActivity.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
                     }
@@ -183,7 +149,6 @@ public class PDescriptionActivity extends AppCompatActivity {
         }
         else if(language.equals("hu"))
         {
-            //speakbtn.setVisibility(View.INVISIBLE);
             tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
 
                 @Override
@@ -601,35 +566,27 @@ public class PDescriptionActivity extends AppCompatActivity {
             String placetitle = extra.getString ("key1");
             String language = Paper.book().read("language");
             try{
-                //System.out.println(text1+text2);
                 super.onPostExecute(result);
                 progressBar.setVisibility(View.GONE);
                 if(text2!=null && text1!=null){ text1=text1+text2;
                     txtData.setText(Html.fromHtml(text1));
                 }
                 else {txtData.setText(Html.fromHtml(text1));}
-                //txtData1.setText(words1);
 
                 ContentValues values = new ContentValues();
-                //Toast.makeText(ContentActivity.this, "hiba!", Toast.LENGTH_LONG).show();
                 if (language.equals("hu")) {
-                    //String infohu = txtWikiData.getText().toString();
                     String infohu=text1;
                     values.put(SIGHTINFO_HU, infohu);
                     values.put(PLACENAME_HU, placetitle);
                     addData(keyword, placetitle,null,null,infohu, null, null);
                 } else if (language.equals("en")) {
-                    //String infoen = txtWikiData.getText().toString();
                     String infoen=text1;
                     values.put(PLACENAME_EN, placetitle);
-                    // ContentValues values = new ContentValues();
                     values.put(SIGHTINFO_EN, infoen);
                     addData(keyword,null,placetitle,null, null, infoen, null);
                 } else if (language.equals("de")) {
-                    //String infode = txtWikiData.getText().toString();
                     String infode=text1;
                     values.put(PLACENAME_DE, placetitle);
-                    // ContentValues values = new ContentValues();
                     values.put(SIGHTINFO_DE, infode);
                     addData(keyword, null,null,placetitle,null, null, infode);
                 }
@@ -640,92 +597,47 @@ public class PDescriptionActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
                 db = databaseHandler.getReadableDatabase();
                 if (language.equals("hu")) {
-                    //Cursor cursor = db.query(DatabaseHandler.TABLE_NAME, new String[] { "cityname","cityinfohu","cityinfoen","cityinfode" },null, null, null, null, null);
                     Cursor cursor = db.rawQuery(" SELECT * FROM " + TABLE1_NAME + " WHERE " + PLACENAME_HU + " = ? and "+CITYNAME1+" = ?" , new String[]{placetitle,keyword});
-                    //try {
                         if (cursor.moveToNext()) {
-                            //do {
+
                                 String cityname=cursor.getString(cursor.getColumnIndex("cityname"));
                                 String infohu = cursor.getString(cursor.getColumnIndex("sightinfohu")); // Here you can get data from table and stored in string if it has only one string.
                                 text1 = infohu;
                                 txtData.setText(Html.fromHtml(text1));
 
-                            } //cursor.close();
-                            //while (cursor.moveToNext());
-                      //  }
+                            }
                         else {
-                            //progressBar.setVisibility(View.GONE);
+
                             Toast.makeText(PDescriptionActivity.this, "Kapcsolja be a wifi-t!", Toast.LENGTH_LONG).show();
                         }
-                    /*}
-                    catch(NullPointerException e1){
-                        //progressBar.setVisibility(View.GONE);
-                        Toast.makeText(PDescriptionActivity.this, "Kapcsolja be a wifi-t!", Toast.LENGTH_LONG).show();
-                    }
-                    finally {
-                        cursor.close();
-                    }*/
-                    /*if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
-                    }
-                    if (db != null) {
-                        db.close();
-                    }*/
 
                 } else if (language.equals("en")) {
                     Cursor cursor = db.rawQuery(" SELECT * FROM " + TABLE1_NAME + " WHERE " + PLACENAME_EN + " = ? and "+CITYNAME1+" = ?" , new String[]{placetitle,keyword});
-                    //try {
                     if (cursor.moveToNext()) {
                                 String cityname=cursor.getString(cursor.getColumnIndex("cityname"));
                                 String infoen = cursor.getString(cursor.getColumnIndex("sightinfoen")); // Here you can get data from table and stored in string if it has only one string.
                                 text1 = infoen;
                                 txtData.setText(Html.fromHtml(text1));
 
-                           // } //while (cursor.moveToNext());
                         }
                         else {
-                            //progressBar.setVisibility(View.GONE);
+
                             Toast.makeText(PDescriptionActivity.this, "Turn wifi on!", Toast.LENGTH_LONG).show();
                         }
-                   /* }
-                    catch(NullPointerException e1){
-                       // progressBar.setVisibility(View.GONE);
-                        Toast.makeText(PDescriptionActivity.this, "Turn wifi on!", Toast.LENGTH_LONG).show();
-                    }
-                    finally {
-                        cursor.close();
-                    }*/
-                    /*if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
-                    }
-                    if (db != null) {
-                        db.close();
-                    }*/
 
                 } else if (language.equals("de")) {
                     Cursor cursor = db.rawQuery(" SELECT * FROM " + TABLE1_NAME + " WHERE " + PLACENAME_DE + " = ? and "+CITYNAME1+" = ?" , new String[]{placetitle,keyword});
-                    //try{
                     if (cursor.moveToNext()) {
-                       // do {
+
                             String cityname=cursor.getString(cursor.getColumnIndex("cityname"));
                             String infode = cursor.getString(cursor.getColumnIndex("sightinfode")); // Here you can get data from table and stored in string if it has only one string.
                             text1 = infode;
                             txtData.setText(Html.fromHtml(text1));
-
-                      //  } while (cursor.moveToNext());
                     }
                     else {
-                        //progressBar.setVisibility(View.GONE);
                         Toast.makeText(PDescriptionActivity.this, "Wifi einschalten!", Toast.LENGTH_LONG).show();
                     }
-               /* }
-                    catch(NullPointerException e1){
-                        //progressBar.setVisibility(View.GONE);
-                        Toast.makeText(PDescriptionActivity.this, "Turn wifi on!/de", Toast.LENGTH_LONG).show();
-                    }
-                    finally {
-                        cursor.close();
-                    }*/
+
                 }
             }
 
@@ -738,9 +650,6 @@ public class PDescriptionActivity extends AppCompatActivity {
          String keyword = extra.getString("key");
         SQLiteDatabase db;
         db = databaseHandler.getReadableDatabase ( );
-        //try {
-       // /Toast.makeText (PDescriptionActivity.this, "ellenőrzés!", Toast.LENGTH_SHORT).show ( );
-        //db.getReadableDatabase();
         Cursor cursor = null;
         if (language.equals ("hu") ) {
             String query = "select * from sightinfos where pnamehu = ? and cityname= ?";
@@ -763,7 +672,6 @@ public class PDescriptionActivity extends AppCompatActivity {
 
     public void addData(String keyword, String pnamehu,String pnameen,String pnamede,String infohu, String infoen, String infode) {
         String language = Paper.book ( ).read ("language");
-        //Toast.makeText (PDescriptionActivity.this, "adddata!", Toast.LENGTH_SHORT).show ( );
         if (CheckIsDataAlreadyInDBorNot ( ) == false) {
             //perform inserting
             //Toast.makeText (PDescriptionActivity.this, "insert!", Toast.LENGTH_SHORT).show ( );

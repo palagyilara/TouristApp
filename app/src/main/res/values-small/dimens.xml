@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="choose_size">28sp</dimen>
+    <dimen name="cityname_size">35sp</dimen>
+    <dimen name="height_size">410dp</dimen>
+    <dimen name="citybtn_size">149dp</dimen>
+    <dimen name="citytitle_size">10sp</dimen>
+    <dimen name="scroll_size">390dp</dimen>
+    <dimen name="text_size">12sp</dimen>
+    <dimen name="wikitext_size">12sp</dimen>
+
+</resources>
