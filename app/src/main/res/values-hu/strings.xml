@@ -27,7 +27,7 @@
     <string name="title_activity_maps">Map</string>
 
     <string name="notiftitle">Közelében egyéb látnivalók</string>
-    <string name="distance">Ennyi távolságra van:</string>
+    <string name="distance">A település távolsága: </string>
     <string name="notiftext">További információkat tudhat meg, ha az értesítésre kattint!</string>
 
     <string name="lets_see">Lássuk mennyire ismeri a várost!</string>
