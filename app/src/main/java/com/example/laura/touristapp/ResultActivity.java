@@ -121,7 +121,7 @@ public class ResultActivity extends AppCompatActivity {
         }
         else {
             String congrats = getString(R.string.congrats2);
-            nameTextView.setText(String.format(congrats,playerName));
+            nameTextView.setText(String.format(congrats,""));
             //:( fej
             cimerek.setBackground(ResourcesCompat.getDrawable(getResources(), R.mipmap.sad, null));
         }

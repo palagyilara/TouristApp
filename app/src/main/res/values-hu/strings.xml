@@ -16,9 +16,7 @@
 
     <string name="keszthely">Keszthely</string><!--kész-->
     <string name="pecs">Pécs</string><!--kész-->
-    <string name="nyiregyhaza">Nyíregyháza</string>
     <string name="veszprem">Veszprém</string><!--kész-->
-    <string name="mohacs">Mohács</string>
     <string name="szeged">Szeged</string><!--kész-->
     <string name="tihany">Tihany</string><!--kész-->
     <string name="sopron">Sopron</string><!--kész-->
@@ -43,9 +41,9 @@
     <string name="Q">q</string>
 
     <!--Popup-->
-    <string name="congrats">Gratulálunk, %s</string>
-    <string name="congrats1">Jól van %s</string>
-    <string name="congrats2">Ez most nem sikerült %s</string>
+    <string name="congrats">Gratulálunk, %s!</string>
+    <string name="congrats1">Jól van %s!</string>
+    <string name="congrats2">Nem sikerült %s</string>
     <string name="score_text">Eredmény: </string>
     <string name="score_number">X</string>
     <string name="out_of">%d-ből ennyit talált el: %d</string>
