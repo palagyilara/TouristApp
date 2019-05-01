@@ -8,6 +8,7 @@
     <dimen name="scroll_size">470dp</dimen>
     <dimen name="pdescr_size">396dp</dimen>
     <dimen name="text_size">15sp</dimen>
+    <dimen name="text_size1">13sp</dimen>
     <dimen name="wikitext_size">15sp</dimen>
     <dimen name="mapbtn_size">40dp</dimen>
     <dimen name="dict_size">459dp</dimen>

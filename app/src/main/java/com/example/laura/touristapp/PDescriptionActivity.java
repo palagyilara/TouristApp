@@ -33,6 +33,8 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import io.paperdb.Paper;
+
+import static android.view.View.GONE;
 import static com.example.laura.touristapp.DatabaseHandler.CITYNAME1;
 import static com.example.laura.touristapp.DatabaseHandler.PLACENAME_DE;
 import static com.example.laura.touristapp.DatabaseHandler.PLACENAME_EN;
@@ -46,8 +48,8 @@ public class PDescriptionActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        String language = Paper.book().read("language");
-        super.attachBaseContext(LocaleHelper.onAttach(newBase, language));
+        //String language = Paper.book().read("language");
+        super.attachBaseContext(LocaleHelper.onAttach(newBase, "hu"));
     }
 
     private TextView txtData;
@@ -111,6 +113,8 @@ public class PDescriptionActivity extends AppCompatActivity {
                     int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
                     if (speechStatus == TextToSpeech.ERROR) {
+                       // speakbtn.setVisibility(GONE);
+                        Toast.makeText(PDescriptionActivity.this, "Sorry, it's not listenable!", Toast.LENGTH_LONG).show();
                         Log.e("TTS", "Error in converting Text to Speech!");
                     }
                 }
@@ -149,6 +153,9 @@ public class PDescriptionActivity extends AppCompatActivity {
                     int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
                     if (speechStatus == TextToSpeech.ERROR) {
+                        //speakbtn.setVisibility(GONE);
+                        Toast.makeText(PDescriptionActivity.this, "\n" +
+                                "Es tut mir leid, das kannst du nicht hören", Toast.LENGTH_LONG).show();
                         Log.e("TTS", "Error in converting Text to Speech!");
                     }
 
@@ -192,6 +199,8 @@ public class PDescriptionActivity extends AppCompatActivity {
                     int speechStatus = tts.speak(data, TextToSpeech.QUEUE_FLUSH, null);
 
                     if (speechStatus == TextToSpeech.ERROR) {
+                        //speakbtn.setVisibility(GONE);
+                        Toast.makeText(PDescriptionActivity.this, "Sajnáljuk, ez nem hallgatható meg!", Toast.LENGTH_LONG).show();
                         Log.e("TTS", "Error in converting Text to Speech!");
                     }
 
@@ -575,7 +584,7 @@ public class PDescriptionActivity extends AppCompatActivity {
             String language = Paper.book().read("language");
             try{
                 super.onPostExecute(result);
-                progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(GONE);
                 if(text2!=null && text1!=null){ text1=text1+text2;
                     txtData.setText(Html.fromHtml(text1));
                 }
@@ -602,7 +611,7 @@ public class PDescriptionActivity extends AppCompatActivity {
             }
             catch (Exception e) {
                 //Toast.makeText (PDescriptionActivity.this, "Wifi", Toast.LENGTH_SHORT).show ( );
-                progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(GONE);
                 db = databaseHandler.getReadableDatabase();
                 if (language.equals("hu")) {
                     Cursor cursor = db.rawQuery(" SELECT * FROM " + TABLE1_NAME + " WHERE " + PLACENAME_HU + " = ? and "+CITYNAME1+" = ?" , new String[]{placetitle,keyword});

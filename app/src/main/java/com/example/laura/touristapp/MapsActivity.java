@@ -50,8 +50,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        String language = Paper.book().read("language");
-        super.attachBaseContext(LocaleHelper.onAttach(newBase, language));
+        //String language = Paper.book().read("language");
+        super.attachBaseContext(LocaleHelper.onAttach(newBase, "hu"));
     }
 
 

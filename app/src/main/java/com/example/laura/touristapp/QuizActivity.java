@@ -21,8 +21,8 @@ public class QuizActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        String language = Paper.book().read("language");
-        super.attachBaseContext(LocaleHelper.onAttach(newBase, language));
+       // String language = Paper.book().read("language");
+        super.attachBaseContext(LocaleHelper.onAttach(newBase, "hu"));
     }
 
     private final String STATE_PLAYER_NAME = "PLAYER_NAME";

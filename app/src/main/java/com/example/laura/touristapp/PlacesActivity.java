@@ -18,8 +18,8 @@ public class PlacesActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        String language = Paper.book().read("language");
-        super.attachBaseContext(LocaleHelper.onAttach(newBase, language));
+        //String language = Paper.book().read("language");
+        super.attachBaseContext(LocaleHelper.onAttach(newBase, "hu"));
     }
 
     Button templom1;
