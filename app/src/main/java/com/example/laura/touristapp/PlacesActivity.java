@@ -1,5 +1,6 @@
 package com.example.laura.touristapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,11 +8,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.laura.touristapp.Helper.LocaleHelper;
+
 import io.paperdb.Paper;
 
 import static android.view.View.GONE;
 
 public class PlacesActivity extends AppCompatActivity {
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        String language = Paper.book().read("language");
+        super.attachBaseContext(LocaleHelper.onAttach(newBase, language));
+    }
 
     Button templom1;
     Button templom2;

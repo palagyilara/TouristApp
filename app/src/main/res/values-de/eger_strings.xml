@@ -22,8 +22,6 @@
     <string name="egermonuments5">Minarett </string>
 
     <string name="egerother3">Türkisches Bad </string>
-    <string name="egerother2">Schlösserwand</string>
-    <!--<string name="egerother1">Hochwasserschilder </string>-->
     <string name="egerother4">Zsolnay-Brunnen </string>
 
     <string name="egermus1">museen/beatles-museum-1</string>
@@ -46,8 +44,6 @@
     <string name="egermon4">burg-von-eger/kalvarienhugel</string>
     <string name="egermon5">turkische-andenken/minarett</string>
 
-    <!--<string name="egeroth1">interessantes/hochwasserschilder</string>-->
-    <string name="egeroth2">interessantes/schlosserwand</string>
     <string name="egeroth3">turkische-andenken/turkisches-bad</string>
     <string name="egeroth4">interessantes/zsolnay-brunnen</string>
 

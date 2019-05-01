@@ -23,7 +23,6 @@
 
     <string name="egerother3">Turkish bath </string>
     <string name="egerother2">Padlock wall </string>
-    <!--<string name="egerother1">Flood signs </string>-->
     <string name="egerother4">Zsolnay fountain </string>
 
     <string name="egermus1">museums/beatles-museum</string>
@@ -46,8 +45,6 @@
     <string name="egermon4">castle-of-eger/calvary-hill</string>
     <string name="egermon5">turkish-memories/minaret-1</string>
 
-    <!--<string name="egeroth1">curiosities/flood-signs</string>-->
-    <string name="egeroth2">curiosities/padlock-wall</string>
     <string name="egeroth3">turkish-memories/turkish-bath</string>
     <string name="egeroth4">curiosities/zsolnay-fountain</string>
 

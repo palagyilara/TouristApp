@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="veszpwebpage">Resource: www.veszpreminfo.hu/lang/en</string>
-
     <string name="veszpmuseum3">Heroes\' Gate</string>
     <string name="veszpmuseum2">Dubniczay Palace </string>
     <string name="veszpmuseum1">Beatified Gizella Diocese Collection </string>

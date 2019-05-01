@@ -9,12 +9,15 @@
     <string name="citytitle">über die Stadt</string>
     <string name="wikipedia">Ressource: Wikipedia/de</string>
     <string name="search">Wort- oder Satzsuche</string>
+    <string name="placestitle">Sehenswürdigkeiten</string>
+    <string name="museums">Museen</string>
+    <string name="churches">Kirchen</string>
+    <string name="monuments">Denkmäler</string>
+    <string name="other">Andere</string>
 
     <string name="keszthely">Keszthely</string><!--kész-->
     <string name="pecs">Pécs</string><!--kész-->
-    <string name="nyiregyhaza">Nyíregyháza</string>
     <string name="veszprem">Veszprém</string><!--kész-->
-    <string name="mohacs">Mohács</string>
     <string name="szeged">Szeged</string><!--kész-->
     <string name="tihany">Tihany</string><!--kész-->
     <string name="sopron">Sopron</string><!--kész-->
@@ -31,11 +34,6 @@
     <string name="no">Nein &#160; - &#160; </string>
     <string name="howmuch">Was kostet das? &#160; - &#160; </string>
     <string name="where">Wo finde ich &#8230;? &#160; - &#160; </string>
-    <string name="placestitle">Sehenswürdigkeiten</string>
-    <string name="museums">Museen</string>
-    <string name="churches">Kirchen</string>
-    <string name="monuments">Denkmäler</string>
-    <string name="other">Andere</string>
 
     <string name="jr">Jó reggelt!</string>
     <string name="jn">Jó napot!</string>
@@ -54,23 +52,23 @@
     <string name="notiftext">Für weitere Informationen klicken Sie auf die Benachrichtigung!</string>
 
     <string name="lets_see">Mal sehen, wie gut du die Stadt kennst!</string>
-    <string name="name">GIB DEINEN NAMEN EIN</string>
+    <string name="name">GEBEN SIE IHREN NAME AN</string>
     <string name="player_name">player name</string>
     <string name="player_score">score</string>
-    <string name="button_start">start</string>
+    <string name="button_start">Starten</string>
     <string name="button_start_new">neues Spiel</string>
-    <string name="button_submit">Einreichen</string>
+    <string name="button_submit">Fertig</string>
     <string name="contentDescription">yellow background</string>
     <string name="validation_emptyName">Name darf nicht leer sein</string>
-    <string name="validation_error">Nicht alle Fragen wurden beantwortet</string>
+    <string name="validation_error">Sie haben nicht alle Fragen beantwortet</string>
     <string name="Q">q</string>
 
     <!--Popup-->
-    <string name="congrats">Glückwunsch, %s!</string>
-    <string name="congrats1">Gut %s</string>
-    <string name="congrats2">versuche es erneut %s</string>
-    <string name="score_text">Ergebnis: </string>
+    <string name="congrats">Gratuliere, %s!</string>
+    <string name="congrats1">Gut gemacht %s!</string>
+    <string name="congrats2">Nicht gelungen %s</string>
+    <string name="score_text">das Ergebnis: </string>
     <string name="score_number">X</string>
-    <string name="out_of">Sie haben %d von %d Fragen richtig beantwortet</string>
+    <string name="out_of">Er hat %d von %d Fragen richtig beantwortet</string>
 
 </resources>

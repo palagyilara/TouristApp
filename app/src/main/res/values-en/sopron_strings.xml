@@ -35,7 +35,6 @@
     <string name="sopronmonuments11">Zichy-Meskó Palace </string>
     <string name="sopronmonuments10">Town Hall </string>
     <string name="sopronmonuments8">Holy Trinity Statue </string>
-    <!--<string name="sopronmonuments3">Picnic memorial  - Breakthrough </string>-->
 
     <string name="sopronother1">Petőfi Theater </string>
     <string name="sopronother3">Taródi castle</string>
@@ -67,7 +66,6 @@
 
     <string name="soprmon1">historical-monuments/bezeredj-house.html</string>
     <string name="soprmon2">historical-monuments/fabricius-house.html</string>
-    <!--<string name="soprmon3">statues/picnic-memorial-breakrthrough.html</string>-->
     <string name="soprmon4">historical-monuments/post-palace.html</string>
     <string name="soprmon5">historical-monuments/old-casino.html</string>
     <string name="soprmon7">historical-monuments/storno-house.html</string>

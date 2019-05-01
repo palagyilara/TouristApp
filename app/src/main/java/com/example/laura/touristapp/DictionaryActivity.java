@@ -28,6 +28,8 @@ import com.google.cloud.translate.TranslateOptions;
 import com.google.cloud.translate.Translation;*/
 
 
+import com.example.laura.touristapp.Helper.LocaleHelper;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -43,6 +45,13 @@ import io.paperdb.Paper;
  * A placeholder fragment containing a simple view.
  */
 public class DictionaryActivity extends AppCompatActivity{
+
+	@Override
+	protected void attachBaseContext(Context newBase) {
+		String language = Paper.book().read("language");
+		super.attachBaseContext(LocaleHelper.onAttach(newBase, language));
+	}
+
 	private TextToSpeech tts;
 	EditText word;
 	TextView text;
@@ -485,10 +494,10 @@ public class DictionaryActivity extends AppCompatActivity{
 							});
 				}
 				else if(language.equals ("de")){
-					builder.setMessage("Wifi einschalten!");
+					builder.setMessage("Schalten Sie Ihr  Wlan ein!");
 					builder.setCancelable(true);
 					builder.setPositiveButton (
-							"ERNEUT VERSUCHEN",
+							"VERSUCHEN SIE ES NOCH EINMAL",
 							new DialogInterface.OnClickListener ( ) {
 								public void onClick(DialogInterface dialog, int id) {
 									dialog.cancel ( );

@@ -27,7 +27,6 @@
     <string name="pecsmonuments3">Equestrian Statue of János Hunyadi </string>
     <string name="pecsmonuments4">Statue of Lajos Kossuth </string>
     <string name="pecsmonuments10">Zsolnay fountain </string>
-    <!--<string name="pecsmonuments8">Eternal Flame Monument </string>-->
     <string name="pecsmonuments9">Statue of the Holy Trinity </string>
     <string name="pecsmonuments7">Early Christian Mausoleum </string>
 
@@ -65,7 +64,6 @@
     <string name="pecsmon5">cathedralandbishophric/medieval-university.html</string>
     <string name="pecsmon6">cathedralandbishophric/statue-of-ferenc-liszt.html</string>
     <string name="pecsmon7">unesco-world-heritage/early-christian-mausoleum.html</string>
-    <!--<string name="pecsmon8">statues-fountains/eternal-flame-monument.html</string>-->
     <string name="pecsmon9">statues-fountains/statue-of-the-holy-trinity.html</string>
     <string name="pecsmon10">zsolnay-tradition/zsolnay-fountain.html</string>
 

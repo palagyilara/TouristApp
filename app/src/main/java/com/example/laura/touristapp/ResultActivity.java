@@ -1,5 +1,6 @@
 package com.example.laura.touristapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.res.ResourcesCompat;
@@ -10,9 +11,18 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.laura.touristapp.Helper.LocaleHelper;
+
 import io.paperdb.Paper;
 
 public class ResultActivity extends AppCompatActivity {
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        String language = Paper.book().read("language");
+        super.attachBaseContext(LocaleHelper.onAttach(newBase, language));
+    }
+
    private final String STATE_PLAYER_NAME = "PLAYER_NAME";
     private final String STATE_SCORE = "SCORE";
     private final int NUMBER_OF_QUESTIONS = 10;

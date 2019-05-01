@@ -36,7 +36,8 @@ public class ContentActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleHelper.onAttach(newBase, "hu"));
+        String language = Paper.book().read("language");
+        super.attachBaseContext(LocaleHelper.onAttach(newBase, language));
     }
 
     private TextView txtWikiData;
@@ -185,6 +186,7 @@ public class ContentActivity extends AppCompatActivity {
                     text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                             .replaceAll("<span id=\"Képek_Egerről\">(.+?)</span>", "")
                             .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                            .replaceAll("<ul class=\"gallery mw-gallery-traditional center\">([\\s\\S]+?)</ul>", "")
                             .replaceAll("<span id=\"Éghajlat\">(.+?)</span>", "")
                             .replaceAll("<span id=\"Klima\">(.+?)</span>", "")
                             .replaceAll("<span id=\"Címer\">(.+?)</span>", "")
@@ -198,6 +200,9 @@ public class ContentActivity extends AppCompatActivity {
                 {
                     text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                             .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                            .replaceAll("<ul class=\"gallery mw-gallery-packed center\">([\\s\\S]+?)</ul>", "")
+                            .replaceAll("<ul class=\"gallery mw-gallery-packed\">([\\s\\S]+?)</ul>", "")
+                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
                             .replaceAll("<span id=\"Image_gallery\">(.+?)</span>", "")
                             .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
                             .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
@@ -211,6 +216,7 @@ public class ContentActivity extends AppCompatActivity {
                             .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
                             .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
                             .replaceAll("<span id=\"Éghajlata\">(.+?)</span>", "")
+                            .replaceAll("<ul class=\"gallery mw-gallery-traditional center\"([\\s\\S]+?)</ul>", "")
                             .replaceAll("<span id=\"Színházak\">(.+?)</span>", "")
                             .replaceAll("<span id=\"Egyéb_művelődési_intézmények\">(.+?)</span>", "")
                             .replaceAll("<span id=\"Kulturális_események\">(.+?)</span>", "")
@@ -237,6 +243,7 @@ public class ContentActivity extends AppCompatActivity {
                 {
                     text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                             .replaceAll("<dl><dt>Korábban</dt></dl>", "")
+                            .replaceAll("<ul class=\"gallery mw-gallery-packed center\">([\\s\\S]+?)</ul>", "")
                             .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
                             .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
                             .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
@@ -250,6 +257,9 @@ public class ContentActivity extends AppCompatActivity {
                 {
                     text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                             .replaceAll("<span id=\"Bevölkerungsentwicklung\">(.+?)</span>", "")
+                            .replaceAll("<ul class=\"gallery mw-gallery-traditional center\">([\\s\\S]+?)</ul>", "")
+                            .replaceAll("<ul class=\"gallery mw-gallery-traditional left\">([\\s\\S]+?)</ul>", "")
+                            .replaceAll("<ul class=\"gallery mw-gallery-traditional([\\s\\S]+?)</ul>", "")
                             .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
                             .replaceAll("<span id=\"References\">(.+?)</span>", "")
                             .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
@@ -269,7 +279,14 @@ public class ContentActivity extends AppCompatActivity {
                     text1 = formattedData.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                             .replaceAll("<span id=\"Városrészek\">(.+?)</span>", "")
                             .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
-                            .replaceAll("<sup ([\\s\\S]+?)</sup>", "")
+                            //.replaceAll("<sup>([\\s\\S]*?)</sup>", "")
+                            //.replaceAll("<li><sup>1</sup>\" 2005-től Gyálarét, Kecskés- és Klebelsberg-telep valamint Szentmihály közös városrésze\"</li>", "")
+                            //.replace("<li>² 1973-ig önálló település</li>", "")
+                            //.replace("<li>³ régi nevén Hattyas-telep</li>", "")
+                            //.replaceAll("<li><sup>([\\s\\S]+?)</li>", "")
+                            //.replaceAll("<li> 1973-ig önálló település, a 19. században mezőváros; lásd: külső hivatkozások</li>", "")
+                            //.replace("<li> 1973-ig önálló település, jelentős szerb kisebbséggel</li>", "")
+                            //.replace("<li> 1973-ig önálló település</li>", "")
                             .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
                             .replaceAll("<span id=\"References\">(.+?)</span>", "")
                             .replaceAll("<span id=\"Források\">(.+?)</span>", "")
@@ -302,6 +319,7 @@ public class ContentActivity extends AppCompatActivity {
                             .replaceAll("<span id=\"A_várnegyedben\">(.+?)</span>", "")
                             .replaceAll("<span id=\"A_várnegyeden_kívül\">(.+?)</span>", "")
                             .replaceAll("<ul class=\"gallery mw-gallery-traditional center\"([\\s\\S]+?)</ul>", "")
+                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
                             .replaceAll("Lásd még: Veszprém címere", "")
                             .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
                             .replaceAll("<span id=\"Kerékpársport\">(.+?)</span>", "")
@@ -342,6 +360,7 @@ public class ContentActivity extends AppCompatActivity {
                                     text1 = infohu.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                                             .replaceAll("<span id=\"Képek_Egerről\">(.+?)</span>", "")
                                             .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional center\">([\\s\\S]+?)</ul>", "")
                                             .replaceAll("<span id=\"Éghajlat\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Klima\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Population\">(.+?)</span>", "")
@@ -354,6 +373,9 @@ public class ContentActivity extends AppCompatActivity {
                                 {
                                     text1 = infohu.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                                             .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-packed center\">([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-packed\">([\\s\\S]+?)</ul>", "")
                                             .replaceAll("<span id=\"Image_gallery\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
@@ -368,6 +390,7 @@ public class ContentActivity extends AppCompatActivity {
                                             .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Éghajlata\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Színházak\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional center\"([\\s\\S]+?)</ul>", "")
                                             .replaceAll("<span id=\"Egyéb_művelődési_intézmények\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Kulturális_események\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Templomok,_vallási_épületek\">(.+?)</span>", "")
@@ -399,6 +422,7 @@ public class ContentActivity extends AppCompatActivity {
                                             .replaceAll("<span id=\"Kultur_und_Sehenswürdigkeiten\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Persönlichkeiten\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-packed center\">([\\s\\S]+?)</ul>", "")
                                             .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
                                             .replaceAll("<span id=\"Bildergalerie\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"References\">(.+?)</span>", "");
@@ -407,6 +431,9 @@ public class ContentActivity extends AppCompatActivity {
                                     text1 = infohu.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                                             .replaceAll("<span id=\"Bevölkerungsentwicklung\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional center\">([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional left\">([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional([\\s\\S]+?)</ul>", "")
                                             .replaceAll("<span id=\"References\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"International_relations\">(.+?)</span>", "")
@@ -425,7 +452,7 @@ public class ContentActivity extends AppCompatActivity {
                                     text1 = infohu.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                                             .replaceAll("<span id=\"Városrészek\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
-                                            .replaceAll("<sup ([\\s\\S]+?)</sup>", "")
+                                           // .replaceAll("<sup ([\\s\\S]+?)</sup>", "")
                                             .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"References\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Források\">(.+?)</span>", "")
@@ -457,6 +484,7 @@ public class ContentActivity extends AppCompatActivity {
                                             .replaceAll("<span id=\"A_várnegyedben\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"A_várnegyeden_kívül\">(.+?)</span>", "")
                                             .replaceAll("<ul class=\"gallery mw-gallery-traditional center\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
                                             .replaceAll("Lásd még: Veszprém címere", "")
                                             .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Kerékpársport\">(.+?)</span>", "")
@@ -493,6 +521,7 @@ public class ContentActivity extends AppCompatActivity {
                                     text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                                             .replaceAll("<span id=\"Képek_Egerről\">(.+?)</span>", "")
                                             .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional center\">([\\s\\S]+?)</ul>", "")
                                             .replaceAll("<span id=\"Éghajlat\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Klima\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Population\">(.+?)</span>", "")
@@ -505,6 +534,9 @@ public class ContentActivity extends AppCompatActivity {
                                 {
                                     text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                                             .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-packed center\">([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-packed\">([\\s\\S]+?)</ul>", "")
                                             .replaceAll("<span id=\"Image_gallery\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
@@ -519,6 +551,7 @@ public class ContentActivity extends AppCompatActivity {
                                             .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Éghajlata\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Színházak\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional center\"([\\s\\S]+?)</ul>", "")
                                             .replaceAll("<span id=\"Egyéb_művelődési_intézmények\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Kulturális_események\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Templomok,_vallási_épületek\">(.+?)</span>", "")
@@ -550,6 +583,7 @@ public class ContentActivity extends AppCompatActivity {
                                             .replaceAll("<span id=\"Kultur_und_Sehenswürdigkeiten\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Persönlichkeiten\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-packed center\">([\\s\\S]+?)</ul>", "")
                                             .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
                                             .replaceAll("<span id=\"Bildergalerie\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"References\">(.+?)</span>", "");
@@ -558,6 +592,9 @@ public class ContentActivity extends AppCompatActivity {
                                     text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                                             .replaceAll("<span id=\"Bevölkerungsentwicklung\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional center\">([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional left\">([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional([\\s\\S]+?)</ul>", "")
                                             .replaceAll("<span id=\"References\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"International_relations\">(.+?)</span>", "")
@@ -576,7 +613,7 @@ public class ContentActivity extends AppCompatActivity {
                                     text1 = infoen.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                                             .replaceAll("<span id=\"Városrészek\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
-                                            .replaceAll("<sup ([\\s\\S]+?)</sup>", "")
+                                            //.replaceAll("<sup ([\\s\\S]+?)</sup>", "")
                                             .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"References\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Források\">(.+?)</span>", "")
@@ -608,6 +645,7 @@ public class ContentActivity extends AppCompatActivity {
                                             .replaceAll("<span id=\"A_várnegyedben\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"A_várnegyeden_kívül\">(.+?)</span>", "")
                                             .replaceAll("<ul class=\"gallery mw-gallery-traditional center\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
                                             .replaceAll("Lásd még: Veszprém címere", "")
                                             .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Kerékpársport\">(.+?)</span>", "")
@@ -644,6 +682,7 @@ public class ContentActivity extends AppCompatActivity {
                                     text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                                             .replaceAll("<span id=\"Képek_Egerről\">(.+?)</span>", "")
                                             .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
+                                            .replaceAll("<ul class=\"gallery mw-gallery-traditional center\">([\\s\\S]+?)</ul>", "")
                                             .replaceAll("<span id=\"Éghajlat\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Klima\">(.+?)</span>", "")
                                             .replaceAll("<span id=\"Population\">(.+?)</span>", "")
@@ -659,11 +698,11 @@ public class ContentActivity extends AppCompatActivity {
                             }
                             else
                             {
-                                Toast.makeText(ContentActivity.this, "Wifi einschalten!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(ContentActivity.this, "Schalten Sie Ihr  Wlan ein!", Toast.LENGTH_LONG).show();
                             }
                         }
                         catch(NullPointerException e1){
-                            Toast.makeText(ContentActivity.this, "Wifi einschalten!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ContentActivity.this, "Schalten Sie Ihr  Wlan ein!", Toast.LENGTH_LONG).show();
                         }
                         finally {
                             cursor.close();
@@ -682,6 +721,9 @@ public class ContentActivity extends AppCompatActivity {
                                         text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                                                 .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"Image_gallery\">(.+?)</span>", "")
+                                                .replaceAll("<ul class=\"gallery mw-gallery-packed center\">([\\s\\S]+?)</ul>", "")
+                                                .replaceAll("<ul class=\"gallery mw-gallery-traditional\">([\\s\\S]+?)</ul>", "")
+                                                .replaceAll("<ul class=\"gallery mw-gallery-packed\">([\\s\\S]+?)</ul>", "")
                                                 .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"References\">(.+?)</span>", "")
@@ -693,6 +735,7 @@ public class ContentActivity extends AppCompatActivity {
                                         text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                                                 .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"Climate\">(.+?)</span>", "")
+                                                .replaceAll("<ul class=\"gallery mw-gallery-traditional center\"([\\s\\S]+?)</ul>", "")
                                                 .replaceAll("<span id=\"Éghajlata\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"Színházak\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"Egyéb_művelődési_intézmények\">(.+?)</span>", "")
@@ -726,6 +769,7 @@ public class ContentActivity extends AppCompatActivity {
                                                 .replaceAll("<span id=\"Kultur_und_Sehenswürdigkeiten\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"Persönlichkeiten\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"Einzelnachweise\">(.+?)</span>", "")
+                                                .replaceAll("<ul class=\"gallery mw-gallery-packed center\">([\\s\\S]+?)</ul>", "")
                                                 .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
                                                 .replaceAll("<span id=\"Bildergalerie\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"References\">(.+?)</span>", "");
@@ -734,6 +778,9 @@ public class ContentActivity extends AppCompatActivity {
                                         text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                                                 .replaceAll("<span id=\"Bevölkerungsentwicklung\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
+                                                .replaceAll("<ul class=\"gallery mw-gallery-traditional center\">([\\s\\S]+?)</ul>", "")
+                                                .replaceAll("<ul class=\"gallery mw-gallery-traditional left\">([\\s\\S]+?)</ul>", "")
+                                                .replaceAll("<ul class=\"gallery mw-gallery-traditional([\\s\\S]+?)</ul>", "")
                                                 .replaceAll("<span id=\"References\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"Nemzetközi_kapcsolatok\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"International_relations\">(.+?)</span>", "")
@@ -752,7 +799,7 @@ public class ContentActivity extends AppCompatActivity {
                                         text1 = infode.replaceAll("<li>", "\n•").replaceAll("</li>", "<br>")
                                                 .replaceAll("<span id=\"Városrészek\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"Képgaléria\">(.+?)</span>", "")
-                                                .replaceAll("<sup ([\\s\\S]+?)</sup>", "")
+                                               // .replaceAll("<sup ([\\s\\S]+?)</sup>", "")
                                                 .replaceAll("<span id=\"Jegyzetek\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"References\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"Források\">(.+?)</span>", "")
@@ -784,6 +831,7 @@ public class ContentActivity extends AppCompatActivity {
                                                 .replaceAll("<span id=\"A_várnegyedben\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"A_várnegyeden_kívül\">(.+?)</span>", "")
                                                 .replaceAll("<ul class=\"gallery mw-gallery-traditional center\"([\\s\\S]+?)</ul>", "")
+                                                .replaceAll("<ul class=\"gallery mw-gallery-traditional\"([\\s\\S]+?)</ul>", "")
                                                 .replaceAll("Lásd még: Veszprém címere", "")
                                                 .replaceAll("<span id=\"Gallery\">(.+?)</span>", "")
                                                 .replaceAll("<span id=\"Kerékpársport\">(.+?)</span>", "")
@@ -797,11 +845,11 @@ public class ContentActivity extends AppCompatActivity {
                                 } while (cursor.moveToNext());
                             }
                             else {
-                                Toast.makeText(ContentActivity.this, "Wifi einschalten!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(ContentActivity.this, "Schalten Sie Ihr  Wlan ein!", Toast.LENGTH_LONG).show();
                             }
                         }
                         catch(NullPointerException e1){
-                            Toast.makeText(ContentActivity.this, "Wifi einschalten!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ContentActivity.this, "Schalten Sie Ihr  Wlan ein!", Toast.LENGTH_LONG).show();
                         }
                         finally {
                             cursor.close();

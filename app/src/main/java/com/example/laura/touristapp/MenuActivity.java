@@ -18,9 +18,9 @@ public class MenuActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleHelper.onAttach(newBase,"hu"));
+        String language = Paper.book().read("language");
+        super.attachBaseContext(LocaleHelper.onAttach(newBase, language));
     }
-
 
     ImageButton btn1;
     ImageButton btn2;
@@ -57,13 +57,21 @@ public class MenuActivity extends AppCompatActivity {
         text5= (TextView) findViewById(R.id.textdictionary);
 
 
-        Paper.init(this);
+       // Paper.init(this);
         //language[].setText(language);
         final String language= Paper.book().read("language");
-        if(language==null){
+        /*if(language==null){
             Paper.book().write("language","hu");}
 
-        updateView((String)Paper.book().read("language"));
+        updateView((String)Paper.book().read("language"));*/
+        //Resources resources =context.getResources();
+        if(language.equals("en") || language.equals("de")){
+            text5.setText(getResources().getString(R.string.dictionary));}
+        else if(language.equals("hu"))
+        {
+            text5.setVisibility(View.INVISIBLE);
+            btn5.setVisibility(View.INVISIBLE);
+        }
 
 
 
@@ -129,7 +137,7 @@ public class MenuActivity extends AppCompatActivity {
 
 
     }
-    @Override
+   /* @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()== R.id.language_hu)
         {
@@ -165,7 +173,7 @@ public class MenuActivity extends AppCompatActivity {
             btn5.setVisibility(View.INVISIBLE);
         }
 
-    }
+    }*/
     @Override
     public void onBackPressed() {
 

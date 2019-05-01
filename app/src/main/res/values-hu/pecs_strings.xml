@@ -27,7 +27,6 @@
     <string name="pecsmonuments3">Hunyadi János lovasszobra </string>
     <string name="pecsmonuments4">Kossuth Lajos szobra </string>
     <string name="pecsmonuments10">Zsolnay kút</string>
-    <!--<string name="pecsmonuments8">Örökmécses-emlékmű </string>-->
     <string name="pecsmonuments9">Szentháromság szobor </string>
     <string name="pecsmonuments7">Ókeresztény Mauzóleum </string>
 
@@ -65,7 +64,6 @@
     <string name="pecsmon5">bazilika-es-kornyeke/kozepkori-egyetem.html</string>
     <string name="pecsmon6">bazilika-es-kornyeke/liszt-ferencszobor.html</string>
     <string name="pecsmon7">unesco-vilagorokseg/okereszteny-mauzoleum.html</string>
-    <!--<string name="pecsmon8">szobrok-kutak/orokmecsesemlekmu.html</string>-->
     <string name="pecsmon9">szobrok-kutak/szentharomsag-szobor.html</string>
     <string name="pecsmon10">zsolnayak-varosa/zsolnay-kut.html</string>
 

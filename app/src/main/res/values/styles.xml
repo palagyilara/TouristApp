@@ -346,8 +346,8 @@
 
     <style name="popup.title">
         <item name="android:layout_below">@id/image</item>
-        <!--<item name="android:text">@string/congrats</item>-->
         <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_25</item>
     </style>
 
     <style name="popup.scoreLayout" parent="popup">
@@ -359,12 +359,12 @@
     <style name="popup.scoreLayout.text">
         <item name="android:padding">@dimen/popup_text_padding</item>
         <item name="android:text">@string/score_text</item>
-        <item name="android:textSize">@dimen/text_size_30</item>
+        <item name="android:textSize">@dimen/text_size_20</item>
     </style>
 
     <style name="scoreLayoutLand.text" parent="popup.scoreLayout">
         <item name="android:text">@string/score_text</item>
-        <item name="android:textSize">@dimen/text_size_30</item>
+        <item name="android:textSize">@dimen/text_size_20</item>
     </style>
 
     <style name="popup.scoreLayout.text.number">
@@ -375,6 +375,6 @@
     <style name="popup.scoreLayout.textSmall">
         <item name="android:layout_below">@id/scoreLayout</item>
         <item name="android:text">@string/out_of</item>
-        <item name="android:textSize">@dimen/text_size_20</item>
+        <item name="android:textSize">@dimen/text_size_18</item>
     </style>
 </resources>

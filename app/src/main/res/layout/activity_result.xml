@@ -28,7 +28,8 @@
 
                 <TextView
                     android:id="@+id/finalScore"
-                    style="@style/popup.scoreLayout.text" />
+                    style="@style/popup.scoreLayout.text"
+                    />
 
                 <TextView
                     android:id="@+id/theScore"

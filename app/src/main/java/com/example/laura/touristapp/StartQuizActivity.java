@@ -1,5 +1,6 @@
 package com.example.laura.touristapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,9 +9,17 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.laura.touristapp.Helper.LocaleHelper;
+
 import io.paperdb.Paper;
 
 public class StartQuizActivity extends AppCompatActivity {
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        String language = Paper.book().read("language");
+        super.attachBaseContext(LocaleHelper.onAttach(newBase, language));
+    }
 
     private final String STATE_PLAYER_NAME = "PLAYER_NAME";
     private String playerName;

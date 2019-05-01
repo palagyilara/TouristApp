@@ -1,6 +1,7 @@
 package com.example.laura.touristapp;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,6 +17,8 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.laura.touristapp.Helper.LocaleHelper;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -41,6 +44,12 @@ import static com.example.laura.touristapp.DatabaseHandler.TABLE1_NAME;
 
 public class PDescriptionActivity extends AppCompatActivity {
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        String language = Paper.book().read("language");
+        super.attachBaseContext(LocaleHelper.onAttach(newBase, language));
+    }
+
     private TextView txtData;
     private Button map;
     private ProgressBar progressBar;
@@ -48,7 +57,6 @@ public class PDescriptionActivity extends AppCompatActivity {
     private ImageButton speakbtn;
     private TextView webpage;
     private TextToSpeech tts;
-
 
     DatabaseHandler databaseHandler = new DatabaseHandler(this);
 
@@ -129,7 +137,7 @@ public class PDescriptionActivity extends AppCompatActivity {
                         }
                         Log.i("TTS", "Initialization success.");
                     } else if (initStatus == TextToSpeech.ERROR) {
-                        Toast.makeText(PDescriptionActivity.this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
+                        Toast.makeText(PDescriptionActivity.this, "Es ist ein Fehler aufgetreten", Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -635,7 +643,7 @@ public class PDescriptionActivity extends AppCompatActivity {
                             txtData.setText(Html.fromHtml(text1));
                     }
                     else {
-                        Toast.makeText(PDescriptionActivity.this, "Wifi einschalten!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(PDescriptionActivity.this, "Schalten Sie Ihr  Wlan ein!", Toast.LENGTH_LONG).show();
                     }
 
                 }
